@@ -1,12 +1,15 @@
 ## Client
 
-This is the place for your application front-end files.
+### Config
+
+Files from app/config/{env}.json are copied to app/src/config.js
+
+    gulp config [--env=env]
+  
 
 
-## Generate lb-resource
+### Generate lb-resource
 
-```
-$ lb-ng ../server/server.js js/lb-services.js
-```
+    $ lb-ng ../server/server.js js/lb-services.js
 
 http://docs.strongloop.com/display/public/LB/AngularJS+JavaScript+SDK

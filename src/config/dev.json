@@ -1,0 +1,5 @@
+{
+  "envName": "dev",
+  "apiEndpoint": "http://dev.loliful.io/api",
+  "debugEnabled": true
+}

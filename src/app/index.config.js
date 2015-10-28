@@ -1,7 +1,7 @@
-export function config ($logProvider, toastrConfig) {
+export function config ($logProvider, toastrConfig, debugEnabled) {
   'ngInject';
   // Enable log
-  $logProvider.debugEnabled(true);
+  $logProvider.debugEnabled(debugEnabled);
 
   // Set options third-party lib
   toastrConfig.allowHtml = true;
