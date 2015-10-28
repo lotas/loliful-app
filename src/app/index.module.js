@@ -3,11 +3,8 @@
 import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
-import { MainController } from './main/main.controller';
-import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
-import { NavbarDirective } from '../app/components/navbar/navbar.directive';
 
-import '../app/components/api/lb.services';
+import { MainController } from './main/main.controller';
 
 angular.module('loliful', [
     'ngAnimate',
@@ -20,6 +17,8 @@ angular.module('loliful', [
     'ui.router',
     'mgcrea.ngStrap',
     'toastr',
+
+    'loliful.components',
     'lbServices'
   ])
   .constant('moment', moment)
@@ -27,7 +26,7 @@ angular.module('loliful', [
   .config(routerConfig)
   .run(runBlock)
 
-  .service('webDevTec', WebDevTecService)
   .controller('MainController', MainController)
-  .directive('acmeNavbar', NavbarDirective)
 ;
+
+import '../app/components/components.module';
