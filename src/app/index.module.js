@@ -4,8 +4,6 @@ import { config } from './index.config';
 import { routerConfig } from './index.route';
 import { runBlock } from './index.run';
 
-import { MainController } from './main/main.controller';
-
 angular.module('loliful', [
     'ngAnimate',
     'ngCookies',
@@ -19,14 +17,13 @@ angular.module('loliful', [
     'toastr',
 
     'loliful.components',
-    'lbServices'
+    'loliful.main'
   ])
   .constant('moment', moment)
   .config(config)
   .config(routerConfig)
   .run(runBlock)
-
-  .controller('MainController', MainController)
 ;
 
 import '../app/components/components.module';
+import '../app/main/main.module';
