@@ -13,8 +13,8 @@ function webpackWrapper(watch, test, callback) {
   var webpackOptions = {
     watch: watch,
     module: {
-      preLoaders: [{ test: /\.js$/, exclude: /node_modules/, loader: 'eslint-loader'}],
-      loaders: [{ test: /\.js$/, exclude: /node_modules/, loaders: ['ng-annotate', 'babel-loader']}]
+      preLoaders: [{ test: /\.js$/, exclude: /(node_modules|lb.services.js)/, loader: 'eslint-loader'}],
+      loaders: [{ test: /\.js$/, exclude: /(node_modules|lb.services.js)/, loaders: ['ng-annotate', 'babel-loader']}]
     },
     output: { filename: 'index.module.js' }
   };
