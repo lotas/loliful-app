@@ -1,9 +1,7 @@
-
 import './api/lb.services';
 
-import { WebDevTecService } from './webDevTec/webDevTec.service';
-import { NavbarDirective } from './navbar/navbar.directive';
+import { Storage, storageConfig } from './storage.service';
 
-angular.module('loliful.components', ['lbServices'])
-  .service('webDevTec', WebDevTecService)
-  .directive('acmeNavbar', NavbarDirective);
+angular.module('loliful.components', ['lbServices', 'LocalStorageModule'])
+    .config(storageConfig)
+    .service('Storage', Storage);

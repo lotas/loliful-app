@@ -10,58 +10,66 @@ var webpack = require('webpack-stream');
 var $ = require('gulp-load-plugins')();
 
 function webpackWrapper(watch, test, callback) {
-  var webpackOptions = {
-    watch: watch,
-    module: {
-      preLoaders: [{ test: /\.js$/, exclude: /(node_modules|lb.services.js)/, loader: 'eslint-loader'}],
-      loaders: [{ test: /\.js$/, exclude: /(node_modules|lb.services.js)/, loaders: ['ng-annotate', 'babel-loader']}]
-    },
-    output: { filename: 'index.module.js' }
-  };
+    var webpackOptions = {
+        watch: watch,
+        module: {
+            preLoaders: [{
+                test: /\.js$/,
+                exclude: /(node_modules|lb.services.js|bower_components)/,
+                loader: 'eslint-loader'
+            }],
+            loaders: [{
+                test: /\.js$/,
+                exclude: /(node_modules|lb.services.js|bower_components)/,
+                loaders: ['ng-annotate', 'babel-loader?optional[]=runtime']
+            }]
+        },
+        output: {filename: 'index.module.js'}
+    };
 
-  if(watch) {
-    webpackOptions.devtool = 'inline-source-map';
-  }
-
-  var webpackChangeHandler = function(err, stats) {
-    if(err) {
-      conf.errorHandler('Webpack')(err);
+    if (watch) {
+        webpackOptions.devtool = 'inline-source-map';
     }
-    $.util.log(stats.toString({
-      colors: $.util.colors.supportsColor,
-      chunks: false,
-      hash: false,
-      version: false
-    }));
-    browserSync.reload();
-    if(watch) {
-      watch = false;
-      callback();
+
+    var webpackChangeHandler = function(err, stats) {
+        if (err) {
+            conf.errorHandler('Webpack')(err);
+        }
+        $.util.log(stats.toString({
+            colors: $.util.colors.supportsColor,
+            chunks: false,
+            hash: false,
+            version: false
+        }));
+        browserSync.reload();
+        if (watch) {
+            watch = false;
+            callback();
+        }
+    };
+
+    var sources = [path.join(conf.paths.src, '/app/index.module.js')];
+    if (test) {
+        sources.push(path.join(conf.paths.src, '/app/**/*.spec.js'));
     }
-  };
 
-  var sources = [ path.join(conf.paths.src, '/app/index.module.js') ];
-  if (test) {
-    sources.push(path.join(conf.paths.src, '/app/**/*.spec.js'));
-  }
-
-  return gulp.src(sources)
-    .pipe(webpack(webpackOptions, null, webpackChangeHandler))
-    .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')));
+    return gulp.src(sources)
+        .pipe(webpack(webpackOptions, null, webpackChangeHandler))
+        .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')));
 }
 
-gulp.task('scripts', function () {
-  return webpackWrapper(false, false);
+gulp.task('scripts', function() {
+    return webpackWrapper(false, false);
 });
 
-gulp.task('scripts:watch', ['scripts'], function (callback) {
-  return webpackWrapper(true, false, callback);
+gulp.task('scripts:watch', ['scripts'], function(callback) {
+    return webpackWrapper(true, false, callback);
 });
 
-gulp.task('scripts:test', function () {
-  return webpackWrapper(false, true);
+gulp.task('scripts:test', function() {
+    return webpackWrapper(false, true);
 });
 
-gulp.task('scripts:test-watch', ['scripts'], function (callback) {
-  return webpackWrapper(true, true, callback);
+gulp.task('scripts:test-watch', ['scripts'], function(callback) {
+    return webpackWrapper(true, true, callback);
 });
