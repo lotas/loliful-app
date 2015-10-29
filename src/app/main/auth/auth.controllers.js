@@ -1,7 +1,10 @@
 export class LoginController {
-    constructor (User) {
+    constructor (User, $log) {
         'ngInject';
         this.User = User;
+
+        $log.debug(User);
+
     }
 
     login() {

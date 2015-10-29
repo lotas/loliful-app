@@ -17,10 +17,10 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
                     Storage.set('authRedirect', $location.absUrl());
 
                     $log.debug('Not authorized');
-                    return $state.go('login');
+                    $state.go('login');
                 } else {
                     $log.debug('Authorized', User.getCurrentId());
-                    return User.getCurrentId();
+                    User.getCurrentId();
                 }
             }
         }

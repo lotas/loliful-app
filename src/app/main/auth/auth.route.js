@@ -4,8 +4,12 @@ export function authRouteConfig($stateProvider) {
         .state('login', {
             parent: 'guest',
             url: '/login',
-            templateUrl: 'app/main/auth/login.html',
-            controller: 'MainController',
-            controllerAs: 'main'
+            views: {
+                'main@guest': {
+                    templateUrl: 'app/main/auth/login.html',
+                    controller: 'LoginController',
+                    controllerAs: 'vm'
+                }
+            }
         });
 }
