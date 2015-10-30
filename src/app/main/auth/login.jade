@@ -1,8 +1,8 @@
 h2 Login
-form
+form(ng-submit="vm.login()")
   .form-control
-      input(type="text")
+      input(type="text", ng-model="vm.username")
   .form-control
-      input(type="password")
+      input(type="password", ng-model="vm.password")
   .form-actions
-      input.btn.btn-default(type="button")
+      input.btn.btn-success(type="submit", value="Login")

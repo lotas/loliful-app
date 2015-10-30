@@ -2,8 +2,12 @@
   header(ui-view="navbar")
   h1 Loliful.main
   .container-fluid
-     .row
-       section(class="main", ui-view="content")
+    .row
+      section(class="main", ui-view="content")
 
+  section
+    p
+      a.btn.btn-default(ui-sref="login") Login
+      a.btn.btn-primary(ui-sref="main") Main
   footer
     .col-xs-12 copyright

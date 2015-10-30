@@ -20,11 +20,12 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
                     $state.go('login');
                 } else {
                     $log.debug('Authorized', User.getCurrentId());
-                    User.getCurrentId();
+                    return User.getCurrentId();
                 }
             }
         }
     });
 
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider
+        .otherwise('/');
 }

@@ -1,13 +1,15 @@
 export class LoginController {
-    constructor (User, $log) {
+    constructor(User, $log) {
         'ngInject';
+
         this.User = User;
-
-        $log.debug(User);
-
     }
 
     login() {
-        this.toastr.info('na ja');
+        this.User.login({email: this.username, password: this.password}, (res) => {
+            console.log(res);
+        }, (err) => {
+            console.log('error login', err)
+        });
     }
 }
