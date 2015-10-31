@@ -1,5 +1,8 @@
+
 export function authRouteConfig($stateProvider) {
     'ngInject';
+
+
     $stateProvider
         .state('login', {
             parent: 'guest',
@@ -11,5 +14,17 @@ export function authRouteConfig($stateProvider) {
                     controllerAs: 'vm'
                 }
             }
-        });
+        })
+        .state('logout', {
+            parent: 'app',
+            url: '/logout',
+            views: {
+                'content@app': {
+                    templateUrl: 'app/main/auth/logout.html',
+                    controller: 'LogoutController',
+                    controllerAs: 'vm'
+                }
+            }
+        })
+    ;
 }

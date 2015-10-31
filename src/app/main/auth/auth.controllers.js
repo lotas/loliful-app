@@ -33,3 +33,30 @@ export class LoginController {
         });
     }
 }
+
+export class LogoutController {
+    /**
+     *
+     * @param {User} User
+     * @param {Storage} Storage
+     * @param {$location} $location
+     */
+    constructor(User, Storage, $location) {
+        'ngInject';
+
+        this.User = User;
+        this.Storage = Storage;
+        this.$location = $location;
+
+        this.logout();
+    }
+
+    /**
+     * Cleanup session
+     */
+    logout() {
+        this.User.logout();
+        this.Storage.clearAll();
+        this.$location.url('/');
+    }
+}
