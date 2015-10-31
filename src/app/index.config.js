@@ -4,7 +4,7 @@ export function config($logProvider, toastrConfig, debugEnabled, $compileProvide
     $logProvider.debugEnabled(debugEnabled);
     $compileProvider.debugInfoEnabled(debugEnabled);
     $httpProvider.useApplyAsync(!debugEnabled);
-    $locationProvider.html5Mode(false);
+    $locationProvider.html5Mode(true);
 
     // Set options third-party lib
     toastrConfig.allowHtml = true;

@@ -3,18 +3,16 @@ export class LoginController {
      *
      * @param {User} User
      * @param {Storage} Storage
-     * @param {$state} $state
-     * @param {$location} $location
+     * @param {$window} $window
      * @param {$log} $log
      */
-    constructor(User, Storage, $state, $location, $log) {
+    constructor(User, Storage, $window, $log) {
         'ngInject';
 
         this.User = User;
         this.Storage = Storage;
         this.$log = $log;
-        this.$state = $state;
-        this.$location = $location;
+        this.$window = $window;
     }
 
     login() {
@@ -23,10 +21,10 @@ export class LoginController {
 
             let authRedirect = this.Storage.get('authRedirect');
             if (authRedirect) {
-                this.$location.url(authRedirect);
                 this.Storage.remove('authRedirect');
+                this.$window.location = authRedirect;
             } else {
-                this.$state.go('main');
+                this.$window.location = '/';
             }
         }, (err) => {
             this.$log.error('error login', err)
@@ -39,14 +37,14 @@ export class LogoutController {
      *
      * @param {User} User
      * @param {Storage} Storage
-     * @param {$location} $location
+     * @param {$window} $window
      */
-    constructor(User, Storage, $location) {
+    constructor(User, Storage, $window) {
         'ngInject';
 
         this.User = User;
         this.Storage = Storage;
-        this.$location = $location;
+        this.$window = $window;
 
         this.logout();
     }
@@ -55,8 +53,9 @@ export class LogoutController {
      * Cleanup session
      */
     logout() {
-        this.User.logout();
-        this.Storage.clearAll();
-        this.$location.url('/');
+        this.User.logout(() => {
+            this.Storage.clearAll();
+            this.$window.location = '/';
+        });
     }
 }
