@@ -1,5 +1,6 @@
 {
   "envName": "local",
   "apiEndpoint": "http://localhost:3000/api",
-  "debugEnabled": true
+  "debugEnabled": true,
+  "html5Mode": false
 }

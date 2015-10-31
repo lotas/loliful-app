@@ -1,5 +1,6 @@
 {
   "envName": "prod",
   "apiEndpoint": "http://api.loliful.io/api",
-  "debugEnabled": false
+  "debugEnabled": false,
+  "html5Mode": true
 }
