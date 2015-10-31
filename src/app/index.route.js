@@ -9,19 +9,13 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     $stateProvider.state('app', {
         abstract: true,
         templateUrl: 'app/layouts/app.html',
+        data: {
+            authRequired: true
+        },
         resolve: {
-            auth: function(User, $location, $state, Storage, $log) {
+            auth: function(User) {
                 'ngInject';
-
-                if (!User.isAuthenticated()) {
-                    Storage.set('authRedirect', $location.absUrl());
-
-                    $log.debug('Not authorized');
-                    $state.go('login');
-                } else {
-                    $log.debug('Authorized', User.getCurrentId());
-                    return User.getCurrentId();
-                }
+                return User.getCurrentId();
             }
         }
     });
