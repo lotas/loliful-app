@@ -1,5 +1,17 @@
+/**
+ *
+ * @param {$log} $log
+ * @param {$rootScope} $rootScope
+ * @param {User} User
+ * @param {$state} $state
+ * @param {Storage} Storage
+ * @param {$location} $location
+ */
 export function runBlock($log, $rootScope, User, $state, Storage, $location) {
     'ngInject';
+
+    $rootScope.isState = $state.is;
+    $rootScope.stateIncludes = $state.includes;
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
         $log.debug('$stateChangeStart', toState, toStateParams);

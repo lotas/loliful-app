@@ -20,6 +20,15 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         }
     });
 
+    $stateProvider.state('home', {
+        parent: 'app',
+        url: '/',
+        onEnter: function($state) {
+            'ngInject';
+            $state.go('fresh');
+        }
+    });
+
     $urlRouterProvider
         .otherwise('/');
 }
