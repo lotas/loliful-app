@@ -6,6 +6,9 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     $compileProvider.debugInfoEnabled(debugEnabled);
     $httpProvider.useApplyAsync(!debugEnabled);
 
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+
     // html5mode doesn't work well with protractor tests for some reason .. why?
     $locationProvider.html5Mode(html5Mode);
 

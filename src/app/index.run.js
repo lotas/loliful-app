@@ -7,8 +7,11 @@
  * @param {Storage} Storage
  * @param {$location} $location
  */
-export function runBlock($log, $rootScope, User, $state, Storage, $location) {
+export function runBlock($log, $rootScope, User, $state, Storage, $location, $http, apiAuth) {
     'ngInject';
+
+    $http.defaults.headers.common.Authorization = apiAuth;
+
 
     $rootScope.isState = $state.is;
     $rootScope.stateIncludes = $state.includes;

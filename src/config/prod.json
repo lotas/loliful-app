@@ -2,5 +2,6 @@
   "envName": "prod",
   "apiEndpoint": "http://api.loliful.io/api",
   "debugEnabled": false,
-  "html5Mode": true
+  "html5Mode": true,
+  "apiAuth": "Basic ***REMOVED***"
 }
