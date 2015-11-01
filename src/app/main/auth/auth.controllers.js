@@ -22,12 +22,12 @@ export class LoginController {
             let authRedirect = this.Storage.get('authRedirect');
             if (authRedirect) {
                 this.Storage.remove('authRedirect');
-                this.$window.location = authRedirect;
+                this.$window.location.replace(authRedirect);
             } else {
-                this.$window.location = '/';
+                this.$window.location.replace('/');
             }
         }, (err) => {
-            this.$log.error('error login', err)
+            this.$log.error('error login', err);
         });
     }
 }
@@ -55,7 +55,7 @@ export class LogoutController {
     logout() {
         this.User.logout(() => {
             this.Storage.clearAll();
-            this.$window.location = '/';
+            this.$window.location.replace('/');
         });
     }
 }
