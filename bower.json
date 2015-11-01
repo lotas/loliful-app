@@ -20,7 +20,6 @@
     "angular": "~1.4.2",
     "sweetalert": "~1.1.3",
     "angular-local-storage": "~0.2.3",
-    "socket.io": "~1.3.7",
     "socket.io-client": "~1.3.7"
   },
   "devDependencies": {
@@ -35,6 +34,11 @@
         "dist/fonts/glyphicons-halflings-regular.ttf",
         "dist/fonts/glyphicons-halflings-regular.woff",
         "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    },
+    "socket.io-client": {
+      "main": [
+        "socket.io.js"
       ]
     }
   },
