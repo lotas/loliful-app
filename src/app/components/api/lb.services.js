@@ -46,40 +46,6 @@ module.factory(
           method: "GET"
         },
 
-        /**
-         * @ngdoc method
-         * @name lbServices.Nail#__get__fresh
-         * @methodOf lbServices.Nail
-         *
-         * @description
-         *
-         * Queries fresh of nail.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `filter` – `{object=}` - 
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Nail` object.)
-         * </em>
-         */
-        "__get__fresh": {
-          isArray: true,
-          url: urlBase + "/nails/fresh",
-          method: "GET"
-        },
-
         // INTERNAL. Use Nail.hammers() instead.
         "prototype$__get__hammers": {
           isArray: true,
@@ -471,6 +437,40 @@ module.factory(
          */
         "top": {
           url: urlBase + "/nails/top",
+          method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Nail#fresh
+         * @methodOf lbServices.Nail
+         *
+         * @description
+         *
+         * Latest
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `page` – `{Number=}` - 
+         *
+         *  - `limit` – `{Number=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `nails` – `{Array=}` - 
+         */
+        "fresh": {
+          url: urlBase + "/nails/fresh",
           method: "GET"
         },
 

@@ -1,1 +1,18 @@
 h1  Activity
+section
+  ul.nav.nav-tabs
+    li(role="presentation", ng-repeat="(type, value) in vm.types track by $index", ng-class="{active: vm.type==type}")
+      a(ui-sref="activity({type: type})") {{value}}
+section
+  div.container-fluid(ng-if="vm.items")
+    div.panel(ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")
+      div.panel-heading
+        | User: {{item.userId}}
+      div.panel-body
+        | {{item.text}}
+      div.panel-footer
+        div.row
+          div.col-sm-6
+            span Votes {{item.countVotes}}
+          div.col-sm-6
+            span Answers: {{item.countAnswers}}

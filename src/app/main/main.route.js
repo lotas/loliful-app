@@ -29,7 +29,7 @@ export function mainRouteConfig($stateProvider) {
         })
         .state('activity', {
             parent: 'app',
-            url: '/activity',
+            url: '/activity/:type',
             views: {
                 'content@app': {
                     templateUrl: 'app/main/activity.html',
