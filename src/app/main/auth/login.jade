@@ -1,8 +1,14 @@
-h2 Login
-form(ng-submit="vm.login()")
-  .form-control
-      input(type="text", ng-model="vm.username")
-  .form-control
-      input(type="password", ng-model="vm.password")
-  .form-actions
-      input.btn.btn-success(type="submit", value="Login")
+form.form-signin(ng-submit="vm.login()")
+  h2.form-signin-heading Please Lollin
+  label.sr-only(for="email") Email
+  input.form-control#email(type="text", ng-model="vm.username", required, autofocus, placeholder="Email")
+  label.sr-only(for="password") Password
+  input.form-control#password(type="password", ng-model="vm.password", required, placeholder="Password")
+  div.checkbox
+    label
+      input(type="checkbox", ng-model="vm.rememberMe", value="true")
+      | Remember me
+  button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+
+  a.btn.btn-block.btn-success(href="{{api}}/auth/facebook") Login with Facebook
+  a.btn.btn-block.btn-info(href="{{api}}/auth/google") Login with Google

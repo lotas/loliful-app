@@ -16,7 +16,11 @@ export class LoginController {
     }
 
     login() {
-        this.User.login({email: this.username, password: this.password}, (res) => {
+        this.User.login({
+            email: this.username,
+            password: this.password,
+            rememberMe: this.rememberMe
+        }, (res) => {
             this.Storage.set('user', res.user);
 
             let authRedirect = this.Storage.get('authRedirect');

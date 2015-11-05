@@ -6,15 +6,18 @@
  * @param {$state} $state
  * @param {Storage} Storage
  * @param {$location} $location
+ * @param {$http} $http
+ * @param apiAuth
  */
-export function runBlock($log, $rootScope, User, $state, Storage, $location, $http, apiAuth) {
+export function runBlock($log, $rootScope, User, $state, Storage, $location, $http, apiAuth, apiEndpoint) {
     'ngInject';
 
     $http.defaults.headers.common.Authorization = apiAuth;
 
-
     $rootScope.isState = $state.is;
     $rootScope.stateIncludes = $state.includes;
+    $rootScope.api = apiEndpoint.replace(/\/api/, '');
+
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
         $log.debug('$stateChangeStart', toState, toStateParams);
