@@ -5,6 +5,6 @@ export function configApi(LoopBackResourceProvider, apiEndpoint) {
      LoopBackResourceProvider.setAuthHeader('X-Auth');
 
     // Change the URL where to access the LoopBack REST API server
-    LoopBackResourceProvider.setUrlBase(apiEndpoint);
+    LoopBackResourceProvider.setUrlBase(apiEndpoint + '/api');
 
 }

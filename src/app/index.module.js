@@ -21,7 +21,8 @@ angular.module('loliful', [
 
     'CONFIG',
     'loliful.components',
-    'loliful.main'
+    'loliful.main',
+    'loliful.user'
   ])
   .constant('moment', moment)
   .config(config)
@@ -31,3 +32,4 @@ angular.module('loliful', [
 
 import '../app/components/components.module';
 import '../app/main/main.module';
+import '../app/user/user.module';

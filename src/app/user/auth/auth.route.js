@@ -1,3 +1,4 @@
+import { onAuthHandler } from './auth.handler';
 
 export function authRouteConfig($stateProvider) {
     'ngInject';
@@ -25,6 +26,12 @@ export function authRouteConfig($stateProvider) {
                     controllerAs: 'vm'
                 }
             }
+        })
+
+        .state('auth', {
+            parent: 'guest',
+            url: '/auth',
+            onEnter: onAuthHandler
         })
     ;
 }
