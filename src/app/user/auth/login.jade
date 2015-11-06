@@ -10,5 +10,9 @@ form.form-signin(ng-submit="vm.login()")
       | Remember me
   button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
 
-  a.btn.btn-block.btn-success(href="{{api}}/auth/facebook") Login with Facebook
-  a.btn.btn-block.btn-info(href="{{api}}/auth/google") Login with Google
+  div.social
+    a.btn.btn-block.btn-success(href="{{api}}/auth/facebook") Login with Facebook
+    a.btn.btn-block.btn-info(href="{{api}}/auth/google") Login with Google
+
+  p Don't have an account?
+    a.btn.btn-sm.btn-default(ui-sref="signup") Create one!
