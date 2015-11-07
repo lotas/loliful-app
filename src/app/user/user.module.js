@@ -6,8 +6,11 @@ import { ProfileController } from './profile/profile.controller';
 import { profileRouteConfig } from './profile/profile.route';
 
 import { AuthService } from './auth/auth.service';
+import { userConfig } from './user.config';
 
 angular.module('loliful.user', [])
+
+    .config(userConfig)
 
     // Auth
     .config(authRouteConfig)

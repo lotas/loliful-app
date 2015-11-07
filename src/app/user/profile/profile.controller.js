@@ -1,14 +1,21 @@
 export class ProfileController {
     /**
      *
-     * @param {User} User
-     * @param {$log} $log
+     * @param {Object} currentUser
      */
-    constructor(User, $log) {
+    constructor(currentUser, User) {
         'ngInject';
 
         this.User = User;
-        this.$log = $log;
+
+        this.user = currentUser;
+        console.log(currentUser);
     }
 
+}
+
+export function resolveCurrentUser(User) {
+    'ngInject';
+
+    return User.getCurrent();
 }
