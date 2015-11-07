@@ -5,14 +5,16 @@ export class LoginController {
      * @param {Storage} Storage
      * @param {$window} $window
      * @param {$log} $log
+     * @param toastr
      */
-    constructor(User, Storage, $window, $log) {
+    constructor(User, Storage, $window, $log, toastr) {
         'ngInject';
 
         this.User = User;
         this.Storage = Storage;
         this.$log = $log;
         this.$window = $window;
+        this.toastr = toastr;
     }
 
     login() {
@@ -22,6 +24,7 @@ export class LoginController {
             rememberMe: this.rememberMe
         }, (res) => {
             this.Storage.set('user', res.user);
+            this.toastr.success('Welcome!');
 
             let authRedirect = this.Storage.get('authRedirect');
             if (authRedirect) {
@@ -31,6 +34,7 @@ export class LoginController {
                 this.$window.location.replace('/');
             }
         }, (err) => {
+            this.toastr.error('Cannot login!');
             this.$log.error('error login', err);
         });
     }
@@ -42,13 +46,15 @@ export class LogoutController {
      * @param {User} User
      * @param {Storage} Storage
      * @param {$window} $window
+     * @param toastr
      */
-    constructor(User, Storage, $window) {
+    constructor(User, Storage, $window, toastr) {
         'ngInject';
 
         this.User = User;
         this.Storage = Storage;
         this.$window = $window;
+        this.toastr = toastr;
 
         this.logout();
     }
@@ -57,6 +63,7 @@ export class LogoutController {
      * Cleanup session
      */
     logout() {
+        this.toastr.info('See ya!');
         this.User.logout(() => {
             this.Storage.clearAll();
             this.$window.location.replace('/');
