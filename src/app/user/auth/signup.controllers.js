@@ -17,21 +17,18 @@ export class SignupController {
 
     signup() {
         this.saving = true;
-
-        this.User.create({
+        let userData = {
             email: this.username,
             password: this.password
-        }, (res) => {
+        };
+
+        this.User.create(userData, res => {
             this.$log.debug('signup:', res);
-            //this.Storage.set('user', res.user);
-            //
-            //let authRedirect = this.Storage.get('authRedirect');
-            //if (authRedirect) {
-            //    this.Storage.remove('authRedirect');
-            //    this.$window.location.replace(authRedirect);
-            //} else {
-            //    this.$window.location.replace('/');
-            //}
+            this.User.login(userData, res2 => {
+                this.$window.location.replace('/');
+            }, err2 => {
+                this.$log.debug('login err:', err2);
+            });
         }, (err) => {
             this.$log.error('signup login', err);
         });
