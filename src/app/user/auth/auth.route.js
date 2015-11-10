@@ -14,6 +14,9 @@ export function authRouteConfig($stateProvider) {
                     controller: 'LoginController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'Log in to Loliful.io'
             }
         })
         .state('signup', {
@@ -25,6 +28,9 @@ export function authRouteConfig($stateProvider) {
                     controller: 'SignupController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'Sign up for Loliful.io'
             }
         })
         .state('logout', {
@@ -36,6 +42,9 @@ export function authRouteConfig($stateProvider) {
                     controller: 'LogoutController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'Log out'
             }
         })
 

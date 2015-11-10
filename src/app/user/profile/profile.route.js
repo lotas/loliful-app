@@ -19,6 +19,9 @@ export function profileRouteConfig($stateProvider) {
             },
             resolve: {
                 currentUser: resolveCurrentUser
+            },
+            data: {
+                pageTitle: 'Profile @ Loliful.io'
             }
         })
     ;

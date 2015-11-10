@@ -9,9 +9,7 @@ export class ProfileController {
         this.User = User;
 
         this.user = currentUser;
-        console.log(currentUser);
     }
-
 }
 
 export function resolveCurrentUser(User) {

@@ -14,6 +14,9 @@ export function mainRouteConfig($stateProvider) {
                     controller: 'FreshController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'Fresh √ Loliful.io'
             }
         })
         .state('top', {
@@ -25,6 +28,9 @@ export function mainRouteConfig($stateProvider) {
                     controller: 'TopController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'Top √ Loliful.io'
             }
         })
         .state('activity', {
@@ -36,6 +42,9 @@ export function mainRouteConfig($stateProvider) {
                     controller: 'ActivityController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'Activity √ Loliful.io'
             }
         })
     ;
