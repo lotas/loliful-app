@@ -1,21 +1,5 @@
 .container.app
-  header.header.clearfix
-    nav
-      ul.nav.nav-pills.pull-right
-        li(role="presentation", ng-class="{active: isState('profile')}")
-          a(ui-sref="profile") Profile
-        li(role="presentation", ng-class="{active: isState('logout')}")
-          a(ui-sref="logout") Logout
-    h3.text-muted Mutiful
-  .row
-    nav
-      ul.nav.nav-pills
-        li(role="presentation", ng-class="{active: isState('fresh')}")
-          a(ui-sref="fresh") Fresh
-        li(role="presentation", ng-class="{active: isState('top')}")
-          a(ui-sref="top") Top
-        li(role="presentation", ng-class="{active: isState('activity')}")
-          a(ui-sref="activity") Activity
+  loliful-navigation
 
   .container-fluid
     .row.ui-view-container

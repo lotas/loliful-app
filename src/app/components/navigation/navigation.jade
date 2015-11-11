@@ -1,0 +1,29 @@
+header.header.clearfix
+  nav.navbar.navbar-default(bs-navbar)
+    div.container-fluid
+      div.navbar-header
+        button.navbar-toggle(type="button", aria-expanded="false", ng-click="vm.showAside()")
+          span.sr-only Menu
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand Loliful
+      div.collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li(role="presentation", data-match-route="/profile")
+            a(ui-sref="profile") Profile
+          li(role="presentation")
+            a(ui-sref="logout") Logout
+
+  nav.navbar
+    ul.nav.nav-pills
+      li(role="presentation", ng-class="{active: isState('fresh')}")
+        a(ui-sref="fresh") Fresh
+      li(role="presentation", ng-class="{active: isState('top')}")
+        a(ui-sref="top") Top
+      li(role="presentation", ng-class="{active: isState('activity')}")
+        a(ui-sref="activity") Activity
+
+    ul.nav.nav-pills.activity(ng-if="isState('activity')")
+      li(role="presentation", ng-repeat="(type, value) in vm.activityTypes track by $index", ng-class="{active: vm.checkActivity(type)}")
+        a(ui-sref="activity({type: type})") {{value}}

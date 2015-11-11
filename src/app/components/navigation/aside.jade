@@ -1,0 +1,19 @@
+.aside
+  .aside-dialog
+    .aside-content
+      .aside-body
+        button.close.pull-right(type="button", ng-click="$hide()")
+          i.glyphicon.glyphicon-remove
+        ul.nav.nav-list
+          li
+            a(ui-sref="profile", ng-click="$hide()")
+              i.glyphicon.glyphicon-camera
+              | Profile
+          li
+            a(ui-sref="about", ng-click="$hide()")
+              i.glyphicon.glyphicon-fire
+              | About
+          li
+            a(ui-sref="logout")
+              i.glyphicon.glyphicon-heart-empty
+              | Logout
