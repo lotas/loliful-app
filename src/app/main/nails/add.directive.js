@@ -1,10 +1,10 @@
-export function AddNailDirective() {
+export function NailAddDirective() {
     'ngInject';
 
     let directive = {
         restrict: 'E',
         templateUrl: 'app/main/nails/add.html',
-        controller: AddNailController,
+        controller: NailAddController,
         controllerAs: 'nailAdd',
         scope: {
             onAdd: '&'
@@ -15,7 +15,7 @@ export function AddNailDirective() {
     return directive;
 }
 
-class AddNailController {
+class NailAddController {
     constructor(Nail, toastr) {
         'ngInject';
 

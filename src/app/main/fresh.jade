@@ -1,16 +1,6 @@
-add-nail(on-add="vm.onAdd(nail)")
+nail-add(on-add="vm.onAdd(nail)")
 
 div.container-fluid(ng-if="!vm.nails.length")
   p Loading ..
 div.container-fluid(ng-if="vm.nails")
-  div.panel.panel-primary(ng-repeat="item in vm.nails track by $index")
-    div.panel-heading
-       | User: {{item.userId}}
-    div.panel-body
-       | {{item.text}}
-    div.panel-footer
-      div.row
-        div.col-sm-6
-          span Votes {{item.countVotes}}
-        div.col-sm-6
-          span Answers: {{item.countAnswers}}
+  nail-list-item.panel-primary(nail="item", ng-repeat="item in vm.nails track by $index")

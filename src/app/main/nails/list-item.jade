@@ -1,0 +1,22 @@
+div.panel.nail-list-item
+  div.panel-heading
+    | User: {{ nlm.nail.userId }}
+  div.panel-body
+    | {{ nlm.nail.text }}
+  div.panel-footer
+    div.row
+      div.col-sm-3
+        span Votes {{ nlm.nail.countVotes }}
+      div.col-sm-3
+        span Answers: {{ nlm.nail.countAnswers }}
+      div.col-sm-6.btn-group.btn-group-sm
+        button.btn.btn-primary(type="button", ng-click="nlm._reply = !nlm._reply") Reply
+        button.btn.btn-info(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail._isVoted") Vote
+        button.btn.btn-warning(type="button", ng-click="nlm.favorite()") Favorite
+        button.btn.btn-danger(type="button", ng-click="nlm.report()") Abuse
+    div(ng-show="nlm._reply")
+      form.form-inline(ng-submit="nlm.reply()")
+        div.form-group
+          label(for="reply") Nail it:
+          input#reply.form-control(type="text", placeholder="...", ng-model="nlm._hammer.text", required)
+        button.btn.btn-small.btn-success(type="submit") Reply

@@ -4,7 +4,8 @@ import { FreshController } from './fresh.controller';
 import { TopController } from './top.controller';
 import { ActivityController } from './activity.controller';
 
-import { AddNailDirective } from './nails/add.directive';
+import { NailAddDirective } from './nails/add.directive';
+import { NailListItemDirective } from './nails/list-item.directive';
 
 angular.module('loliful.main', [])
 
@@ -14,6 +15,7 @@ angular.module('loliful.main', [])
     .controller('TopController', TopController)
     .controller('ActivityController', ActivityController)
 
-    .directive('addNail', AddNailDirective);
+    .directive('nailAdd', NailAddDirective)
+    .directive('nailListItem', NailListItemDirective)
 ;
 

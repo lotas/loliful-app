@@ -1,13 +1,4 @@
 section
+  div(ng-if="!vm.items") Loading..
   div.container-fluid(ng-if="vm.items")
-    div.panel(ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")
-      div.panel-heading
-        | User: {{item.userId}}
-      div.panel-body
-        | {{item.text}}
-      div.panel-footer
-        div.row
-          div.col-sm-6
-            span Votes {{item.countVotes}}
-          div.col-sm-6
-            span Answers: {{item.countAnswers}}
+    nail-list-item.panel-success(nail="item.nail ? item.nail : item", ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")

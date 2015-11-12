@@ -1,14 +1,4 @@
-div.container-fluid(ng-if="!vm.nails.jade")
+div.container-fluid(ng-if="!vm.nails")
   p Loading ..
 div.container-fluid(ng-if="vm.nails")
-  div.panel.panel-success(ng-repeat="item in vm.nails track by $index")
-    div.panel-heading
-      | User: {{item.userId}}
-    div.panel-body
-      | {{item.text}}
-    div.panel-footer
-      div.row
-        div.col-sm-6
-          span Votes {{item.countVotes}}
-        div.col-sm-6
-          span Answers: {{item.countAnswers}}
+  nail-list-item.panel-success(nail="item", ng-repeat="item in vm.nails track by $index")
