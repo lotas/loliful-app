@@ -1,2 +1,16 @@
 h1 Welcome, {{ vm.user.email }}
 
+p(ng-if="!vm.stats") Loading stats ..
+div.row(ng-if="vm.stats")
+  div.panel.panel-default
+    div.panel-heading Nails
+    div.panel-body
+      bold {{ vm.stats.nails || 0 }}
+  div.panel.panel-default
+    div.panel-heading Hammers
+    div.panel-body
+      bold {{ vm.stats.hammers || 0 }}
+  div.panel.panel-default
+    div.panel-heading Rating
+    div.panel-body
+      bold {{ vm.stats.rating || 0}}

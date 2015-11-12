@@ -2627,6 +2627,38 @@ module.factory(
           method: "POST"
         },
 
+        /**
+         * @ngdoc method
+         * @name lbServices.User#stats
+         * @methodOf lbServices.User
+         *
+         * @description
+         *
+         * User stats
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `userId` – `{String=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `stats` – `{object=}` - 
+         */
+        "stats": {
+          url: urlBase + "/users/stats",
+          method: "GET"
+        },
+
         // INTERNAL. Use Nail.user() instead.
         "::get::nail::user": {
           url: urlBase + "/nails/:id/user",
