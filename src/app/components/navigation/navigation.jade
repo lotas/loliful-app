@@ -22,7 +22,7 @@ header.header.clearfix
       li(role="presentation", ng-class="{active: isState('top')}")
         a(ui-sref="top") Top
       li(role="presentation", ng-class="{active: isState('activity')}")
-        a(ui-sref="activity") Activity
+        a(ui-sref="activity({type: 'nails'})") Activity
 
     ul.nav.nav-pills.activity(ng-if="isState('activity')")
       li(role="presentation", ng-repeat="(type, value) in vm.activityTypes track by $index", ng-class="{active: vm.checkActivity(type)}")

@@ -1,0 +1,5 @@
+form.form-inline.add-nail(name="nail", ng-submit="nailAdd.create()")
+  div.form-group
+    label(for="text") Add nail
+    input#text.form-control(type="text", placeholder="Funny", ng-model="nailAdd.nail.text")
+  button.btn.btn-success(ng-disabled="nailAdd.saving") Add

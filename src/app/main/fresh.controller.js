@@ -3,6 +3,7 @@ export class FreshController {
      *
      * @param {User} User
      * @param {Nail} Nail
+     * @param $log
      */
     constructor(User, Nail, $log) {
         'ngInject';
@@ -16,11 +17,14 @@ export class FreshController {
     }
 
     loadFresh() {
-        let self = this;
-        this.Nail.fresh({}, function(res) {
-            self.nails = res.nails;
-        }, function(err) {
+        this.Nail.fresh({}, res => {
+            this.nails = res.nails;
+        }, err => {
             this.$log.error(err);
         });
+    }
+
+    onAdd(nail) {
+        this.nails.unshift(nail);
     }
 }
