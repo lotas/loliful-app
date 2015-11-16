@@ -4,9 +4,7 @@ header.header.clearfix
       div.navbar-header
         button.navbar-toggle(type="button", aria-expanded="false", ng-click="vm.showAside()")
           span.sr-only Menu
-          span.icon-bar
-          span.icon-bar
-          span.icon-bar
+          span.icon.icon-loliful-icon-menu
         a.navbar-brand Loliful
       div.collapse.navbar-collapse
         ul.nav.navbar-nav
@@ -18,11 +16,17 @@ header.header.clearfix
   nav.navbar
     ul.nav.nav-pills
       li(role="presentation", ng-class="{active: isState('fresh')}")
-        a(ui-sref="fresh") Fresh
+        a(ui-sref="fresh")
+          i.icon.icon-loliful-icon-nav-fresh
+          | Fresh
       li(role="presentation", ng-class="{active: isState('top')}")
-        a(ui-sref="top") Top
+        a(ui-sref="top")
+          i.icon.icon-loliful-icon-nav-top
+          | Top
       li(role="presentation", ng-class="{active: isState('activity')}")
-        a(ui-sref="activity({type: 'nails'})") Activity
+        a(ui-sref="activity({type: 'nails'})")
+          i.icon.icon-loliful-icon-nav-activity
+          | Activity
 
     ul.nav.nav-pills.activity(ng-if="isState('activity')")
       li(role="presentation", ng-repeat="(type, value) in vm.activityTypes track by $index", ng-class="{active: vm.checkActivity(type)}")
