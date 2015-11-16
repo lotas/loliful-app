@@ -2,6 +2,7 @@ div.panel.nail-list-item
   div.panel-heading
     | User: {{ nlm.nail.userId }}
   div.panel-body
+    a.pull-right(ui-sref="nail-view({nailId: nlm.nail.id})") >
     | {{ nlm.nail.text }}
   div.panel-footer
     div.row

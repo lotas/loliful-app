@@ -6,6 +6,9 @@ import { ActivityController } from './activity.controller';
 
 import { NailAddDirective } from './nails/add.directive';
 import { NailListItemDirective } from './nails/list-item.directive';
+import { NailViewController } from './nails/view.controller';
+
+import { HammerListItemDirective } from './hammers/list-item.directive';
 
 angular.module('loliful.main', [])
 
@@ -17,5 +20,8 @@ angular.module('loliful.main', [])
 
     .directive('nailAdd', NailAddDirective)
     .directive('nailListItem', NailListItemDirective)
+    .controller('NailViewController', NailViewController)
+
+    .directive('hammerListItem', HammerListItemDirective)
 ;
 

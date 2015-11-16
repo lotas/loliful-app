@@ -1,0 +1,13 @@
+div.panel.nail-list-item
+  div.panel-heading
+    | User: {{ hli.hammer.userId }}
+  div.panel-body
+    | {{ hli.hammer.text }}
+  div.panel-footer
+    div.row
+      div.col-sm-3
+        span Votes {{ hli.hammer.countVotes }}
+      div.col-sm-6.btn-group.btn-group-sm
+        button.btn.btn-info(type="button", ng-click="hli.vote()", ng-disabled="hli.hammer._isVoted") Vote
+        button.btn.btn-warning(type="button", ng-click="hli.favorite()") Favorite
+        button.btn.btn-danger(type="button", ng-click="hli.report()") Abuse

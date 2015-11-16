@@ -1,3 +1,5 @@
+import { nailViewResolve } from './nails/view.controller';
+
 /**
  *
  * @param {$stateProvider} $stateProvider
@@ -16,7 +18,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Fresh √ Loliful.io'
+                pageTitle: 'Fresh ∆ Loliful.io'
             }
         })
         .state('top', {
@@ -30,7 +32,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Top √ Loliful.io'
+                pageTitle: 'Top Ω Loliful.io'
             }
         })
         .state('activity', {
@@ -44,7 +46,24 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Activity √ Loliful.io'
+                pageTitle: 'Activity ∑ Loliful.io'
+            }
+        })
+        .state('nail-view', {
+            parent: 'app',
+            url: '/nail/:nailId',
+            views: {
+                'content@app': {
+                    templateUrl: 'app/main/nails/view.html',
+                    controller: 'NailViewController',
+                    controllerAs: 'nv'
+                }
+            },
+            data: {
+                pageTitle: 'Nail ∫ Loliful.io'
+            },
+            resolve: {
+                nail: nailViewResolve
             }
         })
     ;
