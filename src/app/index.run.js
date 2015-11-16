@@ -34,6 +34,7 @@ export function runBlock($log, $rootScope, User, $state, Storage, $location, $ht
 
     $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState) {
         $log.warn('$stateNotFound', unfoundState, fromState);
+        $state.go('not-found');
     });
 
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
@@ -42,5 +43,6 @@ export function runBlock($log, $rootScope, User, $state, Storage, $location, $ht
 
     $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
         $log.debug('$stateChangeError', toState, fromState, error);
+        $state.go('error');
     });
 }

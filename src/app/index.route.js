@@ -29,6 +29,15 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         }
     });
 
+    function notFoundRule($injector, $location) {
+        'ngInject';
+        $injector.get('$state')
+            .go('not-found', {
+                error: $location.path()
+            });
+    }
+
     $urlRouterProvider
-        .otherwise('/');
+        .when('', '/')
+        .otherwise(notFoundRule);
 }
