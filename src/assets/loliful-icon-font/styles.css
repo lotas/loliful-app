@@ -92,3 +92,15 @@
 .icon-loliful-icon-time:before {
   content: "w";
 }
+.icon-loliful-icon-delete:before {
+  content: "d";
+}
+.icon-loliful-icon-edit:before {
+  content: "e";
+}
+.icon-loliful-icon-notifications:before {
+  content: "g";
+}
+.icon-loliful-icon-stats:before {
+  content: "h";
+}
