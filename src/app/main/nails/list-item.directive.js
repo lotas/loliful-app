@@ -31,7 +31,7 @@ class NailListItemController {
     }
 
     report() {
-        this.Nail.prototype$report(this.nail).$promise.then(res => {
+        this.Nail.prototype$report({id: this.nail.id}).$promise.then(res => {
             this.nail._isReported = true;
             this.toastr.success('Thank you for reporting!');
         }).catch(err => {
@@ -40,17 +40,18 @@ class NailListItemController {
     }
 
     favorite() {
-        this.Nail.prototype$addToFav(this.nail).$promise.then(res => {
-            this.nail._isFav = true;
+        let func = !this.nail._favorite ? 'prototype$addToFav' : 'prototype$removeFromFav';
+        this.Nail[func]({id: this.nail.id}).$promise.then(res => {
+            this.nail._favorite = !this.nail._favorite;
         }).catch(err => {
             this.toastr.warning('oh no!, something horrible happened');
         });
     }
 
     vote() {
-        this.Nail.prototype$vote(this.nail).$promise.then(res => {
+        this.Nail.prototype$vote({id: this.nail.id}).$promise.then(res => {
             this.nail.countVotes = res.countVotes;
-            this.nail._isVoted = true;
+            this.nail._votes = true;
         }).catch(err => {
             this.toastr.warning('oh no!, vote failed');
         });

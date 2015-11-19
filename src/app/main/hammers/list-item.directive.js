@@ -42,7 +42,7 @@ class HammerListItemController {
 
     favorite() {
         this.Hammer.prototype$addToFav(this.hammer).$promise.then(res => {
-            this.hammer._isFav = true;
+            this.hammer._favorite = true;
         }).catch(err => {
             this.toastr.warning('oh no!, something horrible happened');
         });
@@ -50,8 +50,8 @@ class HammerListItemController {
 
     vote() {
         this.Hammer.prototype$vote(this.hammer).$promise.then(res => {
-            this.nail.countVotes = res.countVotes;
-            this.nail._isVoted = true;
+            this.hammer.countVotes = res.countVotes;
+            this.hammer._votes = true;
         }).catch(err => {
             this.toastr.warning('oh no!, vote failed');
         });
