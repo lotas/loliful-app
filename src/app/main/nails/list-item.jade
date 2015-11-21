@@ -10,7 +10,9 @@ div.panel.nail-list-item
       div.col-sm-2
         span Answers: {{ nlm.nail.countAnswers }}
       div.col-sm-4(ng-init="nlm._reply=false")
-        input.disabled(value="Reply ...", ng-click="nlm._reply=true", ng-hide="nlm._reply")
+        div(ng-click="nlm._reply=true", ng-hide="nlm._reply")
+          input.disabled(value="Reply ...")
+          i.icon.icon-loliful-icon-edit
         form.form-inline(ng-submit="nlm.reply(); nlm._reply=false;", ng-if="nlm._reply")
           div.form-group
             label(for="reply") Reply:
