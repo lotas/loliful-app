@@ -7,7 +7,8 @@ export function NailListItemDirective() {
         controller: NailListItemController,
         controllerAs: 'nlm',
         scope: {
-            nail: '='
+            nail: '=',
+            showHammers: '='
         },
         bindToController: true,
         replace: true
@@ -67,5 +68,9 @@ class NailListItemController {
             .catch(err => {
                 this.toastr.warning('oops, I failed again');
             });
+    }
+
+    share() {
+        this.toastr.warning('Share');
     }
 }

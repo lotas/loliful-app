@@ -3,4 +3,4 @@ nail-add(on-add="vm.onAdd(nail)")
 div.container-fluid(ng-if="!vm.nails.length")
   p Loading ..
 div.container-fluid(ng-if="vm.nails")
-  nail-list-item.panel-primary(nail="item", ng-repeat="item in vm.nails track by $index")
+  nail-list-item.panel-primary(nail="item", ng-repeat="item in vm.nails track by $index", show-hammers="true")

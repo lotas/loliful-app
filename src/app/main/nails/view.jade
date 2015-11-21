@@ -1,4 +1,4 @@
-nail-list-item(nail="nv.nail")
+nail-list-item(nail="nv.nail", show-hammers="false")
 
 div.container-fluid(ng-if="nv.nail.hammers")
   hammer-list-item.panel-default(hammer="item", ng-repeat="item in nv.nail.hammers track by $index")

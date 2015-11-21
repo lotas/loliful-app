@@ -1,4 +1,4 @@
 div.container-fluid(ng-if="!vm.nails")
   p Loading ..
 div.container-fluid(ng-if="vm.nails")
-  nail-list-item.panel-success(nail="item", ng-repeat="item in vm.nails track by $index")
+  nail-list-item.panel-success(nail="item", ng-repeat="item in vm.nails track by $index", show-hammers="true")

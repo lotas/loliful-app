@@ -1,30 +1,32 @@
 div.panel.nail-list-item
   div.panel-heading
-    | User: {{ nlm.nail.userId }}
+    | User: {{ ::nlm.nail.userId }}
   div.panel-body
     a(ui-sref="nail-view({nailId: nlm.nail.id})")
       i.pull-right.icon.icon-loliful-icon-expand
-      | {{ nlm.nail.text }}
+      | {{ ::nlm.nail.text }}
   div.panel-footer
     div.row
-      div.col-sm-3
-        span Votes {{ nlm.nail.countVotes }}
-      div.col-sm-3
+      div.col-sm-2
         span Answers: {{ nlm.nail.countAnswers }}
-      div.col-sm-6.btn-group.btn-group-sm
-        button.btn.btn-primary(type="button", ng-click="nlm._reply = !nlm._reply") Reply
+      div.col-sm-4(ng-init="nlm._reply=false")
+        input.disabled(value="Reply ...", ng-click="nlm._reply=true", ng-hide="nlm._reply")
+        form.form-inline(ng-submit="nlm.reply(); nlm._reply=false;", ng-if="nlm._reply")
+          div.form-group
+            label(for="reply") Reply:
+            input#reply.form-control(type="text", ng-model="nlm._hammer.text", required, autofocus=true)
+          button.btn.btn-small.btn-success(type="submit") Reply
+      div.col-sm-6.btn-group.btn-group-sm.pull-right
         button.btn.btn-default(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail._votes", ng-class="{active: nlm.nail._votes}")
+          | {{ nlm.nail.countVotes }}
           i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail._votes, 'icon-loliful-icon-liked': nlm.nail._votes}")
           | Like
         button.btn.btn-default(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail._favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail._favorite, 'icon-loliful-icon-bookmarked': nlm.nail._favorite}")
           | Favorite
+        button.btn.btn-default(type="button", ng-click="nlm.share()")
+          i.icon.icon-loliful-icon-share
+          | Share
         button.btn.btn-danger(type="button", ng-click="nlm.report()") Abuse
-    div(ng-show="nlm._reply")
-      form.form-inline(ng-submit="nlm.reply()")
-        div.form-group
-          label(for="reply") Nail it:
-          input#reply.form-control(type="text", placeholder="...", ng-model="nlm._hammer.text", required)
-        button.btn.btn-small.btn-success(type="submit") Reply
-  div.container-fluid(ng-if="nlm.nail.hammers")
+  div.container-fluid(ng-if="nlm.showHammers && nlm.nail.hammers")
    hammer-list-item.panel-warning(hammer="item", ng-repeat="item in nlm.nail.hammers track by $index")
