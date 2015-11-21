@@ -1,4 +1,4 @@
-div.panel.nail-list-item
+div.panel.hammer-list-item
   div.panel-heading
     | User: {{ hli.hammer.userId }}
   div.panel-body
@@ -8,6 +8,11 @@ div.panel.nail-list-item
       div.col-sm-3
         span Votes {{ hli.hammer.countVotes }}
       div.col-sm-6.btn-group.btn-group-sm
-        button.btn.btn-info(type="button", ng-click="hli.vote()", ng-disabled="hli.hammer._isVoted") Vote
-        button.btn.btn-warning(type="button", ng-click="hli.favorite()") Favorite
+        button.btn.btn-default(type="button", ng-click="hli.vote()", ng-disabled="hli.hammer._votes", ng-class="{active: hli.hammer._votes}")
+          | {{ hli.hammer.countVotes }}
+          i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer._votes, 'icon-loliful-icon-liked': hli.hammer._votes}")
+          | Like
+        button.btn.btn-default(type="button", ng-click="hli.favorite()", ng-class="{active: hli.hammer._favorite}")
+          i.icon(ng-class="{'icon-loliful-icon-bookmark': !hli.hammer._favorite, 'icon-loliful-icon-bookmarked': hli.hammer._favorite}")
+          | Favorite
         button.btn.btn-danger(type="button", ng-click="hli.report()") Abuse

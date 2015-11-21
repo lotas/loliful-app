@@ -62,8 +62,12 @@ class NailListItemController {
         this.Nail.prototype$__create__hammers(this.nail, this._hammer)
             .$promise
             .then(res => {
+                if (!this.nail.hammers) {
+                    this.nail.hammers = [];
+                }
+                this.nail.hammers.unshift(res);
                 this.nail.countAnswers += 1;
-                this.toastr.success('Yeah, baby!');
+                this._hammer = '';;
             })
             .catch(err => {
                 this.toastr.warning('oops, I failed again');

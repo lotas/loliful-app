@@ -28,7 +28,7 @@ class NailAddController {
         this.saving = true;
         this.Nail.create(this.nail, res => {
             this.saving = false;
-            if (typeof this.onAdd === 'function') {
+            if (angular.isFunction(this.onAdd)) {
                 this.onAdd({nail: res});
             }
             this.nail.text = '';
