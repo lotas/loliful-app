@@ -71,9 +71,6 @@
 .icon-loliful-icon-menu:before {
   content: "m";
 }
-.icon-loliful-icon-nav-activity:before {
-  content: "a";
-}
 .icon-loliful-icon-nav-fresh:before {
   content: "f";
 }
@@ -100,6 +97,12 @@
 }
 .icon-loliful-icon-notifications:before {
   content: "g";
+}
+.icon-loliful-icon-nav-activity:before {
+  content: "a";
+}
+.icon-loliful-icon-notification:before {
+  content: "j";
 }
 .icon-loliful-icon-stats:before {
   content: "h";
