@@ -1,10 +1,12 @@
+import { PageAboutController } from './about.controller';
 
 angular.module('loliful.pages', [])
-       .config(pagesRouterConfig);
+       .config(pagesRouterConfig)
+       .controller('PageAboutController', PageAboutController)
+;
 
 function pagesRouterConfig($stateProvider) {
     'ngInject';
-
 
     $stateProvider
         .state('page', {
@@ -16,9 +18,10 @@ function pagesRouterConfig($stateProvider) {
             url: '/about',
             views: {
                 'content@app': {
-                    templateUrl: 'app/pages/about.html'
+                    templateUrl: 'app/pages/about.html',
+                    controller: 'PageAboutController',
+                    controllerAs: 'vm'
                 }
             }
         });
 }
-

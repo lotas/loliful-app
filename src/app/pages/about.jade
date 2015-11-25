@@ -1,4 +1,22 @@
 div.container-fluid
-  p lorem ipsum
-  p dolor sit amet
-  p foo bar baz
+  h1 About
+  p Loliful is a place where everybody can show off their smartness. It's easy and free.
+  p You can make up an intro, which ideally should be interesting enough for other members to joke about.
+  p Or, you may want ot finish somebody else's intro with your outro. The funnier it is the more credits you get
+  p If your outro is as good as the intro (or even better) there magic happens.
+  | There is a joke born.
+  | Top jokes are posted in the Top section, where everybody could see it and are free to share and/or upvote.
+  p Make them laugh!
+
+div.container-fluid
+  h3 Help us improve
+  p Nothing is perfect in this world except for {{ vm.bestThing }}, so please provide your feedback below so that we can improve your experience.
+  p We really want to hear your "but"
+
+  div.col-sm-6
+    form(ng-submit="vm.sendFeedback()")
+      div.form-group
+        textarea.form-control(rows="4", ng-model="vm.feedback", placeholder="{{ vm.placeholder }}")
+      div.form-group
+        button.btn.btn-default(type="submit") Send Feedback
+
