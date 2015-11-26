@@ -18,5 +18,5 @@ div.container-fluid
       div.form-group
         textarea.form-control(rows="4", ng-model="vm.feedback", placeholder="{{ vm.placeholder }}")
       div.form-group
-        button.btn.btn-default(type="submit") Send Feedback
+        button.btn.btn-default(type="submit", ng-disabled="vm.sending") Send Feedback
 

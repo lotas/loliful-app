@@ -23,18 +23,27 @@ export class PageAboutController {
     /**
      *
      * @param {User} User
-     * @param $log
+     * @param {$http} $http
+     * @param {toastr} toastr
+     * @param {apiEndpoint} apiEndpoint
      */
-    constructor(User, $log) {
+    constructor(User, $http, toastr, apiEndpoint) {
         'ngInject';
 
         this.User = User;
-        this.$log = $log;
+        this.$http = $http;
+        this.toastr = toastr;
+        this.apiEndpoint = apiEndpoint;
 
         this.bestThing = random(bestThings);
         this.placeholder = random(placeholders);
     }
 
     sendFeedback() {
+        if (this.feedback) {
+            this.sending = true
+            this.$http.post(this.apiEndpoint + '/feedback', {feedback: this.feedback});
+            this.toastr.success('Thank you!');
+        }
     }
 }
