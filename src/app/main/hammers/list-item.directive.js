@@ -63,7 +63,7 @@ class HammerListItemController {
         if (!this.hammer._share) {
             this.ShareService.getShare(this.hammer.id).then(res => {
                  this.hammer._share = res;
-                 this.ShareService.showDialog(this.hammer._share);
+                 this.ShareService.showDialog(res);
             }).catch(err => {
                  this.toastr.warning('Oh boy... God knows how hard I try, but it failed this time');
             });
