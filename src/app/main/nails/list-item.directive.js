@@ -74,7 +74,4 @@ class NailListItemController {
             });
     }
 
-    share() {
-        this.toastr.warning('Share');
-    }
 }

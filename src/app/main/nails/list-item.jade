@@ -25,9 +25,6 @@ div.panel.nail-list-item
         button.btn.btn-default(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail._favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail._favorite, 'icon-loliful-icon-bookmarked': nlm.nail._favorite}")
           | Favorite
-        button.btn.btn-default(type="button", ng-click="nlm.share()")
-          i.icon.icon-loliful-icon-share
-          | Share
         button.btn.btn-danger(type="button", ng-click="nlm.report()") Abuse
   div.container-fluid(ng-if="nlm.showHammers && nlm.nail.hammers")
    hammer-list-item.panel-warning(hammer="item", ng-repeat="item in nlm.nail.hammers track by $index")

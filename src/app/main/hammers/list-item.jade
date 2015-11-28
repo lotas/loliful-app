@@ -15,4 +15,7 @@ div.panel.hammer-list-item
         button.btn.btn-default(type="button", ng-click="hli.favorite()", ng-class="{active: hli.hammer._favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !hli.hammer._favorite, 'icon-loliful-icon-bookmarked': hli.hammer._favorite}")
           | Favorite
+        button.btn.btn-default(type="button", ng-click="hli.share()")
+          i.icon.icon-loliful-icon-share
+          | Share
         button.btn.btn-danger(type="button", ng-click="hli.report()") Abuse
