@@ -1,6 +1,6 @@
 {
   "envName": "dev",
-  "apiEndpoint": "http://api.loliful.io",
+  "apiEndpoint": "https://api.loliful.io",
   "debugEnabled": true,
   "html5Mode": true,
   "apiAuth": ""
