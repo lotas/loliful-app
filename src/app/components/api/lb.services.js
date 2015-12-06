@@ -1,6 +1,6 @@
 (function(window, angular, undefined) {'use strict';
 
-var urlBase = "/api";
+var urlBase = "";
 var authHeader = 'authorization';
 
 /**
@@ -367,7 +367,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nail` object.)
+         * </em>
          */
         "deleteById": {
           url: urlBase + "/nails/:id",
@@ -403,74 +406,6 @@ module.factory(
          */
         "count": {
           url: urlBase + "/nails/count",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Nail#top
-         * @methodOf lbServices.Nail
-         *
-         * @description
-         *
-         * Latest top
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `page` – `{Number=}` - 
-         *
-         *  - `limit` – `{Number=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `nails` – `{Array=}` - 
-         */
-        "top": {
-          url: urlBase + "/nails/top",
-          method: "GET"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Nail#fresh
-         * @methodOf lbServices.Nail
-         *
-         * @description
-         *
-         * Latest
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `page` – `{Number=}` - 
-         *
-         *  - `limit` – `{Number=}` - 
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * Data properties:
-         *
-         *  - `nails` – `{Array=}` - 
-         */
-        "fresh": {
-          url: urlBase + "/nails/fresh",
           method: "GET"
         },
 
@@ -672,7 +607,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nail` object.)
+         * </em>
          */
         R["destroyById"] = R["deleteById"];
 
@@ -699,7 +637,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nail` object.)
+         * </em>
          */
         R["removeById"] = R["deleteById"];
 
@@ -1177,7 +1118,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Hammer` object.)
+         * </em>
          */
         "deleteById": {
           url: urlBase + "/hammers/:id",
@@ -1411,7 +1355,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Hammer` object.)
+         * </em>
          */
         R["destroyById"] = R["deleteById"];
 
@@ -1438,7 +1385,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Hammer` object.)
+         * </em>
          */
         R["removeById"] = R["deleteById"];
 
@@ -2384,7 +2334,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
          */
         "deleteById": {
           url: urlBase + "/users/:id",
@@ -2737,7 +2690,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
          */
         R["destroyById"] = R["deleteById"];
 
@@ -2764,7 +2720,10 @@ module.factory(
          *   populated with the actual data once the response is returned
          *   from the server.
          *
-         * This method returns no data.
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `User` object.)
+         * </em>
          */
         R["removeById"] = R["deleteById"];
 

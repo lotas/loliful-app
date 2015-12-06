@@ -2,13 +2,13 @@ export class TopController {
     /**
      *
      * @param {User} User
-     * @param {Nail} Nail
+     * @param {MainService} MainService
      */
-    constructor(User, Nail, $log) {
+    constructor(User, MainService, $log) {
         'ngInject';
 
         this.User = User;
-        this.Nail = Nail;
+        this.MainService = MainService;
         this.$log = $log;
 
         this.nails = [];
@@ -16,10 +16,9 @@ export class TopController {
     }
 
     loadTop() {
-        let self = this;
-        this.Nail.top({}, function(res) {
-            self.nails = res.nails;
-        }, function(err) {
+        this.MainService.getTop().then(res => {
+            this.nails = res.hammers;
+        }).catch(err => {
             this.$log.error(err);
         });
     }

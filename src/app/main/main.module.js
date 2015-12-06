@@ -11,6 +11,7 @@ import { NailViewController } from './nails/view.controller';
 import { HammerListItemDirective } from './hammers/list-item.directive';
 
 import { ShareService } from './share/share.service';
+import { MainService } from './main.service';
 
 angular.module('loliful.main', [])
 
@@ -27,5 +28,6 @@ angular.module('loliful.main', [])
     .directive('hammerListItem', HammerListItemDirective)
 
     .service('ShareService', ShareService)
+    .service('MainService', MainService)
 ;
 

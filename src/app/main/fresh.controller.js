@@ -2,14 +2,14 @@ export class FreshController {
     /**
      *
      * @param {User} User
-     * @param {Nail} Nail
+     * @param {MainService} MainService
      * @param $log
      */
-    constructor(User, Nail, $log) {
+    constructor(User, MainService, $log) {
         'ngInject';
 
         this.User = User;
-        this.Nail = Nail;
+        this.MainService = MainService;
         this.$log = $log;
 
         this.nails = [];
@@ -17,9 +17,9 @@ export class FreshController {
     }
 
     loadFresh() {
-        this.Nail.fresh({}, res => {
+        this.MainService.getFresh().then(res => {
             this.nails = res.nails;
-        }, err => {
+        }).catch(err => {
             this.$log.error(err);
         });
     }
