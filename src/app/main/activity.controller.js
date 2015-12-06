@@ -1,14 +1,16 @@
 export class ActivityController {
+
     /**
-     *
-     * @param {User} User
-     * @param {Nail} Nail
+     * @param  {User} User
+     * @param  {MainService} MainService
+     * @param  {$stateParams} $stateParams
+     * @param  {$log} $log
      */
-    constructor(User, Activity, $stateParams, $log) {
+    constructor(User, MainService, $stateParams, $log) {
         'ngInject';
 
         this.User = User;
-        this.Activity = Activity;
+        this.MainService = MainService;
         this.$log = $log;
         this.type = $stateParams.type;
 
@@ -31,20 +33,13 @@ export class ActivityController {
     }
 
     loadActivity() {
-        let map = {
-            nails: 'recentNails',
-            hammers: 'recentHammers',
-            saves: 'recentSaves',
-            likes: 'recentLikes'
-        };
-        if (typeof map[this.type] === 'undefined') {
+        if (typeof this.types[this.type] === 'undefined') {
             return false;
         }
 
-        let self = this;
-        this.Activity[map[this.type]]({}, function(res) {
-            self.items = res[self.type];
-        }, function(err) {
+        this.MainService.getActivity(this.type).then((data) => {
+            this.items = data[this.type];
+        }).catch((err) => {
             this.$log.error(err);
         });
     }
