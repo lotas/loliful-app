@@ -1,5 +1,12 @@
 h1 Welcome, {{ vm.user.email }}
 
+
+form.form-inline(ng-submit="vm.setName()")
+    div.form-group
+        label(for="name") Name
+        input.form-control#name(type="text", ng-model="vm.user.name")
+    button.btn.btn-default(type="submit") Change
+
 p(ng-if="!vm.stats") Loading stats ..
 div.row(ng-if="vm.stats")
   div.panel.panel-default

@@ -1,6 +1,6 @@
 div.panel.nail-list-item
   div.panel-heading
-    | User: {{ ::nlm.nail.userId }}
+    | User: {{ ::nlm.nail.user.name }}
   div.panel-body
     a(ui-sref="nail-view({nailId: nlm.nail.id})")
       i.pull-right.icon.icon-loliful-icon-expand
