@@ -18,7 +18,6 @@ export function runBlock($log, $rootScope, User, $state, Storage, $location, $ht
     $rootScope.stateIncludes = $state.includes;
     $rootScope.api = apiEndpoint;
 
-
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
         $log.debug('$stateChangeStart', toState, toStateParams);
 
