@@ -17,7 +17,7 @@ export class TopController {
 
     loadTop() {
         this.MainService.getTop().then(res => {
-            this.nails = res.hammers;
+            this.jokes = res.jokes;
         }).catch(err => {
             this.$log.error(err);
         });

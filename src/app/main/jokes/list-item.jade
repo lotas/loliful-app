@@ -1,0 +1,22 @@
+div.panel.joke-list-item
+  div.panel-heading
+    | User: {{ jli.joke.userId }} & {{ jli.joke.nail.userId }}
+  div.panel-body
+    span.question {{ jli.joke.nail.text }}
+    span.answer {{ jli.joke.text }}
+  div.panel-footer
+    div.row
+      div.col-sm-3
+        span Votes {{ jli.joke.countVotes }}
+      div.col-sm-6.btn-group.btn-group-sm
+        button.btn.btn-default(type="button", ng-click="jli.vote()", ng-disabled="jli.joke._votes", ng-class="{active: jli.joke._votes}")
+          | {{ jli.joke.countVotes }}
+          i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke._votes, 'icon-loliful-icon-liked': jli.joke._votes}")
+          | Like
+        button.btn.btn-default(type="button", ng-click="jli.favorite()", ng-class="{active: jli.joke._favorite}")
+          i.icon(ng-class="{'icon-loliful-icon-bookmark': !jli.joke._favorite, 'icon-loliful-icon-bookmarked': jli.joke._favorite}")
+          | Favorite
+        button.btn.btn-default(type="button", ng-click="jli.share()")
+          i.icon.icon-loliful-icon-share
+          | Share
+        button.btn.btn-danger(type="button", ng-click="jli.report()") Abuse

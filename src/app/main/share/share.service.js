@@ -1,10 +1,11 @@
 export class ShareService {
-    constructor(apiEndpoint, $http, $modal, $log) {
+    constructor(apiEndpoint, SweetAlert, $http, $modal, $log) {
         'ngInject';
 
         this.$http = $http;
         this.$log = $log;
         this.apiEndpoint = apiEndpoint;
+        this.SweetAlert = SweetAlert;
         this.$modal = $modal;
     }
 
@@ -15,6 +16,9 @@ export class ShareService {
     }
 
     showDialog(share) {
+        if (!share || !share.img) {
+            return this.SweetAlert.warning('oops', 'something cannot be shared');
+        }
         let url = this.buildImgUrl(share);
         return this.$modal({
             title: 'Share this',

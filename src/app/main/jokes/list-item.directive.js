@@ -1,13 +1,13 @@
-export function HammerListItemDirective() {
+export function JokeListItemDirective() {
     'ngInject';
 
     let directive = {
         restrict: 'E',
-        templateUrl: 'app/main/hammers/list-item.html',
-        controller: HammerListItemController,
-        controllerAs: 'hli',
+        templateUrl: 'app/main/jokes/list-item.html',
+        controller: JokeListItemController,
+        controllerAs: 'jli',
         scope: {
-            hammer: '='
+            joke: '='
         },
         bindToController: true,
         replace: true
@@ -16,18 +16,16 @@ export function HammerListItemDirective() {
     return directive;
 }
 
-class HammerListItemController {
+class JokeListItemController {
     /**
-     * @param  {any} Nail
      * @param  {any} Hammer
      * @param  {any} ShareService
      * @param  {any} toastr
      * @param  {any} $log
      */
-    constructor(Nail, Hammer, ShareService, toastr, $log) {
+    constructor(Hammer, ShareService, toastr, $log) {
         'ngInject';
 
-        this.Nail = Nail;
         this.Hammer = Hammer;
         this.$log = $log;
         this.toastr = toastr;
@@ -35,8 +33,8 @@ class HammerListItemController {
     }
 
     report() {
-        this.Hammer.prototype$report({id: this.hammer.id}).$promise.then(res => {
-            this.hammer._isReported = true;
+        this.Hammer.prototype$report({id: this.joke.id}).$promise.then(res => {
+            this.joke._isReported = true;
             this.toastr.success('Thank you for reporting!');
         }).catch(err => {
             this.toastr.warning('oh no!, something horrible happened');
@@ -44,32 +42,32 @@ class HammerListItemController {
     }
 
     favorite() {
-        this.Hammer.prototype$addToFav({id: this.hammer.id}).$promise.then(res => {
-            this.hammer._favorite = true;
+        this.Hammer.prototype$addToFav({id: this.joke.id}).$promise.then(res => {
+            this.joke._favorite = true;
         }).catch(err => {
             this.toastr.warning('oh no!, something horrible happened');
         });
     }
 
     vote() {
-        this.Hammer.prototype$vote({id: this.hammer.id}).$promise.then(res => {
-            this.hammer.countVotes = res.countVotes;
-            this.hammer._votes = true;
+        this.Hammer.prototype$vote({id: this.joke.id}).$promise.then(res => {
+            this.joke.countVotes = res.countVotes;
+            this.joke._votes = true;
         }).catch(err => {
             this.toastr.warning('oh no!, vote failed');
         });
     }
 
     share() {
-        if (!this.hammer._share) {
-            this.ShareService.getShare(this.hammer.id).then(res => {
-                 this.hammer._share = res;
+        if (!this.joke._share) {
+            this.ShareService.getShare(this.joke.id).then(res => {
+                 this.joke._share = res;
                  this.ShareService.showDialog(res);
             }).catch(err => {
                  this.toastr.warning('Oh boy... God knows how hard I try, but it failed this time');
             });
         } else {
-            this.ShareService.showDialog(this.hammer._share);
+            this.ShareService.showDialog(this.joke._share);
         }
     }
 }
