@@ -16,22 +16,19 @@ export class ShareService {
     }
 
     showDialog(share) {
-        if (!share || !share.img) {
+        if (!share || !share.url) {
             return this.SweetAlert.warning('oops', 'something cannot be shared');
         }
-        let url = this.buildImgUrl(share);
+
         return this.$modal({
             title: 'Share this',
             content: `
-                <img src="${url}" />
-                <input class="form-control" type="text" value="${url}" />
+                <img src="${share.url}" />
+                <input class="form-control" type="text" value="${share.url}" />
                 `,
             html: true,
             show: true
         });
     }
 
-    buildImgUrl(share) {
-        return `${this.apiEndpoint}${share.img}`;
-    }
 }
