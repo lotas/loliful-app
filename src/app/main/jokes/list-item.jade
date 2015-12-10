@@ -1,6 +1,6 @@
 div.panel.joke-list-item
   div.panel-heading
-    | User: {{ jli.joke.userId }} & {{ jli.joke.nail.userId }}
+    | User: {{ jli.joke.author.name }} & {{ jli.joke.nail.author.name }}
   div.panel-body
     span.question {{ jli.joke.nail.text }}
     span.answer {{ jli.joke.text }}
