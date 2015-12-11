@@ -1,11 +1,10 @@
 export class MainService {
-    constructor(apiEndpoint, $http, $modal, $log) {
+    constructor(apiEndpoint, $http, $log) {
         'ngInject';
 
         this.$http = $http;
         this.$log = $log;
         this.apiEndpoint = apiEndpoint;
-        this.$modal = $modal;
     }
 
     getNail(id) {
