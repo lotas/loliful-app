@@ -41,7 +41,7 @@ export class PageAboutController {
 
     sendFeedback() {
         if (this.feedback) {
-            this.sending = true
+            this.sending = true;
             this.$http.post(this.apiEndpoint + '/feedback', {feedback: this.feedback});
             this.toastr.success('Thank you!');
         }
