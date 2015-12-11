@@ -1,4 +1,4 @@
 section
   div(ng-if="!vm.items") Loading..
   div.container-fluid(ng-if="vm.items")
-    nail-list-item.panel-success(nail="item.nail ? item.nail : item", ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")
+    nail-list-item.panel-success(nail="item._nail ? item._nail : item", ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")
