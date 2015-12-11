@@ -21,12 +21,15 @@ class NailListItemController {
     /**
      *
      * @param {Nail} Nail
-     * @param {Nail} toastr
+     * @param {User} User
+     * @param {toastr} toastr
+     * @param {$log} log
      */
-    constructor(Nail, toastr, $log) {
+    constructor(Nail, User, toastr, $log) {
         'ngInject';
 
         this.Nail = Nail;
+        this.User = User;
         this.$log = $log;
         this.toastr = toastr;
     }
@@ -62,12 +65,15 @@ class NailListItemController {
         this.Nail.prototype$__create__hammers({id: this.nail.id}, this._hammer)
             .$promise
             .then(res => {
-                if (!this.nail.hammers) {
-                    this.nail.hammers = [];
+                if (!this.nail.$hammers) {
+                    this.nail.$hammers = [];
                 }
-                this.nail.hammers.unshift(res);
+                if (!res.$user) {
+                    res.$user = this.User.getCurrent();
+                }
+                this.nail.$hammers.unshift(res);
                 this.nail.countAnswers += 1;
-                this._hammer = '';;
+                this._hammer = '';
             })
             .catch(err => {
                 this.toastr.warning('oops, I failed again');

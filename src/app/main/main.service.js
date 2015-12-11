@@ -8,6 +8,12 @@ export class MainService {
         this.$modal = $modal;
     }
 
+    getNail(id) {
+        return this.$http.get(`${this.apiEndpoint}/nail/${id}`).then(res => {
+            return res.data.nail;
+        });
+    }
+
     getFresh() {
         return this.$http.get(this.apiEndpoint + '/fresh').then(res => {
             return res.data;

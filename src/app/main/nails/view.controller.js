@@ -12,18 +12,11 @@ export class NailViewController {
 /**
  * Resolve current nail
  *
- * @param Nail
+ * @param {MainService} MainService
  * @param $stateParams
  */
-export function nailViewResolve(Nail, $stateParams) {
+export function nailViewResolve(MainService, $stateParams) {
     'ngInject';
 
-    return Nail.findOne({
-        filter: {
-            where: {
-                id: $stateParams.nailId
-            },
-            include: 'hammers'
-        }
-    }).$promise;
+    return MainService.getNail($stateParams.nailId);
 }
