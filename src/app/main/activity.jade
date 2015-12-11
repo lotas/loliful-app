@@ -1,4 +1,10 @@
 section
   div(ng-if="!vm.items") Loading..
-  div.container-fluid(ng-if="vm.items")
-    nail-list-item.panel-success(nail="item._nail ? item._nail : item", ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")
+  div.container-fluid(ng-if="vm.items && vm.type=='nails'")
+    nail-list-item.panel-success(nail="item", ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")
+  div.container-fluid(ng-if="vm.items && vm.type=='hammers'")
+    hammer-list-item.panel-success(hammer="item", ng-repeat="item in vm.items track by $index", ng-class="vm.panelClass")
+  div.container-fluid(ng-if="vm.items && (vm.type=='saves' || vm.type=='likes')")
+    div(ng-repeat="item in vm.items track by $index")
+        nail-list-item.panel-success(ng-if="item.$nail", nail="item.$nail", ng-class="vm.panelClass")
+        hamemr-list-item.panel-success(ng-if="item.$hammer", hammer="item.$hammer", ng-class="vm.panelClass")
