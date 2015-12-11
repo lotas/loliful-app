@@ -18,7 +18,7 @@ export function runBlock($log, $rootScope, User, $state, Storage, $location, $ht
     $rootScope.stateIncludes = $state.includes;
     $rootScope.api = apiEndpoint;
 
-    $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
+    let dereg1 = $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
         $log.debug('$stateChangeStart', toState, toStateParams);
 
         // Check for auth and send for authorization
@@ -31,17 +31,18 @@ export function runBlock($log, $rootScope, User, $state, Storage, $location, $ht
         }
     });
 
-    $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState) {
+    let dereg2 = $rootScope.$on('$stateNotFound', function(event, unfoundState, fromState) {
         $log.warn('$stateNotFound', unfoundState, fromState);
         $state.go('not-found');
     });
 
-    $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+    let dereg3 = $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState) {
         $log.debug('$stateChangeSuccess', toState, fromState);
     });
 
-    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
-        $log.debug('$stateChangeError', toState, fromState, error);
-        $state.go('error');
+    $rootScope.$on('$destroy', () => {
+        dereg1();
+        dereg2();
+        dereg3();
     });
 }

@@ -28,7 +28,7 @@ export class MainService {
 
     getActivity(type) {
         if (['likes', 'saves', 'nails', 'hammers'].indexOf(type) < 0) {
-            throw new Error("Unkown type " + type);
+            throw new Error("Unknown type " + type);
         }
         return this.$http.get(`${this.apiEndpoint}/activity/${type}`).then(res => {
             return res.data;

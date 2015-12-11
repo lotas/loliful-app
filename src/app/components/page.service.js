@@ -22,9 +22,10 @@ export function runPageService($rootScope, PageService) {
         title: 'Loliful.io'
     };
 
-    $rootScope.$on('$stateChangeSuccess', function(event, toState) {
+    let deregister = $rootScope.$on('$stateChangeSuccess', function(event, toState) {
         if (toState.data && toState.data.pageTitle) {
             PageService.setTitle(toState.data.pageTitle);
         }
     });
+    $rootScope.$on('$destroy', deregister);
 }

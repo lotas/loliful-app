@@ -35,19 +35,21 @@ class NailListItemController {
     }
 
     report() {
-        this.Nail.prototype$report({id: this.nail.id}).$promise.then(res => {
+        this.Nail.prototype$report({id: this.nail.id}).$promise.then(() => {
             this.nail._isReported = true;
             this.toastr.success('Thank you for reporting!');
         }).catch(err => {
+            this.$log.debug(err);
             this.toastr.warning('oh no!, something horrible happened');
         });
     }
 
     favorite() {
         let func = !this.nail._favorite ? 'prototype$addToFav' : 'prototype$removeFromFav';
-        this.Nail[func]({id: this.nail.id}).$promise.then(res => {
+        this.Nail[func]({id: this.nail.id}).$promise.then(() => {
             this.nail._favorite = !this.nail._favorite;
         }).catch(err => {
+            this.$log.debug(err);
             this.toastr.warning('oh no!, something horrible happened');
         });
     }
@@ -57,6 +59,7 @@ class NailListItemController {
             this.nail.countVotes = res.countVotes;
             this.nail._votes = true;
         }).catch(err => {
+            this.$log.debug(err);
             this.toastr.warning('oh no!, vote failed');
         });
     }
@@ -76,6 +79,7 @@ class NailListItemController {
                 this._hammer = '';
             })
             .catch(err => {
+                this.$log.debug(err);
                 this.toastr.warning('oops, I failed again');
             });
     }

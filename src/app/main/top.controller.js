@@ -11,7 +11,7 @@ export class TopController {
         this.MainService = MainService;
         this.$log = $log;
 
-        this.nails = [];
+        this.jokes = [];
         this.loadTop();
     }
 
