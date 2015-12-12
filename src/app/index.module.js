@@ -18,6 +18,7 @@ angular.module('loliful', [
     'ui.router',
     'mgcrea.ngStrap',
     'toastr',
+    'infinite-scroll',
 
     'CONFIG',
     'loliful.components',

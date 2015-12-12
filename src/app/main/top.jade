@@ -1,4 +1,4 @@
 div.container-fluid(ng-if="!vm.jokes")
   p Loading ..
-div.container-fluid(ng-if="vm.jokes")
+div.container-fluid(ng-if="vm.jokes",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
   joke-list-item.panel-success(joke="item", ng-repeat="item in vm.jokes track by $index")
