@@ -43,4 +43,12 @@ describe('Main Service', () => {
         MainService.getActivity('fake');
       }).toThrow(new Error('Unknown type fake'));
   }));
+
+
+  it('_getQuery()', inject((MainService) => {
+      expect(MainService._getQuery).toEqual(jasmine.any(Function));
+      expect(MainService._getQuery()).toEqual('');
+      expect(MainService._getQuery({})).toEqual('?');
+      expect(MainService._getQuery({page: 1})).toEqual('?page=1');
+  }));
 });

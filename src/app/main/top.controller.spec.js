@@ -24,4 +24,13 @@ describe('Top Controller', () => {
     expect(vm.jokes).toEqual(jasmine.any(Array));
   });
 
+  it('should loadMore()', inject((MainService) => {
+      expect(vm.loadMore).toEqual(jasmine.any(Function));
+      expect(vm.page).toEqual(1);
+
+      vm.loadMore();
+      expect(MainService.getTop).toHaveBeenCalled();
+      expect(vm.$loading).toEqual(true);
+  }));
+
 });

@@ -31,4 +31,13 @@ describe('Fresh Controller', () => {
     expect(vm.nails.length).toEqual(1);
   });
 
+  it('should loadMore()', inject((MainService) => {
+      expect(vm.loadMore).toEqual(jasmine.any(Function));
+      expect(vm.page).toEqual(1);
+
+      vm.loadMore();
+      expect(MainService.getFresh).toHaveBeenCalled();
+      expect(vm.$loading).toEqual(true);
+  }));
+
 });

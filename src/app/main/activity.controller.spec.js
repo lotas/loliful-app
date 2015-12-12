@@ -35,5 +35,13 @@ describe('Activity Controller', () => {
     expect(vm.types.likes).toBeDefined();
   });
 
+  it('should loadMore()', inject((MainService) => {
+      expect(vm.loadMore).toEqual(jasmine.any(Function));
+      expect(vm.page).toEqual(1);
+
+      vm.loadMore();
+      expect(MainService.getActivity).toHaveBeenCalled();
+      expect(vm.$loading).toEqual(true);
+  }));
 
 });
