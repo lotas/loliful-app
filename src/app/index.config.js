@@ -1,5 +1,5 @@
 export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
-                       $compileProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
+                       $compileProvider, $httpProvider, $locationProvider) {
     'ngInject';
     // Enable log
     $logProvider.debugEnabled(debugEnabled);

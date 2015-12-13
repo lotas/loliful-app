@@ -11,8 +11,9 @@ form.form-signin(ng-submit="vm.login()")
   button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
 
   div.social
-    a.btn.btn-block.btn-success(href="{{api}}/auth/facebook") Login with Facebook
-    a.btn.btn-block.btn-info(href="{{api}}/auth/google") Login with Google
+    a.btn.btn-block.btn-primary(href="{{api}}/auth/facebook") Login with Facebook
+    a.btn.btn-block.btn-danger(href="{{api}}/auth/google") Login with Google
+    a.btn.btn-block.btn-info(href="{{api}}/auth/twitter") Login with Twitter
 
   p Don't have an account?
     a.btn.btn-sm.btn-default(ui-sref="signup") Create one!
