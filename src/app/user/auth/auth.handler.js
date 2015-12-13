@@ -5,27 +5,33 @@ export function onAuthHandler(AuthService, $state, $location, $log) {
     if (!token) {
         $log.debug('token not found');
 
+        checkAuthAndGo();
+        return false;
+    }
+
+    AuthService.loadToken(token)
+        .then(checkAuthAndGo)
+        .catch(checkAuthAndGo);
+
+    function checkAuthAndGo() {
         if (AuthService.hasToken()) {
             $state.go('profile');
         } else {
             $state.go('login');
         }
-        return false;
     }
 
-    try {
-        token = angular.fromJson(atob(token));
-    } catch (e) {
-        $log.debug('Error decoding token', e);
-        return $state.go('login');
-    }
-
-    if (token && token.id) {
-        AuthService.setToken(token.id, token.userId);
-        $state.go('profile');
-    } else {
-        $state.go('login');
-    }
+    // if (token && token.id) {
+    //     AuthService.setToken(token.id, token.userId);
+    //     //
+    //     //   LoopBackAuth.setUser(accessToken.id, accessToken.userId, accessToken.user);
+    //     //   LoopBackAuth.rememberMe = response.config.params.rememberMe !== false;
+    //     //   LoopBackAuth.save();
+    //     //
+    //     $state.go('profile');
+    // } else {
+    //     $state.go('login');
+    // }
 
     //AuthService.loadInfo().then((user) => {
     //    // store token
