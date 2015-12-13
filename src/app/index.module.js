@@ -18,7 +18,9 @@ angular.module('loliful', [
     'ui.router',
     'mgcrea.ngStrap',
     'toastr',
+
     'infinite-scroll',
+    'angular-loading-bar',
 
     'CONFIG',
     'loliful.components',

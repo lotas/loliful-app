@@ -1,5 +1,5 @@
 export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
-                       $compileProvider, $httpProvider, $locationProvider) {
+                       $compileProvider, $httpProvider, $locationProvider, cfpLoadingBarProvider) {
     'ngInject';
     // Enable log
     $logProvider.debugEnabled(debugEnabled);
@@ -18,4 +18,8 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+    // angular-loading-bar
+    // cfpLoadingBarProvider.includeSpinner = false;
+    // cfpLoadingBarProvider.spinnerTemplate = '<div><span class="fa fa-spinner">Loading...</div>';
 }
