@@ -21,3 +21,6 @@ div.row(ng-if="vm.stats")
     div.panel-heading Rating
     div.panel-body
       bold {{ vm.stats.rating || 0}}
+
+div.well
+    a.btn.btn-block.btn-primary(href="{{api}}/link/facebook") Link with Facebook
