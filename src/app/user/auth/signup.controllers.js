@@ -6,8 +6,9 @@ export class SignupController {
      * @param {$window} $window
      * @param {$log} $log
      * @param toastr
+     * @param flags
      */
-    constructor(User, Storage, $window, $log, toastr) {
+    constructor(User, Storage, $window, $log, toastr, flags) {
         'ngInject';
 
         this.User = User;
@@ -15,9 +16,13 @@ export class SignupController {
         this.$log = $log;
         this.$window = $window;
         this.toastr = toastr;
+        this.signupEnabled = flags.signupEnabled;
     }
 
     signup() {
+        if (!this.signupEnabled) {
+            return false;
+        }
         this.saving = true;
         let userData = {
             email: this.username,

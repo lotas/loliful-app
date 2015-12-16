@@ -20,6 +20,22 @@ describe('Auth controllers', () => {
         });
     });
 
+    describe('LoginController: flags', () => {
+        let vm;
+
+        beforeEach(inject(($controller) => {
+            vm = $controller('LoginController', {
+                flags: {
+                    signupEnabled: false
+                }
+            });
+        }));
+
+        it('should define signupEnabled', () => {
+            expect(vm.signupEnabled).toEqual(false);
+        });
+    });
+
     describe('LoginController', () => {
         let vm;
 

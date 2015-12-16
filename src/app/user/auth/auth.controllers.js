@@ -6,8 +6,9 @@ export class LoginController {
      * @param {$window} $window
      * @param {$log} $log
      * @param toastr
+     * @param {Object} $flags
      */
-    constructor(User, Storage, $window, $log, toastr) {
+    constructor(User, Storage, $window, $log, toastr, flags) {
         'ngInject';
 
         this.User = User;
@@ -15,6 +16,7 @@ export class LoginController {
         this.$log = $log;
         this.$window = $window;
         this.toastr = toastr;
+        this.signupEnabled = flags.signupEnabled;
     }
 
     login() {

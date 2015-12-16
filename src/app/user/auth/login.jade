@@ -15,5 +15,6 @@ form.form-signin(ng-submit="vm.login()")
     a.btn.btn-block.btn-danger(href="{{api}}/auth/google") Login with Google
     a.btn.btn-block.btn-info(href="{{api}}/auth/twitter") Login with Twitter
 
-  p Don't have an account?
-    a.btn.btn-sm.btn-default(ui-sref="signup") Create one!
+  div(ng-if="vm.signupEnabled")
+    p Don't have an account?
+      a.btn.btn-sm.btn-default(ui-sref="signup") Create one!
