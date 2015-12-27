@@ -8,7 +8,7 @@ var argv = require('yargs').argv;
 
 var serverConfig = require('../../server/config.js');
 
-var allowedEnvs = ['local', 'dev', 'prod'];
+var allowedEnvs = ['local', 'dev', 'prod', 'testing'];
 var env = argv.env || 'local';
 
 if (allowedEnvs.indexOf(env) === -1) {
