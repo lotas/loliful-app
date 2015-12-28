@@ -12,7 +12,7 @@ export function mainRouteConfig($stateProvider) {
             url: '/fresh',
             views: {
                 'content@app': {
-                    templateUrl: 'app/main/fresh.html',
+                    templateUrl: 'app/main/fresh/fresh.html',
                     controller: 'FreshController',
                     controllerAs: 'vm'
                 }
@@ -26,7 +26,7 @@ export function mainRouteConfig($stateProvider) {
             url: '/top',
             views: {
                 'content@app': {
-                    templateUrl: 'app/main/top.html',
+                    templateUrl: 'app/main/top/top.html',
                     controller: 'TopController',
                     controllerAs: 'vm'
                 }
@@ -40,13 +40,27 @@ export function mainRouteConfig($stateProvider) {
             url: '/activity/:type',
             views: {
                 'content@app': {
-                    templateUrl: 'app/main/activity.html',
+                    templateUrl: 'app/main/activity/activity.html',
                     controller: 'ActivityController',
                     controllerAs: 'vm'
                 }
             },
             data: {
                 pageTitle: 'Activity ∑ Loliful.io'
+            }
+        })
+        .state('notifications', {
+            parent: 'app',
+            url: '/notifications',
+            views: {
+                'content@app': {
+                    templateUrl: 'app/main/notifications/notifications.html',
+                    controller: 'NotificationsController',
+                    controllerAs: 'vm'
+                }
+            },
+            data: {
+                pageTitle: 'Notifications ƒ Loliful.io'
             }
         })
         .state('nail-view', {

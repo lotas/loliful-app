@@ -1,0 +1,10 @@
+h1 Notifications
+    span.badge {{ vm.count.count }} / {{ vm.count.unread }}
+div
+  button.btn.btn-info.btn-small(ng-click="vm.markRead()")
+    | Mark all read
+
+div.container-fluid(ng-if="!vm.notifications.length")
+  p Loading ..
+div.container-fluid(ng-if="vm.notifications",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
+  notification-list-item(notification="item", ng-repeat="item in vm.notifications track by $index")

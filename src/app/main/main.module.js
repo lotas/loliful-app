@@ -1,8 +1,11 @@
 import { mainRouteConfig } from './main.route';
 
-import { FreshController } from './fresh.controller';
-import { TopController } from './top.controller';
-import { ActivityController } from './activity.controller';
+import { FreshController } from './fresh/fresh.controller';
+import { TopController } from './top/top.controller';
+import { ActivityController } from './activity/activity.controller';
+
+import { NotificationsController } from './notifications/notifications.controller';
+import { NotificationsListItemItemDirective } from './notifications/list-item.directive';
 
 import { NailAddDirective } from './nails/add.directive';
 import { NailListItemDirective } from './nails/list-item.directive';
@@ -21,6 +24,9 @@ angular.module('loliful.main', [])
     .controller('FreshController', FreshController)
     .controller('TopController', TopController)
     .controller('ActivityController', ActivityController)
+
+    .controller('NotificationsController', NotificationsController)
+    .directive('notificationListItem', NotificationsListItemItemDirective)
 
     .directive('nailAdd', NailAddDirective)
     .directive('nailListItem', NailListItemDirective)

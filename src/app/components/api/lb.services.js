@@ -2663,9 +2663,9 @@ module.factory(
           method: "GET"
         },
 
-        // INTERNAL. Use Activity.user() instead.
-        "::get::activity::user": {
-          url: urlBase + "/activities/:id/user",
+        // INTERNAL. Use Notification.user() instead.
+        "::get::notification::user": {
+          url: urlBase + "/notifications/:id/user",
           method: "GET"
         },
 
@@ -2951,13 +2951,13 @@ module.factory(
 
 /**
  * @ngdoc object
- * @name lbServices.Activity
- * @header lbServices.Activity
+ * @name lbServices.Notification
+ * @header lbServices.Notification
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `Activity` model.
+ * A $resource object for interacting with the `Notification` model.
  *
  * ## Example
  *
@@ -2967,138 +2967,23 @@ module.factory(
  *
  */
 module.factory(
-  "Activity",
+  "Notification",
   ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
     var R = Resource(
-      urlBase + "/activities/:id",
+      urlBase + "/notifications/:id",
       { 'id': '@id' },
       {
 
-        // INTERNAL. Use Activity.user() instead.
+        // INTERNAL. Use Notification.user() instead.
         "prototype$__get__user": {
-          url: urlBase + "/activities/:id/user",
+          url: urlBase + "/notifications/:id/user",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#create
-         * @methodOf lbServices.Activity
-         *
-         * @description
-         *
-         * Create a new instance of the model and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
-         * </em>
-         */
-        "create": {
-          url: urlBase + "/activities",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Activity#createMany
-         * @methodOf lbServices.Activity
-         *
-         * @description
-         *
-         * Create a new instance of the model and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Array.<Object>,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Array.<Object>} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
-         * </em>
-         */
-        "createMany": {
-          isArray: true,
-          url: urlBase + "/activities",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Activity#upsert
-         * @methodOf lbServices.Activity
-         *
-         * @description
-         *
-         * Update an existing model instance or insert a new one into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
-         * </em>
-         */
-        "upsert": {
-          url: urlBase + "/activities",
-          method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Activity#exists
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#exists
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3123,14 +3008,14 @@ module.factory(
          *  - `exists` – `{boolean=}` - 
          */
         "exists": {
-          url: urlBase + "/activities/:id/exists",
+          url: urlBase + "/notifications/:id/exists",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#findById
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#findById
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3154,18 +3039,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
+         * This usually means the response is a `Notification` object.)
          * </em>
          */
         "findById": {
-          url: urlBase + "/activities/:id",
+          url: urlBase + "/notifications/:id",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#find
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#find
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3187,19 +3072,19 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
+         * This usually means the response is a `Notification` object.)
          * </em>
          */
         "find": {
           isArray: true,
-          url: urlBase + "/activities",
+          url: urlBase + "/notifications",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#findOne
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#findOne
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3221,52 +3106,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
+         * This usually means the response is a `Notification` object.)
          * </em>
          */
         "findOne": {
-          url: urlBase + "/activities/findOne",
+          url: urlBase + "/notifications/findOne",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#updateAll
-         * @methodOf lbServices.Activity
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        "updateAll": {
-          url: urlBase + "/activities/update",
-          method: "POST"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Activity#deleteById
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#deleteById
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3288,18 +3139,18 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
+         * This usually means the response is a `Notification` object.)
          * </em>
          */
         "deleteById": {
-          url: urlBase + "/activities/:id",
+          url: urlBase + "/notifications/:id",
           method: "DELETE"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#count
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#count
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3324,55 +3175,18 @@ module.factory(
          *  - `count` – `{number=}` - 
          */
         "count": {
-          url: urlBase + "/activities/count",
+          url: urlBase + "/notifications/count",
           method: "GET"
         },
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#prototype$updateAttributes
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#markRead
+         * @methodOf lbServices.Notification
          *
          * @description
          *
-         * Update attributes for a model instance and persist it into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `id` – `{*}` - PersistedModel id
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
-         * </em>
-         */
-        "prototype$updateAttributes": {
-          url: urlBase + "/activities/:id",
-          method: "PUT"
-        },
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Activity#createChangeStream
-         * @methodOf lbServices.Activity
-         *
-         * @description
-         *
-         * Create a change stream.
+         * Mark as read
          *
          * @param {Object=} parameters Request parameters.
          *
@@ -3381,7 +3195,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         *  - `options` – `{object=}` - 
+         * This method does not accept any data. Supply an empty object.
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3395,10 +3209,10 @@ module.factory(
          *
          * Data properties:
          *
-         *  - `changes` – `{ReadableStream=}` - 
+         *  - `date` – `{Number=}` - 
          */
-        "createChangeStream": {
-          url: urlBase + "/activities/change-stream",
+        "markRead": {
+          url: urlBase + "/notifications/markRead",
           method: "POST"
         },
       }
@@ -3408,74 +3222,8 @@ module.factory(
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#updateOrCreate
-         * @methodOf lbServices.Activity
-         *
-         * @description
-         *
-         * Update an existing model instance or insert a new one into the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * <em>
-         * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
-         * </em>
-         */
-        R["updateOrCreate"] = R["upsert"];
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Activity#update
-         * @methodOf lbServices.Activity
-         *
-         * @description
-         *
-         * Update instances of the model matched by where from the data source.
-         *
-         * @param {Object=} parameters Request parameters.
-         *
-         *  - `where` – `{object=}` - Criteria to match model instances
-         *
-         * @param {Object} postData Request data.
-         *
-         * This method expects a subset of model properties as request parameters.
-         *
-         * @param {function(Object,Object)=} successCb
-         *   Success callback with two arguments: `value`, `responseHeaders`.
-         *
-         * @param {function(Object)=} errorCb Error callback with one argument:
-         *   `httpResponse`.
-         *
-         * @returns {Object} An empty reference that will be
-         *   populated with the actual data once the response is returned
-         *   from the server.
-         *
-         * The number of instances updated
-         */
-        R["update"] = R["updateAll"];
-
-        /**
-         * @ngdoc method
-         * @name lbServices.Activity#destroyById
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#destroyById
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3497,15 +3245,15 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
+         * This usually means the response is a `Notification` object.)
          * </em>
          */
         R["destroyById"] = R["deleteById"];
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#removeById
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#removeById
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3527,7 +3275,7 @@ module.factory(
          *
          * <em>
          * (The remote method definition does not provide any description.
-         * This usually means the response is a `Activity` object.)
+         * This usually means the response is a `Notification` object.)
          * </em>
          */
         R["removeById"] = R["deleteById"];
@@ -3535,19 +3283,19 @@ module.factory(
 
     /**
     * @ngdoc property
-    * @name lbServices.Activity#modelName
-    * @propertyOf lbServices.Activity
+    * @name lbServices.Notification#modelName
+    * @propertyOf lbServices.Notification
     * @description
     * The name of the model represented by this $resource,
-    * i.e. `Activity`.
+    * i.e. `Notification`.
     */
-    R.modelName = "Activity";
+    R.modelName = "Notification";
 
 
         /**
          * @ngdoc method
-         * @name lbServices.Activity#user
-         * @methodOf lbServices.Activity
+         * @name lbServices.Notification#user
+         * @methodOf lbServices.Notification
          *
          * @description
          *
@@ -3576,7 +3324,7 @@ module.factory(
          */
         R.user = function() {
           var TargetResource = $injector.get("User");
-          var action = TargetResource["::get::activity::user"];
+          var action = TargetResource["::get::notification::user"];
           return action.apply(R, arguments);
         };
 
