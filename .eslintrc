@@ -15,6 +15,7 @@
     "inject": true,
     "console": true,
     "process": true,
-    "jQuery": true
+    "jQuery": true,
+    "io": true
   }
 }

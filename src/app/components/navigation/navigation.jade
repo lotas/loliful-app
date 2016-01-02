@@ -12,6 +12,7 @@ header.header.clearfix
             a(ui-sref="profile") Profile
           li(role="presentation", data-match-route="/notifications")
             a(ui-sref="notifications") Notifications
+                span.badge(ng-show="vm.unreadCount") {{ vm.unreadCount }}
           li(role="presentation", data-match-route="/about")
             a(ui-sref="page.about") About
           li(role="presentation")

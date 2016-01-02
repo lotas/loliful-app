@@ -9,6 +9,20 @@ export class AuthService {
         this.apiEndpoint = apiEndpoint;
     }
 
+    getUserId() {
+        return this.LoopBackAuth.currentUserId;
+    }
+
+    getToken() {
+        if (!this.hasToken()) {
+            return null;
+        }
+        return {
+            id: this.LoopBackAuth.accessTokenId,
+            userId: this.LoopBackAuth.currentUserId
+        };
+    }
+
     hasToken() {
         return this.LoopBackAuth.accessTokenId !== null;
     }

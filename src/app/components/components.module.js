@@ -5,6 +5,7 @@ import { PageService, runPageService } from './page.service';
 import { NavigationDirective } from './navigation/navigation.directive';
 import { errorPageRouteConfig } from './error-page/error-page.route';
 import { SweetAlert } from './sweet-alert.service';
+import { LiveService, runLiveService } from './live.service';
 
 angular.module('loliful.components', ['lbServices', 'LocalStorageModule'])
     .config(storageConfig)
@@ -17,6 +18,9 @@ angular.module('loliful.components', ['lbServices', 'LocalStorageModule'])
 
     .service('PageService', PageService)
     .run(runPageService)
+
+    .service('LiveService', LiveService)
+    .run(runLiveService)
 
     .directive('lolifulNavigation', NavigationDirective)
 ;

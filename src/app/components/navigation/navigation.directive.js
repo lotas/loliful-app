@@ -13,17 +13,17 @@ export function NavigationDirective() {
 }
 
 class NavigationController {
-    constructor($state, $aside) {
+    constructor($state, $aside, LiveService) {
         'ngInject';
 
         this.$state = $state;
         this.$aside = $aside;
+        this.LiveService = LiveService;
 
         this.sidebar = $aside({
             template: 'app/components/navigation/aside.html',
             show: false
         });
-
 
         this.activityTypes = {
             nails: 'Nails',
@@ -31,6 +31,8 @@ class NavigationController {
             saves: 'Saves',
             likes: 'Likes'
         };
+
+        this.subscribeNotifications();
     }
 
     showAside() {
@@ -39,5 +41,12 @@ class NavigationController {
 
     checkActivity(type) {
         return this.$state.is('activity', {type: type});
+    }
+
+    subscribeNotifications() {
+        this.LiveService.subscribePrivate('ntfy', (data) => {
+            console.log(data);
+            this.unreadCount = angular.isNumber(data) ? data : false;
+        });
     }
 }
