@@ -24,6 +24,7 @@ header.header.clearfix
         a(ui-sref="fresh")
           i.icon.icon-loliful-icon-nav-fresh
           | Fresh
+          span.badge(ng-show="vm.freshNails.length>0") {{ vm.freshNails.length }}
       li(role="presentation", ng-class="{active: isState('top')}")
         a(ui-sref="top")
           i.icon.icon-loliful-icon-nav-top

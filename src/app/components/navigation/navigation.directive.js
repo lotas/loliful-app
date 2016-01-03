@@ -13,12 +13,17 @@ export function NavigationDirective() {
 }
 
 class NavigationController {
-    constructor($state, $aside, LiveService) {
+    constructor($rootScope, $state, $aside, $log, LiveService, Notification) {
         'ngInject';
 
+        this.$rootScope = $rootScope;
         this.$state = $state;
         this.$aside = $aside;
+        this.$log = $log;
         this.LiveService = LiveService;
+        this.Notification = Notification;
+
+        this.freshNails = [];
 
         this.sidebar = $aside({
             template: 'app/components/navigation/aside.html',
@@ -33,6 +38,7 @@ class NavigationController {
         };
 
         this.subscribeNotifications();
+        this.loadNotificationsCount();
     }
 
     showAside() {
@@ -43,10 +49,28 @@ class NavigationController {
         return this.$state.is('activity', {type: type});
     }
 
+    loadNotificationsCount() {
+        this.Notification.count().$promise.then(res => {
+            this.unreadCount = res.unread;
+        });
+    }
+
     subscribeNotifications() {
-        this.LiveService.subscribePrivate('ntfy', (data) => {
-            console.log(data);
-            this.unreadCount = angular.isNumber(data) ? data : false;
+        var unsubscribeUnread = this.LiveService.subscribePrivate('unread', (data) => {
+            this.$log.debug('live.unread', data);
+            this.unreadCount = data || 0;
+            this.$rootScope.$apply();
+        });
+
+        var unsubscribeFresh = this.LiveService.subscribe('fresh', (nail) => {
+            this.$log.debug('live.fresh', nail);
+            this.freshNails.push(nail);
+            this.$rootScope.$apply();
+        });
+
+        this.$rootScope.$on('$destroy', () => {
+            unsubscribeUnread();
+            unsubscribeFresh();
         });
     }
 }

@@ -29,18 +29,23 @@ export class LiveService {
         return this.$promise;
     }
 
-    subscribe(channel, cb) {
-        this.connect().then(() => {
-            this.$log.debug(`live.sub: ${channel}`);
-            this.socket.on(channel, cb);
-        });
+    /**
+     * @param {String} event
+     * @param {Function} callback
+     * @return {Function} unsubscribe function
+     */
+    subscribe(event, cb) {
+        this.$log.debug(`live.sub: ${event}`);
+        return this.socket.on(event, cb);
     }
 
+    /**
+     * @param {String} type
+     * @return {Function} usubscribe function
+     */
     subscribePrivate(type, cb) {
-        this.connect().then(() => {
-            this.$log.debug(`live.sub.private: ${type}`);
-            this.socket.on(`ntfy:${this.AuthService.getUserId()}`, cb);
-        });
+        this.$log.debug('live.sub.private');
+        return this.socket.on(`p:${type}`, cb)
     }
 }
 

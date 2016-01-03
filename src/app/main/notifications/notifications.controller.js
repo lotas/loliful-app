@@ -16,7 +16,7 @@ export class NotificationsController {
         this.page = 1;
         this.loadFilter = {
             order: 'date DESC',
-            limit: 10,
+            limit: 20,
             offset: 0
         };
         this.load();
