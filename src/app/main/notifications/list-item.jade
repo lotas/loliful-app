@@ -1,6 +1,5 @@
 div.notification-list-item.row(ng-class="{'bg-warning': nli.notification.isRead == '0'}")
-  .col-sm-2 {{ nli.notification.date | date:'short' }}
-  .col-sm-2 {{ nli.notification.actorId }}
-  .col-sm-2
-    strong {{ nli.notification.type }}
-  .col-sm-6 "{{ nli.notification.data.text }}"
+  .col-sm-2 {{ ::nli.notification.date | date:'short' }}
+  .col-sm-10
+    a(ui-sref="nail-view({nailId: nli.notification.data.nailId})", ng-click="nli.markRead()")
+      | {{ ::nli.formatString() }}

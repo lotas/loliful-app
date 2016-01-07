@@ -3195,7 +3195,7 @@ module.factory(
          *
          * @param {Object} postData Request data.
          *
-         * This method does not accept any data. Supply an empty object.
+         *  - `notificationId` – `{String=}` - 
          *
          * @param {function(Object,Object)=} successCb
          *   Success callback with two arguments: `value`, `responseHeaders`.
