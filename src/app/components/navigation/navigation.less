@@ -1,5 +1,3 @@
-@navbarBackground: #222;
-
 nav {
   ul.activity {
     margin-top: 8px;
@@ -19,7 +17,7 @@ nav {
       margin-right: 4px;
       position: relative;
       top: 3px;
-      color: #5AADBB;
+      color: @white;
       overflow:hidden;
       &:before {
         position: relative;
@@ -34,31 +32,4 @@ nav {
     }
   }
 
-}
-
-.aside {
-  background: @navbarBackground;
-  .close {
-    color: #fff;
-  }
-  .nav {
-    margin-top: 30px;
-  }
-}
-
-.aside-backdrop.am-fade {
-  opacity: .5;
-  transition: opacity .15s linear;
-  &.ng-enter {
-    opacity: 0;
-    &.ng-enter-active {
-      opacity: .5;
-    }
-  }
-  &.ng-leave {
-    opacity: .5;
-    &.ng-leave-active {
-      opacity: 0;
-    }
-  }
 }

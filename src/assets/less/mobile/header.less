@@ -1,0 +1,32 @@
+header.header {
+    background: @headerBg url('@{img}/bg_artwork.png') no-repeat left top;
+
+    .navbar-brand {
+        img {
+            height: @logoHeight;
+        }
+    }
+}
+
+.navbar-default {
+    background-color: initial;
+    border: initial;
+}
+
+.nav-pills {
+    &> li {
+        &> a {
+           color: @navText;
+        }
+        &> a:hover, a:focus {
+            background-color: initial;
+        }
+    }
+    &> li.active {
+        &> a, a:hover, a:focus {
+            background-color: @navActiveBg;
+            color: @navActiveText;
+        }
+    }
+}
+
