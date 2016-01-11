@@ -1,0 +1,83 @@
+header.header {
+    background: @headerBg url('@{img}/bg_artwork.png') no-repeat left top;
+    background-size: cover;
+
+    .navbar-brand {
+        margin-top: 10px;
+        img {
+            height: @logoHeight;
+        }
+    }
+}
+
+
+.navbar-default {
+    background-color: initial;
+    border: initial;
+
+    .header-icon {
+        border: 0;
+        color: @iconMenu;
+        .icon-font();
+
+        &:hover, &:active, &:focus {
+            background-color: initial;
+            color: @iconMenuHighlight;
+        }
+    }
+}
+
+.nav-pills {
+    &> li {
+        &> a {
+           color: @navText;
+           font-size: @navFontSize;
+           line-height: @navLineHeight;
+           padding: @navLiPaddingTop @navLiPaddingLeft;
+
+           .border-radius(50px);
+           text-align: center;
+
+           .icon {
+            //    float: left;
+               margin-right: @navIconMargin;
+               font-size: @navIconSize;
+           }
+        }
+        &> a:hover, a:focus {
+            background-color: initial;
+        }
+    }
+    &> li.active {
+        &> a, a:hover, a:focus {
+            background-color: @navActiveBg;
+            color: @navActiveText;
+        }
+    }
+}
+
+
+
+// .nav {
+
+//     .icon {
+//       margin-left: 4px;
+//       margin-right: 4px;
+//       position: relative;
+//       top: 3px;
+//       color: @white;
+//       overflow:hidden;
+//       &:before {
+//         position: relative;
+//         font-size: 2em;
+//       }
+//     }
+//   }
+
+//   .active {
+//     .icon {
+//       color: #F8BB86;
+//     }
+//   }
+
+// }

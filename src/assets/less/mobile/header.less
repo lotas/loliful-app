@@ -1,32 +1,15 @@
 header.header {
-    background: @headerBg url('@{img}/bg_artwork.png') no-repeat left top;
-
     .navbar-brand {
         img {
-            height: @logoHeight;
+            height: @logoMobileHeight;
         }
     }
 }
 
-.navbar-default {
-    background-color: initial;
-    border: initial;
-}
+.navbar .nav-pills.top-menu {
+    width: 100%;
 
-.nav-pills {
-    &> li {
-        &> a {
-           color: @navText;
-        }
-        &> a:hover, a:focus {
-            background-color: initial;
-        }
-    }
-    &> li.active {
-        &> a, a:hover, a:focus {
-            background-color: @navActiveBg;
-            color: @navActiveText;
-        }
+    > li {
+        width: 33%;
     }
 }
-

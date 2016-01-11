@@ -2,12 +2,22 @@
  *  Do not remove the comments below. It's the markers used by wiredep to inject
  *  less dependencies when defined in the bower.json of your dependencies
  */
-// bower:less
-// endbower
+// zbower:less
+// zendbower
 
-@import '../assets/fonts/loliful.css';
+@assets: '../assets';
+@bower: '../../bower_components/';
 
-@import '../assets/less/main.less';
+// custom bootstrap build
+@import '@{assets}/less/bootstrap-custom';
+
+// Other bower libs
+@import (css) '@{bower}bootstrap-additions/dist/modules/aside.css';
+@import (css) '@{bower}angular/angular-csp.css';
+@import (css) '@{bower}sweetalert/dist/sweetalert.css';
+
+@import (css) '@{assets}/fonts/loliful.css';
+@import '@{assets}/less/main';
 
 
 /**
