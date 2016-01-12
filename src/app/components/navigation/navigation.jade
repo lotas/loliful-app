@@ -38,6 +38,6 @@ header.header.clearfix
           i.icon.icon-loliful-icon-nav-activity
           | Activity
 
-    ul.nav.nav-pills.activity(ng-if="isState('activity')")
-      li(role="presentation", ng-repeat="(type, value) in vm.activityTypes track by $index", ng-class="{active: vm.checkActivity(type)}")
-        a(ui-sref="activity({type: type})") {{value}}
+ul#secondary-menu.nav.nav-pills.activity.nav-justified(ng-if="isState('activity')")
+  li(role="presentation", ng-repeat="(type, value) in vm.activityTypes track by $index", ng-class="{active: vm.checkActivity(type)}")
+    a(ui-sref="activity({type: type})") {{value}}

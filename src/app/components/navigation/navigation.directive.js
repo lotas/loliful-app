@@ -31,10 +31,10 @@ class NavigationController {
         });
 
         this.activityTypes = {
-            nails: 'Nails',
-            hammers: 'Hammers',
-            saves: 'Saves',
-            likes: 'Likes'
+            saves: 'Saved for later',
+            likes: 'Liked',
+            nails: 'My intros',
+            hammers: 'My outros'
         };
 
         this.subscribeNotifications();
