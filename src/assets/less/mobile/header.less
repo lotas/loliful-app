@@ -4,12 +4,49 @@ header.header {
             height: @logoMobileHeight;
         }
     }
+
+    .navbar {
+        .nav-pills.top-menu {
+            width: 100%;
+
+            > li {
+                width: 33%;
+            }
+        }
+    }
 }
 
-.navbar .nav-pills.top-menu {
-    width: 100%;
 
-    > li {
-        width: 33%;
+.minifyNavPills(@delta) {
+    header.header {
+        .nav-pills {
+            padding-right: @navPillsMarginSides - @delta;
+            padding-left: @navPillsMarginSides - @delta;
+
+            &>li {
+                &>a {
+                    font-size: @navFontSize - @delta;
+                    line-height: @navLineHeight - @delta;
+
+                    .icon {
+                        font-size: @navIconSize - floor(@delta * 1.2);
+                        line-height: @navIconSize - floor(@delta * 1.2);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .minifyNavPills(10px);
+    header.header {
+        .navbar {
+            .nav-pills.top-menu {
+                > li {
+                    width: 32%;
+                }
+            }
+        }
     }
 }

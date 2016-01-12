@@ -3,9 +3,54 @@ header.header {
     background-size: cover;
 
     .navbar-brand {
-        margin-top: 10px;
+        margin-top: @navBarMarginTop;
         img {
             height: @logoHeight;
+        }
+    }
+
+    .nav-pills {
+        padding-right: @navPillsMarginSides;
+        padding-left: @navPillsMarginSides;
+
+        &> li {
+
+            &> a {
+                color: @navText;
+                font-size: @navFontSize;
+                line-height: @navLineHeight;
+                padding: @navLiPaddingTop @navLiPaddingLeft;
+
+                .border-radius(50px);
+                text-align: center;
+
+                .icon {
+                        margin-right: @navIconMargin;
+                        font-size: @navIconSize;
+                        line-height: @navIconSize;
+                        display: inline-block;
+                        vertical-align: middle;
+                }
+            }
+            &> a:hover, a:focus {
+                background-color: initial;
+            }
+        }
+        &> li.active {
+            &> a, a:hover, a:focus {
+                background-color: @navActiveBg;
+                color: @navActiveText;
+            }
+
+            .icon-loliful-icon-nav-fresh {
+                color: @navIconFresh;
+            }
+            .icon-loliful-icon-nav-top {
+                color: @navIconTop;
+            }
+            .icon-loliful-icon-nav-activity {
+                color: @navIconActivity;
+            }
         }
     }
 }
@@ -23,35 +68,6 @@ header.header {
         &:hover, &:active, &:focus {
             background-color: initial;
             color: @iconMenuHighlight;
-        }
-    }
-}
-
-.nav-pills {
-    &> li {
-        &> a {
-           color: @navText;
-           font-size: @navFontSize;
-           line-height: @navLineHeight;
-           padding: @navLiPaddingTop @navLiPaddingLeft;
-
-           .border-radius(50px);
-           text-align: center;
-
-           .icon {
-            //    float: left;
-               margin-right: @navIconMargin;
-               font-size: @navIconSize;
-           }
-        }
-        &> a:hover, a:focus {
-            background-color: initial;
-        }
-    }
-    &> li.active {
-        &> a, a:hover, a:focus {
-            background-color: @navActiveBg;
-            color: @navActiveText;
         }
     }
 }
