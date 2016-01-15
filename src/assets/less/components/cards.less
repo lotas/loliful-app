@@ -13,11 +13,17 @@
 }
 
 .nail-list-item {
-    /* Rectangle 2: */
+    .cardPaddings() {
+        padding-left: 18px;
+        padding-right: 18px;
+    }
+
     background: @nailBg;
-    box-shadow: 0px 15px 20px 0px @nailBoxShadow;
+    box-shadow: 0px 5px 10px 0px @nailBoxShadow;
+    margin-bottom: 10px;
 
     .panel-heading {
+        .cardPaddings();
         background-color: initial;
 
         font-weight: normal;
@@ -48,8 +54,25 @@
                 margin-right: 5px;
             }
         }
+
+        .expander {
+            float: right;
+            font-size: @nailExpandFontSize;
+            color: @nailTextColor;
+            padding: 1px 10px;
+
+            .icon {
+                .icon-align();
+            }
+
+            &:active, :focus, :hover {
+                color: lighten(@nailTextColor, 20%);
+            }
+        }
     }
     .panel-body {
+        .cardPaddings();
+        padding-bottom: 40px;
         font-family: 'Sanchez', sans-serif;
         font-size: @nailTextSize;
         color: @nailTextColor;
@@ -59,6 +82,7 @@
         }
     }
     .panel-footer {
+        .cardPaddings();
         border-top: 0;
         background: @nailFooterBg;
         font-size: @nailFooterTextSize;
@@ -70,6 +94,10 @@
             color: @nailTextColor;
             line-height: @nailFooterIconSize;
             .icon-align();
+
+            &:hover,:active,:focus {
+                color: lighten(@nailTextColor, 20%);
+            }
         }
 
         .likes {
@@ -79,6 +107,13 @@
                 font-size: @nailLikeCountSize;
                 line-height: 29px;
             }
+            text-decoration: none;
+
+        }
+
+        > div {
+            // display: block;
+            // float: left;
         }
     }
 }

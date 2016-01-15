@@ -2,31 +2,32 @@ div.panel.nail-list-item
   div.panel-heading
     span.avatar
     a(href="#") {{ ::nlm.nail.$user.name }}
+    a.expander(ui-sref="nail-view({nailId: nlm.nail.id})")
+      i.icon.icon-loliful-icon-expand
     span.time-ago
       i.icon.icon-loliful-icon-time
       | {{ nlm.nail.created | timeAgo }}
   div.panel-body
     a(ui-sref="nail-view({nailId: nlm.nail.id})")
-      i.pull-right.icon.icon-loliful-icon-expand
       | {{ ::nlm.nail.text }}
   div.panel-footer
     div.row
-      div.col-sm-2.col-xs-3
+      div.col-xs-3
         span
-          ng-pluralize(count="nlm.nail.countAnswers", when="{'0': '', 'one': '1 outro', 'other': '{} outros'}")
-      div.col-sm-4.col-xs-9(ng-init="nlm._reply=false")
+          ng-pluralize(count="nlm.nail.countAnswers", when="{'0': 'no replies', 'one': '1 outro', 'other': '{} outros'}")
+      div.col-xs-2(ng-init="nlm._reply=false")
         div(ng-click="nlm._reply=true", ng-hide="nlm._reply")
           input.disabled(value="Reply ...")
         form.form-inline(ng-submit="nlm.reply(); nlm._reply=false;", ng-if="nlm._reply")
           div.col-xs-8.col-sm-8
             input#reply.form-control(type="text", ng-model="nlm._hammer.text", required, autofocus=true)
           button.btn.btn-small.btn-success(type="submit") Reply
-      div.col-sm-6.col-xs-12.pull-right
+      div.col-xs-3.pull-right
         a(type="button", ng-click="nlm.report()") Abuse
         a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail._favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail._favorite, 'icon-loliful-icon-bookmarked': nlm.nail._favorite}")
         a.likes.pull-right(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail._votes", ng-class="{active: nlm.nail._votes}")
           i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail._votes, 'icon-loliful-icon-liked': nlm.nail._votes}")
           span {{ nlm.nail.countVotes }}
-  div.container-fluid(ng-if="nlm.showHammers && nlm.nail.hammers")
-   hammer-list-item.panel-warning(hammer="item", ng-repeat="item in nlm.nail.hammers track by $index")
+  // div.container-fluid(ng-if="nlm.showHammers && nlm.nail.hammers")
+  //  hammer-list-item.panel-warning(hammer="item", ng-repeat="item in nlm.nail.hammers track by $index")
