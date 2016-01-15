@@ -1,6 +1,6 @@
-nail-add(on-add="vm.onAdd(nail)")
+nail-add.nail-add(on-add="vm.onAdd(nail)")
 
 div.container-fluid(ng-if="!vm.nails.length")
   p Loading ..
 div.container-fluid(ng-if="vm.nails",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
-  nail-list-item.panel-primary(nail="item", ng-repeat="item in vm.nails track by $index", show-hammers="true")
+  nail-list-item(nail="item", ng-repeat="item in vm.nails track by $index", show-hammers="true")
