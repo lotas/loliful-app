@@ -1,4 +1,5 @@
-export function NailListItemDirective() {
+export
+function NailListItemDirective() {
     'ngInject';
 
     let directive = {
@@ -25,17 +26,24 @@ class NailListItemController {
      * @param {toastr} toastr
      * @param {$log} log
      */
-    constructor(Nail, User, toastr, $log) {
+    constructor(Nail, User, toastr, $log, $dropdown) {
         'ngInject';
 
         this.Nail = Nail;
         this.User = User;
         this.$log = $log;
         this.toastr = toastr;
+
+        this.dropdown = [{
+            "text": "Report Abuse",
+            "click": "nlm.report()"
+        }];
     }
 
     report() {
-        this.Nail.prototype$report({id: this.nail.id}).$promise.then(() => {
+        this.Nail.prototype$report({
+            id: this.nail.id
+        }).$promise.then(() => {
             this.nail._isReported = true;
             this.toastr.success('Thank you for reporting!');
         }).catch(err => {
@@ -46,7 +54,9 @@ class NailListItemController {
 
     favorite() {
         let func = !this.nail._favorite ? 'prototype$addToFav' : 'prototype$removeFromFav';
-        this.Nail[func]({id: this.nail.id}).$promise.then(() => {
+        this.Nail[func]({
+            id: this.nail.id
+        }).$promise.then(() => {
             this.nail._favorite = !this.nail._favorite;
         }).catch(err => {
             this.$log.debug(err);
@@ -55,7 +65,9 @@ class NailListItemController {
     }
 
     vote() {
-        this.Nail.prototype$vote({id: this.nail.id}).$promise.then(res => {
+        this.Nail.prototype$vote({
+            id: this.nail.id
+        }).$promise.then(res => {
             this.nail.countVotes = res.countVotes;
             this.nail._votes = true;
         }).catch(err => {
@@ -65,7 +77,9 @@ class NailListItemController {
     }
 
     reply() {
-        this.Nail.prototype$__create__hammers({id: this.nail.id}, this._hammer)
+        this.Nail.prototype$__create__hammers({
+            id: this.nail.id
+        }, this._hammer)
             .$promise
             .then(res => {
                 if (!this.nail.$hammers) {

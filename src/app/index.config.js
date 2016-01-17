@@ -1,5 +1,6 @@
 export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
-                       $compileProvider, $httpProvider, $locationProvider) {
+                       $compileProvider, $httpProvider, $locationProvider,
+                       $dropdownProvider) {
     'ngInject';
     // Enable log
     $logProvider.debugEnabled(debugEnabled);
@@ -19,6 +20,10 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = true;
+
+    angular.extend($dropdownProvider.defaults, {
+        html: true
+    });
 
     // angular-loading-bar
     // cfpLoadingBarProvider.includeSpinner = false;

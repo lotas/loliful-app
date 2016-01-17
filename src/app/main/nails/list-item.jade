@@ -15,18 +15,20 @@ div.panel.nail-list-item
       div.col-xs-3
         span
           ng-pluralize(count="nlm.nail.countAnswers", when="{'0': 'no replies', 'one': '1 outro', 'other': '{} outros'}")
-      div.col-xs-2(ng-init="nlm._reply=false")
+      div.col-xs-3(ng-init="nlm._reply=false")
         div(ng-click="nlm._reply=true", ng-hide="nlm._reply")
           input.disabled(value="Reply ...")
         form.form-inline(ng-submit="nlm.reply(); nlm._reply=false;", ng-if="nlm._reply")
           div.col-xs-8.col-sm-8
             input#reply.form-control(type="text", ng-model="nlm._hammer.text", required, autofocus=true)
           button.btn.btn-small.btn-success(type="submit") Reply
-      div.col-xs-3.pull-right
-        a(type="button", ng-click="nlm.report()") Abuse
+      div.col-xs-6.pull-right.text-right
+        div.dropdown
+          button(bs-dropdown="nlm.dropdown", data-animation="am-flip-x", aria-haspopup="true", aria-expanded="false")
+            i.icon.icon-loliful-icon-submenu
         a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail._favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail._favorite, 'icon-loliful-icon-bookmarked': nlm.nail._favorite}")
-        a.likes.pull-right(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail._votes", ng-class="{active: nlm.nail._votes}")
+        a.likes(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail._votes", ng-class="{active: nlm.nail._votes}")
           i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail._votes, 'icon-loliful-icon-liked': nlm.nail._votes}")
           span {{ nlm.nail.countVotes }}
   // div.container-fluid(ng-if="nlm.showHammers && nlm.nail.hammers")
