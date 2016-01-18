@@ -46,9 +46,19 @@
             line-height: @avatarSize;
             .icon-align();
         }
+        .username {
+            display: inline-block;
+            vertical-align: middle;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow-x: hidden;
+            max-width: 50%;
+            padding-bottom: 3px;
+        }
 
         .time-ago {
             margin-left: 15px;
+            white-space: nowrap;
             .icon {
                 .icon-align();
                 margin-right: 5px;
@@ -87,7 +97,7 @@
         background: @nailFooterBg;
         font-size: @nailFooterTextSize;
         color: @nailHeaderColor;
-        line-height: floor(@nailFooterTextSize * 1.6);
+        line-height: floor(@nailFooterTextSize * 1.8);
 
         .icon {
             font-size: @nailFooterIconSize;
@@ -100,11 +110,24 @@
             }
         }
 
+        input.reply {
+            background: #FFFFFF;
+            border: 1px solid @nailReplyInputBorder;
+            border-radius: 5px;
+            padding: 4px 10px;
+            width: 120px;
+            font-family: 'Lato';
+
+            font-size: @nailFooterTextSize + 2px;
+            color: #D8D8D8;
+            line-height: 22px;
+        }
+
         .likes {
             span {
                 margin-left: 10px;
                 color: @nailHeaderColor;
-                font-size: @nailLikeCountSize;
+                font-size: @nailFooterTextSize;
                 line-height: 29px;
             }
             text-decoration: none;
@@ -122,5 +145,12 @@
                 outline: none;
             }
         }
+    }
+
+    .reply-form {
+        // position: absolute;
+        // width: 100%;
+        // bottom: 0%;
+        // height: 40px;
     }
 }
