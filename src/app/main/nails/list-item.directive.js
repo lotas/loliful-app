@@ -26,7 +26,7 @@ class NailListItemController {
      * @param {toastr} toastr
      * @param {$log} log
      */
-    constructor(Nail, User, toastr, $log, $dropdown) {
+    constructor(Nail, User, toastr, $log) {
         'ngInject';
 
         this.Nail = Nail;

@@ -23,3 +23,50 @@
 .d3() {
     border: 1px dashed blue;
 }
+
+
+.nav-pills-main-menu(@textSize, @textLineHeight, @iconSize) {
+    .nav-pills {
+        padding-right: @navPillsMarginSides;
+        padding-left: @navPillsMarginSides;
+
+        &> li {
+
+            &> a {
+                color: @navText;
+                font-size: @textSize;
+                line-height: @textLineHeight;
+                padding: @navLiPaddingTop @navLiPaddingLeft;
+
+                .border-radius(50px);
+                text-align: center;
+
+                .icon {
+                    margin-right: @navIconMargin;
+                    font-size: @iconSize;
+                    line-height: @iconSize;
+                    .icon-align();
+                }
+            }
+            &> a:hover, a:focus {
+                background-color: initial;
+            }
+        }
+        &> li.active {
+            &> a, a:hover, a:focus {
+                background-color: @navActiveBg;
+                color: @navActiveText;
+            }
+
+            .icon-loliful-icon-nav-fresh {
+                color: @navIconFresh;
+            }
+            .icon-loliful-icon-nav-top {
+                color: @navIconTop;
+            }
+            .icon-loliful-icon-nav-activity {
+                color: @navIconActivity;
+            }
+        }
+    }
+}

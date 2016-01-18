@@ -1,5 +1,28 @@
 nail-add.nail-add(on-add="vm.onAdd(nail)")
 
+nav.float-bottom-menu
+  ul.nav.nav-pills
+    li(role="presentation", ng-class="{active: isState('fresh')}")
+      a(ui-sref="fresh")
+        i.icon.icon-loliful-icon-nav-fresh
+        | Fresh
+    li(role="presentation", ng-class="{active: isState('top')}")
+      a(ui-sref="top")
+        i.icon.icon-loliful-icon-nav-top
+        | Top
+    li(role="presentation", ng-class="{active: isState('activity')}")
+      a(ui-sref="activity({type: 'nails'})")
+        i.icon.icon-loliful-icon-nav-activity
+        | Activity
+nav.float-menu
+  ul.nav.nav-pills
+    li.top-nav
+      a(href="#")
+        i.icon-loliful-icon-menu
+    li.add-item
+      a(href="#")
+        span +
+
 div(ng-if="!vm.nails.length")
   p Loading ..
 div(ng-if="vm.nails",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")

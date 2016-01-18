@@ -9,49 +9,7 @@ header.header {
         }
     }
 
-    .nav-pills {
-        padding-right: @navPillsMarginSides;
-        padding-left: @navPillsMarginSides;
-
-        &> li {
-
-            &> a {
-                color: @navText;
-                font-size: @navFontSize;
-                line-height: @navLineHeight;
-                padding: @navLiPaddingTop @navLiPaddingLeft;
-
-                .border-radius(50px);
-                text-align: center;
-
-                .icon {
-                        margin-right: @navIconMargin;
-                        font-size: @navIconSize;
-                        line-height: @navIconSize;
-                        .icon-align();
-                }
-            }
-            &> a:hover, a:focus {
-                background-color: initial;
-            }
-        }
-        &> li.active {
-            &> a, a:hover, a:focus {
-                background-color: @navActiveBg;
-                color: @navActiveText;
-            }
-
-            .icon-loliful-icon-nav-fresh {
-                color: @navIconFresh;
-            }
-            .icon-loliful-icon-nav-top {
-                color: @navIconTop;
-            }
-            .icon-loliful-icon-nav-activity {
-                color: @navIconActivity;
-            }
-        }
-    }
+    .nav-pills-main-menu(@navFontSize, @navLineHeight, @navIconSize);
 }
 
 
@@ -103,27 +61,3 @@ header.header {
         }
     }
 }
-
-// .nav {
-
-//     .icon {
-//       margin-left: 4px;
-//       margin-right: 4px;
-//       position: relative;
-//       top: 3px;
-//       color: @white;
-//       overflow:hidden;
-//       &:before {
-//         position: relative;
-//         font-size: 2em;
-//       }
-//     }
-//   }
-
-//   .active {
-//     .icon {
-//       color: #F8BB86;
-//     }
-//   }
-
-// }

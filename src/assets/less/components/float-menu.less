@@ -1,0 +1,121 @@
+@floatMenuItemSize: 62px;
+@floatMenuItemFontSize: 30px;
+
+@floatMenuNavBg: #39404A;
+@floatMenuNavShadow: #C3C7D0;
+@floatMenuAddBg: #D69734;
+@floatMenuAddShadow: #E3D7BC;
+
+.floatMenuItem (@size) {
+    border-radius: @size;
+    width: @size;
+    height: @size;
+}
+
+.float-menu {
+    position: fixed;
+    left: 50%;
+    margin-left: floor(-@floatMenuItemSize * 1.5);
+    z-index: 100;
+    bottom: 4%;
+
+    .top-nav {
+        margin-right: floor(@floatMenuItemSize/2);
+        a {
+            background: @floatMenuNavBg;
+            box-shadow: 0px 15px 20px 0px @floatMenuNavShadow;
+            .floatMenuItem(@floatMenuItemSize);
+
+            &:active,
+            &:hover,
+            &:focus {
+                background: lighten(@floatMenuNavBg, 20%) !important;
+            }
+
+            i {
+                color: #FFFFFF;
+                font-size: @floatMenuItemFontSize;
+                line-height: floor((@floatMenuItemSize - @floatMenuItemFontSize)/2) + @floatMenuItemFontSize;
+            }
+        }
+    }
+    .add-item {
+        margin-left: floor(@floatMenuItemSize/2);
+        a {
+            background: @floatMenuAddBg;
+            box-shadow: 0px 15px 20px 0px @floatMenuAddShadow;
+            .floatMenuItem(@floatMenuItemSize);
+
+            &:active,
+            &:hover,
+            &:focus {
+                background: lighten(@floatMenuAddBg, 20%) !important;
+            }
+
+            span {
+                color: #FFFFFF;
+                font-size: 40px;
+                line-height: 39px;
+                padding-left: 4px;
+            }
+        }
+    }
+}
+
+.float-bottom-menu {
+    position: fixed;
+    width: 90%;
+    left: 50%;
+    margin-left: -45%;
+    z-index: 100;
+    bottom: 14%;
+
+    background: #39404A;
+    height: 50px;
+    box-shadow: 0px 15px 20px 0px #C3C7D0;
+    border-radius: 100px;
+
+    ul > li {
+        width: 32.5%;
+        text-align: center;
+    }
+
+    .nav-pills-main-menu(@navFontSize - 10px, @navLineHeight - 15px, @navIconSize - 14px);
+
+
+//         /* Rectangle 118: */
+// /* Rectangle 4: */
+// background: #FFFFFF;
+// border-radius: 100px;
+// /* f: */
+// font-family: loliful-icon-font;
+// font-size: 48px;
+// color: #F8B617;
+// line-height: 48px;
+// /* Fresh: */
+// font-family: Lato-Regular;
+// font-size: 36px;
+// color: #39404A;
+// line-height: 45px;
+// /* t: */
+// font-family: loliful-icon-font;
+// font-size: 48px;
+// color: #FFFFFF;
+// line-height: 54px;
+// /* Top: */
+// font-family: Lato-Regular;
+// font-size: 36px;
+// color: #FFFFFF;
+// line-height: 45px;
+// /* a: */
+// font-family: loliful-icon-font;
+// font-size: 36px;
+// color: #FFFFFF;
+// line-height: 36px;
+// /* Activity: */
+// font-family: Lato-Regular;
+// font-size: 36px;
+// color: #FFFFFF;
+// line-height: 45px;
+
+}

@@ -40,10 +40,10 @@ gulp.task('styles', function () {
   ])
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
-    .pipe($.sourcemaps.init())
+    // .pipe($.sourcemaps.init())
     .pipe($.less(lessOptions)).on('error', conf.errorHandler('Less'))
     .pipe($.autoprefixer()).on('error', conf.errorHandler('Autoprefixer'))
-    .pipe($.sourcemaps.write())
+    // .pipe($.sourcemaps.write())
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app/')))
     .pipe(browserSync.reload({ stream: true }));
 });
