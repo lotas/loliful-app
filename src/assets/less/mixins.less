@@ -25,7 +25,7 @@
 }
 
 
-.nav-pills-main-menu(@textSize, @textLineHeight, @iconSize) {
+.nav-pills-main-menu(@textSize, @textLineHeight, @iconSize, @marginTopA) {
     .nav-pills {
         padding-right: @navPillsMarginSides;
         padding-left: @navPillsMarginSides;
@@ -37,6 +37,7 @@
                 font-size: @textSize;
                 line-height: @textLineHeight;
                 padding: @navLiPaddingTop @navLiPaddingLeft;
+                margin-top: @marginTopA;
 
                 .border-radius(50px);
                 text-align: center;

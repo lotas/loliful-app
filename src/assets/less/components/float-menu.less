@@ -16,10 +16,11 @@
     position: fixed;
     left: 50%;
     margin-left: floor(-@floatMenuItemSize * 1.5);
-    z-index: 100;
     bottom: 4%;
+    z-index: 101;
 
     .top-nav {
+        z-index: 101;
         margin-right: floor(@floatMenuItemSize/2);
         a {
             background: @floatMenuNavBg;
@@ -40,6 +41,7 @@
         }
     }
     .add-item {
+        z-index: 99 !important;
         margin-left: floor(@floatMenuItemSize/2);
         a {
             background: @floatMenuAddBg;
@@ -64,14 +66,14 @@
 
 .float-bottom-menu {
     position: fixed;
-    width: 90%;
-    left: 50%;
-    margin-left: -45%;
+    left: 5%;
+    right: 5%;
     z-index: 100;
-    bottom: 14%;
+    bottom: 4%;
 
     background: #39404A;
-    height: 50px;
+    height: 62px;
+    line-height: 62px;
     box-shadow: 0px 15px 20px 0px #C3C7D0;
     border-radius: 100px;
 
@@ -80,8 +82,21 @@
         text-align: center;
     }
 
-    .nav-pills-main-menu(@navFontSize - 10px, @navLineHeight - 15px, @navIconSize - 14px);
+    .nav-pills-main-menu(@navFontSize - 10px, @navLineHeight - 10px, @navIconSize - 14px, 5px);
 
+
+    &.ng-hide {
+        -webkit-transition:all linear 0.5s;
+        transition: all linear 0.5s;
+        opacity: 0;
+        width: 5%;
+    }
+    &.ng-show {
+        -webkit-transition:all linear 0.5s;
+        transition: all linear 0.5s;
+        opacity: 1;
+        width: 5%;
+    }
 
 //         /* Rectangle 118: */
 // /* Rectangle 4: */

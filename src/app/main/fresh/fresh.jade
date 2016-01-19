@@ -1,6 +1,6 @@
 nail-add.nail-add(on-add="vm.onAdd(nail)")
 
-nav.float-bottom-menu
+nav.float-bottom-menu(ng-init="showNav = false", ng-show="showNav")
   ul.nav.nav-pills
     li(role="presentation", ng-class="{active: isState('fresh')}")
       a(ui-sref="fresh")
@@ -17,9 +17,9 @@ nav.float-bottom-menu
 nav.float-menu
   ul.nav.nav-pills
     li.top-nav
-      a(href="#")
+      a(href="#", ng-click="showNav = !showNav")
         i.icon-loliful-icon-menu
-    li.add-item
+    li.add-item(ng-hide="showNav")
       a(href="#")
         span +
 
