@@ -1,4 +1,4 @@
-nail-add.nail-add(on-add="vm.onAdd(nail)")
+nail-add.nail-add(on-add="vm.onAdd(nail)", ng-show="showAdd")
 
 nav.float-bottom-menu(ng-init="showNav = false", ng-show="showNav")
   ul.nav.nav-pills
@@ -14,13 +14,13 @@ nav.float-bottom-menu(ng-init="showNav = false", ng-show="showNav")
       a(ui-sref="activity({type: 'nails'})")
         i.icon.icon-loliful-icon-nav-activity
         | Activity
-nav.float-menu
+nav.float-menu(ng-hide="showNav")
   ul.nav.nav-pills
     li.top-nav
       a(href="#", ng-click="showNav = !showNav")
         i.icon-loliful-icon-menu
-    li.add-item(ng-hide="showNav")
-      a(href="#")
+    li.add-item
+      a(href="#", ng-click="showAdd = true")
         span +
 
 div(ng-if="!vm.nails.length")
