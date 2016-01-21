@@ -1,22 +1,4 @@
-nav.float-bottom-menu(ng-init="showNav = false", ng-show="showNav")
-  ul.nav.nav-pills
-    li(role="presentation", ng-class="{active: isState('fresh')}")
-      a(ui-sref="fresh")
-        i.icon.icon-loliful-icon-nav-fresh
-        | Fresh
-    li(role="presentation", ng-class="{active: isState('top')}")
-      a(ui-sref="top")
-        i.icon.icon-loliful-icon-nav-top
-        | Top
-    li(role="presentation", ng-class="{active: isState('activity')}")
-      a(ui-sref="activity({type: 'nails'})")
-        i.icon.icon-loliful-icon-nav-activity
-        | Activity
-nav.float-menu.single(ng-hide="showNav")
-  ul.nav.nav-pills
-    li.top-nav
-      a(href="#", ng-click="showNav = !showNav")
-        i.icon-loliful-icon-menu
+float-menu(single="true")
 
 div.container-fluid(ng-if="!vm.jokes")
   p Loading ..

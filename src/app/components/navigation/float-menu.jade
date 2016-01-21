@@ -1,0 +1,22 @@
+nav#fm1.float-bottom-menu(ng-init="fm.showNav=false", ng-show="fm.showNav", bs-navbar)
+  ul.nav.nav-pills
+    li(role="presentation", data-match-route="fresh")
+      a(ui-sref="fresh")
+        i.icon.icon-loliful-icon-nav-fresh
+        | Fresh
+    li(role="presentation", data-match-route="top")
+      a(ui-sref="top")
+        i.icon.icon-loliful-icon-nav-top
+        | Top
+    li(role="presentation", data-match-route="activity")
+      a(ui-sref="activity({type: 'nails'})")
+        i.icon.icon-loliful-icon-nav-activity
+        | Activity
+nav#fm2.float-menu.hidden(ng-hide="fm.showNav", ng-class="{single: fm.single}")
+  ul.nav.nav-pills
+    li.top-nav
+      a(ng-click="fm.showNav = !fm.showNav")
+        i.icon-loliful-icon-menu
+    li.add-item(ng-if="!fm.single")
+      a(ng-click="showAdd = true")
+        span +

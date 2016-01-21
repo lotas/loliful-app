@@ -16,6 +16,7 @@
     "console": true,
     "process": true,
     "jQuery": true,
-    "io": true
+    "io": true,
+    "$": true
   }
 }
