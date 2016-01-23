@@ -18,5 +18,5 @@ nav#fm2.float-menu.hidden(ng-hide="fm.showNav", ng-class="{single: fm.single}")
       a(ng-click="fm.showNav = !fm.showNav")
         i.icon-loliful-icon-menu
     li.add-item(ng-if="!fm.single")
-      a(ng-click="showAdd = true")
+      a(ng-click="fm.add()")
         span +

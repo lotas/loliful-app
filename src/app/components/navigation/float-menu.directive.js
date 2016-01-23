@@ -8,7 +8,8 @@ export function FloatMenuDirective() {
         controllerAs: 'fm',
         bindToController: true,
         scope: {
-            single: '='
+            single: '=',
+            add: '&'
         }
     };
 

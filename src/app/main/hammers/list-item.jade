@@ -1,21 +1,22 @@
 div.panel.hammer-list-item
-  div.panel-heading
-    | User: {{ hli.hammer.$user.name }}
   div.panel-body
     | {{ hli.hammer.text }}
   div.panel-footer
     div.row
-      div.col-sm-3
-        span Votes {{ hli.hammer.countVotes }}
-      div.col-sm-6.btn-group.btn-group-sm
-        button.btn.btn-default(type="button", ng-click="hli.vote()", ng-disabled="hli.hammer._votes", ng-class="{active: hli.hammer._votes}")
-          | {{ hli.hammer.countVotes }}
+      div.col-sm-8.col-xs-8
+        span.avatar
+        a.username(href="#") {{ hli.hammer.$user.name }}
+        span.time-ago
+          i.icon.icon-loliful-icon-time
+          | {{ hli.hammer.created | timeAgo }}
+      div.col-sm-4.col-xs-4.pull-right.text-right
+        div.dropdown
+          button(bs-dropdown="hli.dropdown", data-placement="top", aria-haspopup="true", aria-expanded="false")
+            i.icon.icon-loliful-icon-submenu
+        a.likes(ng-click="hli.vote()", ng-disabled="hli.hammer._votes", ng-class="{active: hli.hammer._votes}")
           i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer._votes, 'icon-loliful-icon-liked': hli.hammer._votes}")
-          | Like
-        button.btn.btn-default(type="button", ng-click="hli.favorite()", ng-class="{active: hli.hammer._favorite}")
-          i.icon(ng-class="{'icon-loliful-icon-bookmark': !hli.hammer._favorite, 'icon-loliful-icon-bookmarked': hli.hammer._favorite}")
-          | Favorite
-        button.btn.btn-default(type="button", ng-click="hli.share()")
-          i.icon.icon-loliful-icon-share
-          | Share
-        button.btn.btn-danger(type="button", ng-click="hli.report()") Abuse
+          span {{ hli.hammer.countVotes }}
+        //- a(ng-click="hli.share()")
+        //-   i.icon.icon-loliful-icon-share
+        //-   | Share
+        //- button.btn.btn-danger(type="button", ng-click="hli.report()") Abuse

@@ -32,6 +32,11 @@ class HammerListItemController {
         this.$log = $log;
         this.toastr = toastr;
         this.ShareService = ShareService;
+
+        this.dropdown = [{
+            "text": "Report Abuse",
+            "click": "hli.report()"
+        }];
     }
 
     report() {

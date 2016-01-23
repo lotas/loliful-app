@@ -1,6 +1,6 @@
 nail-add.nail-add(on-add="vm.onAdd(nail)", ng-show="showAdd")
 
-float-menu
+float-menu(add="showAdd = !showAdd")
 
 div(ng-if="!vm.nails.length")
   p Loading ..
