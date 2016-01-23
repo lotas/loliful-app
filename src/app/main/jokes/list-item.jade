@@ -11,9 +11,9 @@ div.panel.joke-list-item
   div.panel-footer
     div.align-center
       span.pull-right {{ jli.joke.countVotes }}
-      a(href="#", ng-click="jli.share()")
+      a(ng-click="jli.share()")
         i.icon.icon-loliful-icon-share
         | Share
-      a(href="#", ng-click="jli.vote()", ng-disabled="jli.joke._votes", ng-class="{active: jli.joke._votes}")
+      a(ng-click="jli.vote()", ng-disabled="jli.joke._votes", ng-class="{active: jli.joke._votes}")
         i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke._votes, 'icon-loliful-icon-liked': jli.joke._votes}")
         | Like

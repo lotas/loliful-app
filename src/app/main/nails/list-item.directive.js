@@ -9,7 +9,7 @@ function NailListItemDirective() {
         controllerAs: 'nlm',
         scope: {
             nail: '=',
-            showHammers: '='
+            hideFooter: '='
         },
         bindToController: true,
         replace: true
