@@ -9,7 +9,8 @@ export function FloatMenuDirective() {
         bindToController: true,
         scope: {
             single: '=',
-            add: '&'
+            add: '&',
+            show: '='
         }
     };
 
@@ -35,7 +36,11 @@ class FloatMenuController {
             delete this.fm2;
         });
 
-        this.hidden = true;
+        this.hidden = this.show ? false : true;
+
+        if (this.show) {
+            this.fm2.removeClass('hidden').removeClass('ng-hide');
+        }
     }
 
     scroll() {

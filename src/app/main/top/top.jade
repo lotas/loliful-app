@@ -2,5 +2,5 @@ float-menu(single="true")
 
 div.container-fluid(ng-if="!vm.jokes")
   p Loading ..
-div(ng-if="vm.jokes",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
+div.top(ng-if="vm.jokes",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
   joke-list-item(joke="item", ng-repeat="item in vm.jokes track by $index")
