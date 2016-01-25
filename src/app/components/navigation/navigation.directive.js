@@ -30,13 +30,6 @@ class NavigationController {
             show: false
         });
 
-        this.activityTypes = {
-            saves: 'Saved for later',
-            likes: 'Liked',
-            nails: 'My intros',
-            hammers: 'My outros'
-        };
-
         this.subscribeNotifications();
         this.loadNotificationsCount();
     }

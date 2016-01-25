@@ -21,13 +21,6 @@ export class ActivityController {
             likes: 'Likes'
         };
 
-        this.panelClass = {
-            nails: 'panel-info',
-            hammers: 'panel-warning',
-            saves: 'panel-success',
-            likes: 'panel-danger'
-        }[this.type];
-
         this.items = [];
         this.page = 1;
         this.loadActivity();

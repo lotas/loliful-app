@@ -39,5 +39,16 @@ header.header.clearfix
           | Activity
 
 ul#secondary-menu.nav.nav-pills.activity.nav-justified(ng-if="isState('activity')")
-  li(role="presentation", ng-repeat="(type, value) in vm.activityTypes track by $index", ng-class="{active: vm.checkActivity(type)}")
-    a(ui-sref="activity({type: type})") {{value}}
+  li(role="presentation", ng-class="{active: vm.checkActivity('saves')}")
+    a(ui-sref="activity({type: 'saves'})")
+      | Saved
+      span.hidden-xs &nbsp; for later
+  li(role="presentation", ng-class="{active: vm.checkActivity('likes')}")
+    a(ui-sref="activity({type: 'likes'})")
+      | Liked
+  li(role="presentation", ng-class="{active: vm.checkActivity('nails')}")
+    a(ui-sref="activity({type: 'nails'})")
+      | My intros
+  li(role="presentation", ng-class="{active: vm.checkActivity('hammers')}")
+    a(ui-sref="activity({type: 'hammers'})")
+      | My hammers
