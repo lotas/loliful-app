@@ -1,0 +1,21 @@
+div.panel.hammer-activity-item
+  div.panel-header.row
+    div.col-xs-1.col-sm-1
+      span.avatar
+    div.col-sm-11.col-xs-11
+      span.text
+        | {{ hai.hammer.$nail.text }}
+  div.panel-body
+    div.hammer
+      | {{ hai.hammer.text }}
+    div.row
+      div.col-sm-8.col-xs-8
+        span.time-ago
+          i.icon.icon-loliful-icon-time
+          | {{ hai.hammer.created | timeAgo }}
+      div.col-sm-4.col-xs-4.pull-right.text-right
+        a
+          i.icon.icon-loliful-icon-delete
+        a.likes
+          i.icon.icon-loliful-icon-liked
+          span {{ hai.hammer.countVotes }}

@@ -12,6 +12,7 @@ import { NailListItemDirective } from './nails/list-item.directive';
 import { NailViewController } from './nails/view.controller';
 
 import { HammerListItemDirective } from './hammers/list-item.directive';
+import { HammerActivityItemDirective } from './hammers/activity-item.directive';
 import { JokeListItemDirective } from './jokes/list-item.directive';
 
 import { TimeAgoFilter } from './filters/time-ago.filter.js';
@@ -35,6 +36,7 @@ angular.module('loliful.main', [])
     .controller('NailViewController', NailViewController)
 
     .directive('hammerListItem', HammerListItemDirective)
+    .directive('hammerActivityItem', HammerActivityItemDirective)
     .directive('jokeListItem', JokeListItemDirective)
 
     .filter('timeAgo', TimeAgoFilter)

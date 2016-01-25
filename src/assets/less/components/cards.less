@@ -2,6 +2,15 @@
     padding-left: 18px;
     padding-right: 18px;
 }
+.avatar(@size) {
+    background: darken(#BD10E0, 30%);
+    border-radius: @size;
+    width: @size;
+    height: @size;
+    margin-right: floor(@size/2);
+    line-height: @size;
+    .icon-align();
+}
 
 .icon-loliful-icon-liked::before{
     color: @iconLikedColor;
@@ -56,14 +65,7 @@
     }
 
     .avatar {
-        @avatarSize: 16px;
-        background: darken(#BD10E0, 30%);
-        border-radius: @avatarSize;
-        width: @avatarSize;
-        height: @avatarSize;
-        margin-right: floor(@avatarSize/2);
-        line-height: @avatarSize;
-        .icon-align();
+        .avatar(16px);
     }
 
     .time-ago {
@@ -258,5 +260,120 @@
 }
 
 .activities {
-    padding-top: 20px;
+    padding-top: 10px;
+}
+
+// .activities
+.my-nails {
+    .nail-list-item {
+        .username,
+        .avatar {
+            display: none;
+        }
+        .time-ago {
+            margin-left: 0;
+        }
+    }
+}
+
+
+.hammer-activity-item {
+    background: #FFFFFF;
+    box-shadow: 0px 6px 10px 0px #C3C7D0;
+
+    margin-bottom: 7px;
+
+    .panel-header {
+        margin: 8px 10px;
+        font-family: 'Lato';
+        font-weight: 300;
+        color: @nailHeaderColor;
+        font-size: 15px;
+
+        .avatar {
+            .avatar(16px);
+        }
+    }
+    .panel-body {
+        @borderRadius: 6px;
+        background: #F4F6F9;
+        margin: 10px 12px 20px 14px;
+        border-left: 4px solid #4DB8CD;
+        border-top-right-radius: @borderRadius;
+        border-bottom-right-radius: @borderRadius;
+
+        padding-top: 6px;
+
+        .hammer {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+        .row {
+            margin-top: 5px;
+            color: #99A3B3;
+            font-weight: 300;
+
+            .time-ago {
+               .icon {
+                    .icon-align();
+                    margin-right: 5px;
+                }
+            }
+
+            .icon {
+                .icon-align();
+                font-size: 18px;
+                color: #99A3B3;
+            }
+
+            .likes {
+                span {
+                    margin-left: 10px;
+                    color: @nailHeaderColor;
+                    font-size: @nailFooterTextSize;
+                    line-height: 29px;
+                }
+                text-decoration: none;
+                margin-left: 10px;
+            }
+        }
+    }
+/* Rectangle 7: */
+// background: #F4F6F9;
+// border-radius: 8px;
+// /* Kids can’t even tast: */
+// font-family: Sanchez-Regular;
+// font-size: 32px;
+// color: #39404A;
+// line-height: 48px;
+// /* Type something: */
+// font-family: Lato-Regular;
+// font-size: 24px;
+// color: #C3C7D0;
+// line-height: 29px;
+// /* y: */
+// font-family: loliful-icon-font;
+// font-size: 24px;
+// color: #C3C7D0;
+// line-height: 24px;
+// /* Type something: */
+// font-family: Lato-Regular;
+// font-size: 24px;
+// color: #C3C7D0;
+// line-height: 24px;
+// /* Type something: */
+// font-family: loliful-icon-font;
+// font-size: 28px;
+// color: #C3C7D0;
+// line-height: 35px;
+// /* What we’ve done with: */
+// font-family: Lato-Regular;
+// font-size: 24px;
+// color: #99A3B3;
+// line-height: 36px;
+// /* Mask: */
+// background: #BD10E0;
+// /* Bitmap: */
+// /* Rectangle 90: */
+// background: #4DB8CD;
 }
