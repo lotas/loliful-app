@@ -2,10 +2,28 @@
 .aside {
   background: @asideBg;
   .close {
-    color: #fff;
+    .icon {
+      color: #fff;
+    }
   }
   .nav {
     margin-top: 30px;
+  }
+  .icon {
+    .icon-align();
+    font-size: @navIconSize;
+    color: @secondaryMenuTextHighlight;
+    margin-right: 8px;
+  }
+  a {
+    color: @white;
+  }
+
+  .nav li a {
+        &:hover, &:active, &:focus {
+          background-color: initial;
+          color: @iconMenuHighlight;
+      }
   }
 }
 
