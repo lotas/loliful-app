@@ -30,8 +30,8 @@ class NavigationController {
             show: false
         });
 
-        this.subscribeNotifications();
         this.loadNotificationsCount();
+        this.subscribeNotifications();
     }
 
     showAside() {
@@ -49,21 +49,23 @@ class NavigationController {
     }
 
     subscribeNotifications() {
-        var unsubscribeUnread = this.LiveService.subscribePrivate('unread', (data) => {
-            this.$log.debug('live.unread', data);
-            this.unreadCount = data || 0;
-            this.$rootScope.$apply();
-        });
+        this.LiveService.connect().then(() => {
+            var unsubscribeUnread = this.LiveService.subscribePrivate('unread', (data) => {
+                this.$log.debug('live.unread', data);
+                this.unreadCount = data || 0;
+                this.$rootScope.$apply();
+            });
 
-        var unsubscribeFresh = this.LiveService.subscribe('fresh', (nail) => {
-            this.$log.debug('live.fresh', nail);
-            this.freshNails.push(nail);
-            this.$rootScope.$apply();
-        });
+            var unsubscribeFresh = this.LiveService.subscribe('fresh', (nail) => {
+                this.$log.debug('live.fresh', nail);
+                this.freshNails.push(nail);
+                this.$rootScope.$apply();
+            });
 
-        this.$rootScope.$on('$destroy', () => {
-            unsubscribeUnread();
-            unsubscribeFresh();
+            this.$rootScope.$on('$destroy', () => {
+                unsubscribeUnread();
+                unsubscribeFresh();
+            });
         });
     }
 }

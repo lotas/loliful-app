@@ -1,20 +1,27 @@
-form.form-signin(ng-submit="vm.login()")
-  h2.form-signin-heading Please Lollin
-  label.sr-only(for="email") Email
-  input.form-control#email(type="text", ng-model="vm.username", required, autofocus, placeholder="Email")
-  label.sr-only(for="password") Password
-  input.form-control#password(type="password", ng-model="vm.password", required, placeholder="Password")
-  div.checkbox
-    label
-      input(type="checkbox", ng-model="vm.rememberMe", value="true")
-      | Remember me
-  button.btn.btn-lg.btn-primary.btn-block(type="submit") Sign in
+div.logo
+  h1
+    img(src="/assets/img/logo.svg", alt="loliful", title="loliful")
 
-  div.social
-    a.btn.btn-block.btn-primary(href="{{api}}/auth/facebook") Login with Facebook
-    a.btn.btn-block.btn-danger(href="{{api}}/auth/google") Login with Google
-    a.btn.btn-block.btn-info(href="{{api}}/auth/twitter") Login with Twitter
+h2.header The world's first app for creating jokes collaboratively
 
-  div(ng-if="vm.signupEnabled")
-    p Don't have an account?
-      a.btn.btn-sm.btn-default(ui-sref="signup") Create one!
+h3 Lol in
+h4.bottom30 with one of your social media accounts
+
+.social.row
+  .col-sm-4.col-xs-4
+    .thumbnail
+      a.auth-fb(href="{{api}}/auth/facebook")
+        img(src="/assets/img/auth-fb.png", title="Login with Facebook")
+  .col-sm-4.col-xs-4
+    .thumbnail
+      a.auth-twitter(href="{{api}}/auth/twitter")
+        img(src="/assets/img/auth-twitter.png", title="Login with Twitter")
+  .col-sm-4.col-xs-4
+    .thumbnail
+      a.auth-google(href="{{api}}/auth/google")
+        img(src="/assets/img/auth-google.png", title="Login with Google")
+
+
+footer.footer
+  p No sign up, no additional info required
+

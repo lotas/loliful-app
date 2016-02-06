@@ -1,5 +1,25 @@
 footer.footer {
     min-height: 50px;
     margin-top: 50px;
+}
 
+/* Sticky footer styles
+-------------------------------------------------- */
+@footerHeight: 60px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: @footerHeight;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: @footerHeight;
 }
