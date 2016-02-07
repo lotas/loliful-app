@@ -15,13 +15,15 @@ export class ActivityController {
         this.type = $stateParams.type;
 
         this.types = {
-            nails: 'Nails',
-            hammers: 'Hammers',
+            nails: 'Intros',
+            hammers: 'Outros',
             saves: 'Saves',
             likes: 'Likes'
         };
 
-        this.items = [];
+        this.typeName = this.types[this.type];
+
+        this.items = undefined;
         this.page = 1;
         this.loadActivity();
     }
