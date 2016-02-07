@@ -1,10 +1,21 @@
-h1 Notifications
-    span.badge {{ vm.count.count }} / {{ vm.count.unread }}
-div
-  button.btn.btn-info.btn-small(ng-click="vm.markRead()")
-    | Mark all read
+.container-fluid
+  h1 Notifications
+    span.badge(ng-if="vm.count.count")
+      | {{ vm.count.count }} / {{ vm.count.unread }}
+  div(ng-if="vm.count.unread && vm.showMarkAll")
+    button.btn.btn-info.btn-small(ng-click="vm.markRead()")
+      | Mark all read
 
-div.container-fluid(ng-if="!vm.notifications.length")
-  p Loading ..
-div.container-fluid(ng-if="vm.notifications",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
-  notification-list-item(notification="item", ng-repeat="item in vm.notifications track by $index")
+  div(ng-if="!vm.notifications")
+    p Loading ..
+
+  div(ng-if="!vm.notifications.length")
+    .align-center
+      p.vOfs Your mailman took a day off
+      img(src="/assets/img/mailman.png", title="mailman")
+      p.vOfs Try adding an Intro to get noticed
+      a.btn.btn-default(ui-sref="fresh()") Take me to fresh intros
+
+  div(ng-if="vm.notifications.length",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
+    h4 New
+    notification-list-item(notification="item", ng-repeat="item in vm.notifications track by $index")

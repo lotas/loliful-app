@@ -1,0 +1,55 @@
+h1 {
+    font-family: Lato;
+    font-weight: 700;
+    font-size: floor(@pageFontSize * 1.6);
+    color: @pageTextColor;
+}
+h3 {
+    font-size: floor(@pageFontSize * 1.4);
+}
+
+.about {
+    font-family: Lato;
+    p {
+        font-weight: 300;
+        font-size: @pageFontSize;
+        color: @pageTextColor;
+        line-height: floor(@pageFontSize * 1.2);
+        margin-bottom: @pageFontSize;
+    }
+    hr {
+        width: 20%;
+        border: 1px solid @separatorColor;
+    }
+
+    textarea {
+        border: 1px solid @inputBorder;
+        border-radius: 6px;
+        font-size: @pageFontSize;
+        font-weight: 300;
+        color: darken(@inputBorder, 30%);
+    }
+}
+
+.page-not-found {
+    margin: 60px 0;
+    @holeRadius: 60px;
+
+    .black-hole {
+        margin: 60px 0;
+        line-height: @holeRadius;
+
+        span {
+            display: inline-block;
+            vertical-align: bottom;
+        }
+        span.hole {
+            width: @holeRadius;
+            height: @holeRadius;
+            background: #000000;
+            border-radius: @holeRadius;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
