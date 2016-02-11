@@ -1,37 +1,22 @@
-@loginBgColor: #39404A;
+@loginBgColor: #112633;
+@loginBgColorGrad: #172F3E;
 @headerColor: #99A3B3;
 @subheaderColor: #FFFFFF;
-
-.starsEverywhere() {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      z-index: 0;
-      content: ' ';
-      background: url('/assets/img/stars2.png');
-      opacity: 0.7;
-}
 
 .login {
     background: @loginBgColor;
     text-align: center;
-
-    &::before {
-      .starsEverywhere();
-      top: 0;
-      height: 30%;
-    }
-    &::after {
-      .starsEverywhere();
-      bottom: 0;
-      height: 50%;
-    }
+    /* Rectangle 27: */
+    background: -webkit-linear-gradient(@loginBgColor 0%, @loginBgColorGrad 100%);
+    background: -o-linear-gradient(@loginBgColor 0%, @loginBgColorGrad 100%);
+    background: linear-gradient(@loginBgColor 0%, @loginBgColorGrad 100%);
 
 
     margin: 60px auto;
 
-    h1,h2,h3,h4 {
-        font-family: Sanchez;
+    h1,h2,h3,h4,h5 {
+        font-family: 'Sanchez';
+        font-weight: 100 !important;
         color: @subheaderColor;
     }
     .bottom30 {
@@ -39,22 +24,35 @@
     }
 
     .logo {
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        img {
+           height: 44px;
+        }
     }
 
     .header {
-        font-size: 22px;
+        font-size: 28px;
+        letter-spacing: 1px;
         color: @headerColor;
-        line-height: 26px;
-        margin-bottom: 50px;
+        line-height: 38px;
+        margin: 20px 40px 50px 40px;
     }
     h3 {
-      font-size: 32px;
-      line-height: 40px;
+      font-size: 40px;
+      line-height: 50px;
+      padding-top: 30px;
+    }
+    h4 {
+        margin-right: 40px;
+        margin-left: 40px;
+       padding-top: 20px;
+       font-size: 25px;
+       letter-spacing: 1px;
     }
 
     .social {
-        margin-top: 40px;
+        margin: 40px 20px 20px 20px;
 
         .thumbnail {
             img {
@@ -65,9 +63,9 @@
         }
     }
 
-    .footer {
-      font-family: Sanchez;
-      font-size: 16px;
+    h5 {
+      font-size: 17px;
+      letter-spacing: 1px;
       color: @headerColor;
       line-height: 24px;
     }
