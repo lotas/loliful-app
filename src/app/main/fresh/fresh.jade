@@ -2,6 +2,12 @@ nail-add.nail-add(on-add="vm.onAdd(nail)", ng-show="showAdd")
 
 float-menu(add="showAdd = !showAdd")
 
+ul.nav.nav-pills.nav-justified.fresh-nav
+  li(ng-class="{active: vm.type=='popular'}")
+    a(ui-sref="fresh({type: 'popular'})") Popular
+  li(ng-class="{active: vm.type=='recent'}")
+    a(ui-sref="fresh({type: 'recent'})") Recent
+
 div(ng-if="!vm.nails.length")
   p Loading ..
 div.fresh(ng-if="vm.nails",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")

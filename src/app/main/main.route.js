@@ -9,7 +9,7 @@ export function mainRouteConfig($stateProvider) {
     $stateProvider
         .state('fresh', {
             parent: 'app',
-            url: '/fresh',
+            url: '/fresh/*type',
             views: {
                 'content@app': {
                     templateUrl: 'app/main/fresh/fresh.html',

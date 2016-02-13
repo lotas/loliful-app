@@ -59,6 +59,9 @@ export class ActivityController {
                 this.items.push(res[res.type][i]);
             }
             this.$log.debug('Loaded page ', this.page, 'Total loaded: ', this.items.length);
+        }).catch(err => {
+            this.$loading = false;
+            this.$log.warn(err);
         });
     }
 }

@@ -3,14 +3,17 @@ export class FreshController {
      *
      * @param {User} User
      * @param {MainService} MainService
+     * @param {$stateParams} $stateParams
      * @param $log
      */
-    constructor(User, MainService, $log) {
+    constructor(User, MainService, $stateParams, $log) {
         'ngInject';
 
         this.User = User;
         this.MainService = MainService;
         this.$log = $log;
+
+        this.type = $stateParams.type || 'recent';
 
         this.nails = [];
         this.page = 1;
@@ -19,7 +22,7 @@ export class FreshController {
 
     loadFresh() {
         this.$loading = true;
-        this.MainService.getFresh().then(res => {
+        this.MainService.getFresh({type: this.type}).then(res => {
             this.nails = res.nails;
             this.$loading = false;
         }).catch(err => {
@@ -37,7 +40,7 @@ export class FreshController {
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
-        this.MainService.getFresh({page: this.page+1}).then(res => {
+        this.MainService.getFresh({page: this.page+1, type: this.type}).then(res => {
             this.page++;
             if (res.nails.length > 0) {
                 // continue loading again
