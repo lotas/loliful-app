@@ -18,13 +18,15 @@ export function HammerListItemDirective() {
 
 class HammerListItemController {
     /**
-     * @param  {any} Nail
-     * @param  {any} Hammer
-     * @param  {any} ShareService
+     * @param  {Nail} Nail
+     * @param  {Hammer} Hammer
+     * @param  {ShareService} ShareService
+     * @param  {AuthService} AuthService
+     * @param  {SweetAlert} SweetAlert
      * @param  {any} toastr
      * @param  {any} $log
      */
-    constructor(Nail, Hammer, ShareService, toastr, $log) {
+    constructor(Nail, Hammer, ShareService, AuthService, SweetAlert, toastr, $log) {
         'ngInject';
 
         this.Nail = Nail;
@@ -32,6 +34,9 @@ class HammerListItemController {
         this.$log = $log;
         this.toastr = toastr;
         this.ShareService = ShareService;
+        this.SweetAlert = SweetAlert;
+
+        this.isOwn = AuthService.getUserId() === this.hammer.$user.id;
 
         this.dropdown = [{
             "text": "Report Abuse",
@@ -66,6 +71,21 @@ class HammerListItemController {
             this.$log.debug(err);
             this.toastr.warning('oh no!, vote failed');
         });
+    }
+
+    delete() {
+        if (this.isOwn) {
+            this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
+                if (res === true) {
+                    this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
+                        this.hammer.$user = undefined;
+                        this.hammer.text = '[removed]';
+                    }).catch(err => {
+                        this.$log.debug(err);
+                    });
+                }
+            });
+        }
     }
 
     share() {
