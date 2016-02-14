@@ -15,7 +15,7 @@ export function onAuthHandler(AuthService, $state, $location, $log) {
 
     function checkAuthAndGo() {
         if (AuthService.hasToken()) {
-            $state.go('profile');
+            $state.go('fresh');
         } else {
             $state.go('login');
         }
