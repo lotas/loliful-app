@@ -81,6 +81,7 @@ class HammerListItemController {
                         this.hammer.$user = undefined;
                         this.hammer.text = '[removed]';
                     }).catch(err => {
+                        this.toastr.warning('Oops, you cannot delete this');
                         this.$log.debug(err);
                     });
                 }
