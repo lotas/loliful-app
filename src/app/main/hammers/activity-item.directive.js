@@ -31,10 +31,13 @@ class HammerActivityItemController {
     }
 
     vote() {
-        this.Hammer.prototype$vote({id: this.hammer.id}).$promise.then(res => {
+        this.hammer._votes = true;
+        this.Hammer.prototype$vote({
+            id: this.hammer.id
+        }).$promise.then(res => {
             this.hammer.countVotes = res.countVotes;
-            this.hammer._votes = true;
         }).catch(err => {
+            this.hammer._votes = false;
             this.$log.debug(err);
             this.toastr.warning('oh no!, vote failed');
         });

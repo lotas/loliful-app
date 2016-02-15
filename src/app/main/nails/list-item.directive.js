@@ -1,5 +1,4 @@
-export
-function NailListItemDirective() {
+export function NailListItemDirective() {
     'ngInject';
 
     let directive = {
@@ -54,10 +53,11 @@ class NailListItemController {
 
     favorite() {
         let func = !this.nail._favorite ? 'prototype$addToFav' : 'prototype$removeFromFav';
+        this.nail._favorite = !this.nail._favorite;
         this.Nail[func]({
             id: this.nail.id
-        }).$promise.then(() => {
-            this.nail._favorite = !this.nail._favorite;
+        }).$promise.then((res) => {
+            this.$log.debug(res);
         }).catch(err => {
             this.$log.debug(err);
             this.toastr.warning('oh no!, something horrible happened');
@@ -65,13 +65,14 @@ class NailListItemController {
     }
 
     vote() {
+        this.nail._votes = true;
         this.Nail.prototype$vote({
             id: this.nail.id
         }).$promise.then(res => {
             this.nail.countVotes = res.countVotes;
-            this.nail._votes = true;
         }).catch(err => {
             this.$log.debug(err);
+            this.nail._votes = false;
             this.toastr.warning('oh no!, vote failed');
         });
     }

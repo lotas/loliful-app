@@ -35,7 +35,7 @@ angular.module('loliful', [
   .run(runBlock)
 ;
 
-import '../app/components/components.module';
-import '../app/main/main.module';
-import '../app/user/user.module';
-import '../app/pages/pages.module';
+import './components/components.module';
+import './main/main.module';
+import './user/user.module';
+import './pages/pages.module';

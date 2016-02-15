@@ -33,7 +33,9 @@ class JokeListItemController {
     }
 
     report() {
-        this.Hammer.prototype$report({id: this.joke.id}).$promise.then(() => {
+        this.Hammer.prototype$report({
+            id: this.joke.id
+        }).$promise.then(() => {
             this.joke._isReported = true;
             this.toastr.success('Thank you for reporting!');
         }).catch(err => {
@@ -43,19 +45,24 @@ class JokeListItemController {
     }
 
     favorite() {
-        this.Hammer.prototype$addToFav({id: this.joke.id}).$promise.then(() => {
-            this.joke._favorite = true;
+        this.joke._favorite = true;
+        this.Hammer.prototype$addToFav({
+            id: this.joke.id
+        }).$promise.then(() => {
+
         }).catch(err => {
+            this.joke._favorite = false;
             this.$log.debug(err);
             this.toastr.warning('oh no!, something horrible happened');
         });
     }
 
     vote() {
+        this.joke._votes = true;
         this.Hammer.prototype$vote({id: this.joke.id}).$promise.then(res => {
             this.joke.countVotes = res.countVotes;
-            this.joke._votes = true;
         }).catch(err => {
+            this.joke._votes = false;
             this.$log.debug(err);
             this.toastr.warning('oh no!, vote failed');
         });
