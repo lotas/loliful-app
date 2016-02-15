@@ -45,24 +45,26 @@ class JokeListItemController {
     }
 
     favorite() {
-        this.joke._favorite = true;
+        this.joke.$favorite = this.joke.$favorite ? false : Date.now();
         this.Hammer.prototype$addToFav({
             id: this.joke.id
         }).$promise.then(() => {
 
         }).catch(err => {
-            this.joke._favorite = false;
+            this.joke.$favorite = false;
             this.$log.debug(err);
             this.toastr.warning('oh no!, something horrible happened');
         });
     }
 
     vote() {
-        this.joke._votes = true;
-        this.Hammer.prototype$vote({id: this.joke.id}).$promise.then(res => {
+        this.joke.$votes = Date.now();
+        this.Hammer.prototype$vote({
+            id: this.joke.id
+        }).$promise.then(res => {
             this.joke.countVotes = res.countVotes;
         }).catch(err => {
-            this.joke._votes = false;
+            this.joke.$votes = false;
             this.$log.debug(err);
             this.toastr.warning('oh no!, vote failed');
         });

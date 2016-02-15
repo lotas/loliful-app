@@ -14,6 +14,6 @@ div.panel.joke-list-item
       a(ng-click="jli.share()")
         i.icon.icon-loliful-icon-share
         | Share
-      a(ng-click="jli.vote()", ng-disabled="jli.joke._votes", ng-class="{active: jli.joke._votes}")
-        i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke._votes, 'icon-loliful-icon-liked': jli.joke._votes}")
+      a(ng-click="jli.vote()", ng-disabled="jli.joke.$votes", ng-class="{active: jli.joke.$votes}")
+        i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke.$votes, 'icon-loliful-icon-liked': jli.joke.$votes}")
         | Like

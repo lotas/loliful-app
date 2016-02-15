@@ -24,10 +24,10 @@ div.panel.nail-list-item
         div.dropdown
           button(bs-dropdown="nlm.dropdown", data-placement="top", aria-haspopup="true", aria-expanded="false")
             i.icon.icon-loliful-icon-submenu
-        a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail._favorite}")
-          i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail._favorite, 'icon-loliful-icon-bookmarked': nlm.nail._favorite}")
-        a.likes(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail._votes", ng-class="{active: nlm.nail._votes}")
-          i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail._votes, 'icon-loliful-icon-liked': nlm.nail._votes}")
+        a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail.$favorite}")
+          i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
+        a.likes(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail.$votes", ng-class="{active: nlm.nail.$votes}")
+          i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail.$votes, 'icon-loliful-icon-liked': nlm.nail.$votes}")
           span {{ nlm.nail.countVotes }}
     div.row(ng-if="nlm._reply")
       form.reply-form.form-inline(ng-submit="nlm.reply(); nlm._reply=false;")

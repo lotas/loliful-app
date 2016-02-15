@@ -53,7 +53,8 @@ class NailListItemController {
 
     favorite() {
         let func = !this.nail._favorite ? 'prototype$addToFav' : 'prototype$removeFromFav';
-        this.nail._favorite = !this.nail._favorite;
+        this.nail.$favorite = this.nail.$favorite ? false : Date.now();
+
         this.Nail[func]({
             id: this.nail.id
         }).$promise.then((res) => {
@@ -65,14 +66,15 @@ class NailListItemController {
     }
 
     vote() {
-        this.nail._votes = true;
+        this.nail.$votes = Date.now();
+
         this.Nail.prototype$vote({
             id: this.nail.id
         }).$promise.then(res => {
             this.nail.countVotes = res.countVotes;
         }).catch(err => {
             this.$log.debug(err);
-            this.nail._votes = false;
+            this.nail.$votes = false;
             this.toastr.warning('oh no!, vote failed');
         });
     }
