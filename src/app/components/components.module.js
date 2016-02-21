@@ -7,6 +7,7 @@ import { FloatMenuDirective } from './navigation/float-menu.directive';
 import { errorPageRouteConfig } from './error-page/error-page.route';
 import { SweetAlert } from './sweet-alert.service';
 import { LiveService, runLiveService } from './live.service';
+import { AvatarDirective } from './directives/avatar.directive';
 
 angular.module('loliful.components', [
         'lbServices',
@@ -29,4 +30,6 @@ angular.module('loliful.components', [
 
     .directive('lolifulNavigation', NavigationDirective)
     .directive('floatMenu', FloatMenuDirective)
+
+    .directive('avatar', AvatarDirective)
 ;

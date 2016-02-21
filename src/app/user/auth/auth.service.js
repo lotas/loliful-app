@@ -35,21 +35,30 @@ export class AuthService {
     }
 
     loadToken(token) {
-        return this.$http.get(this.apiEndpoint + '/auth/token/' + token).then((res) => {
-            if (res.data.accessToken && res.data.user) {
-                this.setToken(
-                    res.data.accessToken.id,
-                    res.data.accessToken.userId,
-                    res.data.user
-                );
-            }
-            return res.data;
-        });
+        return this.$http.get(this.apiEndpoint + '/auth/token/' + token)
+            .then((res) => {
+                if (res.data.accessToken && res.data.user) {
+                    this.setToken(
+                        res.data.accessToken.id,
+                        res.data.accessToken.userId,
+                        res.data.user
+                    );
+                }
+                return res.data;
+            });
     }
 
     loadInfo() {
-        return this.$http.get(this.apiEndpoint + '/me').then(function(res) {
-            return res.data;
-        });
+        return this.$http.get(this.apiEndpoint + '/me')
+            .then(function(res) {
+                return res.data;
+            });
+    }
+
+    loadAvatar(userId) {
+        return this.$http.get(`${this.apiEndpoint}/avatar/${userId}`)
+            .then((res) => {
+                return res.data;
+            });
     }
 }

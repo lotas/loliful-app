@@ -1,6 +1,6 @@
 div.panel.nail-list-item
   div.panel-heading
-    span.avatar
+    avatar(user="nlm.nail.$user")
     a.username(href="#") {{ ::nlm.nail.$user.name }}
     a.expander(ui-sref="nail-view({nailId: nlm.nail.id})")
       i.icon.icon-loliful-icon-expand

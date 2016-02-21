@@ -16,6 +16,7 @@ export class ProfileController {
 
         this.getStats();
         this.getInfo();
+        this.getAvatar();
     }
 
     setName() {
@@ -38,6 +39,12 @@ export class ProfileController {
     getInfo() {
         this.AuthService.loadInfo().then(res => {
             this.info = res;
+        });
+    }
+
+    getAvatar() {
+        this.AuthService.loadAvatar(this.user.id).then(res => {
+            this.avatar = res;
         });
     }
 }

@@ -18,6 +18,12 @@ describe('Auth Service', () => {
     }));
 
     it('Should call loadInfo()', inject((AuthService) => {
+        $httpBackend.expect('GET', 'http://local.loliful.io/avatar/1234').respond({me: {}});
+        AuthService.loadAvatar('1234');
+        $httpBackend.flush();
+    }));
+
+    it('Should call loadAvatar()', inject((AuthService) => {
         $httpBackend.expect('GET', 'http://local.loliful.io/me').respond({me: {}});
         AuthService.loadInfo();
         $httpBackend.flush();

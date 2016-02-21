@@ -1,26 +1,31 @@
-h1 Welcome, {{ vm.user.email }}
+.container-fluid
+  h1 Welcome, {{ vm.user.email }}
 
+  .row
+    avatar(user="vm.user")
 
-form.form-inline(ng-submit="vm.setName()")
-    div.form-group
-        label(for="name") Name
-        input.form-control#name(type="text", ng-model="vm.user.name")
-    button.btn.btn-default(type="submit") Change
+  .row
+    .col-sm-12
+      form.form-inline(ng-submit="vm.setName()")
+          div.form-group
+              label(for="name") Name
+              input.form-control#name(type="text", ng-model="vm.user.name")
+          button.btn.btn-default(type="submit") Change
 
-p(ng-if="!vm.stats") Loading stats ..
-div.row(ng-if="vm.stats")
-  div.panel.panel-default
-    div.panel-heading Nails
-    div.panel-body
-      bold {{ vm.stats.nails || 0 }}
-  div.panel.panel-default
-    div.panel-heading Hammers
-    div.panel-body
-      bold {{ vm.stats.hammers || 0 }}
-  div.panel.panel-default
-    div.panel-heading Rating
-    div.panel-body
-      bold {{ vm.stats.rating || 0}}
+      p(ng-if="!vm.stats") Loading stats ..
+      div.row(ng-if="vm.stats")
+        div.panel.panel-default
+          div.panel-heading Nails
+          div.panel-body
+            bold {{ vm.stats.nails || 0 }}
+        div.panel.panel-default
+          div.panel-heading Hammers
+          div.panel-body
+            bold {{ vm.stats.hammers || 0 }}
+        div.panel.panel-default
+          div.panel-heading Rating
+          div.panel-body
+            bold {{ vm.stats.rating || 0}}
 
-div.well
-    a.btn.btn-block.btn-primary(href="{{api}}/link/facebook") Link with Facebook
+      div.well
+          a.btn.btn-block.btn-primary(href="{{api}}/link/facebook") Link with Facebook

@@ -1,9 +1,9 @@
 div.panel.joke-list-item
   div.panel-heading
-    span.avatar
+    avatar(user="jli.joke.$user")
     a.username(href="#") {{ ::jli.joke.$user.name }}
     span.and &
-    span.avatar
+    avatar(user="jli.joke.$nail.$user")
     a.username(href="#") {{ ::jli.joke.$nail.$user.name }}
   div.panel-body
     span.question {{ jli.joke.$nail.text }}

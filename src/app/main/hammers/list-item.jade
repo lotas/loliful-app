@@ -4,7 +4,7 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}")
   div.panel-footer
     div.row
       div.col-sm-8.col-xs-8
-        span.avatar
+        avatar(user="hli.hammer.$user")
         a.username(href="#") {{ hli.hammer.$user.name }}
         span.time-ago
           i.icon.icon-loliful-icon-time
