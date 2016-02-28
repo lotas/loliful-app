@@ -66,6 +66,15 @@
             }
         }
     }
+
+    opacity: 1;
+    &.ng-hide {
+      bottom: -15%;
+      opacity: 0;
+    }
+    &.ng-hide-add, &.ng-hide-remove {
+      transition: all ease 0.5s;
+    }
 }
 
 .float-bottom-menu {
@@ -89,4 +98,11 @@
     .nav-pills-main-menu(@navFontSize - 10px, @navLineHeight - 10px, @navIconSize - 14px, 5px);
 
 
+    &.ng-hide {
+      left: -100%;
+      right: -50%;
+    }
+    &.ng-hide-add, &.ng-hide-remove {
+      transition: all ease 0.3s;
+    }
 }
