@@ -1,3 +1,21 @@
-form.nail-add {
+.nail-add{
   margin: 10px 0 20px 0;
+  position: fixed;
+  background: #fff;
+  z-index: 999;
+  width: 100%;
+  padding: 20px 40px;
+  border: 1px solid #ccc;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+  opacity: 1;
+
+  &.ng-hide {
+    left: -100%;
+  }
+
+  &.ng-hide-add, &.ng-hide-remove {
+    transition: all ease .3s;
+  }
 }

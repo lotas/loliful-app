@@ -9,6 +9,7 @@ export function NailAddDirective() {
         scope: {
             onAdd: '&'
         },
+        replace: true,
         bindToController: true
     };
 
