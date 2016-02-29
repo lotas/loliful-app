@@ -1,8 +1,6 @@
-form.form-inline.nail-add(name="nail")
+form.nail-add(name="nail")
   div.form-group
     input#text.form-control(type="text", placeholder="Once upon a dime", ng-model="nailAdd.nail.text")
-  .row
-    .col-sm-6.col-xs-8
-      button.btn.btn-large.btn-primary(ng-disabled="nailAdd.saving", ng-click="nailAdd.create()") Add funny intro
-    .col-sm-6.col-xs-4
-      button.btn.btn-default.btn-large.align-right(ng-disabled="nailAdd.saving", ng-click="nailAdd.onClose();") No, maybe later
+  div
+    button.btn.btn-default.pull-right(ng-disabled="nailAdd.saving", ng-click="nailAdd.onClose();") No, maybe later
+    button.btn.btn-large.btn-primary(ng-disabled="nailAdd.saving", ng-click="nailAdd.create()") Add funny intro
