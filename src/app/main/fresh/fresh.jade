@@ -1,6 +1,4 @@
-nail-add.nail-add.ng-hide(on-add="vm.onAdd(nail)", ng-show="showAdd")
-
-float-menu(add="showAdd = !showAdd")
+float-menu(add="fm.onAdd")
 
 ul.nav.nav-pills.nav-justified.fresh-nav
   li(ng-class="{active: vm.type=='popular'}")

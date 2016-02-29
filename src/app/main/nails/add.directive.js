@@ -7,7 +7,8 @@ export function NailAddDirective() {
         controller: NailAddController,
         controllerAs: 'nailAdd',
         scope: {
-            onAdd: '&'
+            onAdd: '&',
+            onClose: '&'
         },
         replace: true,
         bindToController: true

@@ -28,6 +28,7 @@ class FloatMenuController {
 
         var scrollHandler = throttle(this.scroll, 150).bind(this);
 
+        this.showFloatMenu = true;
         this.$timeout = $timeout;
         this.hideTm = null;
 
@@ -52,15 +53,17 @@ class FloatMenuController {
 
     showHideNav() {
         this.showNav = !this.showNav;
+        this.showFloatMenu = !this.showNav;
         if (this.showNav === true) {
             this.hideTm = this.$timeout(() => {
                 this.showNav = false;
+                this.showFloatMenu = true;
             }, 5000);
         }
     }
 
     scroll() {
-        if (this.$window.pageYOffset <= 180) {
+        if (this.$window.pageYOffset <= 100) {
             if (!this.hidden) {
                 this.fm2.addClass('hidden');
                 this.fm1.addClass('ng-hide');

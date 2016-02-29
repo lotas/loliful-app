@@ -1,4 +1,8 @@
-form.form-inline.nail-add(name="nail", ng-submit="nailAdd.create()")
+form.form-inline.nail-add(name="nail")
   div.form-group
     input#text.form-control(type="text", placeholder="Once upon a dime", ng-model="nailAdd.nail.text")
-  button.btn.btn-success(ng-disabled="nailAdd.saving") Add funny intro
+  .row
+    .col-sm-6.col-xs-8
+      button.btn.btn-large.btn-primary(ng-disabled="nailAdd.saving", ng-click="nailAdd.create()") Add funny intro
+    .col-sm-6.col-xs-4
+      button.btn.btn-default.btn-large.align-right(ng-disabled="nailAdd.saving", ng-click="nailAdd.onClose();") No, maybe later
