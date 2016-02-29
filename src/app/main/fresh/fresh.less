@@ -1,26 +1,35 @@
 .fresh-nav {
-    @fontSize: 17px;
+  margin: 4px 6px;
+  width: 98%;
+  @fontSize: 17px;
 
-    li {
-        a {
-            background: #FBFCFD;
-            border: 1px solid #C3C7D0;
-            border-radius: 4px 0px 0px 4px;
-            font-family: Lato;
-            font-size: @fontSize;
-            color: #99A3B3;
-            line-height: @fontSize;
-            font-weight: 400;
-        }
+  list-style: none;
+
+  li {
+    display: table-cell;
+    width: 1%;
+    a {
+      line-height: @fontSize + 10px;
+
+      background: #FBFCFD;
+      border: 1px solid #C3C7D0;
+      font-family: Lato;
+      font-size: @fontSize;
+      color: #99A3B3;
+
+      font-weight: 400;
     }
-    li.active,li:hover,li:active,li:focus {
-        a,a:hover {
-            background: #82CCDC;
-            border-radius: 4px 0px 0px 4px;
-            font-family: Lato;
-            font-size: @fontSize;
-            color: #FFFFFF;
-            line-height: @fontSize;
-        }
+    a.popular {
+      border-radius: 4px 0px 0px 4px;
     }
+    a.recent {
+      border-radius: 0 4px 4px 0px;
+    }
+  }
+  li.active, li:hover, li:active, li:focus {
+    a, a:hover {
+      background: #82CCDC;
+      color: #FFFFFF;
+    }
+  }
 }
