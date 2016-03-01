@@ -3,21 +3,21 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}")
     | {{ hli.hammer.text }}
   div.panel-footer
     div.row
-      div.col-sm-8.col-xs-8
+      div.col-sm-12
+        div.pull-right.text-right
+          div.dropdown
+            button(bs-dropdown="hli.dropdown", data-placement="top", aria-haspopup="true", aria-expanded="false")
+              i.icon.icon-loliful-icon-submenu
+          a.delete(ng-click="hli.delete()", ng-if="hli.isOwn")
+            i.icon.icon-loliful-icon-delete
+          a.likes(ng-click="hli.vote()", ng-disabled="hli.hammer._votes", ng-class="{active: hli.hammer._votes}")
+            i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer._votes, 'icon-loliful-icon-liked': hli.hammer._votes}")
+            span {{ hli.hammer.countVotes }}
         avatar(user="hli.hammer.$user")
         a.username(href="#") {{ hli.hammer.$user.name }}
         span.time-ago
           i.icon.icon-loliful-icon-time
           | {{ hli.hammer.created | timeAgo }}
-      div.col-sm-4.col-xs-4.pull-right.text-right
-        div.dropdown
-          button(bs-dropdown="hli.dropdown", data-placement="top", aria-haspopup="true", aria-expanded="false")
-            i.icon.icon-loliful-icon-submenu
-        a.delete(ng-click="hli.delete()", ng-if="hli.isOwn")
-          i.icon.icon-loliful-icon-delete
-        a.likes(ng-click="hli.vote()", ng-disabled="hli.hammer._votes", ng-class="{active: hli.hammer._votes}")
-          i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer._votes, 'icon-loliful-icon-liked': hli.hammer._votes}")
-          span {{ hli.hammer.countVotes }}
         //- a(ng-click="hli.share()")
         //-   i.icon.icon-loliful-icon-share
         //-   | Share

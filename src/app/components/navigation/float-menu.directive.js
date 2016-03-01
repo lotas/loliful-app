@@ -10,7 +10,8 @@ export function FloatMenuDirective() {
         scope: {
             single: '=',
             add: '&',
-            show: '='
+            show: '=',
+            onAddClick: '&'
         }
     };
 
@@ -22,33 +23,44 @@ class FloatMenuController {
         'ngInject';
 
         this.$window = $window;
+        this.$timeout = $timeout;
+        this.$scope = $scope;
+        this.throttle = throttle;
+
         this.win = angular.element($window);
         this.fm1 = angular.element('#fm1');
         this.fm2 = angular.element('#fm2');
 
-        var scrollHandler = throttle(this.scroll, 150).bind(this);
+        if (this.show) {
+            this.fm2.removeClass('hidden').removeClass('ng-hide');
+            this.hidden = false;
+            this.showFloatMenu = true;
+        } else {
+            this.hidden = true;
+            this.setupListener();
+        }
+    }
+
+    setupListener() {
+        var scrollHandler = this.throttle(this.scroll, 150).bind(this);
 
         this.showFloatMenu = true;
-        this.$timeout = $timeout;
         this.hideTm = null;
 
         this.win.on('scroll', scrollHandler);
-        $scope.$on('$destroy', () => {
+        this.$scope.$on('$destroy', () => {
             this.win.off('scroll', scrollHandler);
             delete this.win;
             delete this.scrollHandler;
             delete this.fm2;
 
             if (this.hideTm) {
-                $timeout.cancel(this.hideTm);
+                this.$timeout.cancel(this.hideTm);
             }
         });
 
         this.hidden = this.show ? false : true;
 
-        if (this.show) {
-            this.fm2.removeClass('hidden').removeClass('ng-hide');
-        }
     }
 
     showHideNav() {
@@ -59,6 +71,15 @@ class FloatMenuController {
                 this.showNav = false;
                 this.showFloatMenu = true;
             }, 5000);
+        }
+    }
+
+    addClick() {
+        if (angular.isFunction(this.onAddClick)) {
+            this.onAddClick({});
+        } else {
+            this.showAdd = true;
+            this.showFloatMenu = false;
         }
     }
 
