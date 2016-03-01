@@ -2,9 +2,9 @@ float-menu(add="fm.onAdd")
 
 ul.nav.nav-pills.nav-justified.fresh-nav
   li(ng-class="{active: vm.type=='popular'}")
-    a.popular(ui-sref="fresh({type: 'popular'})") Popular
+    a.popular(ui-sref="fresh({type: 'popular'})") POPULAR
   li(ng-class="{active: vm.type=='recent'}")
-    a.recent(ui-sref="fresh({type: 'recent'})") Recent
+    a.recent(ui-sref="fresh({type: 'recent'})") RECENT
 
 div(ng-if="!vm.nails.length")
   p Loading ..

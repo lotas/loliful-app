@@ -14,6 +14,9 @@ header.header {
     .nav-pills-main-menu(@navFontSize, @navLineHeight, @navIconSize, 'auto');
 }
 
+.navbar {
+  margin-bottom: 5px;
+}
 
 .navbar-default {
     background-color: initial;
@@ -23,6 +26,8 @@ header.header {
         border: 0;
         color: @iconMenu;
         .icon-font();
+
+        line-height: @iconFontSizeMenu;
 
         &:hover, &:active, &:focus {
             background-color: initial;
