@@ -11,7 +11,8 @@ export function FloatMenuDirective() {
             single: '=',
             add: '&',
             show: '=',
-            onAddClick: '&'
+            onAddClick: '&',
+            customAdd: '='
         }
     };
 
@@ -75,7 +76,7 @@ class FloatMenuController {
     }
 
     addClick() {
-        if (angular.isFunction(this.onAddClick)) {
+        if (this.customAdd) {
             this.onAddClick({});
         } else {
             this.showAdd = true;
