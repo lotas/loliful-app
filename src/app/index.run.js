@@ -9,12 +9,13 @@
  * @param {$http} $http
  * @param apiAuth
  */
-export function runBlock($log, $rootScope, User, $state, Storage,
+export function runBlock($log, $rootScope, User, $state, Storage, envName,
                          $location, $http, apiAuth, apiEndpoint, screenSize) {
     'ngInject';
 
     $http.defaults.headers.common.Authorization = apiAuth;
 
+    $rootScope.envName = envName;
     $rootScope.isState = $state.is;
     $rootScope.stateIncludes = $state.includes;
     $rootScope.api = apiEndpoint;

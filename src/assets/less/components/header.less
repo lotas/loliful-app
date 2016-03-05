@@ -12,6 +12,8 @@ header.header {
     }
 
     .nav-pills-main-menu(@navFontSize, @navLineHeight, @navIconSize, 'auto');
+
+    height: 120px;
 }
 
 .navbar {
@@ -77,18 +79,31 @@ header.header {
   }
 }
 .is-tablet {
-  .main-nav {
-    //.d2();
-    //
+  @desktopPaddingTop: 6px;
+  header.header {
+    padding-top: @desktopPaddingTop;
+    height: 70px;
   }
-}
-.is-desktop {
   .main-nav {
     //.d1();
     position: absolute;
     left: 200px;
-    top: 0px;
-    width: 600px;
+    top: @desktopPaddingTop;
+    width: 480px;
+  }
+}
+.is-desktop {
+  @desktopPaddingTop: 6px;
+  header.header {
+    padding-top: @desktopPaddingTop;
+    height: 70px;
+  }
+  .main-nav {
+    //.d1();
+    position: absolute;
+    left: 200px;
+    top: @desktopPaddingTop;
+    width: 550px;
   }
 }
 
