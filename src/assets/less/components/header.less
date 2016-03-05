@@ -69,3 +69,94 @@ header.header {
     }
 
 }
+
+.is-phone {
+  .main-nav {
+    //.d3();
+    //
+  }
+}
+.is-tablet {
+  .main-nav {
+    //.d2();
+    //
+  }
+}
+.is-desktop {
+  .main-nav {
+    //.d1();
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    width: 600px;
+  }
+}
+
+
+header.header {
+  .navbar-brand {
+    img {
+      height: @logoMobileHeight;
+    }
+  }
+
+  .navbar-header {
+    .navbar-toggle {
+      margin: 1px 8px 0 0;
+    }
+  }
+
+  .navbar {
+    .nav-pills.top-menu {
+      width: 100%;
+
+      > li {
+        width: 33%;
+      }
+    }
+  }
+}
+
+
+.minifyNavPills(@delta) {
+  header.header {
+    .nav-pills {
+      padding-right: @navPillsMarginSides - @delta;
+      padding-left: @navPillsMarginSides - @delta;
+
+      &>li {
+        &>a {
+          font-size: @navFontSize - @delta;
+          line-height: @navLineHeight ;
+
+          .icon {
+            font-size: @navIconSize - floor(@delta * 1.2);
+            line-height: @navIconSize - floor(@delta * 1.2);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .minifyNavPills(4px);
+  header.header {
+    .navbar {
+      .nav-pills.top-menu {
+        > li {
+          width: 32%;
+        }
+      }
+    }
+  }
+
+  #secondary-menu {
+    padding-left:0;
+    padding-right:0;
+    li > a {
+      padding-left: 2px;
+      padding-right: 2px;
+    }
+  }
+}

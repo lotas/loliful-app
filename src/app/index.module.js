@@ -19,6 +19,7 @@ angular.module('loliful', [
     'toastr',
 
     'mgcrea.ngStrap',
+    'matchMedia',
 
     'infinite-scroll',
     'angular-loading-bar',

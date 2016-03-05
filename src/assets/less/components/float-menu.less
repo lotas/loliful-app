@@ -1,6 +1,6 @@
 @floatMenuItemSize: 62px;
 @floatMenuItemFontSize: 30px;
-
+@floatNavFontSize: 18px;
 @floatMenuNavBg: #39404A;
 @floatMenuNavShadow: #C3C7D0;
 @floatMenuAddBg: #D69734;
@@ -98,7 +98,7 @@
     }
     overflow:hidden;
 
-    .nav-pills-main-menu(@navFontSize - 13px, @navLineHeight - 10px, @navIconSize - 16px, 5px);
+    .nav-pills-main-menu(@floatNavFontSize, @floatNavFontSize + 16px, @navIconSize - 16px, 5px);
 
 
     &.ng-hide {

@@ -10,7 +10,7 @@ header.header.clearfix
           span.icon.icon-loliful-icon-notification
         a.navbar-brand
             img(src="/assets/img/logo.svg", alt="Loliful", title="Loliful")
-      div.collapse.navbar-collapse
+      div.collapse.navbar-collapse(ng-show="screen.isDesktop")
         ul.nav.navbar-nav
           li(role="presentation", data-match-route="/profile")
             a(ui-sref="profile") Profile
@@ -22,7 +22,7 @@ header.header.clearfix
           li(role="presentation")
             a(ui-sref="logout") Logout
 
-  nav.navbar
+  nav.navbar.main-nav
     ul.nav.nav-pills.top-menu
       li(role="presentation", ng-class="{active: isState('fresh')}")
         a(ui-sref="fresh")

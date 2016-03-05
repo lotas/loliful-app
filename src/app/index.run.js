@@ -9,7 +9,8 @@
  * @param {$http} $http
  * @param apiAuth
  */
-export function runBlock($log, $rootScope, User, $state, Storage, $location, $http, apiAuth, apiEndpoint) {
+export function runBlock($log, $rootScope, User, $state, Storage,
+                         $location, $http, apiAuth, apiEndpoint, screenSize) {
     'ngInject';
 
     $http.defaults.headers.common.Authorization = apiAuth;
@@ -45,4 +46,11 @@ export function runBlock($log, $rootScope, User, $state, Storage, $location, $ht
         dereg2();
         dereg3();
     });
+
+    // responsive
+    $rootScope.screen = {
+        isPhone: screenSize.on('xs', match => $rootScope.screen.isPhone = match),
+        isTablet: screenSize.on('sm, md', match => $rootScope.screen.isTablet = match),
+        isDesktop: screenSize.on('lg', match => $rootScope.screen.isDesktop = match)
+    };
 }
