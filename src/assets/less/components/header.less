@@ -72,6 +72,12 @@ header.header {
 
 }
 
+.header-fixed() {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+}
+
 .is-phone {
   .main-nav {
     //.d3();
@@ -83,6 +89,7 @@ header.header {
   header.header {
     padding-top: @desktopPaddingTop;
     height: 70px;
+    .header-fixed();
   }
   .main-nav {
     //.d1();
@@ -97,6 +104,7 @@ header.header {
   header.header {
     padding-top: @desktopPaddingTop;
     height: 70px;
+    .header-fixed();
   }
   .main-nav {
     //.d1();
