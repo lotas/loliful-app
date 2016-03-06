@@ -15,6 +15,9 @@ export function mainRouteConfig($stateProvider) {
                     templateUrl: 'app/main/fresh/fresh.html',
                     controller: 'FreshController',
                     controllerAs: 'vm'
+                },
+                'side-menu@app': {
+                    templateUrl: 'app/main/fresh/side-menu.html'
                 }
             },
             data: {
@@ -29,6 +32,9 @@ export function mainRouteConfig($stateProvider) {
                     templateUrl: 'app/main/top/top.html',
                     controller: 'TopController',
                     controllerAs: 'vm'
+                },
+                'side-menu@app': {
+                    templateUrl: 'app/main/top/side-menu.html'
                 }
             },
             data: {
@@ -43,6 +49,9 @@ export function mainRouteConfig($stateProvider) {
                     templateUrl: 'app/main/activity/activity.html',
                     controller: 'ActivityController',
                     controllerAs: 'vm'
+                },
+                'side-menu@app': {
+                    templateUrl: 'app/main/activity/side-menu.html'
                 }
             },
             data: {

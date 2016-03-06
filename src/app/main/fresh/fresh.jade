@@ -1,6 +1,6 @@
 float-menu(add="fm.onAdd")
 
-ul.nav.nav-pills.nav-justified.fresh-nav
+ul.nav.nav-pills.nav-justified.fresh-nav(ng-hide="!screen.isPhone")
   li(ng-class="{active: vm.type=='popular'}")
     a.popular(ui-sref="fresh({type: 'popular'})") POPULAR
   li(ng-class="{active: vm.type=='recent'}")

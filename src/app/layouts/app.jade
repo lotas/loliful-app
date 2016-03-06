@@ -3,13 +3,14 @@
 
   h1(ng-if="envName === 'local'")
     span.label(ng-class="{'label-success': screen.isPhone, 'label-default': !screen.isPhone}") isPhone
-    &nbsp;
+    | &nbsp;
     span.label(ng-class="{'label-success': screen.isTablet, 'label-default': !screen.isTablet}") isTablet
-    &nbsp;
+    | &nbsp;
     span.label(ng-class="{'label-success': screen.isDesktop, 'label-default': !screen.isDesktop}") isDesktop
 
 
   .ui-view-container
-     section(class="main", ui-view="content")
+    section.side-menu(ui-view="side-menu", ng-hide="screen.isPhone")
+    section.main(ui-view="content")
 
   footer.footer
