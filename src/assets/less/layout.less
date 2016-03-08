@@ -1,3 +1,5 @@
+@sidebarWidth: 190px;
+
 .is-tablet, .is-desktop {
   .ui-view-container {
     position: relative;
@@ -6,16 +8,17 @@
   .side-menu {
     position: fixed;
     left: 0;
-    top: 90px;
+    top: 110px;
     display: block;
-    width: 190px;
+    width: @sidebarWidth;
     padding-right: 20px;
     padding-left: 20px;
   }
   .main {
     position: absolute;
-    left: 200px;
+    left: @sidebarWidth + 10px;
     top: 20px;
     display: block;
+    right: 40px;
   }
 }

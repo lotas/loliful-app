@@ -364,3 +364,25 @@
         max-width: 450px;
     }
 }
+
+
+// Responsive for desktop
+.is-tablet, .is-desktop {
+  .panel {
+    border: 1px solid @inputBorder;
+    //min-width: 30%;
+    min-height: 220px;
+    //max-width: 50%;
+    width: 420px;
+    display: inline-block;
+    float: left;
+    margin: 20px 20px 10px 0;
+    position: relative;
+    .panel-footer {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
