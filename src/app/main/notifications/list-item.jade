@@ -1,5 +1,10 @@
-div.notification-list-item.row(ng-class="{'bg-warning': nli.notification.isRead == '0'}")
-  .col-sm-2 {{ ::nli.notification.date | date:'short' }}
-  .col-sm-10
+div.notification-list-item.row
+  .col-xs-1
+    avatar(user="nli.notification.$user")
+  .col-xs-10
+    a(ui-sref="profile({userId: nli.notificatin.actorId})") {{ ::nli.getActorName() }}
+    | {{ ::nli.getActionName() }}
     a(ui-sref="nail-view({nailId: nli.notification.data.nailId})", ng-click="nli.markRead()")
-      | {{ ::nli.formatString() }}
+      | {{ ::nli.notification.data.text }}
+  .col-xs-1
+    i.icon.type(ng-class="::nli.getIcon()")

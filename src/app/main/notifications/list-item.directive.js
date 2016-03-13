@@ -9,6 +9,13 @@ const _entityToName = {
     'nail': 'question',
     'hammer': 'answer'
 };
+const _typeToIcon = {
+    'like': 'icon-loliful-icon-liked',
+    'save': 'icon-loliful-icon-bookmarked',
+    'share': 'icon-loliful-icon-share',
+    'report': 'icon-loliful-icon-close',
+    'reply': 'icon-loliful-icon-edit'
+}
 
 export function NotificationsListItemItemDirective() {
     'ngInject';
@@ -38,6 +45,19 @@ class NotificationsListItemController {
 
         this.Notification = Notification;
         this.$log = $log;
+    }
+
+    getIcon() {
+        return _typeToIcon[this.notification.type] || '';
+    }
+
+    getActorName() {
+        let ntf = this.notification;
+        return ntf.userId !== ntf.actorId ? ntf.$user.name : 'You';
+    }
+
+    getActionName() {
+        return _typeToAction[this.notification.type] || 'did something';
     }
 
     formatString() {

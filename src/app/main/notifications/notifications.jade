@@ -17,5 +17,9 @@
       a.btn.btn-default(ui-sref="fresh") Take me to fresh intros
 
   div(ng-if="vm.notifications.length",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
-    h4 New
-    notification-list-item(notification="item", ng-repeat="item in vm.notifications track by $index")
+    div(ng-if="vm.notificationsNew.length")
+      h4 New
+      notification-list-item(notification="item", ng-repeat="item in vm.notificationsNew track by $index")
+    div(ng-if="vm.notificationsOlder.length")
+      h4 Older
+      notification-list-item(notification="item", ng-repeat="item in vm.notificationsOlder track by $index")
