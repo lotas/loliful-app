@@ -1,4 +1,4 @@
-.container-fluid
+.container-fluid.notifications
   h1 Notifications
     span.badge(ng-if="vm.count.count")
       | {{ vm.count.count }} / {{ vm.count.unread }}
@@ -12,7 +12,7 @@
   div(ng-if="!vm.notifications.length")
     .align-center
       p.vOfs Your mailman took a day off
-      img(src="/assets/img/mailman.png", title="mailman")
+      img.mailman(src="/assets/img/mailman2.png", title="mailman")
       p.vOfs Try adding an Intro to get noticed
       a.btn.btn-default(ui-sref="fresh") Take me to fresh intros
 
