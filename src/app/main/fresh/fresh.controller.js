@@ -6,7 +6,7 @@ export class FreshController {
      * @param {$stateParams} $stateParams
      * @param $log
      */
-    constructor(User, MainService, Storage, $stateParams, $log) {
+    constructor(User, MainService, Storage, $stateParams, $log, $timeout) {
         'ngInject';
 
         this.User = User;
@@ -16,9 +16,9 @@ export class FreshController {
 
         this.type = $stateParams.type || 'recent';
 
-        this.nails = Storage.get(`fresh.${this.type}`);
         this.page = 1;
-        this.loadFresh();
+        this.nails = Storage.get(`fresh.${this.type}`);
+        $timeout(this.loadFresh.bind(this));
     }
 
     loadFresh() {

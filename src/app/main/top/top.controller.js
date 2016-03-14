@@ -4,7 +4,7 @@ export class TopController {
      * @param {User} User
      * @param {MainService} MainService
      */
-    constructor(User, MainService, Storage, $log) {
+    constructor(User, MainService, Storage, $log, $timeout) {
         'ngInject';
 
         this.User = User;
@@ -12,9 +12,9 @@ export class TopController {
         this.Storage = Storage;
         this.$log = $log;
 
-        this.jokes = Storage.get('top') || [];
         this.page = 1;
-        this.loadTop();
+        this.jokes = Storage.get('top') || [];
+        $timeout(this.loadTop.bind(this));
     }
 
     loadTop() {

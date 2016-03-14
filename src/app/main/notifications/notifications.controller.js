@@ -4,7 +4,7 @@ export class NotificationsController {
      * @param {Notification} Notification
      * @param $log
      */
-    constructor(Notification, Storage, $log) {
+    constructor(Notification, Storage, $log, $timeout) {
         'ngInject';
 
         this.Notification = Notification;
@@ -22,7 +22,7 @@ export class NotificationsController {
             limit: 20,
             offset: 0
         };
-        this.load();
+        $timeout(this.load.bind(this));
         //this.loadCounts();
     }
 
