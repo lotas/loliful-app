@@ -22,7 +22,9 @@ export class NotificationsController {
             limit: 20,
             offset: 0
         };
-        $timeout(this.load.bind(this));
+        $timeout(() => {
+            this.load();
+        });
         //this.loadCounts();
     }
 

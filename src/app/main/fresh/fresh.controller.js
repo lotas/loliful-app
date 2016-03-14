@@ -18,7 +18,9 @@ export class FreshController {
 
         this.page = 1;
         this.nails = Storage.get(`fresh.${this.type}`);
-        $timeout(this.loadFresh.bind(this));
+        $timeout(() => {
+            this.loadFresh();
+        });
     }
 
     loadFresh() {

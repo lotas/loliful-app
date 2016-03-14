@@ -14,7 +14,9 @@ export class TopController {
 
         this.page = 1;
         this.jokes = Storage.get('top') || [];
-        $timeout(this.loadTop.bind(this));
+        $timeout(() => {
+            this.loadTop();
+        });
     }
 
     loadTop() {

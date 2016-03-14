@@ -15,8 +15,9 @@ describe('Top Controller', () => {
     vm = $controller('TopController');
   }));
 
-  it('should getTop jokes', inject((MainService) => {
+  it('should getTop jokes', inject((MainService, $timeout) => {
       expect(vm.loadTop).toEqual(jasmine.any(Function));
+      $timeout.flush();
       expect(MainService.getTop).toHaveBeenCalled();
   }));
 
