@@ -4,16 +4,13 @@ export class NotificationsController {
      * @param {Notification} Notification
      * @param $log
      */
-    constructor(Notification, Storage, $log, $timeout) {
+    constructor(Notification, $log) {
         'ngInject';
 
         this.Notification = Notification;
-        this.Storage = Storage;
         this.$log = $log;
 
         this.notifications = [];
-        this.notificationsNew = Storage.get('ntf.new') || [];
-        this.notificationsOlder = Storage.get('ntf.old') || [];
         this.count = {};
 
         this.page = 1;
@@ -22,9 +19,10 @@ export class NotificationsController {
             limit: 20,
             offset: 0
         };
-        $timeout(() => {
-            this.load();
-        });
+
+        this.notificationsNew = [];
+        this.notificationsOlder = [];
+        this.load();
         //this.loadCounts();
     }
 
@@ -41,9 +39,6 @@ export class NotificationsController {
             this.notificationsNew = res.filter(a => a.isRead === 0);
             this.notificationsOlder = res.filter(a => a.isRead === 1);
             this.$loading = false;
-
-            this.Storage.set('ntf.new', this.notificationsNew);
-            this.Storage.set('ntf.old', this.notificationsOld);
         }).catch(err => {
             this.$log.error(err);
         });

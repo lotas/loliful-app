@@ -8,6 +8,7 @@ import { errorPageRouteConfig } from './error-page/error-page.route';
 import { SweetAlert } from './sweet-alert.service';
 import { LiveService, runLiveService } from './live.service';
 import { AvatarDirective } from './directives/avatar.directive';
+import { LoadingDirective } from './directives/loading.directive';
 
 angular.module('loliful.components', [
         'lbServices',
@@ -32,4 +33,5 @@ angular.module('loliful.components', [
     .directive('floatMenu', FloatMenuDirective)
 
     .directive('avatar', AvatarDirective)
+    .directive('loading', LoadingDirective)
 ;

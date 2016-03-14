@@ -15,9 +15,8 @@ describe('Fresh Controller', () => {
     vm = $controller('FreshController');
   }));
 
-  it('should loadFresh nails', inject((MainService, $timeout) => {
+  it('should loadFresh nails', inject((MainService) => {
     expect(vm.loadFresh).toEqual(jasmine.any(Function));
-    $timeout.flush();
     expect(MainService.getFresh).toHaveBeenCalled();
   }));
 

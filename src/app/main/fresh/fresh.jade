@@ -7,7 +7,7 @@ ul.nav.nav-pills.nav-justified.fresh-nav(ng-hide="!screen.isPhone")
     a.recent(ui-sref="fresh({type: 'recent'})") RECENT
 
 div(ng-if="!vm.nails.length")
-  p Loading ..
+  loading
 div.fresh(ng-if="vm.nails", infinite-scroll="screen.isPhone && vm.loadMore()", infinite-scroll-distance="3")
   nail-list-item(nail="item", ng-repeat="item in vm.nails track by $index", show-hammers="true")
 

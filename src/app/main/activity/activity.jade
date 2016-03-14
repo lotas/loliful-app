@@ -1,7 +1,8 @@
 float-menu(single="true")
 
 section
-  div(ng-if="!vm.items") Loading..
+  div(ng-if="!vm.items")
+    loading
   div.activities(infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
     div.my-nails(ng-if="vm.items && vm.type=='nails'")
       nail-list-item(nail="item", ng-repeat="item in vm.items track by $index")

@@ -6,28 +6,25 @@ export class FreshController {
      * @param {$stateParams} $stateParams
      * @param $log
      */
-    constructor(User, MainService, Storage, $stateParams, $log, $timeout) {
+    constructor(User, MainService, $stateParams, $log) {
         'ngInject';
 
         this.User = User;
         this.MainService = MainService;
-        this.Storage = Storage;
         this.$log = $log;
 
         this.type = $stateParams.type || 'recent';
 
         this.page = 1;
-        this.nails = Storage.get(`fresh.${this.type}`);
-        $timeout(() => {
-            this.loadFresh();
-        });
+        this.nails = [];
+
+        this.loadFresh();
     }
 
     loadFresh() {
         this.$loading = true;
         this.MainService.getFresh({type: this.type}).then(res => {
             this.nails = res.nails;
-            this.Storage.set(`fresh.${this.type}`, this.nails);
             this.$loading = false;
         }).catch(err => {
             this.$log.error(err);
