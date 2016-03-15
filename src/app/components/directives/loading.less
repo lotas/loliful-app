@@ -2,10 +2,40 @@
   position: fixed;
   left: 50%;
   margin-left: -40px;
-  top: 30%;
+  top: 50%;
   img {
     width: 80px;
-    transition: 10s ease-in-out;
-    transform: rotate(7200deg);
+    //transform: rotate(3600deg);
+    //transition: all 5s ease-in-out 2s;
   }
+}
+
+.is-tablet, .is-desktop {
+  .loading {
+    left: 13px;
+    top: 19px;
+    margin-left: 0;
+    z-index: 999;
+    img {
+      width: 34px;
+    }
+  }
+}
+
+.loading.ng-enter, .loading.ng-leave {
+  transition: 1.5s ease-in-out all;
+}
+.loading.ng-enter {
+  opacity: 0;
+}
+.loading.ng-enter.ng-enter-active {
+  opacity:1;
+  transform: rotate(180deg);
+}
+.loading.ng-leave {
+  opacity:1;
+}
+.loading.ng-leave.ng-leave-active {
+  opacity:1;
+  transform: rotate(-180deg);
 }

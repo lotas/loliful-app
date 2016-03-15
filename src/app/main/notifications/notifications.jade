@@ -6,8 +6,8 @@
     button.btn.btn-info.btn-small(ng-click="vm.markRead()")
       | Mark all read
 
-  div(ng-if="!vm.notifications")
-    loading
+  loading(ng-if="!vm.notifications")
+
 
   div(ng-if="!vm.notifications.length")
     .align-center
