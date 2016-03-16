@@ -1,4 +1,5 @@
 import { resolveCurrentUser } from './profile.controller';
+import { resolvePublicProfile } from './public.controller';
 
 /**
  *
@@ -19,6 +20,23 @@ export function profileRouteConfig($stateProvider) {
             },
             resolve: {
                 currentUser: resolveCurrentUser
+            },
+            data: {
+                pageTitle: 'Profile @ Loliful.io'
+            }
+        })
+        .state('profile.public', {
+            parent: 'app',
+            url: '/profile/:id',
+            views: {
+                'content@app': {
+                    templateUrl: 'app/user/profile/public.html',
+                    controller: 'ProfilePublicController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                profile: resolvePublicProfile
             },
             data: {
                 pageTitle: 'Profile @ Loliful.io'

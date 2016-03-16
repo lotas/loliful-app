@@ -6,7 +6,7 @@ export function AvatarDirective() {
         scope: {
             user: '='
         },
-        replace: true,
+        replace: false,
         templateUrl: 'app/components/directives/avatar.html'
     };
 

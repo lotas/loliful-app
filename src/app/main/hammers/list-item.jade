@@ -14,7 +14,6 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}")
             i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer._votes, 'icon-loliful-icon-liked': hli.hammer._votes}")
             span {{ hli.hammer.countVotes }}
         avatar(user="hli.hammer.$user")
-        a.username(href="#") {{ hli.hammer.$user.name }}
         span.time-ago
           i.icon.icon-loliful-icon-time
           | {{ hli.hammer.created | timeAgo }}

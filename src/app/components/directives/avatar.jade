@@ -1,2 +1,3 @@
 span.avatar
   img(ng-if="user.avatar" ng-src="{{ ::user.avatar }}")
+a.username(ui-sref="profile.public({id: user.id})") {{ ::user.name }}

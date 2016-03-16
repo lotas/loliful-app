@@ -3,9 +3,11 @@ import { SignupController } from './auth/signup.controllers';
 import { authRouteConfig } from './auth/auth.route';
 
 import { ProfileController } from './profile/profile.controller';
+import { ProfilePublicController } from './profile/public.controller';
 import { profileRouteConfig } from './profile/profile.route';
 
 import { AuthService } from './auth/auth.service';
+import { UserService } from './user.service';
 import { userConfig } from './user.config';
 
 angular.module('loliful.user', [])
@@ -22,6 +24,8 @@ angular.module('loliful.user', [])
     // Profile
     .config(profileRouteConfig)
     .controller('ProfileController', ProfileController)
+    .controller('ProfilePublicController', ProfilePublicController)
+    .service('UserService', UserService)
 
 ;
 
