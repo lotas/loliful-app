@@ -3,3 +3,6 @@
   .row
     h1 {{ vm.profile.name }}
     avatar(user="vm.profile")
+
+
+  img(ng-src="vm.profile.avatar", ng-if="vm.profile.avatar")

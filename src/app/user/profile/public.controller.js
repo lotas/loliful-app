@@ -14,6 +14,9 @@ export class ProfilePublicController {
         this.stats = null;
         this.info = null;
 
+        UserService.loadAvatar(profile.id).then((data) => {
+            this.avatar = data;
+        });
     }
 
 }

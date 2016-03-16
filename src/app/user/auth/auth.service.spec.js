@@ -17,18 +17,6 @@ describe('Auth Service', () => {
         expect(AuthService.hasToken()).toBeFalsy();
     }));
 
-    it('Should call loadInfo()', inject((AuthService) => {
-        $httpBackend.expect('GET', 'http://local.loliful.io/avatar/1234').respond({me: {}});
-        AuthService.loadAvatar('1234');
-        $httpBackend.flush();
-    }));
-
-    it('Should call loadAvatar()', inject((AuthService) => {
-        $httpBackend.expect('GET', 'http://local.loliful.io/me').respond({me: {}});
-        AuthService.loadInfo();
-        $httpBackend.flush();
-    }));
-
     it('Should call loadToken()', inject((AuthService) => {
         $httpBackend.expect('GET', 'http://local.loliful.io/auth/token/1')
                 .respond({

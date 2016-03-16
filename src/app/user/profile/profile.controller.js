@@ -3,11 +3,11 @@ export class ProfileController {
      *
      * @param {Object} currentUser
      */
-    constructor(currentUser, User, AuthService, toastr) {
+    constructor(currentUser, User, UserService, toastr) {
         'ngInject';
 
         this.User = User;
-        this.AuthService = AuthService;
+        this.UserService = UserService;
         this.user = currentUser;
         this.toastr = toastr;
 
@@ -37,15 +37,17 @@ export class ProfileController {
     }
 
     getInfo() {
-        this.AuthService.loadInfo().then(res => {
+        this.UserService.loadInfo().then(res => {
             this.info = res;
         });
     }
 
     getAvatar() {
-        this.AuthService.loadAvatar(this.user.id).then(res => {
-            this.avatar = res;
-        });
+        if (!this.user.avatar) {
+            this.UserService.loadAvatar(this.user.id).then(res => {
+                this.avatar = res;
+            });
+        }
     }
 }
 

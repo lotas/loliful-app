@@ -47,18 +47,4 @@ export class AuthService {
                 return res.data;
             });
     }
-
-    loadInfo() {
-        return this.$http.get(this.apiEndpoint + '/me')
-            .then(function(res) {
-                return res.data;
-            });
-    }
-
-    loadAvatar(userId) {
-        return this.$http.get(`${this.apiEndpoint}/avatar/${userId}`)
-            .then((res) => {
-                return res.data;
-            });
-    }
 }
