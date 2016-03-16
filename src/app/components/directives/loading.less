@@ -3,27 +3,28 @@
   left: 50%;
   margin-left: -40px;
   top: 50%;
+  z-index:9999;
   img {
+    z-index:9999;
     width: 80px;
     //transform: rotate(3600deg);
     //transition: all 5s ease-in-out 2s;
   }
 }
-
-.is-tablet, .is-desktop {
-  .loading {
-    left: 13px;
-    top: 19px;
-    margin-left: 0;
-    z-index: 999;
-    img {
-      width: 34px;
-    }
-  }
-}
+//
+//.is-tablet, .is-desktop {
+//  .loading {
+//    left: 13px;
+//    top: 19px;
+//    margin-left: 0;
+//    img {
+//      width: 34px;
+//    }
+//  }
+//}
 
 .loading.ng-enter, .loading.ng-leave {
-  transition: 1.5s ease-in-out all;
+  transition: 1s ease-in-out all;
 }
 .loading.ng-enter {
   opacity: 0;
