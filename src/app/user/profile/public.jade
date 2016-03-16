@@ -1,8 +1,23 @@
 .container-fluid
+  .row
+    h1  Profile
+
+    .media
+      .media-left(ng-if="vm.profile.avatar")
+        img.media-object(ng-src="{{vm.profile.avatar}}")
+      .media-body
+        h4.media-heading {{ vm.profile.name }}
+
+    p
+      i some description field? some profile info? where to get it from?
 
   .row
-    h1 {{ vm.profile.name }}
-    avatar(user="vm.profile")
+    .col-xs-2 FB
+    .col-xs-10
+      a(href="#") some fb link
+  .row
+    .col-xs-2 TWT
+    .col-xs-10
+      a(href="#") some twitter link
 
 
-  img(ng-src="vm.profile.avatar", ng-if="vm.profile.avatar")
