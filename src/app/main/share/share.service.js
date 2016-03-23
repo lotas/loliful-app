@@ -23,7 +23,7 @@ export class ShareService {
         return this.$modal({
             title: 'Share this',
             content: `
-                <img src="${share.url}" />
+                <img src="${share.url}" style="width:98%" />
                 <input class="form-control" type="text" value="${share.url}" />
                 `,
             html: true,
