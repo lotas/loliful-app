@@ -72,7 +72,11 @@ class JokeListItemController {
 
     share() {
         if (!this.joke._share) {
+            let modal = this.ShareService.showGenerating();
             this.ShareService.getShare(this.joke.id).then(res => {
+                 modal.hide();
+                 delete modal;
+
                  this.joke._share = res;
                  this.ShareService.showDialog(res);
             }).catch(err => {

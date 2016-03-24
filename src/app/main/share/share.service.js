@@ -15,6 +15,15 @@ export class ShareService {
         });
     }
 
+    showGenerating() {
+        return this.$modal({
+            title: 'Please wait, we are generating joke ..',
+            content: '<img src="/assets/img/loliful-rocket.png" alt="generating content" style="width:550px" />',
+            html: true,
+            show: true
+        });
+    }
+
     showDialog(share) {
         if (!share || !share.url) {
             return this.SweetAlert.warning('oops', 'something cannot be shared');
