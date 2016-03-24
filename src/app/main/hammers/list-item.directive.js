@@ -78,6 +78,7 @@ class HammerListItemController {
             this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
                 if (res === true) {
                     this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
+                        this.$log.debug(response);
                         this.hammer.$user = undefined;
                         this.hammer.text = '[removed]';
                     }).catch(err => {
