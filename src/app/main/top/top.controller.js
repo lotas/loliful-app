@@ -4,13 +4,15 @@ export class TopController {
      * @param {User} User
      * @param {MainService} MainService
      */
-    constructor(User, MainService, $log) {
+    constructor(User, MainService, $stateParams, $log) {
         'ngInject';
 
         this.User = User;
         this.MainService = MainService;
         this.Storage = Storage;
         this.$log = $log;
+
+        this.period = $stateParams.period || '';
 
         this.page = 1;
         this.jokes = [];
@@ -19,7 +21,7 @@ export class TopController {
 
     loadTop() {
         this.$loading = true;
-        this.MainService.getTop().then(res => {
+        this.MainService.getTop({period: this.period}).then(res => {
             this.jokes = res.jokes;
             this.$loading = false;
         }).catch(err => {
@@ -33,7 +35,7 @@ export class TopController {
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
-        this.MainService.getTop({page: this.page+1}).then(res => {
+        this.MainService.getTop({period: this.period, page: this.page+1}).then(res => {
             this.page++;
             if (res.jokes.length > 0) {
                 // continue loading again

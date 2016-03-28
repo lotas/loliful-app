@@ -26,7 +26,7 @@ export function mainRouteConfig($stateProvider) {
         })
         .state('top', {
             parent: 'app',
-            url: '/top',
+            url: '/top/*period',
             views: {
                 'content@app': {
                     templateUrl: 'app/main/top/top.html',

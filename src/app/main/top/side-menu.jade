@@ -1,7 +1,9 @@
 ul.nav.nav-pills
   li
-    a(ui-sref="top") Of the Today
+    a(ui-sref="top({period:'day'})") Of today
   li
-    a(ui-sref="top") Of the week
+    a(ui-sref="top({period:'week'})") Of the week
   li
-    a(ui-sref="top") Of the month
+    a(ui-sref="top({period:'month'})") Of the month
+  li
+    a(ui-sref="top({period:''})") Of all time
