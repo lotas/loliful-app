@@ -5,22 +5,28 @@
     position: relative;
     top: 70px;
   }
-  .side-menu {
-    position: fixed;
-    left: 0;
-    top: 110px;
-    display: block;
-    width: @sidebarWidth;
-    padding-right: 20px;
-    padding-left: 20px;
-  }
   .main {
     position: absolute;
-    left: @sidebarWidth + 10px;
     top: 20px;
     display: block;
-    right: 40px;
   }
+}
+
+.main-margins(@margins) {
+  .main {
+    left: @margins;
+    right: @margins;
+  }
+}
+
+@media (min-width: 750px) {
+  .main-margins(30px);
+}
+@media (min-width: 1020px) {
+  .main-margins(110px);
+}
+@media (min-width: 1600px) {
+  .main-margins(160px);
 }
 
 

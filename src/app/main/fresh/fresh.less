@@ -1,6 +1,7 @@
 .fresh-nav {
-  margin: 3px 8px;
-  width: 96%;
+  margin: 14px 56px;
+  width: auto;
+  //max-width: 300px;
   @fontSize: 14px;
 
   list-style: none;
@@ -11,8 +12,8 @@
     a {
       line-height: @fontSize + 6px;
 
-      background: #FBFCFD;
-      border: 1px solid #C3C7D0;
+      background: #EBEFF5;
+      //border: 1px solid #C3C7D0;
       font-family: Lato;
       font-size: @fontSize;
       color: #99A3B3;
@@ -20,16 +21,34 @@
       font-weight: 100;
     }
     a.popular {
-      border-radius: 4px 0px 0px 4px;
+      border-radius: 100px 0px 0px 100px;
     }
     a.recent {
-      border-radius: 0 4px 4px 0px;
+      border-radius: 0px 100px 100px 0px;
     }
   }
   li.active, li:hover, li:active, li:focus {
     a, a:hover {
-      background: #82CCDC;
+      background: #A7D479;
       color: #FFFFFF;
     }
   }
 }
+
+
+///* Rectangle 14 Copy: */
+//background: #A7D479;
+//border-radius: 100px 0px 0px 100px;
+///* Rectangle 14 Copy 2: */
+//background: #EBEFF5;
+//border-radius: 0px 100px 100px 0px;
+///* RECENT: */
+//font-family: .HelveticaNeueDeskInterface-Regular;
+//font-size: 14px;
+//
+//line-height: 21px;
+///* POPULAR: */
+//font-family: .HelveticaNeueDeskInterface-Regular;
+//font-size: 14px;
+//color: #FFFFFF;
+//line-height: 21px;

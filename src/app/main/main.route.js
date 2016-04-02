@@ -15,9 +15,6 @@ export function mainRouteConfig($stateProvider) {
                     templateUrl: 'app/main/fresh/fresh.html',
                     controller: 'FreshController',
                     controllerAs: 'vm'
-                },
-                'side-menu@app': {
-                    templateUrl: 'app/main/fresh/side-menu.html'
                 }
             },
             data: {
