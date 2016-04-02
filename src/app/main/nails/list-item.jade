@@ -13,10 +13,7 @@ div.panel.nail-list-item
       | {{ ::nlm.nail.text }}
   div.panel-footer(ng-if="!nlm.hideFooter")
     div.row(ng-hide="nlm._reply")
-      div.col-xs-3
-        span.gray-text
-          ng-pluralize(count="nlm.nail.countAnswers", when="{'0': 'no replies', 'one': '1 outro', 'other': '{} outros'}")
-      div.col-xs-3(ng-init="nlm._reply=false")
+      div.col-xs-4(ng-init="nlm._reply=false")
         div(ng-click="nlm._reply=true", ng-hide="nlm._reply")
           input.reply.disabled(value="Joke")
       div.col-xs-6.pull-right.text-right

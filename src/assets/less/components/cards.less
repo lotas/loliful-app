@@ -1,6 +1,6 @@
 .cardPaddings() {
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .avatar(@size) {
     background: darken(#BD10E0, 30%);
@@ -23,7 +23,9 @@
     color: @iconLikedColor;
 }
 
-.panel-footer {
+.hammer-list-item,
+.joke-list-item {
+  .panel-footer {
     .cardPaddings();
     border-top: 0;
     background: @nailFooterBg;
@@ -32,28 +34,29 @@
     line-height: floor(@nailFooterTextSize * 1.8);
 
     .icon {
-        font-size: @nailFooterIconSize;
-        color: @nailTextColor;
-        line-height: @nailFooterIconSize;
-        .icon-align();
+      font-size: @nailFooterIconSize;
+      color: @nailTextColor;
+      line-height: @nailFooterIconSize;
+      .icon-align();
 
-        &:hover,
-        &:active,
-        &:focus {
-            color: lighten(@nailTextColor, 20%);
-        }
+      &:hover,
+      &:active,
+      &:focus {
+        color: lighten(@nailTextColor, 20%);
+      }
     }
 
     .likes {
-        span {
-            margin-left: 10px;
-            color: @nailHeaderColor;
-            font-size: @nailFooterTextSize;
-            line-height: 29px;
-        }
-        text-decoration: none;
+      span {
         margin-left: 10px;
+        color: @nailHeaderColor;
+        font-size: @nailFooterTextSize;
+        line-height: 29px;
+      }
+      text-decoration: none;
+      margin-left: 10px;
     }
+  }
 }
 
 .hammer-list-item,
@@ -76,7 +79,7 @@
     }
 
     .time-ago {
-        margin-left: 15px;
+        margin-left: 10px;
         white-space: nowrap;
         .icon {
             .icon-align();
@@ -160,9 +163,6 @@
 
 
 .fresh, .activities {
-    .nail-list-item {
-        box-shadow: 0px 4px 0px 0px @nailBoxShadow;
-    }
     .collapser {
         display: none;
     }
@@ -173,81 +173,6 @@
             display: none;
         }
     }
-}
-.nail-list-item {
-    background: @nailBg;
-    margin-bottom: 10px;
-    box-shadow: none;
-
-    .panel-heading {
-        .cardPaddings();
-        background-color: initial;
-
-        font-weight: normal;
-
-        color: @nailHeaderColor;
-        font-size: @nailHeadFontSize;
-        line-height: @nailHeadFontSize + 8px;
-
-        a {
-            color: @nailHeaderColor;
-        }
-
-        .username {
-            display: inline-block;
-            vertical-align: middle;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow-x: hidden;
-            max-width: 50%;
-            padding-bottom: 3px;
-        }
-
-        .expander,
-        .collapser {
-            float: right;
-            font-size: @nailExpandFontSize;
-            color: @nailTextColor;
-            padding: 1px 10px;
-
-            .icon {
-                .icon-align();
-            }
-
-            &:active,
-            &:focus,
-            &:hover {
-                color: lighten(@nailTextColor, 20%);
-            }
-        }
-    }
-    .panel-body {
-        .cardPaddings();
-        padding-bottom: 40px;
-        font-family: 'Sanchez', sans-serif;
-        font-size: @nailTextSize;
-        color: @nailTextColor;
-        line-height: floor(@nailTextSize * 1.3);
-        a {
-            color: @nailTextColor;
-        }
-    }
-    .panel-footer {
-
-        input.reply {
-            background: #FFFFFF;
-            border: 1px solid @nailReplyInputBorder;
-            border-radius: 5px;
-            padding: 4px 10px;
-            width: 120px;
-            font-family: 'Lato';
-
-            font-size: @nailFooterTextSize + 2px;
-            color: #D8D8D8;
-            line-height: 22px;
-        }
-    }
-
 }
 
 
