@@ -1,5 +1,24 @@
 float-menu(single="true")
 
+.container
+  .row
+    .col-sm-6
+      ul.nav.nav-pills
+        li(role="presentation", ui-sref-active="active")
+          a(ui-sref="activity({type: 'saves'})")
+            | Saved
+            span.hidden-xs &nbsp; for later
+        li(role="presentation", ui-sref-active="active")
+          a(ui-sref="activity({type: 'likes'})")
+            | Liked
+        li(role="presentation", ui-sref-active="active")
+          a(ui-sref="activity({type: 'nails'})")
+            | My intros
+        li(role="presentation", ui-sref-active="active")
+          a(ui-sref="activity({type: 'hammers'})")
+            | My outros
+
+
 section
   div(ng-if="!vm.items")
     loading
