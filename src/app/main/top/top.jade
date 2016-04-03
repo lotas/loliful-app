@@ -5,6 +5,6 @@ loading(ng-if="!vm.jokes.length")
 div.top(ng-if="vm.jokes",infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
   joke-list-item(joke="item", ng-repeat="item in vm.jokes track by $index")
 
-button.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="screen.isPhone") Show more
+button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="screen.isPhone") Show more
 
 br

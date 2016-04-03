@@ -18,6 +18,6 @@ loading(ng-if="!vm.nails.length")
 div.fresh(ng-if="vm.nails", infinite-scroll="screen.isPhone && vm.loadMore()", infinite-scroll-distance="3")
   nail-list-item(nail="item", ng-repeat="item in vm.nails track by $index", show-hammers="true")
 
-button.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="screen.isPhone") Show more
+button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="screen.isPhone") Show more
 
 br

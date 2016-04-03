@@ -13,7 +13,7 @@ section
         nail-list-item(ng-if="item.$nail", nail="item.$nail")
         hammer-list-item(ng-if="item.$hammer", hammer="item.$hammer")
 
-  button.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.items.length || screen.isPhone") Show more
+  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.items.length || screen.isPhone") Show more
 
   br
 
