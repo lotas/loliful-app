@@ -1,18 +1,17 @@
-.nail-list-item {
+.joke-list-item {
+  background: @nailBg;
 
   margin: 6px 10px;
 
-  background: @nailBg;
   box-shadow: 0px 8px 12px 0px #EBEEF3;
   border-radius: 4px;
 
-  margin-bottom: 10px;
 
   .panel-heading {
     .cardPaddings();
     background-color: initial;
 
-    font-weight: normal;
+    font-weight: 100;
 
     color: @nailHeaderColor;
     font-size: @nailHeadFontSize;
@@ -28,26 +27,13 @@
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow-x: hidden;
-      max-width: 45%;
+      max-width: 50%;
       padding-bottom: 3px;
     }
-
-    .expander,
-    .collapser {
-      float: right;
-      font-size: @nailExpandFontSize;
-      color: @nailExpanderColor;
-      padding: 1px;
-
-      .icon {
-        .icon-align();
-      }
-
-      &:active,
-      &:focus,
-      &:hover {
-        color: lighten(@nailTextColor, 20%);
-      }
+    .and {
+      @margin: 10px;
+      margin-left: @margin;
+      margin-right: @margin;
     }
   }
   .panel-body {
@@ -60,29 +46,32 @@
     a {
       color: @nailTextColor;
     }
+    .question {
+      color: #39404A;
+    }
+    .answer {
+      margin-left: .5em;
+      color: #99A3B3;
+    }
   }
+
   .panel-footer {
+    background: @nailBg;
+    font-size: @nailFooterTextSize;
+    color: @nailHeaderColor;
 
-    input.reply {
-      background: #FFFFFF;
-      border: 1px solid @nailReplyInputBorder;
-      border-radius: 8px;
-      padding: 4px 10px;
-      width: 120px;
-      font-family: 'Lato';
-
-      font-size: @nailFooterTextSize + 2px;
-      color: #D8D8D8;
-      line-height: 22px;
-
-      background: @nailReplyBg;
+    a {
+      margin: 0 1.4em;
+      color: #C3C7D0;
+      i {
+        margin-right: 8px;
+      }
+      text-decoration: none;
     }
 
     .cardPaddings();
+
     border-top: 0;
-    background: #FFFFFF;
-    font-size: @nailFooterTextSize;
-    color: @nailHeaderColor;
     line-height: floor(@nailFooterTextSize * 1.8);
 
     .icon {
@@ -109,5 +98,4 @@
       margin-left: 10px;
     }
   }
-
 }
