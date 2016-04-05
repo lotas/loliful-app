@@ -1,0 +1,30 @@
+.modal.share-dialog(tabindex='-1', role='dialog', aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-header(ng-show='title')
+        button.close(type='button', aria-label='Close', ng-click='$hide()')
+          span(aria-hidden='true') ×
+        h4.modal-title(ng-bind='title')
+      div(ng-bind='content')
+      .modal-body
+        img(ng-src="{{share.img}}" style="width:98%")
+        form.form-horizontal
+          .form-group
+            label.control-label.col-sm-2 As url:
+            .col-sm-10
+              input.form-control(type="text", value="{{share.url}}")
+          .form-group
+            label.control-label.col-sm-2 As image:
+            .col-sm-10
+              input.form-control(type="text", value="{{share.img}}")
+      .modal-footer
+        a.btn.btn-default(href='https://www.facebook.com/sharer/sharer.php?u={{share.url}}', onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+          img(src='https://loliful.io/img/fb.svg', alt='Facebook')
+          |  Facebook
+        a.btn.btn-default(href='https://twitter.com/?status={{share.url}}', onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+          img(src='https://loliful.io/img/twitter.svg', alt='Twitter')
+          |  Twitter
+        a.btn.btn-default(href='https://plus.google.com/share?url={{share.url}}', onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+          img(src='https://www.gstatic.com/images/icons/gplus-64.png', alt='Share on Google+')
+          |  Google+
+        button.btn.btn-default(type='button', ng-click='$hide()') Close
