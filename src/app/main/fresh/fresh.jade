@@ -11,12 +11,15 @@ div.container
     div.col-xs-3.pull-right(ng-show="!screen.isPhone")
       ul.nav.nav-pills.nav-justified.add-intro-nav
         li.active
-          a.add-intro(href="#") ADD INTRO
+          a.add-intro(ng-click="vm.showAdd = !vm.showAdd") ADD INTRO
 
 loading(ng-if="!vm.nails.length")
 
+nail-add.nail-add.ng-hide(on-add="vm.onAdd(nail)", on-close="vm.showAdd = false;" ng-show="vm.showAdd")
+
+
 div.fresh(ng-if="vm.nails", infinite-scroll="screen.isPhone && vm.loadMore()", infinite-scroll-distance="3")
-  nail-list-item(nail="item", ng-repeat="item in vm.nails track by $index", show-hammers="true")
+  nail-list-item(nail="item", ng-repeat="item in vm.nails", show-hammers="true")
 
 button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="screen.isPhone") Show more
 

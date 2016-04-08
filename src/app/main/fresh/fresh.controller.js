@@ -32,7 +32,7 @@ export class FreshController {
     }
 
     onAdd(nail) {
-        this.nails.unshift(nail);
+        this.nails = [nail].concat(this.nails);
     }
 
     loadMore() {
