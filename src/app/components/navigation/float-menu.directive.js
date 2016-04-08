@@ -84,6 +84,12 @@ class FloatMenuController {
         }
     }
 
+    addNail(nail) {
+        if (angular.isFunction(this.add)) {
+            this.add({nail: nail});
+        }
+    }
+
     scroll() {
         if (this.$window.pageYOffset <= 100) {
             if (!this.hidden) {

@@ -30,6 +30,7 @@ class NailAddController {
         this.saving = true;
         this.Nail.create(this.nail, res => {
             this.saving = false;
+            // TODO: Send broadcast event
             if (angular.isFunction(this.onAdd)) {
                 this.onAdd({nail: res});
             }
