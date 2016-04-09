@@ -1,31 +1,52 @@
-.container-fluid
-  h1 Welcome, {{ vm.user.email }}
+.container.profile-page
+  h1 Profile
 
   .row
-    avatar(user="vm.user")
-
-  .row
-    .col-sm-12
-      form.form-inline(ng-submit="vm.setName()")
+    .col-xs-3
+      img(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
+    .col-xs-8
+      h4 {{ vm.user.name }}
+      form.form-inline(ng-show="vm.isEdit", ng-submit="vm.setName()")
           div.form-group
-              label(for="name") Name
+              label.hidden(for="name") Name
               input.form-control#name(type="text", ng-model="vm.user.name")
           button.btn.btn-default(type="submit") Change
+    .col-xs-1
+      a.edit-name(ng-click="vm.isEdit = !vm.isEdit")
+        i.icon.icon-loliful-icon-edit
 
-      p(ng-if="!vm.stats") Loading stats ..
-      div.row(ng-if="vm.stats")
-        div.panel.panel-default
-          div.panel-heading Nails
-          div.panel-body
-            bold {{ vm.stats.nails || 0 }}
-        div.panel.panel-default
-          div.panel-heading Hammers
-          div.panel-body
-            bold {{ vm.stats.hammers || 0 }}
-        div.panel.panel-default
-          div.panel-heading Rating
-          div.panel-body
-            bold {{ vm.stats.rating || 0}}
+  div.stats
+    h5
+      i.icon.icon-loliful-icon-stats
+      | Stats
 
-      div.well
-          a.btn.btn-block.btn-primary(href="{{api}}/link/facebook") Link with Facebook
+    p(ng-if="!vm.stats") Loading stats ..
+    div.row(ng-if="vm.stats")
+      div.col-xs-4.statistic
+        h3.title Intros
+        h1.count {{ vm.stats.nails || 0 }}
+        p 256
+      div.col-xs-4.statistic
+        h3.title Outros
+        h1.count {{ vm.stats.hammers || 0 }}
+        p 256
+      div.col-xs-4.statistic
+        h3.title Rank
+        h1.count {{ vm.stats.rating || 0}}
+        p 256
+
+
+  div.email-preferences
+    h5
+      i.icon.icon-loliful-icon-notifications
+      | Email Notifications
+
+    p Coming soon
+
+  hr
+  p Here is my email to send fun stuff to
+  form.form
+    div.form-group
+      input.form-control#email(type="text", ng-model="vm.user.email", disabled)
+    div.form-group
+      button.pull-right.btn.btn-default(type="submit", disabled) Save
