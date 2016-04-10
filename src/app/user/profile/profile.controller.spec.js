@@ -17,7 +17,7 @@ describe('Profile controller', () => {
         $httpBackend = $injector.get('$httpBackend');
         $rootScope = $injector.get('$rootScope');
 
-        $httpBackend.expect('GET', 'http://local.loliful.io/users/stats').respond({stats: {}});
+        $httpBackend.expect('GET', 'http://local.loliful.io/users/stats?userId=1').respond({stats: {}});
         $httpBackend.expect('GET', 'http://local.loliful.io/me').respond({});
         $httpBackend.expect('GET', 'http://local.loliful.io/avatar/1').respond({});
 
