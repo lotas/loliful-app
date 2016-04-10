@@ -31,7 +31,7 @@ export class ProfileController {
     }
 
     getStats() {
-        this.User.stats(this.user.id, res => {
+        this.User.stats({userId: this.user.id}, res => {
             this.stats = res.stats;
         });
     }

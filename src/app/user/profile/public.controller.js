@@ -13,6 +13,14 @@ export class ProfilePublicController {
 
         this.stats = null;
         this.info = null;
+
+        this.getStats();
+    }
+
+    getStats() {
+        this.User.stats({userId: this.profile.id}, res => {
+            this.stats = res.stats;
+        });
     }
 
 }

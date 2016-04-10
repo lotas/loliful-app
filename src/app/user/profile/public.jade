@@ -1,23 +1,37 @@
-.container-fluid
-  .row
-    h1  Profile
-
-    .media
-      .media-left(ng-if="vm.profile.avatar")
-        img.media-object(ng-src="{{vm.profile.avatar}}")
-      .media-body
-        h4.media-heading {{ vm.profile.name }}
-
-    p
-      i some description field? some profile info? where to get it from?
+.container.profile-page.public
+  h1 Profile
 
   .row
-    .col-xs-2 FB
-    .col-xs-10
-      a(href="#") some fb link
-  .row
-    .col-xs-2 TWT
-    .col-xs-10
-      a(href="#") some twitter link
+    .col-xs-3.avatar
+      img(ng-src="{{ vm.profile.avatar }}", ng-show="vm.profile.avatar")
+      img.mvp(src="/assets/img/loliful-mvp.svg")
+    .col-xs-8
+      h4 {{ vm.profile.name }}
+    .col-xs-1 &nbsp;
 
+  div.social-profiles(ng-show="vm.profile.accounts")
+    div(ng-repeat="acc in vm.profile.accounts")
+      img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
+      a(ng-href="{{ acc.l }}") {{ acc.n }}
+
+
+  div.stats
+    h5
+      i.icon.icon-loliful-icon-stats
+      | Stats
+
+    p(ng-if="!vm.stats") Loading stats ..
+    div.row(ng-if="vm.stats")
+      div.col-xs-4.statistic
+        h3.title Intros
+        h1.count {{ vm.stats.nails || 0 }}
+        p 256
+      div.col-xs-4.statistic
+        h3.title Outros
+        h1.count {{ vm.stats.hammers || 0 }}
+        p 256
+      div.col-xs-4.statistic
+        h3.title Rank
+        h1.count {{ vm.stats.rating || 0}}
+        p 256
 

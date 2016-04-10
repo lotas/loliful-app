@@ -40,18 +40,3 @@ header.header.clearfix
         a(ui-sref="activity({type: 'nails'})")
           i.icon.icon-loliful-icon-nav-activity
           | Activity
-
-ul#secondary-menu.nav.nav-pills.activity.nav-justified(ng-if="isState('activity') && screen.isPhone")
-  li(role="presentation", ng-class="{active: vm.checkActivity('saves')}")
-    a(ui-sref="activity({type: 'saves'})")
-      | Saved
-      span.hidden-xs &nbsp; for later
-  li(role="presentation", ng-class="{active: vm.checkActivity('likes')}")
-    a(ui-sref="activity({type: 'likes'})")
-      | Liked
-  li(role="presentation", ng-class="{active: vm.checkActivity('nails')}")
-    a(ui-sref="activity({type: 'nails'})")
-      | My intros
-  li(role="presentation", ng-class="{active: vm.checkActivity('hammers')}")
-    a(ui-sref="activity({type: 'hammers'})")
-      | My outros

@@ -15,6 +15,12 @@
       a.edit-name(ng-click="vm.isEdit = !vm.isEdit")
         i.icon.icon-loliful-icon-edit
 
+  div.social-profiles(ng-show="vm.profile.accounts")
+    div(ng-repeat="acc in vm.profile.accounts")
+      img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
+      a(ng-href="{{ acc.l }}") {{ acc.n }}
+
+
   div.stats
     h5
       i.icon.icon-loliful-icon-stats
