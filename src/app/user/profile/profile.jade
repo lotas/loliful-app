@@ -20,6 +20,10 @@
       img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
       a(ng-href="{{ acc.l }}") {{ acc.n }}
 
+  div.well
+    a.btn.btn-default(href="{{api}}/link/facebook") Link with Facebook
+    a.btn.btn-default(href="{{api}}/link/twitter") Link with Twitter
+    a.btn.btn-block.btn-primary(href="{{api}}/link/google") Link with Google+
 
   div.stats
     h5
