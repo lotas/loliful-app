@@ -1,2 +1,5 @@
-.container.ui-view-container
-  div(ui-view="main")
+.guest-app(ng-class="{'is-phone': screen.isPhone, 'is-tablet': screen.isTablet, 'is-desktop': screen.isDesktop}")
+  div.navbar-header
+    img(src="/assets/img/logo.svg", alt="Loliful", title="Loliful")
+  .ui-view-container
+    section.main(ui-view="main")

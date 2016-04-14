@@ -1,23 +1,17 @@
-@loginBgColor: #112633;
-@loginBgColorGrad: #172F3E;
+@loginBgColor: #FFF;
 @headerColor: #99A3B3;
 @subheaderColor: #FFFFFF;
 
 .login {
-    background: @loginBgColor;
+    background-color: @loginBgColor;
     text-align: center;
-    /* Rectangle 27: */
-    background: -webkit-linear-gradient(@loginBgColor 0%, @loginBgColorGrad 100%);
-    background: -o-linear-gradient(@loginBgColor 0%, @loginBgColorGrad 100%);
-    background: linear-gradient(@loginBgColor 0%, @loginBgColorGrad 100%);
+    color: @themeTextColor;
 
-
-    margin: 60px auto;
+    background: url(/assets/img/star-bg.svg);
 
     h1,h2,h3,h4,h5 {
         font-family: 'Sanchez';
         font-weight: 100 !important;
-        color: @subheaderColor;
     }
     .bottom30 {
         margin-bottom: 30px;
@@ -39,34 +33,47 @@
         margin: 20px 40px 50px 40px;
     }
     h3 {
-      font-size: 40px;
-      line-height: 50px;
-      padding-top: 30px;
+      font-size: 36px;
+      line-height: 40px;
+      padding-top: 20px;
     }
     h4 {
         margin-right: 40px;
         margin-left: 40px;
-       padding-top: 20px;
-       font-size: 25px;
+       padding-top: 14px;
+       font-size: 22px;
        letter-spacing: 1px;
     }
 
     .social {
-        margin: 40px 20px 20px 20px;
+        margin: 60px 20px 50px 20px;
 
         .thumbnail {
             img {
                 z-index: 2;
                 position: relative;
                 display: initial;
+                border-radius: 50px;
+                box-shadow: 0px 15px 40px rgba(77, 184, 205, .4);
             }
         }
     }
 
     h5 {
-      font-size: 17px;
+      margin-top: 40px;
+      font-size: 14px;
       letter-spacing: 1px;
       color: @headerColor;
       line-height: 24px;
+    }
+
+    .navbar-header {
+      background: @headerBg;
+      height: 90px;
+      text-align: center;
+      img {
+        margin-top: 36px;
+        width: 100px;
+      }
     }
 }
