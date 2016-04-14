@@ -72,3 +72,16 @@ export class LogoutController {
         });
     }
 }
+
+export class FirstRunController {
+    /**
+     *
+     * @param {User} User
+     */
+    constructor(User) {
+        'ngInject';
+
+        this.User = User;
+    }
+
+}

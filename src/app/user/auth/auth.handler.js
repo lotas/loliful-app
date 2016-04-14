@@ -13,9 +13,13 @@ export function onAuthHandler(AuthService, $state, $location, $log) {
         .then(checkAuthAndGo)
         .catch(checkAuthAndGo);
 
-    function checkAuthAndGo() {
+    function checkAuthAndGo(data) {
         if (AuthService.hasToken()) {
-            $state.go('fresh');
+            if (data && data.user && data.user.settings && data.user.settings.firstRun) {
+                $state.go('login.first-run');
+            } else {
+                $state.go('fresh');
+            }
         } else {
             $state.go('login');
         }
