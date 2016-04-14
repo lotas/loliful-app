@@ -19,8 +19,10 @@ export class ProfileController {
         this.getAvatar();
 
         this.social = {};
-        (this.user.accounts || []).forEach(acc => {
-            this.social[acc.p] = acc;
+        this.user.$promise.then(() => {
+            (this.user.accounts || []).forEach(acc => {
+                this.social[acc.p] = acc;
+            });
         });
     }
 
