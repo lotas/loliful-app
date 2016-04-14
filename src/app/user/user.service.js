@@ -26,4 +26,11 @@ export class UserService {
                 return res.data;
             });
     }
+
+    unlinkSocialAccount(provider) {
+        return this.$http.get(`${this.apiEndpoint}/auth/unlink/${provider}`)
+            .then((res) => {
+                return res.data;
+            });
+    }
 }

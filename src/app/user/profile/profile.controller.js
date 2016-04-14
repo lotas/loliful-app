@@ -17,6 +17,9 @@ export class ProfileController {
         this.getStats();
         this.getInfo();
         this.getAvatar();
+
+        this.social = {};
+        this.prepareSocialAccounts();
     }
 
     setName() {
@@ -48,6 +51,18 @@ export class ProfileController {
                 this.avatar = res;
             });
         }
+    }
+
+    prepareSocialAccounts() {
+        (this.user.accounts || []).forEach(acc => {
+            this.social[acc.p] = acc;
+        });
+    }
+
+    unlinkAccount(provider) {
+        this.UserService.unlinkSocialAccount(provider).then(res => {
+            delete this.social[provider];
+        });
     }
 }
 

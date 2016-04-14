@@ -15,15 +15,18 @@
       a.edit-name(ng-click="vm.isEdit = !vm.isEdit")
         i.icon.icon-loliful-icon-edit
 
-  div.social-profiles(ng-show="vm.user.accounts")
-    div(ng-repeat="acc in vm.user.accounts")
+  div.social-profiles(ng-show="vm.social")
+    div(ng-repeat="acc in vm.social")
       img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
       a(ng-href="{{ acc.l }}") {{ acc.n }}
 
   div.well
-    a.btn.btn-default(href="{{api}}/link/facebook") Link with Facebook
-    a.btn.btn-default(href="{{api}}/link/twitter") Link with Twitter
-    a.btn.btn-default(href="{{api}}/link/google") Link with Google+
+    a.btn.btn-primary(href="{{api}}/link/facebook", ng-if="!vm.social.facebook") Link with Facebook
+    a.btn.btn-default(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook") Unlink Facebook
+    a.btn.btn-primary(href="{{api}}/link/twitter", ng-if="!vm.social.twitter") Link with Twitter
+    a.btn.btn-default(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter") Unlink Twitter
+    a.btn.btn-primary(href="{{api}}/link/google", ng-if="!vm.social.google") Link with Google+
+    a.btn.btn-default(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google") Unlink Google+
 
   div.stats
     h5
