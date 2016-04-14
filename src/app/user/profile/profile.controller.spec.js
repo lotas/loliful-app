@@ -24,8 +24,13 @@ describe('Profile controller', () => {
         vm = $controller('ProfileController', {
             currentUser: {
                 name: 'test',
-                id: 1
-            }
+                id: 1,
+                $promise: {
+                    then: function(cb) {
+                        cb();
+                    }
+                }
+            },
         });
     }));
     afterEach(() => {
