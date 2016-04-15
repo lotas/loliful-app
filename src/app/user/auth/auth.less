@@ -1,14 +1,18 @@
 @headerColor: #99A3B3;
 @subheaderColor: #FFFFFF;
 
+.firstRun {
+  background: @bodyBg !important;
+}
+
 .login {
     background-color: @bodyBg;
     text-align: center;
     color: @themeTextColor;
 
-    .stars-bg {
-      background: url(/assets/img/star-bg.svg);
-    }
+    background: url(/assets/img/star-bg.svg) 0 0 repeat;
+
+    height: 100%;
 
     h1,h2,h3,h4,h5 {
         font-family: 'Sanchez';
@@ -41,6 +45,7 @@
                 display: initial;
                 border-radius: 50px;
                 box-shadow: 0px 15px 40px rgba(77, 184, 205, .4);
+                min-width: 30px;
             }
         }
     }
