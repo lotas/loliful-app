@@ -2,20 +2,22 @@
 
 .is-tablet, .is-desktop {
   .ui-view-container {
-    position: relative;
-    top: 70px;
+    //position: relative;
+    //top: 70px;
+    padding-top: 70px;
+
   }
   .main {
-    position: absolute;
-    top: 20px;
-    display: block;
+    //position: absolute;
+    margin-top: 10px;
+    //display: block;
   }
 }
 
 .main-margins(@margins) {
   .main {
-    left: @margins;
-    right: @margins;
+    margin-left: @margins;
+    margin-right: @margins;
   }
 }
 

@@ -33,7 +33,7 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#394049 ">
   </head>
-  <body ng-class="{login: stateIncludes('login')}">
+  <body ng-class="{login: stateIncludes('login'), 'is-phone': screen.isPhone, 'is-tablet': screen.isTablet, 'is-desktop': screen.isDesktop}">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->

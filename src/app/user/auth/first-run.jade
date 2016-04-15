@@ -8,11 +8,11 @@ h4.bottom30 Hold on, we are setting up your account
   .bg
     img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}")
 
-h5 Next time you won't need to wait that long again
+h5.bottom30 Next time you won't need to wait that long again
 
-.footer.container-fluid
+.footer.container-fluid.clearfix
   .row
-    .col-xs-6
+    .col-xs-6.col-sm-2.col-sm-offset-4
       button.btn.btn-primary.btn-block(ui-sref="fresh", ng-click="vm.setFirstRun()") TO INTROS
-    .col-xs-6
+    .col-xs-6.col-sm-2
       button.btn.btn-primary.btn-block(ui-sref="profile", ng-click="vm.setFirstRun()") TO PROFILE
