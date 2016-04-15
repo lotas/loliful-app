@@ -9,6 +9,11 @@
 
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Sanchez' rel='stylesheet' type='text/css'>
 
+    <!-- preloader styles -->
+    <style>
+      .avatar-loading,.preloader,.progress-bar-container{text-align:center}.preloader{background-color:#F9FAFC;color:#39404A}.preloader .stars-bg{background:url(/assets/img/star-bg.svg)}.preloader h1,.preloader h2,.preloader h3,.preloader h4,.preloader h5{font-family:Sanchez serif;font-weight:100!important}.preloader .logo{padding-top:10px;padding-bottom:10px}.preloader .logo img{height:44px}.preloader .header{font-size:28px;letter-spacing:1px;color:#99A3B3;line-height:38px;margin:20px 40px 50px}.preloader h4{margin:40px;font-size:22px;letter-spacing:1px}.preloader .navbar-header{background:#4DB8CD;height:90px;text-align:center}.preloader .navbar-header img{margin-top:36px;width:100px}.preloader .footer{margin-top:20px;margin-bottom:10px}.avatar-loading .bg{position:relative;display:inline-block;background:#F4F6F9;width:153px;height:153px;border-radius:77px;z-index:1}.progress-bar-container{position:relative;margin-top:40px;margin-bottom:20px;height:20px}.progress-bar{position:absolute;left:50%;margin-left:-70px;width:140px;height:1px;border:3px solid #EBEEF3;border-radius:3px;padding:0}.progress-bar .progress{display:block;position:relative;overflow:hidden;height:100%;top:-3px;border:3px solid #82CCDC;border-radius:3px;-webkit-animation-duration:5s;animation-duration:5s;-webkit-animation-name:expandWidth;animation-name:expandWidth}@-webkit-keyframes expandWidth{0%{width:0}100%{width:100%}}@keyframes expandWidth{0%{width:0}100%{width:100%}}@-webkit-keyframes exposeImg{0%,30%{opacity:0}100%{opacity:1}}@keyframes exposeImg{0%,30%{opacity:0}100%{opacity:1}}
+    </style>
+
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
     <!-- inject:css -->
     <!-- css files will be automatically insert here -->
@@ -32,13 +37,14 @@
     <meta name="msapplication-TileColor" content="#394049 ">
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#394049 ">
+
   </head>
   <body ng-class="{login: stateIncludes('login')}">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="login" ng-hide="appLoaded">
+    <div class="preloader" ng-hide="appLoaded">
       <div class="guest-app">
         <div class="navbar-header">
           <img src="/assets/img/logo.svg" alt="Loliful" title="Loliful" />

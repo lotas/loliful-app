@@ -1,0 +1,128 @@
+.preloader {
+  background-color: #F9FAFC;
+  text-align: center;
+  color: #39404A;
+}
+.preloader .stars-bg {
+  background: url(/assets/img/star-bg.svg);
+}
+.preloader h1,
+.preloader h2,
+.preloader h3,
+.preloader h4,
+.preloader h5 {
+  font-family: 'Sanchez' serif;
+  font-weight: 100 !important;
+}
+.preloader .logo {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.preloader .logo img {
+  height: 44px;
+}
+.preloader .header {
+  font-size: 28px;
+  letter-spacing: 1px;
+  color: #99A3B3;
+  line-height: 38px;
+  margin: 20px 40px 50px 40px;
+}
+.preloader h4 {
+  margin: 40px;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+.preloader .navbar-header {
+  background: #4DB8CD;
+  height: 90px;
+  text-align: center;
+}
+.preloader .navbar-header img {
+  margin-top: 36px;
+  width: 100px;
+}
+.preloader .footer {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.avatar-loading {
+  text-align: center;
+}
+.avatar-loading .bg {
+  position: relative;
+  display: inline-block;
+  background: #F4F6F9;
+  width: 153px;
+  height: 153px;
+  border-radius: 77px;
+  z-index: 1;
+}
+.progress-bar-container {
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  height: 20px;
+}
+.progress-bar {
+  position: absolute;
+  left: 50%;
+  margin-left: -70px;
+  width: 140px;
+  height: 1px;
+  border: 3px solid #EBEEF3;
+  border-radius: 3px;
+  padding: 0;
+}
+.progress-bar .progress {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  top: -3px;
+  border: 3px solid #82CCDC;
+  border-radius: 3px;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-name: expandWidth;
+  animation-name: expandWidth;
+}
+@-webkit-keyframes expandWidth {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes expandWidth {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes exposeImg {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes exposeImg {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
