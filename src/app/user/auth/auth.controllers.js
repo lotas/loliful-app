@@ -77,11 +77,21 @@ export class FirstRunController {
     /**
      *
      * @param {User} User
+     * @param {UserService} UserService
      */
-    constructor(User) {
+    constructor(User, UserService) {
         'ngInject';
 
-        this.User = User;
+        this.UserService = UserService;
+
+        this.user = false;
+        User.getCurrent().$promise.then(user => {
+            this.user = user;
+        });
+    }
+
+    setFirstRun() {
+        this.UserService.setFirstRun();
     }
 
 }

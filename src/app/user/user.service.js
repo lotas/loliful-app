@@ -33,4 +33,11 @@ export class UserService {
                 return res.data;
             });
     }
+
+    setFirstRun() {
+        return this.$http.post(`${this.apiEndpoint}/auth/first-run`)
+            .then((res) => {
+                return res.data;
+            });
+    }
 }

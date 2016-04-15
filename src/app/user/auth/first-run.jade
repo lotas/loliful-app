@@ -1,11 +1,18 @@
-div Progress bar..
+.progress-bar-container
+  .progress-bar
+    .progress
+
 h4.bottom30 Hold on, we are setting up your account
 
-.social.row
-  .col-sm-4.col-xs-4
-    .thumbnail
-      hi
+.avatar-loading
+  .bg
+    img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}")
 
-h5 No need to sign up
+h5 Next time you won't need to wait that long again
 
-button.btn.btn-primary.btn-block(ui-sref="fresh") Proceed
+.footer.container-fluid
+  .row
+    .col-xs-6
+      button.btn.btn-primary.btn-block(ui-sref="fresh", ng-click="vm.setFirstRun()") TO INTROS
+    .col-xs-6
+      button.btn.btn-primary.btn-block(ui-sref="profile", ng-click="vm.setFirstRun()") TO PROFILE

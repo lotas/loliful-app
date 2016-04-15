@@ -1,13 +1,14 @@
-@loginBgColor: #FFF;
 @headerColor: #99A3B3;
 @subheaderColor: #FFFFFF;
 
 .login {
-    background-color: @loginBgColor;
+    background-color: @bodyBg;
     text-align: center;
     color: @themeTextColor;
 
-    background: url(/assets/img/star-bg.svg);
+    .stars-bg {
+      background: url(/assets/img/star-bg.svg);
+    }
 
     h1,h2,h3,h4,h5 {
         font-family: 'Sanchez';
@@ -66,6 +67,9 @@
       letter-spacing: 1px;
       color: @headerColor;
       line-height: 24px;
+
+      margin-left: 30px;
+      margin-right: 30px;
     }
 
     .navbar-header {
@@ -77,4 +81,82 @@
         width: 100px;
       }
     }
+}
+
+// first run
+.avatar-loading {
+  text-align: center;
+
+  .bg {
+    position: relative;
+    display: inline-block;
+    background: #F4F6F9;
+    width: 153px;
+    height: 153px;
+    border-radius: 77px;
+    z-index: 1;
+
+    img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      border-radius: 78px;
+      left: 0;
+
+      animation-duration: 5s;
+      animation-name: exposeImg;
+    }
+  }
+
+  .footer {
+    margin-bottom: 10px;
+  }
+}
+
+.progress-bar-container {
+  text-align: center;
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  height: 10px;
+}
+
+.progress-bar {
+  position: absolute;
+  left: 50%;
+  margin-left: -70px;
+
+  width: 140px;
+  height: 1px;
+  border: 3px solid #EBEEF3;
+  border-radius: 3px;
+
+  padding: 0;
+
+  .progress {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    top: -3px;
+    //left: -3px;
+    border: 3px solid #82CCDC;
+    //height: 1px;
+    border-radius: 3px;
+
+    animation-duration: 5s;
+    animation-name: expandWidth;
+  }
+}
+
+@keyframes expandWidth {
+  0% { width: 0px; }
+  100% { width: 100%; }
+}
+
+@keyframes exposeImg {
+  0% { opacity: 0; }
+  30% { opacity: 0; }
+  100% { opacity: 1; }
 }
