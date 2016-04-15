@@ -20,6 +20,8 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
     $rootScope.stateIncludes = $state.includes;
     $rootScope.api = apiEndpoint;
 
+    $rootScope.appLoaded = true;
+
     let dereg1 = $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
         $log.debug('$stateChangeStart', toState, toStateParams);
 

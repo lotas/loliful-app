@@ -38,6 +38,27 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <div class="login" ng-hide="appLoaded">
+      <div class="guest-app">
+        <div class="navbar-header">
+          <img src="/assets/img/logo.svg" alt="Loliful" title="Loliful" />
+        </div>
+        <div class="ui-view-container">
+          <div class="main">
+            <div class="progress-bar-container">
+              <div class="progress-bar">
+                <div class="progress"></div>
+              </div>
+            </div>
+            <h4>Loading ...</h4>
+            <div class="avatar-loading">
+              <div class="bg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div ui-view></div>
 
     <!-- build:js(src) scripts/vendor.js -->
