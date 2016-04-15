@@ -1,14 +1,12 @@
+.ng-cloak, [ng-cloak] {
+  display: none;
+}
+
 .preloader {
   background-color: #F9FAFC;
   text-align: center;
   color: #39404A;
 }
-.preloader .stars-bg {
-  background: url(/assets/img/star-bg.svg);
-}
-.preloader h1,
-.preloader h2,
-.preloader h3,
 .preloader h4,
 .preloader h5 {
   font-family: 'Sanchez' serif;
@@ -20,13 +18,6 @@
 }
 .preloader .logo img {
   height: 44px;
-}
-.preloader .header {
-  font-size: 28px;
-  letter-spacing: 1px;
-  color: #99A3B3;
-  line-height: 38px;
-  margin: 20px 40px 50px 40px;
 }
 .preloader h4 {
   margin: 40px;
@@ -71,18 +62,14 @@
   margin-left: -70px;
   width: 140px;
   height: 1px;
-  border: 3px solid #EBEEF3;
-  border-radius: 3px;
+  border: 2px solid #EBEEF3;
+  border-radius: 2px;
   padding: 0;
+  z-index: 1;
 }
-.progress-bar .progress {
-  display: block;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  top: -3px;
-  border: 3px solid #82CCDC;
-  border-radius: 3px;
+.progress-current {
+  z-index: 2;
+  border: 2px solid #82CCDC;
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
   -webkit-animation-name: expandWidth;
@@ -93,7 +80,7 @@
     width: 0px;
   }
   100% {
-    width: 100%;
+    width: 140px;
   }
 }
 @keyframes expandWidth {
@@ -101,7 +88,7 @@
     width: 0px;
   }
   100% {
-    width: 100%;
+    width: 140px;
   }
 }
 @-webkit-keyframes exposeImg {
