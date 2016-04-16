@@ -32,11 +32,6 @@ class NailListItemController {
         this.User = User;
         this.$log = $log;
         this.toastr = toastr;
-
-        this.dropdown = [{
-            "text": "Report Abuse",
-            "click": "nlm.report()"
-        }];
     }
 
     report() {

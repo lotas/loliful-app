@@ -18,7 +18,7 @@ angular.module('loliful', [
     'ui.router',
     'toastr',
 
-    'mgcrea.ngStrap',
+    'mgcrea.ngStrap',   // TODO: pick ones we use
     'matchMedia',
 
     'infinite-scroll',

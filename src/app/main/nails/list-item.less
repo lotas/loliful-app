@@ -1,5 +1,10 @@
 .nail-list-item {
 
+  &.reported {
+    opacity: 0.3;
+    border: 1px solid #E5736C;
+  }
+
   margin: 6px 10px;
 
   background: @nailBg;
@@ -59,6 +64,52 @@
     line-height: floor(@nailTextSize * 1.3);
     a {
       color: @nailTextColor;
+    }
+
+    position: relative;
+
+    .submenu {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      vertical-align: middle;
+      z-index: 9;
+
+      transition: opacity 0.2s linear;
+      opacity: 1;
+      &.ng-enter {
+        opacity: 0;
+        &.ng-enter-active {
+          opacity: 1;
+        }
+      }
+      &.ng-leave {
+        opacity: 1;
+        &.ng-leave-active {
+          opacity: 0;
+        }
+      }
+    }
+    .submenu-container {
+      display: inline-block;
+      background: #FFFFFF;
+      box-shadow: 0px 2px 12px 0px #EBEEF3;
+      border-radius: 8px;
+      min-height: 60px;
+      padding: 20px 30px;
+      line-height: 20px;
+      font-size: 14px;
+
+      z-index: 10;
+
+      .report-abuse {
+        color: #E5736C;
+      }
     }
   }
   .panel-footer {
