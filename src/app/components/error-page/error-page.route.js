@@ -14,7 +14,8 @@ export function errorPageRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: '∫404∂x Loliful.io'
+                pageTitle: '∫404∂x Loliful.io',
+                showStaticHeader: true
             }
         })
         .state('error', {
@@ -26,7 +27,8 @@ export function errorPageRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Error ∞ ≤ ∆ Loliful.io'
+                pageTitle: 'Error ∞ ≤ ∆ Loliful.io',
+                showStaticHeader: true
             }
         })
     ;

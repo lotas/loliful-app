@@ -21,6 +21,7 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
     $rootScope.api = apiEndpoint;
 
     $rootScope.appLoaded = true;
+    $rootScope.showStaticHeader = false;
 
     let dereg1 = $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams) {
         $log.debug('$stateChangeStart', toState, toStateParams);
@@ -42,6 +43,7 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
 
     let dereg3 = $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState) {
         $log.debug('$stateChangeSuccess', toState, fromState);
+        $rootScope.showStaticHeader = !!toState.data.showStaticHeader;
     });
 
     $rootScope.$on('$destroy', () => {

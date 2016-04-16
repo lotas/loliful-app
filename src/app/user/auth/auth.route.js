@@ -16,7 +16,8 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Log in to Loliful.io'
+                pageTitle: 'Log in to Loliful.io',
+                showStaticHeader: true
             }
         })
         .state('login.first-run', {
@@ -58,7 +59,8 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Log out'
+                pageTitle: 'Log out',
+                showStaticHeader: false
             }
         })
 
