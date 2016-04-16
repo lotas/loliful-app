@@ -3,7 +3,7 @@
 
   .row
     .col-xs-3
-      img(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
+      img.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
     .col-xs-8
       h4 {{ vm.user.name }}
       form.form-inline(ng-show="vm.isEdit", ng-submit="vm.setName()")
