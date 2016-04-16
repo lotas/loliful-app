@@ -1,13 +1,18 @@
 
 .aside {
   background: @asideBg;
+  min-width: 200px;
   .close {
     .icon {
-      color: #fff;
+      color: @themeTextColor;
+    }
+    &:focus {
+      outline: none;
     }
   }
   .nav {
-    margin-top: 30px;
+    margin-top: 40px;
+    margin-left: 10px;
   }
   .icon {
     .icon-align();
@@ -16,7 +21,8 @@
     margin-right: 8px;
   }
   a {
-    color: @white;
+    font-size: 14px;
+    color: @themeTextColor;
   }
 
   .nav li a {
