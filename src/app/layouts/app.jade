@@ -1,14 +1,6 @@
 .app(ng-class="{'is-phone': screen.isPhone, 'is-tablet': screen.isTablet, 'is-desktop': screen.isDesktop}")
   loliful-navigation
 
-  h1(ng-if="debug && envName === 'local'")
-    span.label(ng-class="{'label-success': screen.isPhone, 'label-default': !screen.isPhone}") isPhone
-    | &nbsp;
-    span.label(ng-class="{'label-success': screen.isTablet, 'label-default': !screen.isTablet}") isTablet
-    | &nbsp;
-    span.label(ng-class="{'label-success': screen.isDesktop, 'label-default': !screen.isDesktop}") isDesktop
-
-
   .ui-view-container
     section.main(ui-view="content")
 

@@ -13,7 +13,7 @@ export function NavigationDirective() {
 }
 
 class NavigationController {
-    constructor($rootScope, $state, $aside, $log, LiveService, Notification) {
+    constructor($rootScope, $state, $aside, $log, $timeout, LiveService, Notification) {
         'ngInject';
 
         this.$rootScope = $rootScope;
@@ -25,13 +25,15 @@ class NavigationController {
 
         this.freshNails = [];
 
-        this.sidebar = $aside({
-            template: 'app/components/navigation/aside.html',
-            show: false
-        });
+        $timeout(() => {
+            this.sidebar = $aside({
+                templateUrl: 'app/components/navigation/aside.html',
+                show: false
+            });
 
-        this.loadNotificationsCount();
-        this.subscribeNotifications();
+            this.loadNotificationsCount();
+            this.subscribeNotifications();
+        }, 100);
     }
 
     showAside() {
