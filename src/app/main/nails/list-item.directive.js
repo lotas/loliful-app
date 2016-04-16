@@ -81,8 +81,8 @@ class NailListItemController {
 
     reply() {
         this.Nail.prototype$__create__hammers({
-            id: this.nail.id
-        }, this._hammer)
+                id: this.nail.id
+            }, this._hammer)
             .$promise
             .then(res => {
                 if (!this.nail.$hammers) {
@@ -100,5 +100,4 @@ class NailListItemController {
                 this.toastr.warning('oops, I failed again');
             });
     }
-
 }

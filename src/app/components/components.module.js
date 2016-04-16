@@ -9,6 +9,7 @@ import { SweetAlert } from './sweet-alert.service';
 import { LiveService, runLiveService } from './live.service';
 import { AvatarDirective } from './directives/avatar.directive';
 import { LoadingDirective } from './directives/loading.directive';
+import { AutoFocusDirective } from './directives/auto-focus.directive';
 
 angular.module('loliful.components', [
         'lbServices',
@@ -34,4 +35,5 @@ angular.module('loliful.components', [
 
     .directive('avatar', AvatarDirective)
     .directive('loading', LoadingDirective)
+    .directive('autoFocus', AutoFocusDirective)
 ;
