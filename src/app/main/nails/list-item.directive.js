@@ -61,9 +61,17 @@ class NailListItemController {
     }
 
     vote() {
-        this.nail.$votes = Date.now();
+        let method;
 
-        this.Nail.prototype$vote({
+        if (this.nail.$votes) {
+            method = 'prototype$unvote';
+            this.nail.$votes = false;
+        } else {
+            method = 'prototype$vote';
+            this.nail.$votes = true;
+        }
+
+        this.Nail[method]({
             id: this.nail.id
         }).$promise.then(res => {
             this.nail.countVotes = res.countVotes;

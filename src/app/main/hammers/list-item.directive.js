@@ -64,9 +64,19 @@ class HammerListItemController {
     }
 
     vote() {
-        this.Hammer.prototype$vote({id: this.hammer.id}).$promise.then(res => {
+        let method;
+        if (this.hammer.$votes) {
+            method = 'prototype$unvote';
+            this.hammer.$votes = false;
+        } else {
+            method = 'prototype$vote';
+            this.hammer.$votes = true;
+        }
+
+        this.Hammer[method]({
+            id: this.hammer.id
+        }).$promise.then(res => {
             this.hammer.countVotes = res.countVotes;
-            this.hammer._votes = true;
         }).catch(err => {
             this.$log.debug(err);
             this.toastr.warning('oh no!, vote failed');

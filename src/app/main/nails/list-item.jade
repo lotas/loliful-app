@@ -26,7 +26,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
           i.icon.icon-loliful-icon-submenu
         a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail.$favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
-        a.likes(type="button", ng-click="nlm.vote()", ng-disabled="nlm.nail.$votes", ng-class="{active: nlm.nail.$votes}")
+        a.likes(type="button", ng-click="nlm.vote()", ng-class="{active: nlm.nail.$votes}")
           i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail.$votes, 'icon-loliful-icon-liked': nlm.nail.$votes}")
           span {{ nlm.nail.countVotes }}
     div.row(ng-if="nlm._reply")
