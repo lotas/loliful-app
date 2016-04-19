@@ -22,7 +22,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
         div(ng-click="nlm._reply=true;", ng-hide="nlm._reply")
           input.reply.disabled(value="Joke")
       div.col-xs-6.pull-right.text-right
-        a(ng-class="{active: nlm._submenu}", ng-click="nlm._submenu = !nlm._submenu")
+        a.show-sub(ng-class="{active: nlm._submenu}", ng-click="nlm._submenu = !nlm._submenu")
           i.icon.icon-loliful-icon-submenu
         a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail.$favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
