@@ -1,7 +1,25 @@
+// CommonJS package manager support
+if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.exports === exports) {
+  // Export the *name* of this Angular module
+  // Sample usage:
+  //
+  //   import lbServices from './lb-services';
+  //   angular.module('app', [lbServices]);
+  //
+  module.exports = "lbServices";
+}
+
 (function(window, angular, undefined) {'use strict';
 
 var urlBase = "";
 var authHeader = 'authorization';
+
+function getHost(url) {
+  var m = url.match(/^(?:https?:)?\/\/([^\/]+)/);
+  return m ? m[1] : null;
+}
+
+var urlBaseHost = getHost(urlBase) || location.host;
 
 /**
  * @ngdoc overview
@@ -443,6 +461,40 @@ module.factory(
         "prototype$vote": {
           url: urlBase + "/nails/:id/vote",
           method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Nail#prototype$unvote
+         * @methodOf lbServices.Nail
+         *
+         * @description
+         *
+         * Vote -1
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `custom` – `{String=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `countVotes` – `{number=}` - 
+         */
+        "prototype$unvote": {
+          url: urlBase + "/nails/:id/vote",
+          method: "DELETE"
         },
 
         /**
@@ -1194,6 +1246,40 @@ module.factory(
         "prototype$vote": {
           url: urlBase + "/hammers/:id/vote",
           method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Hammer#prototype$unvote
+         * @methodOf lbServices.Hammer
+         *
+         * @description
+         *
+         * Vote -1
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         *  - `custom` – `{String=}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `countVotes` – `{number=}` - 
+         */
+        "prototype$unvote": {
+          url: urlBase + "/hammers/:id/vote",
+          method: "DELETE"
         },
 
         /**
@@ -3334,7 +3420,7 @@ module.factory(
 
 module
   .factory('LoopBackAuth', function() {
-    var props = ['accessTokenId', 'currentUserId'];
+    var props = ['accessTokenId', 'currentUserId', 'rememberMe'];
     var propsPrefix = '$LoopBack$';
 
     function LoopBackAuth() {
@@ -3342,7 +3428,6 @@ module
       props.forEach(function(name) {
         self[name] = load(name);
       });
-      this.rememberMe = undefined;
       this.currentUserData = null;
     }
 
@@ -3378,9 +3463,13 @@ module
     // Note: LocalStorage converts the value to string
     // We are using empty string as a marker for null/undefined values.
     function save(storage, name, value) {
-      var key = propsPrefix + name;
-      if (value == null) value = '';
-      storage[key] = value;
+      try {
+        var key = propsPrefix + name;
+        if (value == null) value = '';
+        storage[key] = value;
+      } catch(err) {
+        console.log('Cannot access local/session storage:', err);
+      }
     }
 
     function load(name) {
@@ -3396,8 +3485,9 @@ module
       return {
         'request': function(config) {
 
-          // filter out non urlBase requests
-          if (config.url.substr(0, urlBase.length) !== urlBase) {
+          // filter out external requests
+          var host = getHost(config.url);
+          if (host && host !== urlBaseHost) {
             return config;
           }
 
@@ -3465,6 +3555,7 @@ module
      */
     this.setUrlBase = function(url) {
       urlBase = url;
+      urlBaseHost = getHost(urlBase) || location.host;
     };
 
     /**
