@@ -1,14 +1,15 @@
-float-menu(custom-add="true", on-add-click="nv.showAdd = true", show="true")
+float-menu(single="true", show="true")
 
 .view-single
   nail-list-item(nail="nv.nail", hide-footer="true")
 
+  div.panel.hammer-list-item
+    div.panel-body
+        form.reply-form.form-inline(ng-submit="nv.reply();")
+          div.col-xs-9.col-sm-8
+            input#reply.form-control(type="text", placeholder="Joke", ng-model="nv._hammer.text", required, autofocus=true)
+          button.btn.btn-small.btn-primary(type="submit") Reply
+
   div.container-fluid.hammers(ng-if="nv.nail.$hammers")
     hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by $index")
 
-    div.panel.hammer-list-item(ng-show="nv.showAdd")
-      div.panel-body
-         form.reply-form.form-inline(ng-submit="nv.reply();")
-           div.col-xs-9.col-sm-8
-             input#reply.form-control(type="text", placeholder="Joke", ng-model="nv._hammer.text", required, autofocus=true)
-           button.btn.btn-small.btn-primary(type="submit") Reply
