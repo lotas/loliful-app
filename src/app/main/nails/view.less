@@ -11,4 +11,36 @@
       border-radius: 0px 100px 100px 0px;
     }
   }
+
+  .nail-wrapper {
+     background: @white;
+
+    box-shadow: 0px 8px 12px 0px #EBEEF3;
+    border-radius: 4px;
+
+    margin: 4px 10px 10px 10px;
+
+     .nail-list-item {
+       box-shadow: none;
+     }
+
+     .hammer-list-item {
+       .username {
+         width: 100px;
+         display: inline-block;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         vertical-align: middle;
+       }
+       .time-ago {
+         width: 70px;
+         display: inline-block;
+         overflow: hidden;
+         text-overflow: ellipsis;
+         white-space: nowrap;
+         vertical-align: middle;
+       }
+     }
+  }
 }

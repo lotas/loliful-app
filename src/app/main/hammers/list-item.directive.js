@@ -89,8 +89,7 @@ class HammerListItemController {
                 if (res === true) {
                     this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
                         this.$log.debug(response);
-                        this.hammer.$user = undefined;
-                        this.hammer.text = '[removed]';
+                        this.hammer = null;
                     }).catch(err => {
                         this.toastr.warning('Oops, you cannot delete this');
                         this.$log.debug(err);
