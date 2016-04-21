@@ -1,17 +1,15 @@
 div.panel.joke-list-item
   div.panel-heading
     avatar(user="jli.joke.$user")
-    span.and &
+    span.and
     avatar(user="jli.joke.$nail.$user")
   div.panel-body
     span.question {{ jli.joke.$nail.text }}
     span.answer {{ jli.joke.text }}
   div.panel-footer
-    div.align-center
-      span.pull-right {{ jli.joke.countVotes }}
-      a(ng-click="jli.share()")
+    div.align-right
+      a(ng-click="jli.share()", title="Share")
         i.icon.icon-loliful-icon-share
-        | Share
-      a(ng-click="jli.vote()", ng-disabled="jli.joke.$votes", ng-class="{active: jli.joke.$votes}")
+      a(ng-click="jli.vote()", ng-disabled="jli.joke.$votes", ng-class="{active: jli.joke.$votes}", title="Like")
         i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke.$votes, 'icon-loliful-icon-liked': jli.joke.$votes}")
-        | Like
+      span.pull-right {{ jli.joke.countVotes }}

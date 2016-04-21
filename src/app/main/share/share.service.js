@@ -19,7 +19,7 @@ export class ShareService {
     showGenerating() {
         return this.$modal({
             title: 'Please wait, we are generating joke ..',
-            content: '<img src="/assets/img/loliful-rocket.png" alt="generating content" style="width:550px" />',
+            content: '<img src="/assets/img/loliful-rocket.png" alt="generating content" class="img-responsive" />',
             html: true,
             show: true
         });
