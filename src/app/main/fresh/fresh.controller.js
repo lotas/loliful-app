@@ -41,7 +41,7 @@ export class FreshController {
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
-        this.MainService.getFresh({page: this.page+1, type: this.type}).then(res => {
+        this.MainService.getFresh({page: this.page + 1, type: this.type}).then(res => {
             this.page++;
             if (res.nails.length > 0) {
                 // continue loading again

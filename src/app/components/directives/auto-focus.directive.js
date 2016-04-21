@@ -3,8 +3,8 @@ export function AutoFocusDirective($timeout) {
 
     let directive = {
         restrict: 'AC',
-        link: function(scope, elm) {
-            $timeout(function(){
+        link: function (scope, elm) {
+            $timeout(function () {
                 elm[0].focus();
             }, 0);
         }
