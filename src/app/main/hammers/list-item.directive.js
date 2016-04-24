@@ -91,7 +91,7 @@ class HammerListItemController {
                         this.$log.debug(response);
                         this.hammer = null;
                     }).catch(err => {
-                        this.toastr.warning('Oops, you cannot delete this');
+                        this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
                         this.$log.debug(err);
                     });
                 }
