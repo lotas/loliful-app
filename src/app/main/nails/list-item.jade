@@ -1,6 +1,6 @@
 div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
   div.panel-heading
-    avatar(user="nlm.nail.$user")
+    avatar(user="nlm.nail.$user", ng-if="!nlm.isOwn")
     a.expander(ui-sref="nail-view({nailId: nlm.nail.id})")
       span(ng-if="nlm.nail.countAnswers", title="Answers count: {{nlm.nail.countAnswers}}") {{ nlm.nail.countAnswers }}
       i.icon.icon-loliful-icon-expand(ng-if="!nlm.nail.countAnswers")
@@ -23,7 +23,13 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
       div.col-xs-4(ng-init="nlm._reply=false")
         div(ng-click="nlm._reply=true;", ng-hide="nlm._reply")
           input.reply.disabled(value="Joke")
-      div.col-xs-6.pull-right.text-right
+      div.col-xs-6.pull-right.text-right(ng-if="nlm.isOwn")
+        a.likes.own(type="button")
+          i.icon.icon-loliful-icon-like
+          span {{ nlm.nail.countVotes }}
+        a.delete(type="button", ng-click="nlm.delete()")
+          i.icon.icon-loliful-icon-delete()
+      div.col-xs-6.pull-right.text-right(ng-if="!nlm.isOwn")
         a.show-sub(ng-class="{active: nlm._submenu}", ng-click="nlm._submenu = !nlm._submenu")
           i.icon.icon-loliful-icon-submenu
         a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail.$favorite}")

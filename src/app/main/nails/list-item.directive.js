@@ -21,17 +21,23 @@ class NailListItemController {
     /**
      *
      * @param {Nail} Nail
+     * @param {AuthService} AuthService
+     * @param {SweetAlert} SweetAlert
      * @param {User} User
      * @param {toastr} toastr
      * @param {$log} log
      */
-    constructor(Nail, User, toastr, $log) {
+    constructor(Nail, SweetAlert, AuthService, User, toastr, $log) {
         'ngInject';
 
         this.Nail = Nail;
         this.User = User;
         this.$log = $log;
         this.toastr = toastr;
+        this.SweetAlert = SweetAlert;
+
+        this.isOwn = this.nail.$user && AuthService.getUserId() === this.nail.$user.id;
+
     }
 
     report() {
@@ -102,5 +108,21 @@ class NailListItemController {
                 this.$log.debug(err);
                 this.toastr.warning('oops, I failed again');
             });
+    }
+
+    delete() {
+        if (this.isOwn) {
+            this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
+                if (res === true) {
+                    this.Nail.deleteById({id: this.nail.id}).$promise.then(response => {
+                        this.$log.debug(response);
+                        this.nail = null;
+                    }).catch(err => {
+                        this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
+                        this.$log.debug(err);
+                    });
+                }
+            });
+        }
     }
 }
