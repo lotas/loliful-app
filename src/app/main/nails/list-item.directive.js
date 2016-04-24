@@ -47,7 +47,7 @@ class NailListItemController {
     }
 
     favorite() {
-        let func = !this.nail._favorite ? 'prototype$addToFav' : 'prototype$removeFromFav';
+        let func = !this.nail.$favorite ? 'prototype$addToFav' : 'prototype$removeFromFav';
         this.nail.$favorite = this.nail.$favorite ? false : Date.now();
 
         this.Nail[func]({
