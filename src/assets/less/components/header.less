@@ -63,6 +63,7 @@ header.header {
             line-height: floor(@secMenuFontSize * 1.8);
             margin-bottom: 0;
             white-space: nowrap;
+            text-transform: uppercase;
 
             &:hover, :active, :focus {
                 .secMenuItemActive();
@@ -157,6 +158,9 @@ header.header {
           line-height: @navLineHeight ;
           padding-top: 0;
           padding-bottom: 0;
+
+          white-space: nowrap;
+          overflow: hidden;
 
           .icon {
             font-size: @navIconSize - floor(@delta * 1.2);
