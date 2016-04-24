@@ -2,18 +2,20 @@ float-menu(single="true")
 
 loading(ng-if="!vm.jokes.length")
 
-.container
-  .row
-    .col-xs-12.col-sm-6
-      .row.top-filter-menu
-        .col-xs-3
-          a(ui-sref="top({period:'day'})", ui-sref-active="active") Today
-        .col-xs-3
-          a(ui-sref="top({period:'week'})", ui-sref-active="active") Week
-        .col-xs-3
-          a(ui-sref="top({period:'month'})", ui-sref-active="active") Month
-        .col-xs-3
-          a(ui-sref="top({period:''})", ui-sref-active="active") All time
+
+ul#secondary-menu.nav.nav-pills.activity.nav-justified
+  li(role="presentation", ui-sref-active="active")
+    a(ui-sref="top({period: 'day'})")
+      | Today
+  li(role="presentation", ui-sref-active="active")
+    a(ui-sref="top({period: 'week'})")
+      | Week
+  li(role="presentation", ui-sref-active="active")
+    a(ui-sref="top({period: 'month'})")
+      | Month
+  li(role="presentation", ui-sref-active="active")
+    a(ui-sref="top({period: ''})")
+      | All time
 
 
 div.top(ng-if="vm.jokes",infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
