@@ -1,0 +1,35 @@
+
+.hammer-list-item {
+  .panel-footer {
+    .cardPaddings();
+    border-top: 0;
+    background: @nailFooterBg;
+    font-size: @nailFooterTextSize;
+    color: @nailHeaderColor;
+    line-height: floor(@nailFooterTextSize * 1.8);
+
+    .icon {
+      font-size: @nailFooterIconSize;
+      color: @nailTextColor;
+      line-height: @nailFooterIconSize;
+      .icon-align();
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: lighten(@nailTextColor, 20%);
+      }
+    }
+
+    .likes {
+      span {
+        margin-left: 10px;
+        color: @nailHeaderColor;
+        font-size: @nailFooterTextSize;
+        line-height: 29px;
+      }
+      text-decoration: none;
+      margin-left: 10px;
+    }
+  }
+}

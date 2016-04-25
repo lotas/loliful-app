@@ -1,0 +1,68 @@
+
+.hammer-activity-item {
+
+    .cardBox();
+
+    .panel-header {
+        margin: 10px 0px;
+        font-family: 'Lato';
+        font-weight: 300;
+        color: @themeSecondaryColor;
+        font-size: 12px;
+
+        .avatar {
+            .avatar(16px);
+        }
+    }
+    .panel-body {
+        font-family: 'Sanchez';
+        padding-top: 6px;
+        padding-bottom: 6px;
+
+        .hammer {
+            font-size: 15px;
+            margin-bottom: 12px;
+        }
+    }
+
+    .panel-footer {
+        .cardPaddings();
+        border-top: 0;
+        background: #FFFFFF;
+        font-size: @nailFooterTextSize;
+        color: @nailHeaderColor;
+        line-height: floor(@nailFooterTextSize * 1.8);
+
+        .time-ago {
+            .icon {
+                .icon-align();
+                margin-right: 5px;
+                font-size: 12px;
+            }
+        }
+
+        .icon {
+            .icon-align();
+            font-size: @nailFooterIconSize;
+            color: @themeSecondaryColor;
+        }
+
+        .delete {
+            .icon {
+                color: @themeTextColor;
+            }
+            font-weight: bold;
+        }
+
+        .likes {
+            span {
+                margin-left: 10px;
+                color: @nailHeaderColor;
+                font-size: @nailFooterTextSize;
+                line-height: 29px;
+            }
+            text-decoration: none;
+            margin-right: 12px;
+        }
+    }
+}

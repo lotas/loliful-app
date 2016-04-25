@@ -1,21 +1,23 @@
 div.panel.hammer-activity-item
   div.panel-header.row
-    div.col-xs-1.col-sm-1
-      avatar(user="hai.hammer.$user")
-    div.col-sm-11.col-xs-11
+    div.col-sm-10.col-xs-10
       span.text
         | {{ hai.hammer.$nail.text }}
+    div.col-sm-2.col-xs-2
+      a.expander(ui-sref="nail-view({nailId: hai.hammer.nailId})")
+        i.icon.icon-loliful-icon-expand
   div.panel-body
     div.hammer
       | {{ hai.hammer.text }}
+  div.panel-footer
     div.row
-      div.col-sm-8.col-xs-8
+      div.col-sm-6.col-xs-6
         span.time-ago
           i.icon.icon-loliful-icon-time
           | {{ hai.hammer.created | timeAgo }}
-      div.col-sm-4.col-xs-4.pull-right.text-right
-        a
-          i.icon.icon-loliful-icon-delete
+      div.col-sm-6.col-xs-6.pull-right.text-right
         a.likes
-          i.icon.icon-loliful-icon-liked
+          i.icon.icon-loliful-icon-like
           span {{ hai.hammer.countVotes }}
+        a.delete(ng-click="hai.delete()")
+          i.icon.icon-loliful-icon-delete

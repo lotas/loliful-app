@@ -2,6 +2,14 @@
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.cardBox() {
+    margin: 6px 10px 10px 10px;
+    background: @nailBg;
+    box-shadow: 0px 8px 12px 0px #EBEEF3;
+    border-radius: 4px;
+}
+
 .avatar(@size) {
     background: darken(#BD10E0, 30%);
     border-radius: @size;
@@ -22,41 +30,6 @@
 
 .icon-loliful-icon-liked::before{
     color: @iconLikedColor;
-}
-
-.hammer-list-item {
-  .panel-footer {
-    .cardPaddings();
-    border-top: 0;
-    background: @nailFooterBg;
-    font-size: @nailFooterTextSize;
-    color: @nailHeaderColor;
-    line-height: floor(@nailFooterTextSize * 1.8);
-
-    .icon {
-      font-size: @nailFooterIconSize;
-      color: @nailTextColor;
-      line-height: @nailFooterIconSize;
-      .icon-align();
-
-      &:hover,
-      &:active,
-      &:focus {
-        color: lighten(@nailTextColor, 20%);
-      }
-    }
-
-    .likes {
-      span {
-        margin-left: 10px;
-        color: @nailHeaderColor;
-        font-size: @nailFooterTextSize;
-        line-height: 29px;
-      }
-      text-decoration: none;
-      margin-left: 10px;
-    }
-  }
 }
 
 .hammer-list-item,
@@ -145,69 +118,6 @@
     }
 }
 
-
-.hammer-activity-item {
-    background: #FFFFFF;
-    box-shadow: 0px 4px 0px 0px @nailBoxShadow;
-
-    margin-bottom: 7px;
-
-    .panel-header {
-        margin: 8px 10px;
-        font-family: 'Lato';
-        font-weight: 300;
-        color: @nailHeaderColor;
-        font-size: 15px;
-
-        .avatar {
-            .avatar(16px);
-        }
-    }
-    .panel-body {
-        @borderRadius: 6px;
-        background: #F4F6F9;
-        margin: 10px 12px 20px 14px;
-        border-left: 4px solid #4DB8CD;
-        border-top-right-radius: @borderRadius;
-        border-bottom-right-radius: @borderRadius;
-
-        padding-top: 6px;
-
-        .hammer {
-            font-size: 22px;
-            margin-bottom: 12px;
-        }
-        .row {
-            margin-top: 5px;
-            color: @themeSecondaryColor;
-            font-weight: 300;
-
-            .time-ago {
-               .icon {
-                    .icon-align();
-                    margin-right: 5px;
-                }
-            }
-
-            .icon {
-                .icon-align();
-                font-size: 18px;
-                color: @themeSecondaryColor;
-            }
-
-            .likes {
-                span {
-                    margin-left: 10px;
-                    color: @nailHeaderColor;
-                    font-size: @nailFooterTextSize;
-                    line-height: 29px;
-                }
-                text-decoration: none;
-                margin-left: 10px;
-            }
-        }
-    }
-}
 
 
 .empty-card {

@@ -18,28 +18,34 @@ export function HammerActivityItemDirective() {
 
 class HammerActivityItemController {
     /**
-     * @param  {any} Nail
-     * @param  {any} Hammer
+     * @param  {Hammer} Hammer
+     * @param  {SweetAlert} SweetAlert
      * @param  {any} $log
      */
-    constructor(Nail, Hammer, $log) {
+    constructor(Hammer, SweetAlert, toastr, $log, AuthService) {
         'ngInject';
 
-        this.Nail = Nail;
         this.Hammer = Hammer;
+        this.SweetAlert = SweetAlert;
         this.$log = $log;
+        this.toastr = toastr;
+
+        this.isOwn = AuthService.getUserId() === this.hammer.$user.id;
     }
 
-    vote() {
-        this.hammer._votes = true;
-        this.Hammer.prototype$vote({
-            id: this.hammer.id
-        }).$promise.then(res => {
-            this.hammer.countVotes = res.countVotes;
-        }).catch(err => {
-            this.hammer._votes = false;
-            this.$log.debug(err);
-            this.toastr.warning('oh no!, vote failed');
-        });
+    delete() {
+        if (this.isOwn) {
+            this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
+                if (res === true) {
+                    this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
+                        this.$log.debug(response);
+                        this.hammer = null;
+                    }).catch(err => {
+                        this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
+                        this.$log.debug(err);
+                    });
+                }
+            });
+        }
     }
 }
