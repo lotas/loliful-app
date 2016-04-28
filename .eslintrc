@@ -6,8 +6,9 @@
     "browser": true,
     "jasmine": true
   },
-  "ecmaFeatures": {
-    "modules": true
+  "parserOptions": {
+    "modules": true,
+    "sourceType": "module"
   },
   "globals": {
     "angular": true,

@@ -58,7 +58,7 @@ export class ProfileController {
     }
 
     unlinkAccount(provider) {
-        this.UserService.unlinkSocialAccount(provider).then(res => {
+        this.UserService.unlinkSocialAccount(provider).then(() => {
             this.toastr.success(`Unlinked your ${provider} account`);
             delete this.social[provider];
         });

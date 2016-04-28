@@ -21,7 +21,7 @@ function webpackWrapper(watch, test, callback) {
             loaders: [{
                 test: /\.js$/,
                 exclude: /(node_modules|lb.services.js|bower_components)/,
-                loaders: ['ng-annotate', 'babel-loader?optional[]=runtime']
+                loaders: ['ng-annotate', 'babel-loader?presets[]=es2015&plugins[]=transform-runtime']
             }]
         },
         output: {filename: 'index.module.js'}

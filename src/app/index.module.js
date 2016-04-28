@@ -1,3 +1,4 @@
+'use strict';
 /* global moment:false */
 
 import { config } from './index.config';
