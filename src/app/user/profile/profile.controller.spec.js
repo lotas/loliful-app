@@ -30,7 +30,7 @@ describe('Profile controller', () => {
                         cb();
                     }
                 }
-            },
+            }
         });
     }));
     afterEach(() => {
