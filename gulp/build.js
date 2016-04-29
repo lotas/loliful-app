@@ -38,37 +38,33 @@ gulp.task('html', ['inject', 'partials'], function() {
     var jsFilter = $.filter('**/*.js', {restore: true});
     var cssFilter = $.filter('**/*.css', {restore: true});
 
-    var assets;
-
     return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
         .pipe($.inject(partialsInjectFile, partialsInjectOptions))
-    //.pipe($.useref())
-        .pipe(assets = $.useref.assets())
+
+        .pipe($.useref())
+
         .pipe(jsFilter)
-        //.pipe($.sourcemaps.init())
+        // .pipe($.sourcemaps.init())
         .pipe($.uglify({preserveComments: $.uglifySaveLicense})).on('error', conf.errorHandler('Uglify'))
-    .pipe($.rev())
-        //.pipe($.sourcemaps.write('maps'))
+        .pipe($.rev())
+        // .pipe($.sourcemaps.write('maps'))
         .pipe(jsFilter.restore)
 
         .pipe(cssFilter)
         // .pipe($.sourcemaps.init())
         .pipe($.replace('../fonts/', '../assets/fonts/'))
         .pipe($.cssnano({}))
-    .pipe($.rev())
+        .pipe($.rev())
         // .pipe($.sourcemaps.write('maps'))
         .pipe(cssFilter.restore)
-    .pipe(assets.restore())
-    .pipe($.useref())
-    .pipe($.revReplace())
+
+        .pipe($.revReplace())
 
         .pipe(htmlFilter)
-    //.pipe($.rev())
-        // inline files
-        .pipe($.inlineSource({
+        .pipe($.inlineSource({          // inline files
             rootpath: conf.paths.src
         }))
-        //
+
         .pipe($.htmlmin({
             removeEmptyAttributes: true,
             removeAttributeQuotes: true,
@@ -76,7 +72,7 @@ gulp.task('html', ['inject', 'partials'], function() {
             collapseWhitespace: true
         }))
         .pipe(htmlFilter.restore)
-    //.pipe($.revReplace())
+
         .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
         .pipe($.size({title: path.join(conf.paths.dist, '/'), showFiles: true}));
 });
