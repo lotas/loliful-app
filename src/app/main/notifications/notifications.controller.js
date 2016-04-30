@@ -34,13 +34,18 @@ export class NotificationsController {
 
     load() {
         this.$loading = true;
+        this.$empty = false;
         this.Notification.find({filter: this.loadFilter}).$promise.then(res => {
             this.notifications = res;
             this.notificationsNew = res.filter(a => a.isRead === 0);
             this.notificationsOlder = res.filter(a => a.isRead === 1);
-            this.$loading = false;
+            if (res.length === 0) {
+                this.$empty = true;
+            }
         }).catch(err => {
             this.$log.error(err);
+        }).finally(() => {
+            this.$loading = false;
         });
     }
 

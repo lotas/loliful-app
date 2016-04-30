@@ -9,7 +9,7 @@
   loading(ng-if="!vm.notifications")
 
 
-  div(ng-if="!vm.notifications.length")
+  div(ng-if="vm.$empty")
     .align-center
       p.vOfs Your mailman took a day off
       img.mailman(src="/assets/img/mailman2.png", title="mailman")

@@ -34,11 +34,16 @@ export class ActivityController {
         }
 
         this.$loading = true;
+        this.$empty = false;
         this.MainService.getActivity(this.type).then((data) => {
             this.items = data[this.type];
-            this.$loading = false;
+            if (this.items.length === 0) {
+                this.$empty = true;
+            }
         }).catch((err) => {
             this.$log.error(err);
+        }).finally(() => {
+            this.$loading = false;
         });
     }
 

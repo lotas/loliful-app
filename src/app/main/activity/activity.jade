@@ -17,7 +17,7 @@ ul#secondary-menu.nav.nav-pills.activity.nav-justified
 
 
 section
-  div(ng-if="!vm.items")
+  div(ng-if="vm.$loading")
     loading
   div.activities(infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
     div.my-nails(ng-if="vm.items && vm.type=='nails'")
@@ -34,7 +34,7 @@ section
   br
 
 
-  div.container-fluid.align-center(ng-if="!vm.items.length")
+  div.container-fluid.align-center(ng-if="vm.$empty")
     p.vOfs {{ vm.typeName }} you create will appear here
 
     .empty-card.vOfs
