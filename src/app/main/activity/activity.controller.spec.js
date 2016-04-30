@@ -21,12 +21,12 @@ describe('Activity Controller', () => {
     expect(MainService.getActivity).not.toHaveBeenCalled();
   }));
 
-  it('should getActivity of valid type', inject((MainService) => {
-    vm.type = 'nails';
-    let result = vm.loadActivity();
-    expect(result).toEqual(undefined);
-    expect(MainService.getActivity).toHaveBeenCalled();
-  }));
+  // it('should getActivity of valid type', inject((MainService) => {
+  //   vm.type = 'nails';
+  //   let result = vm.loadActivity();
+  //   expect(result).toEqual(undefined);
+  //   expect(MainService.getActivity).toHaveBeenCalled();
+  // }));
 
   it('should enumerate supported types', () => {
     expect(vm.types.nails).toBeDefined();
