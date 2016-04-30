@@ -1,7 +1,7 @@
 .app(ng-class="{'is-phone': screen.isPhone, 'is-tablet': screen.isTablet, 'is-desktop': screen.isDesktop}")
   loliful-navigation
 
-  .ui-view-container
+  .ui-view-container(ng-swipe-left="showAside()")
     section.main(ui-view="content")
 
   footer.footer

@@ -25,12 +25,15 @@ class NavigationController {
 
         this.freshNails = [];
 
-        $timeout(() => {
-            this.sidebar = $aside({
-                templateUrl: 'app/components/navigation/aside.html',
-                show: false
-            });
 
+        this.sidebar = $aside({
+            templateUrl: 'app/components/navigation/aside.html',
+            show: false
+        });
+
+        this.$rootScope.showAside = this.showAside.bind(this);
+
+        $timeout(() => {
             this.loadNotificationsCount();
             this.subscribeNotifications();
         }, 100);
