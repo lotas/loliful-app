@@ -39,6 +39,7 @@ describe('Activity Controller', () => {
       expect(vm.loadMore).toEqual(jasmine.any(Function));
       expect(vm.page).toEqual(1);
 
+      vm.$hasMore = true;
       vm.loadMore();
       expect(MainService.getActivity).toHaveBeenCalled();
       expect(vm.$loading).toEqual(true);
