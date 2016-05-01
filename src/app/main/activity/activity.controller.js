@@ -6,7 +6,7 @@ export class ActivityController {
      * @param  {$stateParams} $stateParams
      * @param  {$log} $log
      */
-    constructor(User, MainService, $stateParams, $log, $scope, $state) {
+    constructor(User, MainService, $stateParams, $log, $rootScope, $state) {
         'ngInject';
 
         this.User = User;
@@ -29,8 +29,8 @@ export class ActivityController {
         this.page = 1;
         this.loadActivity();
 
-        var deregister = $scope.$on('swipe', this.swipeListener.bind(this));
-        $scope.$on('$destroy', deregister);
+        var deregister = $rootScope.$on('swipe', this.swipeListener.bind(this));
+        $rootScope.$on('$destroy', deregister);
     }
 
     loadActivity() {

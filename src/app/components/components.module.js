@@ -11,6 +11,8 @@ import { AvatarDirective } from './directives/avatar.directive';
 import { LoadingDirective } from './directives/loading.directive';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
 
+import { attachFastclick } from './fastclick';
+
 angular.module('loliful.components', [
         'lbServices',
         'LocalStorageModule',
@@ -36,4 +38,6 @@ angular.module('loliful.components', [
     .directive('avatar', AvatarDirective)
     .directive('loading', LoadingDirective)
     .directive('autoFocus', AutoFocusDirective)
+
+    .run(attachFastclick)
 ;

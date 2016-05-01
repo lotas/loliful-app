@@ -64,9 +64,10 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
     $rootScope.swipeRight = emitSwipeRightEvent;
 
     function emitSwipeLeftEvent(evt) {
-        $rootScope.$broadcast('swipe', 'left', evt);
+        $rootScope.$emit('swipe', 'left', evt);
     }
     function emitSwipeRightEvent(evt) {
-        $rootScope.$broadcast('swipe', 'right', evt);
+        $rootScope.$emit('swipe', 'right', evt);
     }
+
 }
