@@ -6,13 +6,12 @@ export class ActivityController {
      * @param  {$stateParams} $stateParams
      * @param  {$log} $log
      */
-    constructor(User, MainService, $stateParams, $log, $state) {
+    constructor(User, MainService, $stateParams, $log) {
         'ngInject';
 
         this.User = User;
         this.MainService = MainService;
         this.$log = $log;
-        this.$state = $state;
         this.type = $stateParams.type;
 
         this.types = {
@@ -21,8 +20,6 @@ export class ActivityController {
             saves: 'Saves',
             likes: 'Likes'
         };
-
-        this.orderedTypes = Object.keys(this.types);
 
         this.typeName = this.types[this.type];
 
@@ -72,5 +69,4 @@ export class ActivityController {
             this.$log.warn(err);
         });
     }
-
 }

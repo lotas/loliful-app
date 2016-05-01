@@ -26,7 +26,6 @@ export class TopController {
             this.$loading = false;
         }).catch(err => {
             this.$log.error(err);
-            this.$loading = false;
         });
     }
 
