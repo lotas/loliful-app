@@ -6,13 +6,14 @@ export class ActivityController {
      * @param  {$stateParams} $stateParams
      * @param  {$log} $log
      */
-    constructor(User, MainService, $stateParams, $log) {
+    constructor(User, MainService, $stateParams, $log, $scope, $state) {
         'ngInject';
 
         this.User = User;
         this.MainService = MainService;
         this.$log = $log;
         this.type = $stateParams.type;
+        this.$state = $state;
 
         this.types = {
             nails: 'Intros',
@@ -22,10 +23,14 @@ export class ActivityController {
         };
 
         this.typeName = this.types[this.type];
+        this.orderedTypes = Object.keys(this.types);
 
         this.items = undefined;
         this.page = 1;
         this.loadActivity();
+
+        var deregister = $scope.$on('swipe', this.swipeListener.bind(this));
+        $scope.$on('$destroy', deregister);
     }
 
     loadActivity() {
@@ -68,5 +73,19 @@ export class ActivityController {
             this.$loading = false;
             this.$log.warn(err);
         });
+    }
+
+    swipeListener(evt, type) {
+        let pos = this.orderedTypes.indexOf(this.type);
+
+        if (type === 'left') {
+            if (pos + 1 < this.orderedTypes.length) {
+                this.$state.go('activity', {type: this.orderedTypes[pos + 1]});
+            }
+        } else {
+            if (pos > 0) {
+                this.$state.go('activity', {type: this.orderedTypes[pos - 1]});
+            }
+        }
     }
 }

@@ -4,19 +4,31 @@ export class TopController {
      * @param {User} User
      * @param {MainService} MainService
      */
-    constructor(User, MainService, $stateParams, $log) {
+    constructor(User, MainService, $stateParams, $log, $state, $scope) {
         'ngInject';
 
         this.User = User;
         this.MainService = MainService;
         this.Storage = Storage;
         this.$log = $log;
+        this.$state = $state;
+        this.$scope = $scope;
 
         this.period = $stateParams.period || '';
+
+        this.orderedPeriods = [
+            'day',
+            'week',
+            'month',
+            'all'
+        ];
 
         this.page = 1;
         this.jokes = [];
         this.loadTop();
+
+        var deregister = this.$scope.$on('swipe', this.swipeListener.bind(this));
+        this.$scope.$on('$destroy', deregister);
     }
 
     loadTop() {
@@ -48,4 +60,19 @@ export class TopController {
             this.$log.debug('Loaded page ', this.page, 'Total loaded: ', this.jokes.length);
         });
     }
+
+    swipeListener(evt, type) {
+        let pos = this.orderedPeriods.indexOf(this.period);
+
+        if (type === 'left') {
+            if (pos + 1 < this.orderedPeriods.length) {
+                this.$state.go('top', {period: this.orderedPeriods[pos + 1]});
+            }
+        } else {
+            if (pos > 0) {
+                this.$state.go('top', {period: this.orderedPeriods[pos - 1]});
+            }
+        }
+    }
+
 }

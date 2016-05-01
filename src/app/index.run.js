@@ -59,4 +59,14 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
         isTablet: screenSize.on('sm, md', match => $rootScope.screen.isTablet = match),
         isDesktop: screenSize.on('lg', match => $rootScope.screen.isDesktop = match)
     };
+
+    $rootScope.swipeLeft = emitSwipeLeftEvent;
+    $rootScope.swipeRight = emitSwipeRightEvent;
+
+    function emitSwipeLeftEvent(evt) {
+        $rootScope.$broadcast('swipe', 'left', evt);
+    }
+    function emitSwipeRightEvent(evt) {
+        $rootScope.$broadcast('swipe', 'right', evt);
+    }
 }
