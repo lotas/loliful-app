@@ -17,13 +17,18 @@ export class ActivityController {
 
         this.types = {
             nails: 'Intros',
-            hammers: 'Outros',
             saves: 'Saves',
+            hammers: 'Outros',
             likes: 'Likes'
         };
 
         this.typeName = this.types[this.type];
-        this.orderedTypes = Object.keys(this.types);
+        this.orderedTypes = [
+            'saves',
+            'likes',
+            'nails',
+            'hammers'
+        ];
 
         this.items = undefined;
         this.page = 1;
@@ -40,6 +45,7 @@ export class ActivityController {
 
         this.$loading = true;
         this.$empty = false;
+        this.$hasMore = true;
         this.MainService.getActivity(this.type).then((data) => {
             this.items = data[this.type];
             if (this.items.length === 0) {
@@ -53,16 +59,16 @@ export class ActivityController {
     }
 
     loadMore() {
-        if (this.$loading) {
+        if (!this.$hasMore || this.$loading) {
             return false;
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
         this.MainService.getActivity(this.type, {page: this.page+1}).then(res => {
             this.page++;
-            if (res[this.type].length > 0) {
-                // continue loading again
-                this.$loading = false;
+            this.$loading = false;
+            if (res[this.type].length === 0) {
+                this.$hasMore = false;
             }
             // append to avoid re-rendering
             for (var i = 0; i < res[this.type].length; i++) {

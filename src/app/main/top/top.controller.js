@@ -35,22 +35,23 @@ export class TopController {
         this.MainService.getTop({period: this.period}).then(res => {
             this.jokes = res.jokes;
             this.$loading = false;
+            this.$hasMore = res.jokes.length > 0;
         }).catch(err => {
             this.$log.error(err);
         });
     }
 
     loadMore() {
-        if (this.$loading) {
+        if (this.$loading || !this.$hasMore) {
             return false;
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
         this.MainService.getTop({period: this.period, page: this.page+1}).then(res => {
             this.page++;
-            if (res.jokes.length > 0) {
-                // continue loading again
-                this.$loading = false;
+            this.$loading = false;
+            if (res.jokes.length === 0) {
+                this.$hasMore = false;
             }
             // append to avoid re-rendering
             for (var i = 0; i < res.jokes.length; i++) {

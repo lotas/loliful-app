@@ -23,6 +23,7 @@ export class FreshController {
 
     loadFresh() {
         this.$loading = true;
+        this.$hasMore = true;
         this.MainService.getFresh({type: this.type}).then(res => {
             this.nails = res.nails;
             this.$loading = false;
@@ -36,16 +37,16 @@ export class FreshController {
     }
 
     loadMore() {
-        if (this.$loading) {
+        if (this.$loading || !this.$hasMore) {
             return false;
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
         this.MainService.getFresh({page: this.page + 1, type: this.type}).then(res => {
             this.page++;
-            if (res.nails.length > 0) {
-                // continue loading again
-                this.$loading = false;
+            this.$loading = false;
+            if (res.nails.length === 0) {
+                this.$hasMore = false;
             }
             // append to avoid re-rendering
             for (var i = 0; i < res.nails.length; i++) {
