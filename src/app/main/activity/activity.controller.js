@@ -45,10 +45,10 @@ export class ActivityController {
             if (this.items.length === 0) {
                 this.$empty = true;
             }
-        }).catch((err) => {
-            this.$log.error(err);
-        }).finally(() => {
             this.$loading = false;
+        }).catch((err) => {
+            this.$loading = false;
+            this.$log.error(err);
         });
     }
 
