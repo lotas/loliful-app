@@ -87,34 +87,19 @@ header.header {
     //
   }
 }
-.is-tablet {
-  @desktopPaddingTop: 6px;
-  header.header {
-    padding-top: @desktopPaddingTop;
-    height: 70px;
-    .header-fixed();
-  }
+
+@media (min-width: 768px) {
   .main-nav {
-    //.d1();
     position: absolute;
-    left: 200px;
-    top: @desktopPaddingTop;
-    width: 480px;
+    left: 50%;
+    margin-left: -170px;
+    top: 26px;
+    width: 340px;
   }
-}
-.is-desktop {
-  @desktopPaddingTop: 6px;
+
   header.header {
-    padding-top: @desktopPaddingTop;
-    height: 70px;
+    padding-top: 22px;
     .header-fixed();
-  }
-  .main-nav {
-    //.d1();
-    position: absolute;
-    left: 200px;
-    top: @desktopPaddingTop;
-    width: 550px;
   }
 }
 
