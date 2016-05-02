@@ -116,3 +116,12 @@
 .icon-loliful-icon-edit:before {
   content: "\65";
 }
+.icon-loliful-icon-refresh:before {
+  content: "\6f";
+}
+.icon-loliful-icon-warning:before {
+  content: "\21";
+}
+.icon-loliful-icon-checkmark:before {
+  content: "\56";
+}
