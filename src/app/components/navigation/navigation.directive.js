@@ -13,7 +13,7 @@ export function NavigationDirective() {
 }
 
 class NavigationController {
-    constructor($rootScope, $state, $aside, $log, $timeout, LiveService, Notification) {
+    constructor($rootScope, $state, $aside, $log, $timeout, LiveService, Notification, User) {
         'ngInject';
 
         this.$rootScope = $rootScope;
@@ -24,6 +24,8 @@ class NavigationController {
         this.Notification = Notification;
 
         this.freshNails = [];
+
+        this.user = User.getCurrent();
 
         $timeout(() => {
             this.sidebar = $aside({
