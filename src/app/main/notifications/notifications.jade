@@ -1,4 +1,4 @@
-.container-fluid.notifications
+.notifications
   h1 Notifications
     span.badge(ng-if="vm.count.count")
       | {{ vm.count.count }} / {{ vm.count.unread }}
@@ -18,8 +18,8 @@
 
   div(ng-if="vm.notifications.length",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
     div(ng-if="vm.notificationsNew.length")
-      h4 New
+      h2 New
       notification-list-item(notification="item", ng-repeat="item in vm.notificationsNew track by $index")
     div(ng-if="vm.notificationsOlder.length")
-      h4 Older
+      h2 Older
       notification-list-item(notification="item", ng-repeat="item in vm.notificationsOlder track by $index")

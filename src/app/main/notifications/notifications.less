@@ -2,12 +2,28 @@
   .mailman {
     max-width: 60%;
   }
+
+  margin-left: 2px;
+  margin-right: 12px;
+
+  padding-left: 10px;
+  padding-right: 10px;
+
+}
+
+h2 {
+  margin-bottom: 20px;
 }
 
 .notification-list-item {
-  margin-bottom: 10px;
+
+  margin-bottom: 15px;
   .avatar img {
     width: 24px;
+    border-radius: 16px;
+  }
+  .username {
+    display: none;
   }
   .type.icon::before {
     color: #C3C7D0 !important;
@@ -19,5 +35,18 @@
   a {
     padding-left: 5px;
     padding-right: 5px;
+    color: @themeMainColor;
+  }
+
+  .avatar-col {
+    width: 40px;
+  }
+  .text-col {
+    padding-right: 0;
+    .icon {
+      padding-top: 2px;
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 }

@@ -1,10 +1,10 @@
 div.notification-list-item.row
-  .col-xs-1
+  .col-xs-2.avatar-col
     avatar(user="nli.notification.$user")
-  .col-xs-10
+  .col-xs-10.text-col
+    i.pull-right.icon.type(ng-class="::nli.getIcon()")
     a(ui-sref="profile({userId: nli.notificatin.actorId})") {{ ::nli.getActorName() }}
     | {{ ::nli.getActionName() }}
     a(ui-sref="nail-view({nailId: nli.notification.data.nailId})", ng-click="nli.markRead()")
       | {{ ::nli.notification.data.text }}
-  .col-xs-1
-    i.icon.type(ng-class="::nli.getIcon()")
+
