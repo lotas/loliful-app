@@ -43,7 +43,7 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
 
     let dereg3 = $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState) {
         $log.debug('$stateChangeSuccess', toState, fromState);
-        $rootScope.showStaticHeader = !!toState.data.showStaticHeader;
+        $rootScope.showStaticHeader = toState && toState.data ? !!toState.data.showStaticHeader : false;
         $rootScope.previousState = fromState.name;
     });
 

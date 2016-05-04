@@ -3,13 +3,14 @@ export class ProfileController {
      *
      * @param {Object} currentUser
      */
-    constructor(currentUser, User, UserService, toastr) {
+    constructor(currentUser, User, UserService, toastr, SweetAlert) {
         'ngInject';
 
         this.User = User;
         this.UserService = UserService;
         this.user = currentUser;
         this.toastr = toastr;
+        this.SweetAlert = SweetAlert;
 
         this.stats = null;
         this.info = null;
@@ -38,6 +39,7 @@ export class ProfileController {
     }
 
     getStats() {
+        console.log(this.user);
         this.User.stats({userId: this.user.id}, res => {
             this.stats = res.stats;
         });
@@ -58,9 +60,13 @@ export class ProfileController {
     }
 
     unlinkAccount(provider) {
-        this.UserService.unlinkSocialAccount(provider).then(() => {
-            this.toastr.success(`Unlinked your ${provider} account`);
-            delete this.social[provider];
+        this.SweetAlert.confirm('Please confirm', `Disconnect from ${provider}?`, (res) => {
+            if (res === true) {
+                this.UserService.unlinkSocialAccount(provider).then(() => {
+                    this.toastr.success(`Unlinked your ${provider} account`);
+                    delete this.social[provider];
+                });
+            }
         });
     }
 }

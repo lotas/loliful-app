@@ -1,34 +1,65 @@
-.container.profile-page
-  h1 Profile
+.profile-page
+  .container.main-block
+    h1 Profile
 
-  .row
-    .col-xs-3
-      img.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
-    .col-xs-8
-      h4 {{ vm.user.name }}
-      form.form-inline(ng-show="vm.isEdit", ng-submit="vm.setName()")
-          div.form-group
-              label.hidden(for="name") Name
-              input.form-control#name(type="text", ng-model="vm.user.name")
-          button.btn.btn-default(type="submit") Change
-    .col-xs-1
-      a.edit-name(ng-click="vm.isEdit = !vm.isEdit")
-        i.icon.icon-loliful-icon-edit
+    .row
+      .col-xs-3
+        img.user-avatar.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
+      .col-xs-7
+        h4 {{ vm.user.name }}
+        form.form-inline(ng-show="vm.isEdit", ng-submit="vm.setName()")
+            div.form-group
+                label.hidden(for="name") Name
+                input.form-control#name(type="text", ng-model="vm.user.name")
+            button.btn.btn-default(type="submit") Change
+      .col-xs-1
+        a.edit-name(ng-click="vm.isEdit = !vm.isEdit")
+          i.icon.icon-loliful-icon-edit
 
-  div.social-profiles(ng-show="vm.social")
-    div(ng-repeat="acc in vm.social")
-      img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
-      a(ng-href="{{ acc.l }}") {{ acc.n }}
+    .row.about-me
+      .col-xs-10
+        i Info about me...
+      .col-xs-1
+        a.edit-name
+          i.icon.icon-loliful-icon-edit
 
-  div.well
-    a.btn.btn-primary(href="{{api}}/link/facebook", ng-if="!vm.social.facebook") Link with Facebook
-    a.btn.btn-default(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook") Unlink Facebook
-    a.btn.btn-primary(href="{{api}}/link/twitter", ng-if="!vm.social.twitter") Link with Twitter
-    a.btn.btn-default(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter") Unlink Twitter
-    a.btn.btn-primary(href="{{api}}/link/google", ng-if="!vm.social.google") Link with Google+
-    a.btn.btn-default(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google") Unlink Google+
+    .social-profile.text-center
+      table(border="0")
+        tr
+          td
+            img(ng-src="/assets/img/fb-{{vm.social.facebook ? 'on' : 'off'}}.svg", title="Facebook")
+          td
+            img(ng-src="/assets/img/twitter-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
+          td
+            img(ng-src="/assets/img/google-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
+        tr.actions
+          td
+            span(ng-show="vm.social.facebook") Connected
+            a(href="{{api}}/link/facebook", ng-if="!vm.social.facebook") Connect
+            a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook") Disconnect
+          td
+            span(ng-show="vm.social.twitter") Connected
+            a(href="{{api}}/link/twitter", ng-if="!vm.social.twitter") Connect
+              a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter") Disconnect
+          td
+            span(ng-show="vm.social.google") Connected
+            a(href="{{api}}/link/google", ng-if="!vm.social.google") Connect
+            a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google") Disconnect
 
-  div.stats
+    // div.social-profiles(ng-show="vm.social")
+    //   div(ng-repeat="acc in vm.social")
+    //     img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
+    //     a(ng-href="{{ acc.l }}") {{ acc.n }}
+
+    // div.well
+    //   a.btn.btn-primary(href="{{api}}/link/facebook", ng-if="!vm.social.facebook") Link with Facebook
+    //   a.btn.btn-default(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook") Unlink Facebook
+    //   a.btn.btn-primary(href="{{api}}/link/twitter", ng-if="!vm.social.twitter") Link with Twitter
+    //   a.btn.btn-default(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter") Unlink Twitter
+    //   a.btn.btn-primary(href="{{api}}/link/google", ng-if="!vm.social.google") Link with Google+
+    //   a.btn.btn-default(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google") Unlink Google+
+
+  div.stats.container
     h5
       i.icon.icon-loliful-icon-stats
       | Stats
@@ -49,17 +80,17 @@
         p 256
 
 
-  div.email-preferences
+  div.email-preferences.container
     h5
       i.icon.icon-loliful-icon-notifications
       | Email Notifications
 
     p Coming soon
 
-  hr
-  p Here is my email to send fun stuff to
-  form.form
-    div.form-group
-      input.form-control#email(type="text", ng-model="vm.user.email", disabled)
-    div.form-group
-      button.pull-right.btn.btn-default(type="submit", disabled) Save
+    hr
+    p Here is my email to send fun stuff to
+    form.form
+      div.form-group
+        input.form-control#email(type="text", ng-model="vm.user.email", disabled)
+      div.form-group
+        button.pull-right.btn.btn-default(type="submit", disabled) Save

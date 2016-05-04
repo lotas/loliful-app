@@ -57,7 +57,7 @@ export class TopController {
             for (var i = 0; i < res.jokes.length; i++) {
                 this.jokes.push(res.jokes[i]);
             }
-            this.$log.debug('Loaded page ', this.page, 'Total loaded: ', this.jokes.length);
+            this.$log.debug('Loaded top page ', this.page, 'Total loaded: ', this.jokes.length);
         });
     }
 

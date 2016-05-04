@@ -1,4 +1,14 @@
 .profile-page {
+  h4 {
+    font-size: 16px;
+  }
+  .main-block {
+    margin-top: 0;
+    background: @themeSecondaryBg;
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+  }
+
   .stats {
     margin-top: 30px;
     .statistic {
@@ -37,21 +47,38 @@
   }
 
   &>.row {
-    margin-right: 5px;
+    // .d1();
+    // margin-right: 5px;
   }
   &>div {
     margin-top: 20px;
+  }
+  [class^=col-] {
+    // .d2();
+    // padding-left: 6px;
+    padding-right: 6px;
   }
 
   p {
     color: @themeTextColor;
   }
 
+  .user-avatar {
+    border-radius: 150px;
+  }
+  .about-me {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: @themeSecondaryColor;
+    font-size: 16px;
+    font-family: 'Lato';
+    font-weight: 100;
+  }
 
   .edit-name{
-    font-size: 34px;
-    color: @themeTextColor;
-    line-height: 34px;
+    font-size: 24px;
+    color: #C7CAD1;
+    line-height: 24px;
   }
 
   .email-preferences {
@@ -72,15 +99,27 @@
     }
   }
 
-  .social-profiles {
-    &>div {
-      margin-bottom: 6px;
+  .social-profile {
+    table {
+      width: 100%;
+      span {
+        color: @themeSecondaryColor;
+        display: block;
+      }
+      tr.actions td {
+        vertical-align: top;
+        padding-top: 15px;
+      }
     }
-    img {
-      height: 24px;
-      margin-right: 15px;
-      vertical-align: bottom;
-    }
+
+    //&>div {
+    //  margin-bottom: 6px;
+    //}
+    //img {
+    //  height: 24px;
+    //  margin-right: 15px;
+    //  vertical-align: bottom;
+    //}
   }
 }
 

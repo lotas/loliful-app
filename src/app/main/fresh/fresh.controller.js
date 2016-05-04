@@ -52,7 +52,7 @@ export class FreshController {
             for (var i = 0; i < res.nails.length; i++) {
                 this.nails.push(res.nails[i]);
             }
-            this.$log.debug('Loaded page ', this.page, 'Total loaded: ', this.nails.length);
+            this.$log.debug('Loaded fresh page ', this.page, 'Total loaded: ', this.nails.length);
         });
     }
 }
