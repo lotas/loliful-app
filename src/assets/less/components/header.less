@@ -188,27 +188,28 @@ header.header {
 
 
 // initial logo animation
-.main-nav {
-  animation-name: fadeIn;
-  animation-duration: 1s;
-}
-.logo-main {
-  animation-name: flyHome;
-  animation-duration: 2s;
-  z-index: 200;
+@media (max-width: 700px) {
+  .logo-main {
+    animation-name: flyHome;
+    animation-duration: 3s;
+    z-index: 2200;
+  }
 }
 @keyframes flyHome {
   0% {
     position: absolute;
     left: 50%;
-    top: 34px;
-    margin-left: -49px;
-    opacity: 0.5;
+    margin-left: -55px;
+    top: 20px;
   }
-  80% {
-    opacity: 1;
+  40% {
+    top: initial;
+    position: absolute;
+    left: 50%;
+    margin-left: -55px;
+  }
+  95% {
     left: 0;
-    top: 0;
     margin-left: 15px;
     position: absolute;
   }
@@ -216,13 +217,5 @@ header.header {
     position: initial;
     margin-left: initial;
     top: initial;
-  }
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
