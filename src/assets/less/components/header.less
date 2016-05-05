@@ -193,6 +193,13 @@ header.header {
     animation-name: flyHome;
     animation-duration: 3s;
     z-index: 2200;
+
+    /* Enable hardware acceleration to fix laggy transitions */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }
 @keyframes flyHome {
@@ -200,7 +207,7 @@ header.header {
     position: absolute;
     left: 50%;
     margin-left: -55px;
-    top: 20px;
+    top: 15px;
   }
   40% {
     top: initial;
