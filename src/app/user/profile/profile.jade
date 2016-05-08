@@ -6,22 +6,29 @@
       .col-xs-3
         img.user-avatar.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
       .col-xs-7
-        h4 {{ vm.user.name }}
-        form.form-inline(ng-show="vm.isEdit", ng-submit="vm.setName()")
-            div.form-group
-                label.hidden(for="name") Name
-                input.form-control#name(type="text", ng-model="vm.user.name")
-            button.btn.btn-default(type="submit") Change
+        h4(ng-hide="vm.isEdit") {{ vm.user.name }}
+        form.form-inline(ng-if="vm.isEdit", ng-submit="vm.setName()")
+          div.form-group
+            label.hidden(for="name") Name
+            input.form-control#name(type="text", ng-model="vm.user.name", auto-focus)
       .col-xs-1
-        a.edit-name(ng-click="vm.isEdit = !vm.isEdit")
+        a.edit-name(ng-click="vm.isEdit = true", ng-hide="vm.isEdit")
           i.icon.icon-loliful-icon-edit
+        button.edit-name(ng-click="vm.setName()", ng-show="vm.isEdit")
+          i.icon.icon-loliful-icon-checkmark
 
     .row.about-me
       .col-xs-10
-        i Info about me...
+        p(ng-hide="vm.isAboutEdit") {{ vm.user.about || '[about me]' }}
+        form.form-inline(ng-if="vm.isAboutEdit", ng-submit="vm.setAbout()")
+          div.form-group
+            label.hidden(for="about") About me
+            textarea.form-control#about(type="text", ng-model="vm.user.about", auto-focus)
       .col-xs-1
-        a.edit-name
+        a.edit-name(ng-click="vm.isAboutEdit = true", ng-hide="vm.isAboutEdit")
           i.icon.icon-loliful-icon-edit
+        button.edit-name(ng-click="vm.setAbout()", ng-show="vm.isAboutEdit")
+          i.icon.icon-loliful-icon-checkmark
 
     .social-profile.text-center
       table(border="0")

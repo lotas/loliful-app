@@ -48,8 +48,16 @@ describe('Profile controller', () => {
     it('should setName()', () => {
         $httpBackend.flush();
 
-        $httpBackend.expect('POST', 'http://local.loliful.io/users/name').respond({name: 'name'});
+        $httpBackend.expect('POST', 'http://local.loliful.io/users/1/name').respond({name: 'name'});
         vm.setName();
+        $httpBackend.flush();
+    });
+
+    it('should setAbout()', () => {
+        $httpBackend.flush();
+
+        $httpBackend.expect('POST', 'http://local.loliful.io/users/1/about').respond({about: 'about'});
+        vm.setAbout();
         $httpBackend.flush();
     });
 

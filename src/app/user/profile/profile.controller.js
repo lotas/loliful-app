@@ -27,18 +27,27 @@ export class ProfileController {
     }
 
     setName() {
-        this.User.setName({name: this.user.name}, res => {
+        this.User.prototype$setName({name: this.user.name, id: this.user.id}, res => {
             this.user.name = res.name.name;
             if (res.name.dup) {
                 this.toastr.warning('Sorry, this username is already taken');
             } else {
-                this.toastr.success('Name saved!');
+                //this.toastr.success('Name saved!');
+                this.isEdit = false;
             }
         });
     }
 
+    setAbout() {
+        this.User.prototype$setAbout({about: this.user.about, id: this.user.id}, res => {
+            this.user.about = res.about.about;
+
+            //this.toastr.success('Saved!');
+            this.isAboutEdit = false;
+        });
+    }
+
     getStats() {
-        console.log(this.user);
         this.User.stats({userId: this.user.id}, res => {
             this.stats = res.stats;
         });

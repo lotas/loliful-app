@@ -82,12 +82,24 @@
     font-size: 16px;
     font-family: 'Lato';
     font-weight: 100;
+
+    p {
+      white-space: pre;
+    }
+    max-height: 100px;
+    overflow-y: auto;
   }
 
   .edit-name{
     font-size: 24px;
-    color: #C7CAD1;
+    color: @themeSecondaryColor;
     line-height: 24px;
+  }
+  button.edit-name {
+    color: @themeMainColor;
+  }
+  .icon-loliful-icon-checkmark {
+    color: @themeMainColor;
   }
 
   .email-preferences {
