@@ -10,7 +10,7 @@
 
     .row.about-me
       .col-xs-12
-        i {{ ::vm.user.about }}
+        p {{ ::vm.profile.about }}
 
     .social-profile(ng-show="vm.profile.accounts")
       div.account(ng-repeat="acc in vm.profile.accounts")
