@@ -69,28 +69,23 @@
       div.col-xs-4.statistic
         h3.title Intros
         h1.count {{ vm.stats.nails || 0 }}
-        p 256
       div.col-xs-4.statistic
         h3.title Outros
         h1.count {{ vm.stats.hammers || 0 }}
-        p 256
       div.col-xs-4.statistic
         h3.title Rank
-        h1.count {{ vm.stats.rating || 0}}
-        p 256
-
+        h1.count {{ vm.stats.rating > 0 ? vm.stats.rating : '∞' }}
 
   div.email-preferences.container
+    hr
+
     h5
       i.icon.icon-loliful-icon-notifications
-      | Email Notifications
+      | Email Preferences
 
-    p Coming soon
-
-    hr
     p Here is my email to send fun stuff to
     form.form
       div.form-group
         input.form-control#email(type="text", ng-model="vm.user.email", disabled)
-      div.form-group
-        button.pull-right.btn.btn-default(type="submit", disabled) Save
+      //div.form-group
+      //  button.pull-right.btn.btn-default(type="submit", disabled) Save

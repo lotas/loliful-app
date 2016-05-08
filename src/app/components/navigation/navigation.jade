@@ -16,7 +16,7 @@ header.header.clearfix
         button.navbar-toggle.header-icon(type="button", ui-sref="profile", ng-if="!screen.isPhone")
           span.sr-only Profile
           span.icon.icon-loliful-icon-profile(ng-if="!vm.user.avatar")
-          img.profile-pic(ng-if="vm.user.avatar", ng-src="{{::vm.user.avatar}}")
+          img.profile-pic(ng-if="vm.user.avatar", ng-src="{{vm.user.avatar}}")
         a.navbar-brand.logo-main
             img(src="/assets/img/logo.svg", alt="Loliful", title="Loliful")
 

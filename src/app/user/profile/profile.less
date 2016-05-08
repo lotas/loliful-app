@@ -1,3 +1,8 @@
+.blockPaddings() {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .profile-page {
   h4 {
     font-size: 16px;
@@ -7,16 +12,20 @@
     background: @themeSecondaryBg;
     margin-bottom: 10px;
     padding-bottom: 20px;
+
+    .blockPaddings();
   }
 
   .stats {
     margin-top: 30px;
+    .blockPaddings();
+
     .statistic {
       text-align: center;
 
        .title {
          font-family: Lato;
-         font-size: 22px;
+         font-size: 14px;
          color: @themeTextColor;
          line-height: 28px;
        }
@@ -83,6 +92,7 @@
 
   .email-preferences {
     margin-top: 30px;
+    .blockPaddings();
   }
 
   h5 {
@@ -124,7 +134,20 @@
 }
 
 .profile-page.public {
-  .stats .row{
-    background: #F4F6F9;
+
+  .main-block {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .social-profile {
+    margin-left: 30px;
+    margin-top: 15px;
+  }
+  .social-profile .account {
+    margin-bottom: 10px;
+
+    img {
+      margin-right: 20px;
+    }
   }
 }

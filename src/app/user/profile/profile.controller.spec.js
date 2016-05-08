@@ -19,7 +19,6 @@ describe('Profile controller', () => {
 
         $httpBackend.expect('GET', 'http://local.loliful.io/users/stats?userId=1').respond({stats: {}});
         $httpBackend.expect('GET', 'http://local.loliful.io/me').respond({});
-        $httpBackend.expect('GET', 'http://local.loliful.io/avatar/1').respond({});
 
         vm = $controller('ProfileController', {
             currentUser: {

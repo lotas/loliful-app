@@ -25,16 +25,19 @@ class NavigationController {
 
         this.freshNails = [];
 
-        this.user = User.getCurrent();
+        this.user = false;
+        User.getCurrent().$promise.then(user => {
+            this.user = user;
+
+            this.loadNotificationsCount();
+            this.subscribeNotifications();
+        });
 
         $timeout(() => {
             this.sidebar = $aside({
                 templateUrl: 'app/components/navigation/aside.html',
                 show: false
             });
-
-            this.loadNotificationsCount();
-            this.subscribeNotifications();
         }, 100);
     }
 

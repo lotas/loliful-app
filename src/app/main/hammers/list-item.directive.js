@@ -36,7 +36,7 @@ class HammerListItemController {
         this.ShareService = ShareService;
         this.SweetAlert = SweetAlert;
 
-        this.isOwn = AuthService.getUserId() === this.hammer.$user.id;
+        this.isOwn = this.hammer.$user && AuthService.getUserId() === this.hammer.$user.id;
 
         this.dropdown = [{
             "text": "Report Abuse",

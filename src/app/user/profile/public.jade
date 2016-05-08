@@ -1,37 +1,37 @@
-.container.profile-page.public
-  h1 Profile
+.profile-page.public
+  .main-block.container
 
-  .row
-    .col-xs-3.avatar
-      img(ng-src="{{ vm.profile.avatar }}", ng-show="vm.profile.avatar")
-      img.mvp(src="/assets/img/loliful-mvp.svg")
-    .col-xs-8
-      h4 {{ vm.profile.name }}
-    .col-xs-1 &nbsp;
+    .row
+      .col-xs-3.avatar
+        img.user-avatar.img-responsive(ng-src="{{ vm.profile.avatar }}", ng-show="vm.profile.avatar")
+        img.mvp(src="/assets/img/loliful-mvp.svg")
+      .col-xs-9
+        h4 {{ vm.profile.name }}
 
-  div.social-profiles(ng-show="vm.profile.accounts")
-    div(ng-repeat="acc in vm.profile.accounts")
-      img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
-      a(ng-href="{{ acc.l }}") {{ acc.n }}
+    .row.about-me
+      .col-xs-12
+        i about me..
+
+    .social-profile(ng-show="vm.profile.accounts")
+      div.account(ng-repeat="acc in vm.profile.accounts")
+        img(ng-src="/assets/img/{{ acc.p }}-on.svg")
+        a(ng-href="{{ acc.l }}") {{ acc.n }}
 
 
-  div.stats
+  div.stats.container
     h5
       i.icon.icon-loliful-icon-stats
-      | Stats
+      | Statistics
 
     p(ng-if="!vm.stats") Loading stats ..
     div.row(ng-if="vm.stats")
       div.col-xs-4.statistic
         h3.title Intros
         h1.count {{ vm.stats.nails || 0 }}
-        p 256
       div.col-xs-4.statistic
         h3.title Outros
         h1.count {{ vm.stats.hammers || 0 }}
-        p 256
       div.col-xs-4.statistic
         h3.title Rank
-        h1.count {{ vm.stats.rating || 0}}
-        p 256
+        h1.count {{ vm.stats.rating > 0 ? vm.stats.rating : '∞' }}
 

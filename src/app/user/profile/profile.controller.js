@@ -17,7 +17,6 @@ export class ProfileController {
 
         this.getStats();
         this.getInfo();
-        this.getAvatar();
 
         this.social = {};
         this.user.$promise.then(() => {
@@ -51,14 +50,6 @@ export class ProfileController {
         });
     }
 
-    getAvatar() {
-        if (!this.user.avatar) {
-            this.UserService.loadAvatar(this.user.id).then(res => {
-                this.avatar = res;
-            });
-        }
-    }
-
     unlinkAccount(provider) {
         this.SweetAlert.confirm('Please confirm', `Disconnect from ${provider}?`, (res) => {
             if (res === true) {
@@ -74,5 +65,5 @@ export class ProfileController {
 export function resolveCurrentUser(User) {
     'ngInject';
 
-    return User.getCurrent();
+    return User.getCurrent().$promise;
 }
