@@ -1,11 +1,13 @@
 export class LiveService {
-    constructor(apiEndpoint, AuthService, $q, $log) {
+    constructor(apiEndpoint, AuthService, flags, $q, $log) {
         'ngInject';
 
         this.apiEndpoint = apiEndpoint;
         this.AuthService = AuthService;
         this.$log = $log;
         this.$q = $q;
+
+        this.enabled = flags.socketIO;
     }
 
     connect() {
@@ -14,6 +16,11 @@ export class LiveService {
         }
         var defer = this.$q.defer();
         this.$promise = defer.promise;
+
+        if (!this.enabled) {
+            defer.reject(false);
+            return this.$promise;
+        }
 
         this.socket = io.connect(this.apiEndpoint);
         this.$log.debug('connecting to ', this.apiEndpoint);
@@ -35,8 +42,11 @@ export class LiveService {
      * @return {Function} unsubscribe function
      */
     subscribe(event, cb) {
-        this.$log.debug(`live.sub: ${event}`);
-        return this.socket.on(event, cb);
+        if (this.enabled) {
+            this.$log.debug(`live.sub: ${event}`);
+            return this.socket.on(event, cb);
+        }
+        return false;
     }
 
     /**
@@ -44,8 +54,11 @@ export class LiveService {
      * @return {Function} usubscribe function
      */
     subscribePrivate(type, cb) {
-        this.$log.debug('live.sub.private');
-        return this.socket.on(`p:${type}`, cb)
+        if (this.enabled) {
+            this.$log.debug('live.sub.private');
+            return this.socket.on(`p:${type}`, cb)
+        }
+        return false;
     }
 }
 
@@ -53,10 +66,10 @@ export class LiveService {
  *
  * @param {LiveService} LiveService
  */
-export function runLiveService(LiveService, AuthService) {
+export function runLiveService(LiveService, AuthService, flags) {
     'ngInject';
 
-    if (AuthService.hasToken()) {
+    if (flags.socketIO && AuthService.hasToken()) {
         LiveService.connect();
     }
 }
