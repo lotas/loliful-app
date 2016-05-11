@@ -1,8 +1,9 @@
 p.title
-  b Hold on, we are setting up your account
+  b(ng-show="vm.val < 100") Hold on,<br> we are setting up your account
+  b(ng-show="vm.val >= 100") <br> You are good to go
 
 .avatar-loading
-  .outer-bg
+  .outer-bg(ng-show="vm.val < 100")
     svg#svg(width='160', height='160', version='1.1', xmlns='http://www.w3.org/2000/svg', shape-rendering="geometricPrecision")
       circle(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
       circle#bar(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
