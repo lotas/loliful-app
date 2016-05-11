@@ -33,10 +33,11 @@ export class TopController {
     loadTop() {
         this.$loading = true;
         this.$empty = false;
+        this.$hasMore = false;
         this.MainService.getTop({period: this.period}).then(res => {
             this.jokes = res.jokes;
             this.$loading = false;
-            this.$hasMore = res.jokes.length > 0;
+            this.$hasMore = res.pager.pages > res.pager.page;
             this.$empty = res.jokes.length === 0;
         }).catch(err => {
             this.$log.error(err);

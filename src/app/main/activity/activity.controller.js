@@ -45,13 +45,14 @@ export class ActivityController {
 
         this.$loading = true;
         this.$empty = false;
-        this.$hasMore = true;
+        this.$hasMore = false;
         this.MainService.getActivity(this.type).then((data) => {
             this.items = data[this.type];
             if (this.items.length === 0) {
                 this.$empty = true;
             }
             this.$loading = false;
+            this.$hasMore = data.pager.pages > data.pager.page;
         }).catch((err) => {
             this.$loading = false;
             this.$log.error(err);

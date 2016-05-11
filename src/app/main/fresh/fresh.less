@@ -20,3 +20,20 @@
     max-width: 300px;
   }
 }
+
+.icon-loliful-icon-refresh {
+  font-size: 26px;
+  .icon-align();
+
+  &:active {
+    animation: roll 1s ease-in;
+  }
+  &:hover {
+    animation: roll 1s ease-in;
+  }
+}
+
+@keyframes roll {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}

@@ -16,17 +16,20 @@ export class FreshController {
         this.type = $stateParams.type || 'recent';
 
         this.page = 1;
+        this.$hasMore = false;
         this.nails = [];
 
         this.loadFresh();
     }
 
     loadFresh() {
+        this.nails = [];
         this.$loading = true;
-        this.$hasMore = true;
+        this.$hasMore = false;
         this.MainService.getFresh({type: this.type}).then(res => {
             this.nails = res.nails;
             this.$loading = false;
+            this.$hasMore = res.pager.pages > res.pager.page;
         }).catch(err => {
             this.$log.error(err);
         });
