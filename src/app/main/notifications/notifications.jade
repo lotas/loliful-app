@@ -14,7 +14,7 @@
       p.vOfs Your mailman took a day off
       img.mailman(src="/assets/img/mailman2.png", title="mailman")
       p.vOfs Try adding an Intro to get noticed
-      a.btn.btn-default(ui-sref="fresh") Take me to fresh intros
+      a.btn.btn-primary(ui-sref="fresh") Take me to fresh intros
 
   div(ng-if="vm.notifications.length",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
     div(ng-if="vm.notificationsNew.length")

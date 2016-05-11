@@ -2,7 +2,7 @@ form.nail-add(name="nail", ng-submit="nailAdd.create(); nailAdd.submited=true")
   div.form-group
     input#text.form-control(type="text", placeholder="Once upon a dime", ng-model="nailAdd.nail.text", auto-focus)
   div
-    a.btn.btn-default.pull-right(ng-disabled="nailAdd.saving", ng-click="nailAdd.onClose()")
+    a.btn.btn-primary.pull-right(ng-disabled="nailAdd.saving", ng-click="nailAdd.onClose()")
       | {{ nailAdd.submited ? 'Ok, it is enough' : 'No, maybe later' }}
     button.btn.btn-large.btn-primary(type="submit", ng-disabled="nailAdd.saving")
       | Add funny intro

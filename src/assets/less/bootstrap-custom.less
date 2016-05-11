@@ -33,8 +33,18 @@
 @btn-default-border: #4DB8CD;
 @btn-default-color: #4DB8CD;
 @btn-default-bg: #FFFFFF;
+@padding-base-vertical: 8px;
+@padding-base-horizontal: 20px;
+@btn-font-weight: 100;
 
 @import "@{bootstrap}buttons.less";
+
+// buttons for really small screens
+@media (max-width: 320px) {
+  .btn {
+    padding: 4px 6px;
+  }
+}
 
 // Components
 @import "@{bootstrap}component-animations.less";

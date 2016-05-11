@@ -24,3 +24,14 @@ div
   button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="screen.isPhone") Show more
 
   br
+
+  div.container-fluid.align-center(ng-if="vm.$empty")
+    p.vOfs Looks like no one was trying hard enough to be funny.
+
+    .empty-card.vOfs
+      img(src="/assets/img/empty-card.png")
+
+    p What if you would start joking right now?
+
+    .vOfs
+      a.btn.btn-primary.uppercase(ui-sref="fresh") Go joking
