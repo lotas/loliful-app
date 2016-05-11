@@ -1,18 +1,20 @@
-.progress-bar-container
-  .progress-bar
-  .progress-bar.progress-current
-
-h4.bottom30 Hold on, we are setting up your account
+p.title
+  b Hold on, we are setting up your account
 
 .avatar-loading
+  .outer-bg
+    svg#svg(width='160', height='160', version='1.1', xmlns='http://www.w3.org/2000/svg', shape-rendering="geometricPrecision")
+      circle(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
+      circle#bar(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
   .bg
     img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}")
 
-h5.bottom30 Next time you won't need to wait that long again
+p.info.bottom30
+  span(ng-show="vm.val < 60") Next time you won't need to wait
+  span(ng-show="vm.val > 60 && vm.val < 100") Almost there
+  span(ng-show="vm.val >= 100") We recommend you connect your other social media accounts. You'll be able to log in with any of those later.
 
-.footer.container-fluid.clearfix
+.container-fluid.clearfix
   .row
-    .col-xs-6.col-sm-2.col-sm-offset-4
-      button.btn.btn-primary.btn-block(ui-sref="fresh", ng-click="vm.setFirstRun()") TO INTROS
-    .col-xs-6.col-sm-2
-      button.btn.btn-primary.btn-block(ui-sref="profile", ng-click="vm.setFirstRun()") TO PROFILE
+    .col-xs-12.align-center(ng-show="vm.val >= 100")
+      button.btn.btn-primary(ui-sref="profile", ng-click="vm.setFirstRun()") GO TO PROFILE

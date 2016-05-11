@@ -79,7 +79,7 @@ export class FirstRunController {
      * @param {User} User
      * @param {UserService} UserService
      */
-    constructor(User, UserService) {
+    constructor(User, UserService, $timeout) {
         'ngInject';
 
         this.UserService = UserService;
@@ -88,10 +88,35 @@ export class FirstRunController {
         User.getCurrent().$promise.then(user => {
             this.user = user;
         });
+
+        this.startProgress($timeout);
     }
 
     setFirstRun() {
         this.UserService.setFirstRun();
+    }
+
+    startProgress($timeout) {
+        var vm = this;
+
+        var circle = angular.element('#svg #bar');
+        vm.val = 0;
+        var r = 90; //circle.attr('r');
+
+        var c = Math.PI * (r * 2);
+
+        drawNext();
+
+        function drawNext() {
+            var pct = ((100 - vm.val) / 100) * c;
+
+            circle.css({strokeDashoffset: pct});
+
+            vm.val += 5;
+            if (vm.val <= 100) {
+                $timeout(drawNext, 350);
+            }
+        }
     }
 
 }
