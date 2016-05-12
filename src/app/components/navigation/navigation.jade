@@ -13,7 +13,16 @@ header.header.clearfix
         button.navbar-toggle.header-icon(type="button", aria-expanded="false", ui-sref="notifications")
           span.sr-only Notifications
           span.icon.icon-loliful-icon-notification
-        button.navbar-toggle.header-icon(type="button", ui-sref="profile", ng-if="!screen.isPhone")
+        button.navbar-toggle.header-icon(
+            type="button",
+            ui-sref="profile",
+            ng-if="!screen.isPhone",
+            bs-popover,
+            data-template-url="app/components/navigation/user-menu.html",
+            data-placement="bottom",
+            data-trigger="click",
+            data-auto-close="true"
+          )
           span.sr-only Profile
           span.icon.icon-loliful-icon-profile(ng-if="!vm.user.avatar")
           img.profile-pic(ng-if="vm.user.avatar", ng-src="{{vm.user.avatar}}")

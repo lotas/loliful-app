@@ -1,0 +1,21 @@
+.popover.user-menu
+  .arrow
+  .popover-content
+    ul.nav.nav-list
+      li
+        a(ui-sref="profile", ng-click="$hide()")
+          i.icon.icon-loliful-icon-profile
+          | Profile
+      li.hidden
+        a(ui-sref="notifications", ng-click="$hide()")
+          i.icon.icon-loliful-icon-notification
+          | Notifications
+        span.badge(ng-show="vm.unreadCount") {{ vm.unreadCount }}
+      li
+        a(ui-sref="page.about", ng-click="$hide()")
+          i.icon.icon-loliful-icon-about
+          | About
+      li
+        a(ui-sref="logout")
+          i.icon.icon-loliful-icon-exit
+          | Lol out
