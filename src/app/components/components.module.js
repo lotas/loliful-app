@@ -11,6 +11,8 @@ import { AvatarDirective } from './directives/avatar.directive';
 import { LoadingDirective } from './directives/loading.directive';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
 
+import { InitialsFilter } from './filters/initials.filter';
+
 import { attachFastclick } from './fastclick';
 
 angular.module('loliful.components', [
@@ -38,6 +40,8 @@ angular.module('loliful.components', [
     .directive('avatar', AvatarDirective)
     .directive('loading', LoadingDirective)
     .directive('autoFocus', AutoFocusDirective)
+
+    .filter('initials', InitialsFilter)
 
     .run(attachFastclick)
 ;

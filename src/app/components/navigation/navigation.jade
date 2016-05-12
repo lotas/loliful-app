@@ -24,8 +24,8 @@ header.header.clearfix
             data-auto-close="true"
           )
           span.sr-only Profile
-          span.icon.icon-loliful-icon-profile(ng-if="!vm.user.avatar")
           img.profile-pic(ng-if="vm.user.avatar", ng-src="{{vm.user.avatar}}")
+          span.profile-pic(ng-if="!vm.user.avatar") {{ vm.user.name | initials }}
         a.navbar-brand.logo-main
             img(src="/assets/img/logo.svg", alt="Loliful", title="Loliful")
 
