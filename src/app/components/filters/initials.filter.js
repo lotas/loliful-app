@@ -1,5 +1,6 @@
 export function InitialsFilter() {
-    return function(name) {
+    return function(user) {
+        var name = user.name || user.email;
         var initials = name.replace(/[^A-Z]+/g, '');
 
         if (initials.length > 0) {
