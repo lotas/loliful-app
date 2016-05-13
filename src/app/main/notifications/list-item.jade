@@ -3,7 +3,7 @@ div.notification-list-item.row
     avatar(user="nli.notification.$user")
   .col-xs-10.text-col
     i.pull-right.icon.type(ng-class="::nli.getIcon()")
-    a(ui-sref="profile({userId: nli.notificatin.actorId})") {{ ::nli.getActorName() }}
+    a(ui-sref="profile({userId: nli.notification.actorId})") {{ ::nli.getActorName() }}
     | {{ ::nli.getActionName() }}
     a(ui-sref="nail-view({nailId: nli.notification.data.nailId})", ng-click="nli.markRead()")
       | {{ ::nli.notification.data.text }}
