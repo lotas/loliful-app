@@ -11,6 +11,10 @@ var serverConfig = require('../../server/config.js');
 var allowedEnvs = ['local', 'dev', 'prod', 'testing', 'staging'];
 var env = argv.env || 'local';
 
+if (env === 'production') {
+    env = 'prod';
+}
+
 if (allowedEnvs.indexOf(env) === -1) {
     throw new Error(`Please provide valid env!
   Given: ${env}
