@@ -44,3 +44,54 @@ export function nailViewResolve(MainService, $stateParams) {
 
     return MainService.getNail($stateParams.nailId);
 }
+
+
+export function nailModalView($modal, nailId, $rootScope) {
+
+    $modal({
+        templateUrl: 'app/main/nails/view.modal.html',
+        show: true,
+        backdrop: !$rootScope.screen.isPhone,
+        prefixEvent: 'nailView',
+        controllerAs: 'nv',
+        controller: nailViewCtrl
+    });
+
+    function nailViewCtrl(MainService, $state) {
+        'ngInject';
+
+        var nv = this;
+
+        MainService.getNail(nailId).then(nail => {
+            nv.nail = nail;
+        });
+
+        var dereg = $rootScope.$on('nailView.hide', function() {
+            $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
+                notify: false
+            });
+        });
+
+        $rootScope.$on('$destroy', () => {
+            dereg();
+        });
+    }
+}
+
+export function nailViewRun($state, $rootScope, $modal) {
+    'ngInject';
+
+    $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams, fromState, fromStateParams) {
+        if (fromState && fromState.name && toState.name === 'nail-view') {
+            nailModalView($modal, toStateParams.nailId, $rootScope);
+
+            $rootScope.previousState = fromState.name;
+            $rootScope.previousStateParams = fromStateParams;
+
+            $state.transitionTo(toState.name, toStateParams, {
+                notify: false
+            });
+            event.preventDefault();
+        }
+    });
+}

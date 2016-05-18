@@ -1,7 +1,7 @@
 div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
   div.panel-heading
     avatar(user="nlm.nail.$user", ng-if="!nlm.isOwn")
-    a.expander(ui-sref="nail-view({nailId: nlm.nail.id})")
+    a.expander(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})")
       span(ng-if="nlm.nail.countAnswers", title="Answers count: {{nlm.nail.countAnswers}}") {{ nlm.nail.countAnswers }}
       i.icon.icon-loliful-icon-expand(ng-if="!nlm.nail.countAnswers")
       i.icon.icon-loliful-icon-nav-activity(ng-if="nlm.nail.countAnswers")
@@ -16,7 +16,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
           a.report-abuse(ng-click="nlm.report();")
             i.icon.icon-loliful-icon-flag
             | Flag inappropriate
-    a(ui-sref="nail-view({nailId: nlm.nail.id})")
+    a(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})")
       | {{ ::nlm.nail.text }}
   div.panel-footer(ng-if="!nlm.hideFooter")
     div.row(ng-hide="nlm._reply")

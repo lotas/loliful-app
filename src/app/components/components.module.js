@@ -14,14 +14,17 @@ import { AutoFocusDirective } from './directives/auto-focus.directive';
 import { InitialsFilter } from './filters/initials.filter';
 
 import { attachFastclick } from './fastclick';
+import { scrollbarsConfig } from './scrollbars.confg';
 
 angular.module('loliful.components', [
         'lbServices',
         'LocalStorageModule',
-        'mgcrea.ngStrap.helpers.debounce' // throttle
+        'mgcrea.ngStrap.helpers.debounce', // throttle
+        'ngScrollbars'
     ])
     .config(storageConfig)
     .config(configApi)
+    .config(scrollbarsConfig)
     .service('Storage', Storage)
 
     .config(errorPageRouteConfig)

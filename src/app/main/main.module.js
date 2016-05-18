@@ -9,7 +9,7 @@ import { NotificationsListItemItemDirective } from './notifications/list-item.di
 
 import { NailAddDirective } from './nails/add.directive';
 import { NailListItemDirective } from './nails/list-item.directive';
-import { NailViewController } from './nails/view.controller';
+import { NailViewController, nailViewRun } from './nails/view.controller';
 
 import { HammerListItemDirective } from './hammers/list-item.directive';
 import { HammerActivityItemDirective } from './hammers/activity-item.directive';
@@ -43,5 +43,7 @@ angular.module('loliful.main', [])
 
     .service('ShareService', ShareService)
     .service('MainService', MainService)
+
+    .run(nailViewRun)
 ;
 
