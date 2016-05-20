@@ -31,14 +31,51 @@ body {
   }
 }
 
-@media (min-width: 750px) {
-  .main-margins(30px);
+.content-centering(@width) {
+  .navbar, #main-view {
+    width: @width;
+    position: absolute;
+    left: 50%;
+    margin-left: -(@width/2);
+  }
+
+  #main-view {
+    padding-left: 10px;
+  }
 }
-@media (min-width: 1020px) {
-  .main-margins(110px);
+
+@media (min-width: 760px) and (max-width: 1110px) {
+  .content-centering(740px);
+  .panel:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .fresh:after {
+    content: ' ';
+    display: block;
+
+    clear: left;
+  }
 }
-@media (min-width: 1600px) {
-  .main-margins(160px);
+@media (min-width: 1111px) and (max-width: 1469px) {
+  .content-centering(1112px);
+  .panel:nth-child(3n) {
+    margin-right: 0;
+  }
+
+  .fresh:after {
+    content: ' ';
+    display: block;
+
+    clear: left;
+  }
+
+}
+@media (min-width: 1470px) {
+  .content-centering(1470px);
+  .panel:nth-child(4n) {
+    margin-right: 0;
+  }
 }
 
 
