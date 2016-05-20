@@ -53,7 +53,10 @@ function browserSyncInit(baseDir, browser) {
               'background-color: rgb(17, 17, 17);',
               'color: rgb(229, 229, 229);'
           ]
-      }
+      },
+      middleware: [
+          require('connect-logger')()
+      ]
   });
 }
 
