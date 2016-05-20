@@ -1,3 +1,13 @@
+const addPlaceholders = [
+    'Once upon a dime...',
+    'In a galaxy near, far, away..',
+    'Seven is bigger than seven',
+    'World is a placeholder for jokes',
+    'This is going to be hilarious',
+    'Remember, funny...',
+    'Try to be smart'
+];
+
 export function NailAddDirective() {
     'ngInject';
 
@@ -24,6 +34,8 @@ class NailAddController {
         this.Nail = Nail;
         this.nail = {text: ''};
         this.toastr = toastr;
+
+        this.placeholder = addPlaceholders[Math.floor(Math.random() * addPlaceholders.length)];
     }
 
     create() {
