@@ -34,7 +34,7 @@ export class ShareService {
         $scope.share = share;
 
         return this.$modal({
-            title: 'Share this',
+            title: 'Share this joke',
             templateUrl: 'app/main/share/dialog.html',
             scope: $scope,
             html: true,

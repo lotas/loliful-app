@@ -20,7 +20,8 @@ angular.module('loliful.components', [
         'lbServices',
         'LocalStorageModule',
         'mgcrea.ngStrap.helpers.debounce', // throttle
-        'ngScrollbars'
+        'ngScrollbars',
+        'ngclipboard'
     ])
     .config(storageConfig)
     .config(configApi)
