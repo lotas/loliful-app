@@ -26,7 +26,7 @@ header.header.clearfix
           span.sr-only Profile
           img.profile-pic(ng-if="vm.user.avatar", ng-src="{{vm.user.avatar}}")
           span.ng-cloak.profile-pic(ng-if="!vm.user.avatar && vm.user.name") {{ vm.user | initials }}
-        a.navbar-brand.logo-main
+        a.navbar-brand.logo-main(ui-sref="fresh()")
             img(src="/assets/img/logo.svg", alt="Loliful", title="Loliful")
 
   nav.navbar.main-nav
