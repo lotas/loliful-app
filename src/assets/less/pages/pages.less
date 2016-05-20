@@ -16,6 +16,7 @@ h3 {
 
 .about {
     font-family: Lato;
+    padding: 10px 30px;
     p {
         font-weight: 300;
         font-size: @pageFontSize;
@@ -35,6 +36,23 @@ h3 {
         font-weight: 300;
         color: darken(@inputBorder, 30%);
     }
+}
+
+@media (min-width: 1200px) {
+  .about {
+    width: 960px;
+    position: relative;
+    left: 50%;
+    margin-left: -480px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1200px) {
+  .about {
+    width: 760px;
+    position: relative;
+    left: 50%;
+    margin-left: -380px;
+  }
 }
 
 .page-not-found {

@@ -83,6 +83,9 @@ export function nailViewRun($state, $rootScope, $modal) {
 
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams, fromState, fromStateParams) {
         // on mobile let's show the main page anyway
+
+        //console.log($rootScope.screen.isPhone, 'onnailview', 'isphone');
+
         if ($rootScope.screen.isPhone) return;
         if (fromState && fromState.name && toState.name === 'nail-view') {
             nailModalView($modal, toStateParams.nailId, $rootScope);
