@@ -1,0 +1,22 @@
+.modal.nail-add-modal(tabindex='-1', role='dialog', aria-hidden='true')
+  .modal-dialog
+    .modal-content
+      .modal-body
+        div(ng-hide='screen.isPhone')
+          a.close.pull-right(ng-click="$hide()", title="Close")
+            i.icon.icon-loliful-icon-close
+        div
+          form.nail-add-modal(name="nail", ng-submit="na.create(); na.submited=true;")
+            div.form-group
+              textarea#text.form-control(
+                placeholder="{{ na.placeholder }}",
+                ng-model="na.nail.text",
+                auto-focus
+              )
+            div.text-center
+              button.btn.btn-primary(
+                type="submit",
+                ng-disabled="nailAdd.saving || !na.nail.text"
+              )
+                | SHOOT
+

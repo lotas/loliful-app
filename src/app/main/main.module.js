@@ -7,7 +7,7 @@ import { ActivityController } from './activity/activity.controller';
 import { NotificationsController } from './notifications/notifications.controller';
 import { NotificationsListItemItemDirective } from './notifications/list-item.directive';
 
-import { NailAddDirective } from './nails/add.directive';
+import { NailAddDirective, NailAddController } from './nails/add.directive';
 import { NailListItemDirective } from './nails/list-item.directive';
 import { NailViewController, nailViewRun } from './nails/view.controller';
 
@@ -32,6 +32,7 @@ angular.module('loliful.main', [])
     .directive('notificationListItem', NotificationsListItemItemDirective)
 
     .directive('nailAdd', NailAddDirective)
+    .controller('NailAddController', NailAddController)
     .directive('nailListItem', NailListItemDirective)
     .controller('NailViewController', NailViewController)
 

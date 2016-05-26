@@ -41,6 +41,13 @@
 
 @import "@{bootstrap}buttons.less";
 
+.btn[disabled] {
+  background: @themeSecondaryBg;
+  color: @btnDisabledColor;
+  border-radius: 100px;
+  border: 0;
+}
+
 // buttons for really small screens
 @media (max-width: 320px) {
   .btn {

@@ -1,4 +1,8 @@
-nail-add.nail-add.ng-hide(on-add="fm.addNail(nail);", on-close="fm.showAdd = false;fm.showFloatMenu = true" ng-show="fm.showAdd")
+nail-add.nail-add.ng-hide(
+  on-add="fm.addNail(nail);",
+  on-close="fm.showAdd = false;fm.showFloatMenu = true",
+  ng-show="fm.showAdd"
+)
 
 nav#fm1.float-bottom-menu.ng-hide(ng-init="fm.showNav=false", ng-show="fm.showNav", bs-navbar)
   ul.nav.nav-pills

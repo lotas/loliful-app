@@ -19,3 +19,36 @@
     transition: all ease .3s;
   }
 }
+
+.nail-add-modal {
+  left: initial;
+  right: 5%;
+  margin-left: 0;
+  top: 70px;
+  .close {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  .modal-dialog {
+    width: 400px;
+  }
+  textarea {
+    border: 1px solid @themeMainColor;
+  }
+  .btn {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-backdrop {
+    top: 90px !important;
+  }
+}
+
+@media (min-width: 1600px) {
+  .nail-add-modal {
+    right: 10%;
+  }
+}

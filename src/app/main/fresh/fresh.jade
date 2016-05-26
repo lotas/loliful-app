@@ -1,4 +1,4 @@
-float-menu(add="fm.onAdd(nail)")
+float-menu
 
 div.container-fluid
   div.row
@@ -14,11 +14,9 @@ div.container-fluid
           a(ng-click="vm.loadFresh()", title="Reload")
             i.icon.icon-loliful-icon-refresh
     div.col-sm-3.pull-right(ng-show="!screen.isPhone")
-      a.btn.btn-warning(ng-click="vm.showAdd = !vm.showAdd") ADD INTRO
+      a.btn.btn-warning(ng-click="vm.showAddModal()") ADD INTRO
 
 loading(ng-if="!vm.nails.length")
-
-nail-add.nail-add.ng-hide(on-add="vm.onAdd(nail)", on-close="vm.showAdd = false;" ng-show="vm.showAdd")
 
 
 div.fresh(ng-if="vm.nails", infinite-scroll="screen.isPhone && vm.loadMore()", infinite-scroll-distance="3")

@@ -4,22 +4,33 @@ export class FreshController {
      * @param {User} User
      * @param {MainService} MainService
      * @param {$stateParams} $stateParams
+     * @param {$modal} $modal
      * @param $log
      */
-    constructor(User, MainService, $stateParams, $log) {
+    constructor(User, MainService, $stateParams, $log, $modal, $rootScope) {
         'ngInject';
 
         this.User = User;
         this.MainService = MainService;
         this.$log = $log;
+        this.$modal = $modal;
+        this.$rootScope = $rootScope;
 
         this.type = $stateParams.type || 'recent';
 
         this.page = 1;
         this.$hasMore = false;
         this.nails = [];
+        this._addModal = null;
 
         this.loadFresh();
+
+        this.$rootScope.$on('nail.add.success', (evt, nail) => {
+            this.onAdd(nail);
+            if (this._addModal) {
+                this._addModal.hide();
+            }
+        });
     }
 
     loadFresh() {
@@ -32,6 +43,16 @@ export class FreshController {
             this.$hasMore = res.pager.pages > res.pager.page;
         }).catch(err => {
             this.$log.error(err);
+        });
+    }
+
+    showAddModal() {
+        this._addModal = this.$modal({
+            templateUrl: 'app/main/nails/add.modal.html',
+            controller: 'NailAddController',
+            controllerAs: 'na',
+            html: true,
+            show: true
         });
     }
 

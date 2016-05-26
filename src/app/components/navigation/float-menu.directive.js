@@ -20,7 +20,7 @@ export function FloatMenuDirective() {
 }
 
 class FloatMenuController {
-    constructor($window, $scope, $timeout, throttle) {
+    constructor($window, $scope, $timeout, throttle, $rootScope) {
         'ngInject';
 
         this.$window = $window;
@@ -40,6 +40,10 @@ class FloatMenuController {
             this.hidden = true;
             this.setupListener();
         }
+
+        this.listenerDereg = $rootScope.$on('nail.add.success', evt => {
+            this.showAdd = false;
+        });
     }
 
     setupListener() {
@@ -54,6 +58,8 @@ class FloatMenuController {
             delete this.win;
             delete this.scrollHandler;
             delete this.fm2;
+
+            this.listenerDereg();
 
             if (this.hideTm) {
                 this.$timeout.cancel(this.hideTm);
