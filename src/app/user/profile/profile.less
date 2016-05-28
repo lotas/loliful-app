@@ -36,6 +36,24 @@
         color: #E5736C;
         line-height: 56px;
       }
+      .hearts {
+        /* 256: */
+        font-family: Lato-Regular;
+        font-size: 12px;
+        color: @themeGrayColor;
+        letter-spacing: 0px;
+        line-height: 24px;
+        /* y: */
+        .icon-loliful-icon-liked {
+          .icon-align();
+          margin-right: 6px;
+          font-size: 24px;
+          line-height: 24px;
+          &:before {
+            color: @themeGrayColor;
+          }
+        }
+      }
     }
   }
 
@@ -146,6 +164,10 @@
 }
 
 .profile-page.public {
+
+  .user-avatar {
+    border-radius: 100px;
+  }
 
   .main-block {
     padding-top: 20px;

@@ -76,11 +76,17 @@
       div.col-xs-4.statistic
         h3.title Intros
         h1.count {{ vm.stats.nails || 0 }}
+        div.hearts
+          i.icon.icon-loliful-icon-liked
+          | {{ vm.stats.nailKarma }}
       div.col-xs-4.statistic
         h3.title Outros
         h1.count {{ vm.stats.hammers || 0 }}
+        div.hearts
+          i.icon.icon-loliful-icon-liked
+          | {{ vm.stats.hammerKarma }}
       div.col-xs-4.statistic
-        h3.title Rank
+        h3.title Rating
         h1.count {{ vm.stats.rating > 0 ? vm.stats.rating : '∞' }}
 
   div.email-preferences.container
