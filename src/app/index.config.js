@@ -19,7 +19,7 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     toastrConfig.timeOut = 3000;
     toastrConfig.positionClass = 'toast-top-right';
     toastrConfig.preventDuplicates = true;
-    toastrConfig.progressBar = true;
+    toastrConfig.progressBar = false;
 
     angular.extend($dropdownProvider.defaults, {
         html: true
