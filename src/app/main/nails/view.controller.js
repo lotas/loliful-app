@@ -48,7 +48,7 @@ export function nailViewResolve(MainService, $stateParams) {
 
 export function nailModalView($modal, nailId, $rootScope) {
 
-    $modal({
+    var modal = $modal({
         templateUrl: 'app/main/nails/view.modal.html',
         show: true,
         backdrop: !$rootScope.screen.isPhone,
@@ -70,9 +70,14 @@ export function nailModalView($modal, nailId, $rootScope) {
             $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
                 notify: false
             });
+
+            dereg();
+            dereg2();
         });
 
-        $rootScope.$on('$destroy', () => {
+        var dereg2 = $rootScope.$on('$stateChangeStart', function() {
+            modal.hide();
+            dereg2();
             dereg();
         });
     }
@@ -87,7 +92,7 @@ export function nailViewRun($state, $rootScope, $modal) {
         //console.log($rootScope.screen.isPhone, 'onnailview', 'isphone');
 
         if ($rootScope.screen.isPhone) return;
-        if (fromState && fromState.name && toState.name === 'nail-view') {
+        if (fromState.name && toState.name === 'nail-view') {
             nailModalView($modal, toStateParams.nailId, $rootScope);
 
             $rootScope.previousState = fromState.name;
