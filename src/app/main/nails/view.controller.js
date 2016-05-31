@@ -68,7 +68,7 @@ export function nailModalView($modal, nailId, $rootScope) {
 
         var dereg = $rootScope.$on('nailView.hide', function() {
             $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
-                notify: false
+                notify: true
             });
 
             dereg();
@@ -89,13 +89,13 @@ export function nailViewRun($state, $rootScope, $modal) {
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams, fromState, fromStateParams) {
         // on mobile let's show the main page anyway
 
-        //console.log($rootScope.screen.isPhone, 'onnailview', 'isphone');
+        //console.log($rootScope.screen.isPhone, 'onnailview', 'isphone', toState.name);
 
         if ($rootScope.screen.isPhone) return;
-        if (fromState.name && toState.name === 'nail-view') {
+        if (toState.name && toState.name === 'nail-view') {
             nailModalView($modal, toStateParams.nailId, $rootScope);
 
-            $rootScope.previousState = fromState.name;
+            $rootScope.previousState = fromState.name || 'fresh';
             $rootScope.previousStateParams = fromStateParams;
 
             $state.transitionTo(toState.name, toStateParams, {
