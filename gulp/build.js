@@ -108,6 +108,13 @@ gulp.task('favicons', function() {
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });
 
+gulp.task('manifest', function() {
+    return gulp.src([
+        path.join(conf.paths.src, 'manifest.json')
+    ])
+    .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
+});
+
 // gulp.task('assets', function() {
 //     return gulp.src([
 //             path.join(conf.paths.src, '/assets/**/*')
@@ -120,4 +127,4 @@ gulp.task('clean', function() {
     return $.del([path.join(conf.paths.dist, '/'), path.join(conf.paths.tmp, '/')]);
 });
 
-gulp.task('build', ['html', 'fonts', 'other', 'favicons' /*, 'assets'*/]);
+gulp.task('build', ['html', 'fonts', 'other', 'favicons', 'manifest' /*, 'assets'*/]);
