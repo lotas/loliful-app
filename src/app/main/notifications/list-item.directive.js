@@ -3,7 +3,8 @@ const _typeToAction = {
     'save': 'saved your',
     'share': 'shared your',
     'report': 'reported your',
-    'reply': 'replied to your'
+    'reply': 'replied to your',
+    'unlike': 'unliked your'
 };
 const _entityToName = {
     'nail': 'question',
@@ -11,6 +12,7 @@ const _entityToName = {
 };
 const _typeToIcon = {
     'like': 'icon-loliful-icon-liked',
+    'unlike': 'icon-loliful-icon-like',
     'save': 'icon-loliful-icon-bookmarked',
     'share': 'icon-loliful-icon-share',
     'report': 'icon-loliful-icon-close',
