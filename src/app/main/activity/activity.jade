@@ -15,6 +15,18 @@ ul#secondary-menu.nav.nav-pills.activity.nav-justified
     a(ui-sref="activity({type: 'hammers'})")
       | My outros
 
+div.container-fluid.align-center(ng-if="vm.$empty")
+  p.botOfs {{ vm.typeName }} you create will appear here
+
+  .empty-card.vOfs
+    img(src="/assets/img/empty-card.png")
+
+  p In <b>Fresh</b> pick the <b>Intro</b> you like and add your <b>Outro</b> to it
+  p If you don't feel like joking just yet, start with a <b>Save for later</b> or a goold old <b>Like</b>
+
+  .vOfs
+    a.btn.btn-primary.uppercase(ui-sref="fresh") Take me to intros
+
 
 section
   loading(ng-if="vm.$loading")
@@ -30,18 +42,3 @@ section
         hammer-activity-item(ng-if="item.$hammer", hammer="item.$hammer")
 
   button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Show more
-
-  br
-
-
-  div.container-fluid.align-center(ng-if="vm.$empty")
-    p.vOfs {{ vm.typeName }} you create will appear here
-
-    .empty-card.vOfs
-      img(src="/assets/img/empty-card.png")
-
-    p In <b>Fresh</b> pick the <b>Intro</b> you like and add your <b>Outro</b> to it
-    p If you don't feel like joking just yet, start with a <b>Save for later</b> or a goold old <b>Like</b>
-
-    .vOfs
-      a.btn.btn-primary.uppercase(ui-sref="fresh") Take me to intros
