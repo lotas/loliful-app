@@ -1,6 +1,6 @@
 {
   "name": "Loliful App",
-  "short_name": "Loliful",
+  "short_name": "Loliful App",
   "description": "The world's first app for creating jokes collaboratively",
   "display": "standalone",
   "start_url": "./?utm_source=web_app_manifest",
