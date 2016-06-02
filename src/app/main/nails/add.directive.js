@@ -40,6 +40,9 @@ export class NailAddController {
     }
 
     create() {
+        if (!this.nail.text || this.nail.text.length < 2 || this.nail.text.length > 212) {
+            return false;
+        }
         this.saving = true;
         this.Nail.create(this.nail, res => {
             this.saving = false;

@@ -1,6 +1,13 @@
 form.nail-add(name="nail", ng-submit="nailAdd.create(); nailAdd.submited=true")
   div.form-group
-    input#text.form-control(type="text", placeholder="{{ nailAdd.placeholder }}", ng-model="nailAdd.nail.text", auto-focus)
+    input#text.form-control(
+      type="text",
+      placeholder="{{ nailAdd.placeholder }}",
+      ng-model="nailAdd.nail.text",
+      auto-focus,
+      maxlength="212",
+      ng-maxlength="212"
+    )
   div
     a.btn.btn-default.pull-right(ng-disabled="nailAdd.saving", ng-click="nailAdd.onClose()")
       | {{ nailAdd.submited ? 'Ok, it is enough' : 'No, maybe later' }}

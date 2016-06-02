@@ -17,7 +17,7 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     // Set options third-party lib
     toastrConfig.allowHtml = true;
     toastrConfig.timeOut = 3000;
-    toastrConfig.positionClass = 'toast-top-right';
+    toastrConfig.positionClass = 'toast-loliful';
     toastrConfig.preventDuplicates = true;
     toastrConfig.progressBar = false;
 
