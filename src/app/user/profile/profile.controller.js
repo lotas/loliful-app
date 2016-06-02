@@ -32,7 +32,7 @@ export class ProfileController {
             if (res.name.dup) {
                 this.toastr.warning('Sorry, this username is already taken');
             } else {
-                //this.toastr.success('Name saved!');
+                this.toastr.success('Name saved!');
                 this.isEdit = false;
             }
         });
@@ -42,7 +42,7 @@ export class ProfileController {
         this.User.prototype$setAbout({about: this.user.about, id: this.user.id}, res => {
             this.user.about = res.about.about;
 
-            //this.toastr.success('Saved!');
+            this.toastr.success('Thank you!');
             this.isAboutEdit = false;
         });
     }

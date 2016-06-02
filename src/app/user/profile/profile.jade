@@ -10,7 +10,7 @@
         form.form(ng-if="vm.isEdit", ng-submit="vm.setName()")
           div.form-group
             label.hidden(for="name") Name
-            input.form-control#name(type="text", ng-model="vm.user.name", ng-maxlength="30", auto-focus)
+            input.form-control#name(type="text", ng-model="vm.user.name", maxlength="30", ng-maxlength="30", auto-focus)
       .col-xs-1
         a.edit-name(ng-click="vm.isEdit = true", ng-hide="vm.isEdit")
           i.icon.icon-loliful-icon-edit
@@ -23,7 +23,7 @@
         form.form(ng-if="vm.isAboutEdit", ng-submit="vm.setAbout()")
           div.form-group
             label.hidden(for="about") About me
-            textarea.form-control#about(type="text", ng-model="vm.user.about", ng-maxlength="500", auto-focus)
+            textarea.form-control#about(type="text", ng-model="vm.user.about", maxlength="30" ng-maxlength="500", auto-focus)
       .col-xs-1
         a.edit-name(ng-click="vm.isAboutEdit = true", ng-hide="vm.isAboutEdit")
           i.icon.icon-loliful-icon-edit
@@ -89,16 +89,16 @@
         h3.title Rating
         h1.count {{ vm.stats.rating > 0 ? vm.stats.rating : '∞' }}
 
-  div.email-preferences.container
-    hr
-
-    h5
-      i.icon.icon-loliful-icon-notifications
-      | Email Preferences
-
-    p Here is my email to send fun stuff to
-    form.form
-      div.form-group
-        input.form-control#email(type="text", ng-model="vm.user.email", disabled)
-      //div.form-group
-      //  button.pull-right.btn.btn-default(type="submit", disabled) Save
+  //div.email-preferences.container
+  //  hr
+  //
+  //  h5
+  //    i.icon.icon-loliful-icon-notifications
+  //    | Email Preferences
+  //
+  //  p Here is my email to send fun stuff to
+  //  form.form
+  //    div.form-group
+  //      input.form-control#email(type="text", ng-model="vm.user.email", disabled)
+  //    //div.form-group
+  //    //  button.pull-right.btn.btn-default(type="submit", disabled) Save
