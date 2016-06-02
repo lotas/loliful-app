@@ -68,7 +68,7 @@ export function nailModalView($modal, nailId, $rootScope) {
 
         var dereg = $rootScope.$on('nailView.hide', function() {
             $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
-                notify: true
+                notify: !$rootScope.previousStateSet  //reload only when previous state was set
             });
 
             dereg();
@@ -95,6 +95,7 @@ export function nailViewRun($state, $rootScope, $modal) {
         if (toState.name && toState.name === 'nail-view') {
             nailModalView($modal, toStateParams.nailId, $rootScope);
 
+            $rootScope.previousStateSet = !!fromState.name;
             $rootScope.previousState = fromState.name || 'fresh';
             $rootScope.previousStateParams = fromStateParams;
 
