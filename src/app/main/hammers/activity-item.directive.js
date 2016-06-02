@@ -30,7 +30,7 @@ class HammerActivityItemController {
         this.$log = $log;
         this.toastr = toastr;
 
-        this.isOwn = AuthService.getUserId() === this.hammer.$user.id;
+        this.isOwn = this.hammer.$user && AuthService.getUserId() === this.hammer.$user.id;
     }
 
     delete() {
