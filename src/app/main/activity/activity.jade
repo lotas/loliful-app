@@ -16,17 +16,7 @@ ul#secondary-menu.nav.nav-pills.activity.nav-justified
       | My outros
 
 div.container-fluid.align-center(ng-if="vm.$empty")
-  p.botOfs {{ vm.typeName }} you create will appear here
-
-  .empty-card.vOfs
-    img(src="/assets/img/empty-card.png")
-
-  p In <b>Fresh</b> pick the <b>Intro</b> you like and add your <b>Outro</b> to it
-  p If you don't feel like joking just yet, start with a <b>Save for later</b> or a goold old <b>Like</b>
-
-  .vOfs
-    a.btn.btn-primary.uppercase(ui-sref="fresh") Take me to intros
-
+  activity-empty-screen(type="vm.type")
 
 section
   loading(ng-if="vm.$loading")

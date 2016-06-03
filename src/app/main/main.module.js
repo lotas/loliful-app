@@ -20,6 +20,8 @@ import { TimeAgoFilter } from './filters/time-ago.filter.js';
 import { ShareService } from './share/share.service';
 import { MainService } from './main.service';
 
+import { activityEmptyScreenComponent } from './activity/empty-screen.component';
+
 angular.module('loliful.main', [])
 
     // Main
@@ -44,6 +46,8 @@ angular.module('loliful.main', [])
 
     .service('ShareService', ShareService)
     .service('MainService', MainService)
+
+    .component('activityEmptyScreen', activityEmptyScreenComponent)
 
     .run(nailViewRun)
 ;

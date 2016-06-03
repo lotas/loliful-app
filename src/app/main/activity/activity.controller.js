@@ -1,3 +1,10 @@
+export const activityTypes = {
+    nails: 'Intros',
+    saves: 'Saves',
+    hammers: 'Outros',
+    likes: 'Likes'
+};
+
 export class ActivityController {
 
     /**
@@ -15,12 +22,7 @@ export class ActivityController {
         this.type = $stateParams.type;
         this.$state = $state;
 
-        this.types = {
-            nails: 'Intros',
-            saves: 'Saves',
-            hammers: 'Outros',
-            likes: 'Likes'
-        };
+        this.types = activityTypes;
 
         this.typeName = this.types[this.type];
         this.orderedTypes = [
@@ -47,6 +49,7 @@ export class ActivityController {
         this.$empty = false;
         this.$hasMore = false;
         this.MainService.getActivity(this.type).then((data) => {
+
             this.items = data[this.type];
             if (this.items.length === 0) {
                 this.$empty = true;

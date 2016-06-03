@@ -1,0 +1,9 @@
+p(ng-if="$ctrl.topText") {{ $ctrl.topText }}
+img.illustration(ng-src="{{ $ctrl.img }}")
+p(ng-if="$ctrl.type == 'nails'")
+ | In Intros pick the one you like and add your funny reply
+p(ng-if="$ctrl.type == 'likes' || $ctrl.type == 'saves'")
+ | In <b>Fresh</b> pick the <b>Intro</b> you like and add your <b>Outro</b> to it <br/>
+ | If you don't feel like joking just yet, start with a <b>Save for later</b> or a goold old <b>Like</b>
+.vOfs
+  a.btn.btn-primary.uppercase(ui-sref="fresh") {{ $ctrl.actionName }}
