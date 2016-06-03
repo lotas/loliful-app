@@ -97,7 +97,7 @@ class FloatMenuController {
     }
 
     scroll() {
-        if (this.$window.pageYOffset <= 100) {
+        if (this.$window.pageYOffset <= 50) {
             if (!this.hidden) {
                 this.fm2.addClass('hidden');
                 this.fm1.addClass('ng-hide');
