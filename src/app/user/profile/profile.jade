@@ -34,11 +34,11 @@
       table(border="0")
         tr
           td
-            img(ng-src="/assets/img/fb-{{vm.social.facebook ? 'on' : 'off'}}.svg", title="Facebook")
+            img(ng-src="/assets/img/f-{{vm.social.facebook ? 'on' : 'off'}}.svg", title="Facebook")
           td
-            img(ng-src="/assets/img/twitter-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
+            img(ng-src="/assets/img/t-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
           td
-            img(ng-src="/assets/img/google-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
+            img(ng-src="/assets/img/g-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
         tr.actions
           td
             span(ng-show="vm.social.facebook") Connected
