@@ -23,7 +23,8 @@ export class NotificationsController {
         this.notificationsNew = [];
         this.notificationsOlder = [];
         this.load();
-        //this.loadCounts();
+        this.loadCounts();
+        this.markRead();
     }
 
     loadCounts() {
@@ -68,7 +69,7 @@ export class NotificationsController {
                 if (res[i].isRead === 0) {
                     this.notificationsNew.push(res[i]);
                 } else {
-                    this.notificationsOld.push(res[i]);
+                    this.notificationsOlder.push(res[i]);
                 }
             }
             this.$log.debug('Loaded page ', this.page, 'Total loaded: ', this.notifications.length);

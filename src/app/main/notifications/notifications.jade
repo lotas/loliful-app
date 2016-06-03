@@ -1,10 +1,10 @@
 .notifications
   h1 Notifications
-    span.badge(ng-if="vm.count.count")
-      | {{ vm.count.count }} / {{ vm.count.unread }}
-  div(ng-if="vm.count.unread && vm.showMarkAll")
-    button.btn.btn-info.btn-small(ng-click="vm.markRead()")
-      | Mark all read
+    //span.badge(ng-if="false && vm.count.count")
+    //  | {{ vm.count.count }} / {{ vm.count.unread }}
+  //div(ng-if="false && vm.count.unread")
+  //  button.btn.btn-default(ng-click="vm.markRead()")
+  //    | Mark all read
 
   loading(ng-if="!vm.notifications")
 

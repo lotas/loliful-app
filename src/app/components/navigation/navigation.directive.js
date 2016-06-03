@@ -39,6 +39,13 @@ class NavigationController {
                 show: false
             });
         }, 100);
+
+        // reload notifications on state change
+        $rootScope.$on('$stateChangeSuccess', () => {
+            $timeout(() => {
+                this.loadNotificationsCount();
+            }, 1500);
+        });
     }
 
     showAside() {
