@@ -5,9 +5,12 @@
  * @param {User} User
  * @param {$state} $state
  * @param {Storage} Storage
+ * @param envName
  * @param {$location} $location
  * @param {$http} $http
  * @param apiAuth
+ * @param apiEndpoint
+ * @param screenSize
  */
 export function runBlock($log, $rootScope, User, $state, Storage, envName,
                          $location, $http, apiAuth, apiEndpoint, screenSize) {
