@@ -18,9 +18,9 @@ nav#fm1.float-bottom-menu.ng-hide(ng-init="fm.showNav=false", ng-show="fm.showNa
       a(ui-sref="activity({type: 'nails'})")
         i.icon.icon-loliful-icon-nav-activity
         | Activity
-nav#fm2.float-menu.hidden(ng-show="fm.showFloatMenu", ng-class="{single: fm.single}")
+nav#fm2.float-menu(ng-show="fm.showFloatMenu", ng-class="{single: fm.single}")
   ul.nav.nav-pills
-    li.top-nav
+    li.top-nav.hidden
       a(ng-click="fm.showHideNav()")
         i.icon-loliful-icon-menu
     li.add-item(ng-if="!fm.single")
