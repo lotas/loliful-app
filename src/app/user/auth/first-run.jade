@@ -3,12 +3,13 @@ p.title
   b(ng-show="vm.val >= 100") <br> You are good to go
 
 .avatar-loading
-  .outer-bg(ng-show="vm.val < 100")
-    svg#svg(width='160', height='160', version='1.1', xmlns='http://www.w3.org/2000/svg', shape-rendering="geometricPrecision")
-      circle(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
-      circle#bar(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
-  .bg
-    img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}")
+  .wrapper
+    .outer-bg(ng-show="vm.val < 100")
+      svg#svg(width='160', height='160', version='1.1', xmlns='http://www.w3.org/2000/svg', shape-rendering="geometricPrecision")
+        circle(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
+        circle#bar(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
+    .bg
+      img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}", ui-sref="profile", ng-click="vm.setFirstRun()")
 
 p.info.bottom30
   span(ng-show="vm.val < 60") Next time you won't need to wait
