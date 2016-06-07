@@ -10,7 +10,17 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
     span.time-ago
       i.icon.icon-loliful-icon-time
       | {{ nlm.nail.created | timeAgo }}
-  div.panel-body(ng-click="nlm._reply=false", ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})")
+  div.panel-body(ng-click="nlm._reply=false",
+    ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
+    ng-if="!nlm.isNailView")
+    .submenu(ng-if="nlm._submenu", ng-click="nlm._submenu=false")
+      .submenu-container
+          a.report-abuse(ng-click="nlm.report();")
+            i.icon.icon-loliful-icon-flag
+            | Flag inappropriate
+    a(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})")
+      | {{ ::nlm.nail.text }}
+  div.panel-body(ng-click="nlm._reply=false", ng-if="nlm.isNailView")
     .submenu(ng-if="nlm._submenu", ng-click="nlm._submenu=false")
       .submenu-container
           a.report-abuse(ng-click="nlm.report();")

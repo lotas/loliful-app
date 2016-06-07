@@ -8,7 +8,8 @@ export function NailListItemDirective() {
         controllerAs: 'nlm',
         scope: {
             nail: '=',
-            hideFooter: '='
+            hideFooter: '=',
+            isNailView: '='
         },
         bindToController: true,
         replace: true
