@@ -50,5 +50,11 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
     div.row(ng-if="nlm._reply")
       form.reply-form.form-inline(ng-submit="nlm.reply(); nlm._reply=false;")
         div.col-xs-9.col-sm-8
-          input.reply.form-control(id="reply-{{nlm.nail.id}}", type="text", placeholder="Joke", ng-model="nlm._hammer.text", required, auto-focus)
+          input.reply.form-control(id="reply-{{nlm.nail.id}}",
+            type="text",
+            placeholder="Joke",
+            ng-model="nlm._hammer.text",
+            maxlength="212",
+            ng-maxlength="212",
+            required, auto-focus)
         button.btn.btn-mini.btn-primary(type="submit") Reply
