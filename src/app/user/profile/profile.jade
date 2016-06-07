@@ -42,29 +42,16 @@
         tr.actions
           td
             span(ng-show="vm.social.facebook") Connected
-            a(href="{{api}}/link/facebook", ng-if="!vm.social.facebook") Connect
-            a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook") Disconnect
+            a(href="{{api}}/link/facebook", ng-click="vm.connectAcc()", ng-if="!vm.social.facebook") Connect
+            a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook && vm.linkedAccounts > 1") Disconnect
           td
             span(ng-show="vm.social.twitter") Connected
-            a(href="{{api}}/link/twitter", ng-if="!vm.social.twitter") Connect
-              a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter") Disconnect
+            a(href="{{api}}/link/twitter", ng-click="vm.connectAcc()", ng-if="!vm.social.twitter") Connect
+              a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter && vm.linkedAccounts > 1") Disconnect
           td
             span(ng-show="vm.social.google") Connected
-            a(href="{{api}}/link/google", ng-if="!vm.social.google") Connect
-            a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google") Disconnect
-
-    // div.social-profiles(ng-show="vm.social")
-    //   div(ng-repeat="acc in vm.social")
-    //     img(ng-src="https://loliful.io/img/{{ acc.p }}.svg", height="22")
-    //     a(ng-href="{{ acc.l }}") {{ acc.n }}
-
-    // div.well
-    //   a.btn.btn-primary(href="{{api}}/link/facebook", ng-if="!vm.social.facebook") Link with Facebook
-    //   a.btn.btn-default(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook") Unlink Facebook
-    //   a.btn.btn-primary(href="{{api}}/link/twitter", ng-if="!vm.social.twitter") Link with Twitter
-    //   a.btn.btn-default(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter") Unlink Twitter
-    //   a.btn.btn-primary(href="{{api}}/link/google", ng-if="!vm.social.google") Link with Google+
-    //   a.btn.btn-default(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google") Unlink Google+
+            a(href="{{api}}/link/google", ng-click="vm.connectAcc()", ng-if="!vm.social.google") Connect
+            a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google && vm.linkedAccounts > 1") Disconnect
 
   div.stats.container
     h5

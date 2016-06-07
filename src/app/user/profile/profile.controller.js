@@ -3,7 +3,7 @@ export class ProfileController {
      *
      * @param {Object} currentUser
      */
-    constructor(currentUser, User, UserService, toastr, SweetAlert) {
+    constructor(currentUser, User, UserService, toastr, SweetAlert, Storage) {
         'ngInject';
 
         this.User = User;
@@ -11,6 +11,7 @@ export class ProfileController {
         this.user = currentUser;
         this.toastr = toastr;
         this.SweetAlert = SweetAlert;
+        this.Storage = Storage;
 
         this.stats = null;
         this.info = null;
@@ -19,8 +20,10 @@ export class ProfileController {
         this.getInfo();
 
         this.social = {};
+        this.linkedAccounts = 0;
         this.user.$promise.then(() => {
             (this.user.accounts || []).forEach(acc => {
+                this.linkedAccounts++;
                 this.social[acc.p] = acc;
             });
         });
@@ -57,6 +60,10 @@ export class ProfileController {
         this.UserService.loadInfo().then(res => {
             this.info = res;
         });
+    }
+
+    connectAcc() {
+        this.Storage.set('connect.account', true);
     }
 
     unlinkAccount(provider) {
