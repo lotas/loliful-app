@@ -36,7 +36,7 @@ class HammerListItemController {
         this.ShareService = ShareService;
         this.SweetAlert = SweetAlert;
 
-        this.isOwn = this.hammer.$user && AuthService.getUserId() === this.hammer.$user.id;
+        this.isOwn = this.hammer.userId && AuthService.getUserId() === this.hammer.userId;
 
         this.dropdown = [{
             "text": "Report Abuse",
@@ -64,6 +64,11 @@ class HammerListItemController {
     }
 
     vote() {
+        if (this.isOwn) {
+            this.$log.warn('Oh why would you wanna do this..');
+            return false;
+        }
+
         let method;
         if (this.hammer.$votes) {
             method = 'prototype$unvote';

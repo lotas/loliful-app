@@ -10,7 +10,10 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
               i.icon.icon-loliful-icon-submenu
           a.delete(ng-click="hli.delete()", ng-if="hli.isOwn")
             i.icon.icon-loliful-icon-delete
-          a.likes(ng-click="hli.vote()", ng-class="{active: hli.hammer.$votes}")
+          a.likes(ng-click="hli.vote()", ng-class="{active: hli.hammer.$votes}", ng-if="!hli.isOwn")
+            i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer.$votes, 'icon-loliful-icon-liked': hli.hammer.$votes}")
+            span {{ hli.hammer.countVotes }}
+          span.likes(ng-if="hli.isOwn")
             i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer.$votes, 'icon-loliful-icon-liked': hli.hammer.$votes}")
             span {{ hli.hammer.countVotes }}
         avatar(user="hli.hammer.$user")
