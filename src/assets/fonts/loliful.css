@@ -3,10 +3,11 @@
 @font-face {
   font-family: "loliful-icon-font";
   src:url("/assets/fonts/loliful-icon-font.eot");
-  src:url("/assets/fonts/loliful-icon-font.eot?#iefix") format("embedded-opentype"),
+  src:
+    url("/assets/fonts/loliful-icon-font.svg#loliful-icon-font") format("svg"),
+    url("/assets/fonts/loliful-icon-font.eot?#iefix") format("embedded-opentype"),
     url("/assets/fonts/loliful-icon-font.woff") format("woff"),
-    url("/assets/fonts/loliful-icon-font.ttf") format("truetype"),
-    url("/assets/fonts/loliful-icon-font.svg#loliful-icon-font") format("svg");
+    url("/assets/fonts/loliful-icon-font.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 
