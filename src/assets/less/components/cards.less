@@ -32,6 +32,11 @@
     color: @iconLikedColor;
 }
 
+.panel-body {
+  .dont-break-out();
+  height: 100%;
+}
+
 .hammer-list-item,
 .nail-list-item,
 .joke-list-item {
@@ -62,6 +67,9 @@
         }
     }
 
+    *:focus {
+      outline: none;
+    }
 }
 
 .fresh, .activities {
