@@ -1,12 +1,6 @@
 div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
   div.panel-heading
     avatar(user="nlm.nail.$user", n1g-if="!nlm.isOwn")
-    a.expander(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})")
-      span(ng-if="nlm.nail.countAnswers", title="Answers count: {{nlm.nail.countAnswers}}") {{ nlm.nail.countAnswers }}
-      i.icon.icon-loliful-icon-expand(ng-if="!nlm.nail.countAnswers")
-      i.icon.icon-loliful-icon-nav-activity(ng-if="nlm.nail.countAnswers")
-    a.collapser(ui-sref="fresh()")
-      i.icon.icon-loliful-icon-expand.flip
     span.time-ago
       i.icon.icon-loliful-icon-time
       | {{ nlm.nail.created | timeAgo }}

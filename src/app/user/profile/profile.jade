@@ -23,7 +23,7 @@
         form.form(ng-if="vm.isAboutEdit", ng-submit="vm.setAbout()")
           div.form-group
             label.hidden(for="about") About me
-            textarea.form-control#about(type="text", ng-model="vm.user.about", maxlength="30" ng-maxlength="500", auto-focus)
+            textarea.form-control#about(type="text", ng-model="vm.user.about", maxlength="500" ng-maxlength="500", auto-focus)
       .col-xs-1
         a.edit-name(ng-click="vm.isAboutEdit = true", ng-hide="vm.isAboutEdit")
           i.icon.icon-loliful-icon-edit
