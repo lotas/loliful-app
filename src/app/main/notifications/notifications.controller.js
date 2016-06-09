@@ -36,10 +36,11 @@ export class NotificationsController {
     load() {
         this.$loading = true;
         this.$empty = false;
+        console.log('Loading notificiations', this.loadFilter);
         this.Notification.find({filter: this.loadFilter}).$promise.then(res => {
             this.notifications = res;
-            this.notificationsNew = res.filter(a => a.isRead === 0);
-            this.notificationsOlder = res.filter(a => a.isRead === 1);
+            this.notificationsNew = res.filter(a => !a.isRead);
+            this.notificationsOlder = res.filter(a => a.isRead);
             if (res.length === 0) {
                 this.$empty = true;
             }
@@ -80,7 +81,7 @@ export class NotificationsController {
         this.Notification.markRead().$promise.then(res => {
             this.$log.debug('Mark read', res);
             this.loadCounts();
-            this.notifications.forEach(item => {
+            (this.notifications || []).forEach(item => {
                 item.isRead = 1;
             });
         });
