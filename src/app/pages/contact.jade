@@ -1,0 +1,36 @@
+.contact
+  div
+    h1 Contact
+    p Simply send us an email with any question and we'll try to do our best to reply within 24 hours
+
+    div.align-center
+      a.btn.btn-primary(href="mailto:hello@loliful.io") SEND EMAIL
+
+  hr
+
+  div
+    h2 Help us improve
+    p Nothing is perfect in this world except for {{ vm.bestThing }}, so please provide your feedback below so that we can improve your experience.
+    p We really want to hear your "but"
+
+    div
+      form(ng-submit="vm.sendFeedback()")
+        div.form-group
+          textarea.form-control(rows="4", ng-model="vm.feedback", placeholder="{{ vm.placeholder }}")
+        div.form-group.align-center
+          button.btn.btn-primary(type="submit", ng-disabled="vm.sending") Fire in the hole!
+
+  hr
+
+  div.social
+    h2 Follow us
+    .providers
+      .provider
+        a(href='https://www.facebook.com/loliful')
+          img(src='https://loliful.io/img/fb.svg', alt='Facebook')
+      .provider
+        a(href='https://twitter.com/loliful_app')
+          img(src='https://loliful.io/img/twitter.svg', alt='Twitter')
+      .provider
+        a(href='https://www.instagram.com/loliful_app')
+          img(src='https://loliful.io/img/instagram.svg', alt='Instagram')

@@ -11,15 +11,3 @@
 
   hr
 
-  div
-    h3 Help us improve
-    p Nothing is perfect in this world except for {{ vm.bestThing }}, so please provide your feedback below so that we can improve your experience.
-    p We really want to hear your "but"
-
-    div
-      form(ng-submit="vm.sendFeedback()")
-        div.form-group
-          textarea.form-control(rows="4", ng-model="vm.feedback", placeholder="{{ vm.placeholder }}")
-        div.form-group.align-center
-          button.btn.btn-primary(type="submit", ng-disabled="vm.sending") Fire in the hole!
-
