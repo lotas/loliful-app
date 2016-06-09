@@ -1,6 +1,6 @@
 'use strict';
 
-describe('PageAbout controllers', () => {
+describe('PageContact controllers', () => {
     var $httpBackend;
     var vm;
 
@@ -8,7 +8,7 @@ describe('PageAbout controllers', () => {
 
     beforeEach(inject(($injector, $controller) => {
         $httpBackend = $injector.get('$httpBackend');
-        vm = new $controller('PageAboutController');
+        vm = new $controller('PageContactController');
     }));
     afterEach(() => {
         $httpBackend.verifyNoOutstandingExpectation();
