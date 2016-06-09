@@ -10,7 +10,7 @@ export class NotificationsController {
         this.Notification = Notification;
         this.$log = $log;
 
-        this.notifications = [];
+        this.notifications = false;
         this.count = {};
 
         this.page = 1;

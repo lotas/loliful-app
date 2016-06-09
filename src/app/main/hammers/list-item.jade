@@ -5,9 +5,8 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
     div.row
       div.col-sm-12
         div.pull-right.text-right
-          div.dropdown(ng-if="!hli.isOwn")
-            button(bs-dropdown="hli.dropdown", data-placement="top", aria-haspopup="true", aria-expanded="false")
-              i.icon.icon-loliful-icon-submenu
+          a.flagit(ng-if="!hli.isOwn", ng-click="hli.report()")
+            i.icon.icon-loliful-icon-flag
           a.delete(ng-click="hli.delete()", ng-if="hli.isOwn")
             i.icon.icon-loliful-icon-delete
           a.likes(ng-click="hli.vote()", ng-class="{active: hli.hammer.$votes}", ng-if="!hli.isOwn")

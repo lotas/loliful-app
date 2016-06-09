@@ -37,11 +37,6 @@ class HammerListItemController {
         this.SweetAlert = SweetAlert;
 
         this.isOwn = this.hammer.userId && AuthService.getUserId() === this.hammer.userId;
-
-        this.dropdown = [{
-            "text": "Report Abuse",
-            "click": "hli.report()"
-        }];
     }
 
     report() {
