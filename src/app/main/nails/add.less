@@ -20,6 +20,16 @@
   }
 }
 
+@media (max-width: 768px) {
+  .nail-add-modal {
+    right: 5% !important;
+    left: 5% !important;
+    width: 90%;
+    top: 15% !important;
+    max-width: 650px;
+  }
+}
+
 .nail-add-modal {
   left: initial;
   right: 5%;
@@ -30,7 +40,8 @@
     margin-bottom: 10px;
   }
   .modal-dialog {
-    width: 400px;
+    max-width: 450px;
+    min-width: 300px;
   }
   textarea {
     border: 1px solid @themeMainColor;

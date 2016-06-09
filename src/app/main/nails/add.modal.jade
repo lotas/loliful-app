@@ -2,11 +2,12 @@
   .modal-dialog
     .modal-content
       .modal-body
-        div(ng-hide='screen.isPhone')
+        div(ng-hi1de='screen.isPhone')
+          strong Add your intro
           a.close.pull-right(ng-click="$hide()", title="Close")
             i.icon.icon-loliful-icon-close
         div
-          form.nail-add-modal(name="nail", ng-submit="na.create(); na.submited=true;")
+          form(name="nail", ng-submit="na.create(); na.submited=true;")
             div.form-group
               textarea#text.form-control(
                 placeholder="{{ na.placeholder }}",

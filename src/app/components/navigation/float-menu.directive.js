@@ -9,10 +9,8 @@ export function FloatMenuDirective() {
         bindToController: true,
         scope: {
             single: '=',
-            add: '&',
             show: '=',
-            onAddClick: '&',
-            customAdd: '='
+            onAddClick: '&'
         }
     };
 
@@ -41,9 +39,6 @@ class FloatMenuController {
             this.setupListener();
         }
 
-        this.listenerDereg = $rootScope.$on('nail.add.success', evt => {
-            this.showAdd = false;
-        });
     }
 
     setupListener() {
@@ -58,8 +53,6 @@ class FloatMenuController {
             delete this.win;
             delete this.scrollHandler;
             delete this.fm2;
-
-            this.listenerDereg();
 
             if (this.hideTm) {
                 this.$timeout.cancel(this.hideTm);
@@ -82,18 +75,7 @@ class FloatMenuController {
     }
 
     addClick() {
-        if (this.customAdd) {
-            this.onAddClick({});
-        } else {
-            this.showAdd = true;
-            this.showFloatMenu = false;
-        }
-    }
-
-    addNail(nail) {
-        if (angular.isFunction(this.add)) {
-            this.add({nail: nail});
-        }
+        this.onAddClick({});
     }
 
     scroll() {
