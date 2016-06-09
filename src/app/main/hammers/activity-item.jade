@@ -1,13 +1,10 @@
 div.panel.hammer-activity-item
   div.panel-header.row
-    div.col-sm-10.col-xs-10
-      span.text
+    div.col-sm-12.col-xs-12
+      span.text.clickable(ui-sref="nail-view({nailId: hai.hammer.nailId})")
         | {{ hai.hammer.$nail.text }}
-    div.col-sm-2.col-xs-2
-      a.expander(ui-sref="nail-view({nailId: hai.hammer.nailId})")
-        i.icon.icon-loliful-icon-expand
   div.panel-body
-    div.hammer
+    div.hammer.clickable(ui-sref="nail-view({nailId: hai.hammer.nailId, '#': hai.hammer.id})")
       | {{ hai.hammer.text }}
   div.panel-footer
     div.row
