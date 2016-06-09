@@ -16,6 +16,12 @@
           i.icon.icon-loliful-icon-about
           | About
       li
+        a(ui-sref="page.contact", ng-click="$hide()")
+          i.icon.icon-loliful-icon-edit
+          | Contact
+      li.separator
+        hr
+      li.logout
         a(ui-sref="logout")
           i.icon.icon-loliful-icon-exit
           | Lol out

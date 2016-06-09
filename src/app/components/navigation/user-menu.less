@@ -1,27 +1,33 @@
 .user-menu {
 
-    width: 162px;
+  width: 162px;
+  border: initial;
+
+  .arrow {
     border: initial;
+    margin-left: -4px !important;
+    top: -8px !important;
+  }
 
-    .arrow {
-      border: initial;
-      margin-left: -4px !important;
-      top: -8px !important;
-    }
+  a {
+    color: @themeTextColor;
+  }
 
-    a {
-      color: @themeTextColor;
-    }
+  a:hover, a:focus {
+    background-color: initial !important;
+    color: @themeMainColor !important;
+  }
 
-    a:hover, a:focus {
-      background-color: initial !important;
-      color: @themeMainColor !important;
-    }
+  .icon {
+    color: @themeMainColor;
+    font-size: 24px;
+    .icon-align();
+    margin-right: 14px;
+  }
 
-    .icon {
-      color: @themeMainColor;
-      font-size: 24px;
-      .icon-align();
-      margin-right: 14px;
+  .logout {
+    a, .icon {
+      color: @themeSecondaryColor;
     }
+  }
 }
