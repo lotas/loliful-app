@@ -37,8 +37,7 @@ class NailListItemController {
         this.toastr = toastr;
         this.SweetAlert = SweetAlert;
 
-        this.isOwn = this.nail.$user && AuthService.getUserId() === this.nail.$user.id;
-
+        this.isOwn = this.nail.userId && String(AuthService.getUserId()) === String(this.nail.userId);
     }
 
     report() {

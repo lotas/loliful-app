@@ -36,7 +36,7 @@ class HammerListItemController {
         this.ShareService = ShareService;
         this.SweetAlert = SweetAlert;
 
-        this.isOwn = this.hammer.userId && AuthService.getUserId() === this.hammer.userId;
+        this.isOwn = this.hammer.userId && String(AuthService.getUserId()) === String(this.hammer.userId);
     }
 
     report() {
