@@ -36,7 +36,7 @@ export class NotificationsController {
     load() {
         this.$loading = true;
         this.$empty = false;
-        console.log('Loading notificiations', this.loadFilter);
+
         this.Notification.find({filter: this.loadFilter}).$promise.then(res => {
             this.notifications = res;
             this.notificationsNew = res.filter(a => !a.isRead);
