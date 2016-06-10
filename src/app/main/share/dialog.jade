@@ -16,16 +16,12 @@
             img(src='/assets/img/share-t.svg', alt='Share on Twitter')
           a.btn.btn-primary(href='https://plus.google.com/share?url={{share.url}}', onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
             img(src='/assets/img/share-g.svg', alt='Share on Google+')
-        div.align-left.copy-row
-          button.btn.btn-link(
-            ngclipboard,
-            data-clipboard-text="{{ share.img }}"
+        div.align-center.copy-row.vOfs
+          a.btn.btn-link(
+            href="{{ share.img }}",
+            download
           )
-            span(
-              bs-tooltip,
-              data-title="Copied to clipboard",
-              data-trigger="click"
-            ) Copy image
+            span Download
           button.btn.btn-link(
             ngclipboard,
             data-clipboard-text="{{ share.url }}"
