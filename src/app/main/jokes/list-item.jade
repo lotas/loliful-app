@@ -8,7 +8,8 @@ div.panel.joke-list-item
     span.answer {{ jli.joke.text }}
   div.panel-footer
     div.align-right
-      a(ng-click="jli.share()", title="Share")
+      a(ng-click="jli.share()", bs-tooltip="tooltip",
+      title="Share this joke")
         i.icon.icon-loliful-icon-share
       a(ng-click="jli.vote()", ng-disabled="jli.joke.$votes", ng-class="{active: jli.joke.$votes}", title="Like")
         i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke.$votes, 'icon-loliful-icon-liked': jli.joke.$votes}")

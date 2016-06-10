@@ -4,8 +4,9 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
     span.time-ago
       i.icon.icon-loliful-icon-time
       | {{ nlm.nail.created | timeAgo }}
-    a.expander(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})")
-      span(ng-if="nlm.nail.countAnswers", title="Answers count: {{nlm.nail.countAnswers}}") {{ nlm.nail.countAnswers }}
+    a.expander(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
+    title="Answers count: {{nlm.nail.countAnswers}}")
+      span(ng-if="nlm.nail.countAnswers") {{ nlm.nail.countAnswers }}
   div.panel-body.clickable(ng-click="nlm._reply=false",
     ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
     ng-if="!nlm.isNailView")
@@ -24,9 +25,16 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
         a.delete(type="button", ng-click="nlm.delete()")
           i.icon.icon-loliful-icon-delete()
       div.col-xs-6.pull-right.text-right(ng-if="!nlm.isOwn")
-        a.show-sub(ng-click="nlm.report();")
+        a.show-sub(ng-click="nlm.report();",
+        data-type="info",
+        bs-tooltip="tooltip",
+        title="Flag this as inappropriate")
           i.i.icon.icon-loliful-icon-flag
-        a(type="button", ng-click="nlm.favorite()", ng-class="{active: nlm.nail.$favorite}")
+        a(type="button",
+        ng-click="nlm.favorite()",
+        bs-tooltip="tooltip",
+        title="Save for later. You can find in Activity > Saved",
+        ng-class="{active: nlm.nail.$favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
         a.likes(type="button", ng-click="nlm.vote()", ng-class="{active: nlm.nail.$votes}")
           i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail.$votes, 'icon-loliful-icon-liked': nlm.nail.$votes}")

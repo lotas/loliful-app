@@ -41,14 +41,18 @@ class NailListItemController {
     }
 
     report() {
-        this.Nail.prototype$report({
-            id: this.nail.id
-        }).$promise.then(() => {
-            this.nail._isReported = true;
-            this.toastr.success('Thank you for reporting!');
-        }).catch(err => {
-            this.$log.debug(err);
-            this.toastr.warning('oh no!, something horrible happened');
+        this.SweetAlert.confirm('Report abuse', 'Do you want to mark it as inappropriate and report abuse?', (res) => {
+            if (res === true) {
+                this.Nail.prototype$report({
+                    id: this.nail.id
+                }).$promise.then(() => {
+                    this.nail._isReported = true;
+                    this.toastr.success('Thank you for reporting!');
+                }).catch(err => {
+                    this.$log.debug(err);
+                    this.toastr.warning('oh no!, something horrible happened');
+                });
+            }
         });
     }
 
