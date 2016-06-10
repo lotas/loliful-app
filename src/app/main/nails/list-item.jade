@@ -4,6 +4,8 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
     span.time-ago
       i.icon.icon-loliful-icon-time
       | {{ nlm.nail.created | timeAgo }}
+    a.expander(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})")
+      span(ng-if="nlm.nail.countAnswers", title="Answers count: {{nlm.nail.countAnswers}}") {{ nlm.nail.countAnswers }}
   div.panel-body.clickable(ng-click="nlm._reply=false",
     ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
     ng-if="!nlm.isNailView")
