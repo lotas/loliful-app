@@ -86,6 +86,10 @@ export class ActivityController {
     }
 
     swipeListener(evt, type) {
+        if (!this.$state.is('activity')) {
+            return false;
+        }
+
         let pos = this.orderedTypes.indexOf(this.type);
 
         if (type === 'left') {
