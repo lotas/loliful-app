@@ -27,12 +27,12 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported}")
       div.col-xs-6.pull-right.text-right(ng-if="!nlm.isOwn")
         a.show-sub(ng-click="nlm.report();",
         data-type="info",
-        bs-tooltip="tooltip",
+        bs-tooltip,
         title="Flag this as inappropriate")
           i.i.icon.icon-loliful-icon-flag
         a(type="button",
         ng-click="nlm.favorite()",
-        bs-tooltip="tooltip",
+        bs-tooltip,
         title="Save for later. You can find in Activity > Saved",
         ng-class="{active: nlm.nail.$favorite}")
           i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")

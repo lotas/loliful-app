@@ -12,7 +12,7 @@
             label.hidden(for="name") Name
             input.form-control#name(type="text", ng-model="vm.user.name", maxlength="30", ng-maxlength="30", auto-focus)
       .col-xs-1
-        a.edit-name(ng-click="vm.isEdit = true", ng-hide="vm.isEdit", bs-tooltip="tooltip", title="Change your username")
+        a.edit-name(ng-click="vm.isEdit = true", ng-hide="vm.isEdit", bs-tooltip, title="Change your username")
           i.icon.icon-loliful-icon-edit
         a.edit-name(ng-click="vm.setName()", ng-show="vm.isEdit")
           i.icon.icon-loliful-icon-checkmark
@@ -63,13 +63,13 @@
       div.col-xs-4.statistic
         h3.title Intros
         h1.count {{ vm.stats.nails || 0 }}
-        div.hearts(bs-tooltip="tooltip", title="So many people liked youre intros")
+        div.hearts(bs-tooltip, title="So many people liked youre intros")
           i.icon.icon-loliful-icon-liked
           | {{ vm.stats.nailKarma }}
       div.col-xs-4.statistic
         h3.title Outros
         h1.count {{ vm.stats.hammers || 0 }}
-        div.hearts(bs-tooltip="tooltip", title="So many people liked youre outros")
+        div.hearts(bs-tooltip, title="So many people liked youre outros")
           i.icon.icon-loliful-icon-liked
           | {{ vm.stats.hammerKarma }}
       div.col-xs-4.statistic
