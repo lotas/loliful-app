@@ -22,9 +22,10 @@
             download
           )
             span Download
-          button.btn.btn-link(
+          a.btn.btn-link(
             ngclipboard,
-            data-clipboard-text="{{ share.url }}"
+            data-clipboard-text="{{ share.url }}",
+            ng-href="{{ share.url }}"
           )
             span(
               bs-tooltip,
