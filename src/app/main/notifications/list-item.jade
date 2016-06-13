@@ -5,6 +5,6 @@ div.notification-list-item.row
     i.pull-right.icon.type(ng-class="::nli.getIcon()")
     a(ui-sref="profile.public({id: nli.notification.actorId})") {{ ::nli.getActorName() }}
     | {{ ::nli.getActionName() }}
-    a(ui-sref="nail-view({nailId: nli.notification.data.nailId})", ng-click="nli.markRead()")
-      | {{ ::nli.notification.data.text }}
+    a(ui-sref="nail-view({nailId: nli.notification.nailId})", ng-click="nli.markRead()")
+      | {{ ::nli.notification.text }}
 
