@@ -10,6 +10,7 @@ import { LiveService, runLiveService } from './live.service';
 import { AvatarDirective } from './directives/avatar.directive';
 import { LoadingDirective } from './directives/loading.directive';
 import { AutoFocusDirective } from './directives/auto-focus.directive';
+import { EscKeyDirective } from './directives/esc-key.directive';
 
 import { InitialsFilter } from './filters/initials.filter';
 
@@ -44,6 +45,7 @@ angular.module('loliful.components', [
     .directive('avatar', AvatarDirective)
     .directive('loading', LoadingDirective)
     .directive('autoFocus', AutoFocusDirective)
+    .directive('escKey', EscKeyDirective)
 
     .filter('initials', InitialsFilter)
 

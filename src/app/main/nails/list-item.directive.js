@@ -101,6 +101,11 @@ class NailListItemController {
         this.$rootScope.$emit('reply-form.open', this.nail.id);
     }
 
+    hideReplyForm() {
+        this._reply = false;
+        this.$rootScope.$emit('reply-form.hide', this.nail.id);
+    }
+
     reply() {
         this.Nail.prototype$__create__hammers({
                 id: this.nail.id
@@ -116,7 +121,8 @@ class NailListItemController {
                 this.nail.$hammers.unshift(res);
                 this.nail.countAnswers += 1;
                 this._hammer = '';
-                this.$rootScope.$emit('reply-form.hide', this.nail.id);
+
+                this.hideReplyForm();
             })
             .catch(err => {
                 this.$log.debug(err);
