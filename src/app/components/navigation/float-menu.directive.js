@@ -27,6 +27,7 @@ class FloatMenuController {
         this.throttle = throttle;
 
         this.win = angular.element($window);
+        this.body = angular.element('body');
         this.fm1 = angular.element('#fm1');
         this.fm2 = angular.element('#fm2').find('.top-nav');
 
@@ -39,6 +40,12 @@ class FloatMenuController {
             this.setupListener();
         }
 
+        this._deregister = $rootScope.$on('reply-form.open', () => {
+            this.body.addClass('reply-editor');
+        });
+        this._deregister2 = $rootScope.$on('reply-form.hide', () => {
+            this.body.removeClass('reply-editor');
+        });
     }
 
     setupListener() {
@@ -57,6 +64,9 @@ class FloatMenuController {
             if (this.hideTm) {
                 this.$timeout.cancel(this.hideTm);
             }
+
+            this._deregister();
+            this._deregister2();
         });
 
         this.hidden = this.show ? false : true;

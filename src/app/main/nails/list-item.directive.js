@@ -28,7 +28,7 @@ class NailListItemController {
      * @param {toastr} toastr
      * @param {$log} log
      */
-    constructor(Nail, SweetAlert, AuthService, User, toastr, $log) {
+    constructor(Nail, SweetAlert, AuthService, User, toastr, $log, $rootScope) {
         'ngInject';
 
         this.Nail = Nail;
@@ -36,8 +36,12 @@ class NailListItemController {
         this.$log = $log;
         this.toastr = toastr;
         this.SweetAlert = SweetAlert;
+        this.$rootScope = $rootScope;
 
         this.isOwn = this.nail.userId && String(AuthService.getUserId()) === String(this.nail.userId);
+
+        // hide form
+        this._reply = false;
     }
 
     report() {
@@ -92,6 +96,11 @@ class NailListItemController {
         });
     }
 
+    showReplyForm() {
+        this._reply = true;
+        this.$rootScope.$emit('reply-form.open', this.nail.id);
+    }
+
     reply() {
         this.Nail.prototype$__create__hammers({
                 id: this.nail.id
@@ -107,6 +116,7 @@ class NailListItemController {
                 this.nail.$hammers.unshift(res);
                 this.nail.countAnswers += 1;
                 this._hammer = '';
+                this.$rootScope.$emit('reply-form.hide', this.nail.id);
             })
             .catch(err => {
                 this.$log.debug(err);
