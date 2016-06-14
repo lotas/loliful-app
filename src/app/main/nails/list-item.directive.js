@@ -28,7 +28,7 @@ class NailListItemController {
      * @param {toastr} toastr
      * @param {$log} log
      */
-    constructor(Nail, SweetAlert, AuthService, User, toastr, $log, $rootScope) {
+    constructor(Nail, SweetAlert, AuthService, User, toastr, $log, $rootScope, $scope) {
         'ngInject';
 
         this.Nail = Nail;
@@ -42,6 +42,10 @@ class NailListItemController {
 
         // hide form
         this._reply = false;
+
+        $scope.$on('$destroy', () => {
+            this.hideReplyForm();
+        });
     }
 
     report() {
