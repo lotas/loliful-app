@@ -13,8 +13,8 @@ div.container-fluid
         li(role="presentation")
           a(ng-click="vm.loadFresh()", title="Reload")
             i.icon.icon-loliful-icon-refresh
-    div.col-sm-3.pull-right(ng-show="!screen.isPhone")
-      a.btn.btn-warning(ng-click="vm.showAddModal()") ADD INTRO
+    div.col-sm-3.pull-right.text-right(ng-show="!screen.isPhone")
+      a.btn.btn-warning.add-intro-btn(ng-click="vm.showAddModal()") ADD INTRO
 
 loading(ng-if="!vm.nails.length")
 
