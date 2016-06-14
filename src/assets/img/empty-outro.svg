@@ -4,6 +4,7 @@
     <title>Group 3</title>
     <desc>Created with Sketch.</desc>
     <defs>
+        <style type="text/css">@import url('https://loliful.io/fonts/loliful.css');</style>
         <rect id="path-1" x="0" y="0" width="300" height="96" rx="10"></rect>
         <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-2">
             <feOffset dx="0" dy="8" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
