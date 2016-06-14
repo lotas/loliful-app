@@ -25,8 +25,11 @@
      }
 
      .hammer-list-item {
+       span.avatar {
+         margin-right: 4px;
+       }
        .username {
-         width: 100px;
+         max-width: 100px;
          display: inline-block;
          overflow: hidden;
          text-overflow: ellipsis;
@@ -34,7 +37,7 @@
          vertical-align: middle;
        }
        .time-ago {
-         width: 70px;
+         max-width: 70px;
          display: inline-block;
          overflow: hidden;
          text-overflow: ellipsis;
@@ -42,6 +45,17 @@
          vertical-align: middle;
        }
      }
+  }
+}
+
+@media (min-width: 600px) {
+  .view-single .nail-wrapper .hammer-list-item {
+    .username {
+      max-width: 140px;
+    }
+    .time-ago {
+      max-width: 120px;
+    }
   }
 }
 
