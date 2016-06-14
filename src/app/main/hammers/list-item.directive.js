@@ -40,12 +40,16 @@ class HammerListItemController {
     }
 
     report() {
-        this.Hammer.prototype$report({id: this.hammer.id}).$promise.then(() => {
-            this.hammer._isReported = true;
-            this.toastr.success('Thank you for reporting!');
-        }).catch(err => {
-            this.$log.debug(err);
-            this.toastr.warning('oh no!, something horrible happened');
+        this.SweetAlert.confirm('Report abuse', 'Do you want to mark it as inappropriate and report abuse?', (res) => {
+            if (res === true) {
+                this.Hammer.prototype$report({id: this.hammer.id}).$promise.then(() => {
+                    this.hammer._isReported = true;
+                    this.toastr.success('Thank you for reporting!');
+                }).catch(err => {
+                    this.$log.debug(err);
+                    this.toastr.warning('oh no!, something horrible happened');
+                });
+            }
         });
     }
 
@@ -102,11 +106,11 @@ class HammerListItemController {
     share() {
         if (!this.hammer._share) {
             this.ShareService.getShare(this.hammer.id).then(res => {
-                 this.hammer._share = res;
-                 this.ShareService.showDialog(res);
+                this.hammer._share = res;
+                this.ShareService.showDialog(res);
             }).catch(err => {
-                 this.$log.debug(err);
-                 this.toastr.warning('Oh boy... God knows how hard I try, but it failed this time');
+                this.$log.debug(err);
+                this.toastr.warning('Oh boy... God knows how hard I try, but it failed this time');
             });
         } else {
             this.ShareService.showDialog(this.hammer._share);

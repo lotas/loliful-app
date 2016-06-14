@@ -5,7 +5,11 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
     div.row
       div.col-sm-12
         div.pull-right.text-right
-          a.flagit(ng-if="!hli.isOwn", ng-click="hli.report()")
+          a.flagit(ng-if="!hli.isOwn",
+          ng-click="hli.report()",
+          data-type="info",
+          bs-tooltip,
+          title="Flag this as inappropriate")
             i.icon.icon-loliful-icon-flag
           a.delete(ng-click="hli.delete()", ng-if="hli.isOwn")
             i.icon.icon-loliful-icon-delete
