@@ -7,9 +7,11 @@ div.panel.joke-list-item
     span.question {{ jli.joke.$nail.text }}
     span.answer {{ jli.joke.text }}
   div.panel-footer
-    div.align-right
+    div.align-center
       a(ng-click="jli.share()", bs-tooltip, title="Share this joke")
         i.icon.icon-loliful-icon-share
+        | SHARE
       a(ng-click="jli.vote()", ng-disabled="jli.joke.$votes", ng-class="{active: jli.joke.$votes}", title="Like")
         i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke.$votes, 'icon-loliful-icon-liked': jli.joke.$votes}")
-      span.pull-right {{ jli.joke.countVotes }}
+        | {{ jli.joke.countVotes }} &nbsp;
+        | LIKE
