@@ -11,11 +11,13 @@
       .modal-footer
         div.social
           a.btn.btn-primary(href='https://www.facebook.com/sharer/sharer.php?u={{share.url}}', onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            img(src='/assets/img/share-f.svg', alt='Share onFacebook')
+            i.icon.icon-loliful-icon-facebook(title='Share on Facebook')
           a.btn.btn-primary(href='https://twitter.com/?status={{share.url}}', onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            img(src='/assets/img/share-t.svg', alt='Share on Twitter')
+            i.icon.icon-loliful-icon-twitter(title='Share on Twitter')
+          a.btn.btn-primary(href='whatsapp://send?text={{share.url}}')
+            i.icon.icon-loliful-icon-whatsapp(title='Share on Whatsapp')
           a.btn.btn-primary(href='https://plus.google.com/share?url={{share.url}}', onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            img(src='/assets/img/share-g.svg', alt='Share on Google+')
+            i.icon.icon-loliful-icon-google-plus(title='Share on Google+')
         div.align-center.copy-row.vOfs
           a.btn.btn-link(
             href="{{ share.img }}",
