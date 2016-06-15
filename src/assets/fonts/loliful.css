@@ -126,3 +126,15 @@
 .icon-loliful-icon-checkmark:before {
   content: "\56";
 }
+.icon-loliful-icon-facebook:before {
+  content: "\41";
+}
+.icon-loliful-icon-whatsapp:before {
+  content: "\42";
+}
+.icon-loliful-icon-twitter:before {
+  content: "\43";
+}
+.icon-loliful-icon-google-plus:before {
+  content: "\44";
+}
