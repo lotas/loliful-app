@@ -36,9 +36,18 @@ export class ProfileController {
                 this.toastr.warning('Sorry, this username is already taken');
             } else {
                 this.toastr.success('Name saved!');
-                this.isEdit = false;
+                this._edit_name = false;
             }
         });
+    }
+
+    editField(field) {
+        this[`_edit_${field}`] = true;
+        this[`_prev_${field}`] = this.user[field];
+    }
+    cancelEditField(field) {
+        this[`_edit_${field}`] = false;
+        this.user[field] = this[`_prev_${field}`];
     }
 
     setAbout() {
@@ -46,7 +55,7 @@ export class ProfileController {
             this.user.about = res.about.about;
 
             this.toastr.success('Thank you!');
-            this.isAboutEdit = false;
+            this._edit_about = false;
         });
     }
 

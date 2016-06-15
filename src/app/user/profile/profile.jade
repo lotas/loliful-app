@@ -6,28 +6,42 @@
       .col-xs-3
         img.user-avatar.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
       .col-xs-7
-        h4(ng-hide="vm.isEdit") {{ vm.user.name }}
-        form.form(ng-if="vm.isEdit", ng-submit="vm.setName()")
+        h4(ng-hide="vm._edit_name") {{ vm.user.name }}
+        form.form(ng-if="vm._edit_name", ng-submit="vm.setName()")
           div.form-group
             label.hidden(for="name") Name
-            input.form-control#name(type="text", ng-model="vm.user.name", maxlength="30", ng-maxlength="30", auto-focus)
+            input.form-control#name(
+              type="text",
+              ng-model="vm.user.name",
+              maxlength="30",
+              minlength="1",
+              ng-minlength="1",
+              ng-maxlength="30",
+              esc-key="vm.cancelEditField('name');",
+              auto-focus)
       .col-xs-1
-        a.edit-name(ng-click="vm.isEdit = true", ng-hide="vm.isEdit", bs-tooltip, title="Change your username")
+        a.edit-name(ng-click="vm.editField('name')", ng-hide="vm._edit_name", bs-tooltip, title="Change your username")
           i.icon.icon-loliful-icon-edit
-        a.edit-name(ng-click="vm.setName()", ng-show="vm.isEdit")
+        a.edit-name.btn.btn-mini.btn-primary(ng-click="vm.setName()", ng-show="vm._edit_name")
           i.icon.icon-loliful-icon-checkmark
 
     .row.about-me
       .col-xs-10
-        p(ng-hide="vm.isAboutEdit") {{ vm.user.about || '[about me]' }}
-        form.form(ng-if="vm.isAboutEdit", ng-submit="vm.setAbout()")
+        p(ng-hide="vm._edit_about") {{ vm.user.about || '[about me]' }}
+        form.form(ng-if="vm._edit_about", ng-submit="vm.setAbout()")
           div.form-group
             label.hidden(for="about") About me
-            textarea.form-control#about(type="text", ng-model="vm.user.about", maxlength="500" ng-maxlength="500", auto-focus)
+            textarea.form-control#about(
+              type="text",
+              ng-model="vm.user.about",
+              maxlength="500",
+              ng-maxlength="500",
+              esc-key="vm.cancelEditField('about');",
+              auto-focus)
       .col-xs-1
-        a.edit-name(ng-click="vm.isAboutEdit = true", ng-hide="vm.isAboutEdit")
+        a.edit-name(ng-click="vm.editField('about')", ng-hide="vm._edit_about")
           i.icon.icon-loliful-icon-edit
-        a.edit-name(ng-click="vm.setAbout()", ng-show="vm.isAboutEdit")
+        a.edit-name.btn.btn-mini.btn-primary(ng-click="vm.setAbout()", ng-show="vm._edit_about")
           i.icon.icon-loliful-icon-checkmark
 
     .social-profile.text-center
