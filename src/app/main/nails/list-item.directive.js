@@ -49,7 +49,15 @@ class NailListItemController {
     }
 
     report() {
-        this.SweetAlert.confirm('Report abuse', 'Do you want to mark it as inappropriate and report abuse?', (res) => {
+        this.SweetAlert.confirm(
+            'Report abuse',
+            `<img src="/assets/img/loliman-broken-helmet.svg"/>
+            <p>You are about to flag this intro inappropriate. Please confirm.</p>`,
+            {
+                customClass: 'no-icon',
+                html: true
+            },
+            (res) => {
             if (res === true) {
                 this.Nail.prototype$report({
                     id: this.nail.id
@@ -136,7 +144,13 @@ class NailListItemController {
 
     delete() {
         if (this.isOwn) {
-            this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
+            this.SweetAlert.confirm(
+                'Remove',
+                'Is it this bad? Okay to remove it?',
+                {
+                    customClass: 'no-icon'
+                },
+                (res) => {
                 if (res === true) {
                     this.Nail.deleteById({id: this.nail.id}).$promise.then(response => {
                         this.$log.debug(response);

@@ -43,15 +43,19 @@ export class SweetAlert {
         }, SWAL_DELAY);
     }
 
-    confirm(title, message, callback) {
+    confirm(title, message, opts, callback) {
+        if (typeof opts === 'function' && typeof callback === 'undefined') {
+            callback = opts;
+            opts = {};
+        }
         this.$timeout(() => {
-            this.swal({
+            this.swal(angular.extend({
                 title: title,
                 text: message,
                 type: 'warning',
                 showCancelButton: true,
                 closeOnConfirm: true
-            }, callback);
+            }, opts), callback);
         }, SWAL_DELAY);
     }
 

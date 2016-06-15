@@ -40,7 +40,15 @@ class HammerListItemController {
     }
 
     report() {
-        this.SweetAlert.confirm('Report abuse', 'Do you want to mark it as inappropriate and report abuse?', (res) => {
+        this.SweetAlert.confirm(
+            'Report abuse',
+            `<img src="/assets/img/loliman-broken-helmet.svg"/>
+            <p>You are about to flag this joke inappropriate. Please confirm.</p>`,
+            {
+                customClass: 'no-icon',
+                html: true
+            },
+            (res) => {
             if (res === true) {
                 this.Hammer.prototype$report({id: this.hammer.id}).$promise.then(() => {
                     this.hammer._isReported = true;
@@ -89,7 +97,13 @@ class HammerListItemController {
 
     delete() {
         if (this.isOwn) {
-            this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
+            this.SweetAlert.confirm(
+                'Remove',
+                'Is it this bad? Okay to remove it?',
+                {
+                    customClass: 'no-icon'
+                },
+                (res) => {
                 if (res === true) {
                     this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
                         this.$log.debug(response);
