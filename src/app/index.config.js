@@ -7,6 +7,9 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     $compileProvider.debugInfoEnabled(debugEnabled);
     $httpProvider.useApplyAsync(!debugEnabled);
 
+    // allow custom protocols
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|whatsapp):/);
+
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.withCredentials = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
