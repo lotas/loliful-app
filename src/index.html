@@ -37,7 +37,7 @@
     <meta name="theme-color" content="#4DB8CD">
 
   </head>
-  <body ng-class="{login: stateIncludes('login'), firstRun: stateIncludes('login.first-run')}">
+  <body ng-class="{login: stateIncludes('login'), firstRun: stateIncludes('login.first-run'), dev: envName !== 'prod'}">
     <!--[if lt IE 10]>
       <p class="browsehappy">
         You are using an <strong>outdated</strong> browser.
