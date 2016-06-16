@@ -22,14 +22,19 @@
             i.icon.icon-loliful-icon-twitter(title='Share on Twitter')
           a.btn.btn-primary(
           rel="nofollow",
+          href='https://plus.google.com/share?url={{share.url}}',
+          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+            i.icon.icon-loliful-icon-google-plus(title='Share on Google+')
+        div.social(ng-if="screen.isPhone")
+          a.btn.btn-primary(
+          rel="nofollow",
           href='whatsapp://send?text={{share.url}}',
           data-action="share/whatsapp/share")
             i.icon.icon-loliful-icon-whatsapp(title='Share on Whatsapp')
           a.btn.btn-primary(
           rel="nofollow",
-          href='https://plus.google.com/share?url={{share.url}}',
-          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            i.icon.icon-loliful-icon-google-plus(title='Share on Google+')
+          href='viber://forward?text={{share.url}}')
+            img(src="/assets/img/share-v.png", title="Share on Viber")
         div.align-center.copy-row.vOfs
           a.btn.btn-link(
             href="{{ share.img }}",

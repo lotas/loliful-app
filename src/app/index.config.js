@@ -8,7 +8,7 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     $httpProvider.useApplyAsync(!debugEnabled);
 
     // allow custom protocols
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|whatsapp):/);
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|whatsapp|viber):/);
 
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.withCredentials = true;
