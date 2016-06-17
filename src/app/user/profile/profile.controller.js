@@ -31,7 +31,7 @@ export class ProfileController {
 
     setName(frm) {
         if (frm.$invalid) {
-            return;
+            return false;
         }
         this.User.prototype$setName({name: this.user.name, id: this.user.id}, res => {
             this.user.name = res.name.name;

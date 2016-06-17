@@ -49,8 +49,12 @@ describe('Profile controller', () => {
         $httpBackend.flush();
 
         $httpBackend.expect('POST', 'http://local.loliful.io/users/1/name').respond({name: 'name'});
-        vm.setName();
+        vm.setName({$invalid: false});
         $httpBackend.flush();
+    });
+    it('should not setName()', () => {
+        $httpBackend.flush();
+        expect(vm.setName({$invalid: true})).toBeFalsy();
     });
 
     it('should setAbout()', () => {

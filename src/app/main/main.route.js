@@ -1,4 +1,4 @@
-import { nailViewResolve, nailModalView } from './nails/view.controller';
+import { nailViewResolve } from './nails/view.controller';
 
 /**
  *
