@@ -21,13 +21,13 @@
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
             i.icon.icon-loliful-icon-twitter(title='Share on Twitter')
           a.btn.btn-primary.share-w(
-          ng-if="screen.isPhone",
+          ng-if="screen.isTabletOrMobile",
           rel="nofollow",
           href='whatsapp://send?text={{share.url}}',
           data-action="share/whatsapp/share")
             i.icon.icon-loliful-icon-whatsapp(title='Share on Whatsapp')
           a.btn.btn-primary.share-v(
-          ng-if="screen.isPhone",
+          ng-if="screen.isTabletOrMobile",
           rel="nofollow",
           href='viber://forward?text={{share.url}}')
             img(src="/assets/img/share-v.svg", title="Share on Viber")

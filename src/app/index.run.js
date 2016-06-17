@@ -58,6 +58,7 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
 
     // responsive
     $rootScope.screen = {
+        isTabletOrMobile: isTabletOrModal(),
         isPhone: screenSize.on('xs', match => $rootScope.screen.isPhone = match),
         isTablet: screenSize.on('sm, md', match => $rootScope.screen.isTablet = match),
         isDesktop: screenSize.on('lg', match => $rootScope.screen.isDesktop = match)
@@ -73,4 +74,9 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
         $rootScope.$emit('swipe', 'right', evt);
     }
 
+    function isTabletOrModal() {
+        var ua = navigator && navigator.userAgent ? navigator.userAgent.toLowerCase() : '';
+
+        return /(android|iphone|ipod|ipad)/.test(ua);
+    }
 }
