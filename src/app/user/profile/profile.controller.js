@@ -34,13 +34,13 @@ export class ProfileController {
             return false;
         }
         this.User.prototype$setName({name: this.user.name, id: this.user.id}, res => {
-            this.user.name = res.name.name;
             if (res.name.dup) {
                 this.toastr.warning('Sorry, this username is already taken');
-            } else if (res.error) {
-                this.toastr.warning(res.error);
+            } else if (res.name.error) {
+                this.toastr.warning(res.name.error);
             } else {
                 this.toastr.success('Name saved!');
+                this.user.name = res.name.name;
                 this._edit_name = false;
             }
         });
@@ -57,10 +57,13 @@ export class ProfileController {
 
     setAbout() {
         this.User.prototype$setAbout({about: this.user.about, id: this.user.id}, res => {
-            this.user.about = res.about.about;
-
-            this.toastr.success('Thank you!');
-            this._edit_about = false;
+            if (res.about.error) {
+                this.toastr.warning(res.about.error);
+            } else {
+                this.user.about = res.about.about;
+                this.toastr.success('Thank you!');
+                this._edit_about = false;
+            }
         });
     }
 
