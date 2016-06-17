@@ -10,7 +10,7 @@
           a.close.pull-right(ng-click="$hide()", title="Close")
             i.icon.icon-loliful-icon-close
 
-        p(ng-if="!nv.nail") Loading
+        loading(ng-if="!nv.nail")
         div.nail-wrapper(ng-if="nv.nail")
           nail-list-item(nail="nv.nail", is-nail-view="true")
 
@@ -21,10 +21,9 @@
                   input#reply.form-control(type="text", placeholder="Joke", ng-model="nv._hammer.text", required, autofocus=true)
                 button.btn.btn-small.btn-primary(type="submit") Reply
 
-          div.container-fluid.hammers(
-            ng-if="nv.nail.$hammers",
-            ng-scrollbars
-          )
+          div.container-fluid.hammers(ng-if="nv.nail.$hammers && !screen.isPhone", ng-scrollbars)
+            hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by $index")
+          div.container-fluid.hammers(ng-if="nv.nail.$hammers && screen.isPhone")
             hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by $index")
 
 

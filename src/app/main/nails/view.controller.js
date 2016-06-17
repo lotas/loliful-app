@@ -75,7 +75,7 @@ export function nailModalView($modal, nailId, $rootScope) {
             dereg2();
         });
 
-        var dereg2 = $rootScope.$on('$stateChangeStart', function() {
+        var dereg2 = $rootScope.$on('$stateChangeStart', function(event, toState) {
             modal.hide();
             dereg2();
             dereg();
@@ -91,7 +91,7 @@ export function nailViewRun($state, $rootScope, $modal) {
 
         //console.log($rootScope.screen.isPhone, 'onnailview', 'isphone', toState.name);
 
-        if ($rootScope.screen.isPhone) return;
+        //if ($rootScope.screen.isPhone) return;
         if (toState.name && toState.name === 'nail-view') {
             nailModalView($modal, toStateParams.nailId, $rootScope);
 
@@ -100,6 +100,12 @@ export function nailViewRun($state, $rootScope, $modal) {
             $rootScope.previousStateParams = fromStateParams;
 
             $state.transitionTo(toState.name, toStateParams, {
+                notify: false
+            });
+            event.preventDefault();
+        } else if (fromState && fromState.name === 'nail-view' && $rootScope.previousStateSet) {
+            // just hide the dialog
+            $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
                 notify: false
             });
             event.preventDefault();

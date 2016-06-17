@@ -1,15 +1,19 @@
+.back-btn() {
+  margin: 10px;
+  margin-left: 0;
+  .btn {
+    margin-left: 10px;
+    color: @themeSecondaryColor;
+    background: #EBEFF5;
+    border-radius: 0px 100px 100px 0px;
+  }
+}
+
 .view-single {
   padding-bottom: 150px;
 
   .back-btn {
-    margin: 10px;
-    margin-left: 0;
-    .btn {
-      margin-left: 10px;
-      color: @themeSecondaryColor;
-      background: #EBEFF5;
-      border-radius: 0px 100px 100px 0px;
-    }
+    .back-btn();
   }
 
   .nail-wrapper {
@@ -78,6 +82,52 @@
     .hammers {
       //max-height: 400px;
       //overflow-y: hidden;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  body.nailViewOpen {
+    //header.header {
+    //  z-index: 5000;
+    //  position: fixed;
+    //  top: 0;
+    //  width: 100%;
+    //}
+    .app > .ui-view-container {
+      &::after {
+        content: ' ';
+        z-index: 50;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #FFF;
+      }
+    }
+  }
+
+  .modal-dialog {
+    margin: 0;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .modal-content {
+      height: auto;
+      min-height: 100%;
+
+      .back-btn {
+        .back-btn();
+      }
+    }
+    .modal-body {
+      //.d2();
+      //height: 100%;
+      padding: 4px;
     }
   }
 }
