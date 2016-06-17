@@ -10,31 +10,32 @@
         img(ng-src="{{share.img}}" style="width:98%")
       .modal-footer
         div.social
-          a.btn.btn-primary(
+          a.btn.btn-primary.share-f(
           rel="nofollow",
           href='https://www.facebook.com/sharer/sharer.php?u={{share.url}}',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
             i.icon.icon-loliful-icon-facebook(title='Share on Facebook')
-          a.btn.btn-primary(
+          a.btn.btn-primary.share-t(
           rel="nofollow",
           href='https://twitter.com/intent/tweet?text={{share.url}}&via=loliful_app&hashtags=loliful',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
             i.icon.icon-loliful-icon-twitter(title='Share on Twitter')
-          a.btn.btn-primary(
-          rel="nofollow",
-          href='https://plus.google.com/share?url={{share.url}}',
-          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            i.icon.icon-loliful-icon-google-plus(title='Share on Google+')
-        div.social(ng-if="screen.isPhone")
-          a.btn.btn-primary(
+          a.btn.btn-primary.share-w(
+          ng-if="screen.isPhone",
           rel="nofollow",
           href='whatsapp://send?text={{share.url}}',
           data-action="share/whatsapp/share")
             i.icon.icon-loliful-icon-whatsapp(title='Share on Whatsapp')
-          a.btn.btn-primary(
+          a.btn.btn-primary.share-v(
+          ng-if="screen.isPhone",
           rel="nofollow",
           href='viber://forward?text={{share.url}}')
-            img(src="/assets/img/share-v.png", title="Share on Viber")
+            img(src="/assets/img/share-v.svg", title="Share on Viber")
+          a.btn.btn-primary.share-g(
+          rel="nofollow",
+          href='https://plus.google.com/share?url={{share.url}}',
+          onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
+            i.icon.icon-loliful-icon-google-plus(title='Share on Google+')
         div.align-center.copy-row.vOfs
           a.btn.btn-link(
             href="{{ share.img }}",

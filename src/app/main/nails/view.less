@@ -17,38 +17,38 @@
   }
 
   .nail-wrapper {
-     background: @white;
+    background: @white;
 
     box-shadow: 0px 8px 12px 0px #EBEEF3;
     border-radius: 4px;
 
     margin: 4px 10px 10px 10px;
 
-     .nail-list-item {
-       box-shadow: none;
-     }
+    .nail-list-item {
+      box-shadow: none;
+    }
 
-     .hammer-list-item {
-       span.avatar {
-         margin-right: 4px;
-       }
-       .username {
-         max-width: 100px;
-         display: inline-block;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-         vertical-align: middle;
-       }
-       .time-ago {
-         max-width: 70px;
-         display: inline-block;
-         overflow: hidden;
-         text-overflow: ellipsis;
-         white-space: nowrap;
-         vertical-align: middle;
-       }
-     }
+    .hammer-list-item {
+      span.avatar {
+        margin-right: 4px;
+      }
+      .username {
+        max-width: 100px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+      .time-ago {
+        max-width: 70px;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+    }
   }
 }
 
@@ -108,26 +108,28 @@
     }
   }
 
-  .modal-dialog {
-    margin: 0;
+  .nail-view-modal {
+    .modal-dialog {
+      margin: 0;
 
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    .modal-content {
-      height: auto;
-      min-height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      .modal-content {
+        height: auto;
+        min-height: 100%;
 
-      .back-btn {
-        .back-btn();
+        .back-btn {
+          .back-btn();
+        }
       }
-    }
-    .modal-body {
-      //.d2();
-      //height: 100%;
-      padding: 4px;
+      .modal-body {
+        //.d2();
+        //height: 100%;
+        padding: 4px;
+      }
     }
   }
 }
