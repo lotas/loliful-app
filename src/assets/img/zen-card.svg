@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="342px" height="255px" viewBox="0 0 342 255" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#3A4084" offset="0%"></stop>
+            <stop stop-color="#53DEA2" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="41" y="66" width="259" height="124" rx="8"></rect>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="25" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="20" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.8   0 0 0 0 0.647058824   0 0 0 0 0.807843137  0 0 0 0.195652174 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="DESIGNS" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-360-404-[ready]" transform="translate(-9.000000, -195.000000)">
+            <g id="Group-2" transform="translate(10.000000, 195.000000)">
+                <g id="Group">
+                    <rect id="Rectangle-1-Copy" fill="url(#linearGradient-1)" x="20" y="15" width="300" height="225"></rect>
+                    <g id="Rectangle-6">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <g id="Page-1" opacity="0.20260028" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M102,113 L112.388889,102" id="Stroke-43" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M0,195 L51.9444444,140" id="Stroke-45" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M102,202 L153.944444,147" id="Stroke-47" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M238,109 L266.333333,79" id="Stroke-49" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M98.2222222,0 L46.2777778,55" id="Stroke-51" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M183.222222,254 L210.611111,225" id="Stroke-53" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M229.5,22 L243.666667,7" id="Stroke-55" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M288.055556,133 L340,78" id="Stroke-57" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M200.222222,112 L200.222222,115" id="Stroke-59"></path>
+                        <path d="M198.333333,114 L201.166667,114" id="Stroke-61"></path>
+                        <path d="M84.0555556,71.5 C84.0555556,70.6714956 84.6896812,70 85.4723667,70 C86.2547633,70 86.8888889,70.6714956 86.8888889,71.5 C86.8888889,72.3285044 86.2547633,73 85.4723667,73 C84.6896812,73 84.0555556,72.3285044 84.0555556,71.5 L84.0555556,71.5 Z" id="Stroke-67"></path>
+                        <path d="M44.3888889,111 C44.3888889,109.34316 43.1203486,108 41.5555556,108 C39.9907625,108 38.7222222,109.34316 38.7222222,111 C38.7222222,112.65684 39.9907625,114 41.5555556,114 C43.1203486,114 44.3888889,112.65684 44.3888889,111 L44.3888889,111 Z" id="Stroke-69" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M144.972222,26 C144.972222,27.3808228 143.914989,28.49983 142.611111,28.49983 C143.914989,28.49983 144.972222,29.6191772 144.972222,31 C144.972222,29.6191772 146.029455,28.49983 147.333333,28.49983 C146.029455,28.49983 144.972222,27.3808228 144.972222,26 L144.972222,26 Z" id="Stroke-71" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M59.5,218 C59.5,219.65684 58.2314598,221 56.6666667,221 C58.2314598,221 59.5,222.34316 59.5,224 C59.5,222.34316 60.7685402,221 62.3333333,221 C60.7685402,221 59.5,219.65684 59.5,218 L59.5,218 Z" id="Stroke-73"></path>
+                        <path d="M244.138889,198 C244.138889,199.380823 243.081656,200.49983 241.777778,200.49983 C243.081656,200.49983 244.138889,201.619177 244.138889,203 C244.138889,201.619177 245.196122,200.49983 246.5,200.49983 C245.196122,200.49983 244.138889,199.380823 244.138889,198 L244.138889,198 Z" id="Stroke-75" stroke-dasharray="50,4,0,4,100,10"></path>
+                        <path d="M206.833333,173 C206.833333,171.34316 205.564793,170 204,170 C202.435207,170 201.166667,171.34316 201.166667,173 C201.166667,174.65684 202.435207,176 204,176 C205.564793,176 206.833333,174.65684 206.833333,173 L206.833333,173 Z" id="Stroke-77"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
