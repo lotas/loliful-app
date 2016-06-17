@@ -29,11 +29,16 @@ export class ProfileController {
         });
     }
 
-    setName() {
+    setName(frm) {
+        if (frm.$invalid) {
+            return;
+        }
         this.User.prototype$setName({name: this.user.name, id: this.user.id}, res => {
             this.user.name = res.name.name;
             if (res.name.dup) {
                 this.toastr.warning('Sorry, this username is already taken');
+            } else if (res.error) {
+                this.toastr.warning(res.error);
             } else {
                 this.toastr.success('Name saved!');
                 this._edit_name = false;

@@ -7,18 +7,26 @@
         img.user-avatar.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
       .col-xs-7
         h4(ng-hide="vm._edit_name") {{ vm.user.name }}
-        form.form(ng-if="vm._edit_name", ng-submit="vm.setName()")
-          div.form-group
+        form.form(ng-if="vm._edit_name", name="nameFrm", ng-submit="vm.setName(nameFrm)")
+          div.form-group(ng-class="{'has-error': nameFrm.$invalid}")
             label.hidden(for="name") Name
             input.form-control#name(
               type="text",
+              name="name",
               ng-model="vm.user.name",
-              maxlength="30",
+              maxlength="32",
               minlength="1",
+              ng-pattern="/^[a-zA-Z0-9-_. ]+$/",
               ng-minlength="1",
-              ng-maxlength="30",
+              ng-maxlength="32",
+              required,
               esc-key="vm.cancelEditField('name');",
               auto-focus)
+            div(ng-messages="nameFrm.name.$error", role="alert")
+              div(ng-message="required") Please tell us your name.
+              div(ng-message="maxlength") This might be too long to remember.
+              div(ng-message="pattern") Would be nice to use only letters and numbers. And maybe dash.
+
       .col-xs-1
         a.edit-name(ng-click="vm.editField('name')", ng-hide="vm._edit_name", bs-tooltip, title="Change your username")
           i.icon.icon-loliful-icon-edit
