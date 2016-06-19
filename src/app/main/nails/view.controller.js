@@ -64,6 +64,7 @@ export function nailModalView($modal, nailId, $rootScope) {
 
         MainService.getNail(nailId).then(nail => {
             nv.nail = nail;
+            initScrollHandler();
         });
 
         var dereg = $rootScope.$on('nailView.hide', function() {
@@ -71,15 +72,41 @@ export function nailModalView($modal, nailId, $rootScope) {
                 notify: !$rootScope.previousStateSet  //reload only when previous state was set
             });
 
-            dereg();
-            dereg2();
+            cleanUp();
         });
 
         var dereg2 = $rootScope.$on('$stateChangeStart', function() {
             modal.hide();
-            dereg2();
-            dereg();
+            cleanUp();
         });
+
+        var nailModal;
+
+        function initScrollHandler() {
+            if ($rootScope.screen.isPhone) {
+                nailModal = angular.element('#nail-view-modal');
+                nailModal.on('scroll', scrollHandler);
+            }
+        }
+
+        function cleanUp() {
+            dereg();
+            dereg2();
+
+            if ($rootScope.screen.isPhone) {
+                nailModal.off('scroll', scrollHandler);
+            }
+        }
+
+        function scrollHandler() {
+            if (nailModal.scrollTop() > 100) {
+                nailModal.addClass('nail-fixed');
+            } else {
+                nailModal.removeClass('nail-fixed');
+            }
+
+            //console.log(nailModal);
+        }
     }
 }
 
