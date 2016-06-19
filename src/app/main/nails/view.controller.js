@@ -57,7 +57,7 @@ export function nailModalView($modal, nailId, $rootScope) {
         controller: nailViewCtrl
     });
 
-    function nailViewCtrl(MainService, $state) {
+    function nailViewCtrl(MainService, $state, $anchorScroll) {
         'ngInject';
 
         var nv = this;
@@ -81,6 +81,7 @@ export function nailModalView($modal, nailId, $rootScope) {
         });
 
         var nailModal;
+        var isFixed = false;
 
         function initScrollHandler() {
             if ($rootScope.screen.isPhone) {
@@ -88,6 +89,10 @@ export function nailModalView($modal, nailId, $rootScope) {
                 nailModal.on('scroll', scrollHandler);
             }
         }
+
+        nv.onNailClick = function() {
+            $anchorScroll('nail-back-btn');
+        };
 
         function cleanUp() {
             dereg();
@@ -99,13 +104,13 @@ export function nailModalView($modal, nailId, $rootScope) {
         }
 
         function scrollHandler() {
-            if (nailModal.scrollTop() > 100) {
+            if (nailModal.scrollTop() > 140) {
                 nailModal.addClass('nail-fixed');
+                isFixed = true;
             } else {
                 nailModal.removeClass('nail-fixed');
+                isFixed = false;
             }
-
-            //console.log(nailModal);
         }
     }
 }

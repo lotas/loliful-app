@@ -136,17 +136,25 @@
 
 .nail-fixed {
   .nail-wrapper {
-    margin-top: 130px;
+    margin-top: 100px;
     .nail-list-item .panel-body {
+      -webkit-transition: left 1s, top 1s, box-shadow 1s;
+      transition: left 1s, top 1s, box-shadow 1s;
+
       z-index: 1020;
       background: #fff;
 
-      padding: 30px;
+      box-shadow: 0px 10px 80px 0px @nailBoxShadow;
+
+      min-height: initial;
+
+      padding: 30px 30px 20px 30px;
 
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
+
     }
   }
 }

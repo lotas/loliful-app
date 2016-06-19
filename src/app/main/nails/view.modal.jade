@@ -3,7 +3,7 @@
     .modal-content
       .modal-header(ng-show='screen.isPhone')
         div.mobile-wrap(ng-show='screen.isPhone')
-          div.back-btn
+          div.back-btn#nail-back-btn
             a.btn(ng-click="$hide()") ← Back
       .modal-body
         div(ng-hide='screen.isPhone')
@@ -12,7 +12,7 @@
 
         loading(ng-if="!nv.nail")
         div.nail-wrapper(ng-if="nv.nail")
-          nail-list-item(nail="nv.nail", is-nail-view="true")
+          nail-list-item(nail="nv.nail", is-nail-view="true", ng-click="nv.onNailClick()")
 
           div.panel.hammer-list-item.hidden
             div.panel-body
