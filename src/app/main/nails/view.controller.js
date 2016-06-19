@@ -81,7 +81,6 @@ export function nailModalView($modal, nailId, $rootScope) {
         });
 
         var nailModal;
-        var isFixed = false;
 
         function initScrollHandler() {
             if ($rootScope.screen.isPhone) {
@@ -106,10 +105,8 @@ export function nailModalView($modal, nailId, $rootScope) {
         function scrollHandler() {
             if (nailModal.scrollTop() > 140) {
                 nailModal.addClass('nail-fixed');
-                isFixed = true;
             } else {
                 nailModal.removeClass('nail-fixed');
-                isFixed = false;
             }
         }
     }
