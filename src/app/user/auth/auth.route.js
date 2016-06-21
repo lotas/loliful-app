@@ -1,4 +1,5 @@
 import { onAuthHandler } from './auth.handler';
+import { logoutHandler } from './logout.handler';
 
 export function authRouteConfig($stateProvider) {
     'ngInject';
@@ -51,17 +52,7 @@ export function authRouteConfig($stateProvider) {
         .state('logout', {
             parent: 'app',
             url: '/logout',
-            views: {
-                'content@app': {
-                    templateUrl: 'app/user/auth/logout.html',
-                    controller: 'LogoutController',
-                    controllerAs: 'vm'
-                }
-            },
-            data: {
-                pageTitle: 'Log out',
-                showStaticHeader: false
-            }
+            onEnter: logoutHandler
         })
 
         .state('auth', {

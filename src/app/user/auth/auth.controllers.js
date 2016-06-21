@@ -42,36 +42,6 @@ export class LoginController {
     }
 }
 
-export class LogoutController {
-    /**
-     *
-     * @param {User} User
-     * @param {Storage} Storage
-     * @param {$window} $window
-     * @param toastr
-     */
-    constructor(User, Storage, $window, toastr) {
-        'ngInject';
-
-        this.User = User;
-        this.Storage = Storage;
-        this.$window = $window;
-        this.toastr = toastr;
-
-        this.logout();
-    }
-
-    /**
-     * Cleanup session
-     */
-    logout() {
-        this.toastr.info('See ya!');
-        this.User.logout(() => {
-            this.Storage.clearAll();
-            this.$window.location.replace('/');
-        });
-    }
-}
 
 export class FirstRunController {
     /**

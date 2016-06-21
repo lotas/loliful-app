@@ -74,27 +74,4 @@ describe('Auth controllers', () => {
         });
     });
 
-    describe('LogoutController', () => {
-        let vm;
-
-        beforeEach(inject(($controller, Storage, User) => {
-            vm = $controller('LogoutController');
-
-            spyOn(Storage, 'clearAll').and.callThrough();
-            spyOn(User, 'logout').and.callFake(cb => {
-                cb();
-            });
-        }));
-
-        it('should have logout function', () => {
-            expect(vm.logout).toEqual(jasmine.any(Function));
-        });
-
-        it('should logout', inject((User, Storage, $window) => {
-            vm.logout();
-            expect(User.logout).toHaveBeenCalled();
-            expect(Storage.clearAll).toHaveBeenCalled();
-            expect($window.location.replace).toHaveBeenCalledWith('/');
-        }));
-    });
 });
