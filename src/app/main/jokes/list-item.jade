@@ -1,8 +1,8 @@
 div.panel.joke-list-item
   div.panel-heading
-    avatar(user="jli.joke.$user")
-    span.and
     avatar(user="jli.joke.$nail.$user")
+    span.and
+    avatar(user="jli.joke.$user")
   div.panel-body
     span.question {{ jli.joke.$nail.text }}
     span.answer {{ jli.joke.text }}
