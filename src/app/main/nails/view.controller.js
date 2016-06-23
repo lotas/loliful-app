@@ -130,7 +130,8 @@ export function nailViewRun($state, $rootScope, $modal) {
                 notify: false
             });
             event.preventDefault();
-        } else if (fromState && fromState.name === 'nail-view' && $rootScope.previousStateSet) {
+        } else if (fromState && fromState.name === 'nail-view' && $rootScope.previousStateSet &&
+            $rootScope.previousState === toState.name) {
             // just hide the dialog
             $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
                 notify: false
