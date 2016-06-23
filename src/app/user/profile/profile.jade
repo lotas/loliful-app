@@ -75,28 +75,34 @@
             a(href="{{api}}/link/google", ng-click="vm.connectAcc()", ng-if="!vm.social.google") Connect
             a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google && vm.linkedAccounts > 1") Disconnect
 
+  hr
+
   div.stats
     h5
       i.icon.icon-loliful-icon-stats
-      | Stats
+      | Statistics
 
     p(ng-if="!vm.stats") Loading stats ..
     div.row(ng-if="vm.stats")
-      div.col-xs-4.statistic
-        h3.title Intros
-        h1.count {{ vm.stats.nailCount || 0 }}
-        div.hearts(bs-tooltip, title="So many people liked youre intros")
-          i.icon.icon-loliful-icon-liked
-          | {{ vm.stats.nailKarma }}
-      div.col-xs-4.statistic
-        h3.title Outros
-        h1.count {{ vm.stats.hammerCount || 0 }}
-        div.hearts(bs-tooltip, title="So many people liked youre outros")
-          i.icon.icon-loliful-icon-liked
-          | {{ vm.stats.hammerKarma }}
-      div.col-xs-4.statistic
-        h3.title Rating
-        h1.count {{ vm.stats.rating.position || '∞' }}
+      div.col-xs-4.statistic-col
+        .statistic
+          h3.title Intros
+          h1.count {{ vm.stats.nailCount || 0 }}
+          div.hearts(bs-tooltip, title="So many people liked youre intros")
+            i.icon.icon-loliful-icon-liked
+            | {{ vm.stats.nailKarma || 0}}
+      div.col-xs-4.statistic-col
+        .statistic
+          h3.title Outros
+          h1.count {{ vm.stats.hammerCount || 0 }}
+          div.hearts(bs-tooltip, title="So many people liked youre outros")
+            i.icon.icon-loliful-icon-liked
+            | {{ vm.stats.hammerKarma || 0}}
+      div.col-xs-4.statistic-col
+        .statistic
+          h3.title Rank
+          h1.count {{ vm.stats.rating.position || '-' }}
+          .hearts(ng-if="vm.stats.total") out of {{ vm.stats.total }}
 
   //div.email-preferences.container
   //  hr

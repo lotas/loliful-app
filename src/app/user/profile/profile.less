@@ -11,7 +11,7 @@
   }
   .main-block {
     margin-top: 0;
-    background: @themeSecondaryBg;
+    //background: @themeSecondaryBg;
     margin-bottom: 10px;
     padding-bottom: 20px;
 
@@ -189,6 +189,47 @@
 
     img {
       margin-right: 20px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .profile-page {
+    .stats {
+
+      .statistic {
+        background: #F3F5F8;
+        border-radius: 4px;
+        min-height: 135px;
+        margin-right: 10px;
+
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+
+        position: relative;
+        //display: table-cell;
+        vertical-align: middle;
+        text-align: center;
+        width: 100%;
+        .title {
+          position: absolute;
+          left: 20px;
+          top: 0px;
+          margin-top: 8px;
+        }
+        .hearts {
+          position: absolute;
+          right: 20px;
+          top: 10px;
+        }
+        .count {
+          //position: relative;
+          top: 20px;
+          font-size: 60px;
+          padding-top: 45px;
+        }
+      }
     }
   }
 }

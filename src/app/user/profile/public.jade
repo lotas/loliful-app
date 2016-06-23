@@ -25,19 +25,23 @@
 
     p(ng-if="!vm.stats") Loading stats ..
     div.row(ng-if="vm.stats")
-      div.col-xs-4.statistic
-        h3.title Intros
-        h1.count {{ vm.stats.nailCount || 0 }}
-        div.hearts
-          i.icon.icon-loliful-icon-liked
-          | {{ vm.stats.nailKarma }}
-      div.col-xs-4.statistic
-        h3.title Outros
-        h1.count {{ vm.stats.hammerCount || 0 }}
-        div.hearts
-          i.icon.icon-loliful-icon-liked
-          | {{ vm.stats.hammerKarma }}
-      div.col-xs-4.statistic
-        h3.title Rank
-        h1.count {{ vm.stats.rating.position || '∞' }}
+      div.col-xs-4.statistic-col
+        .statistic
+          h3.title Intros
+          h1.count {{ vm.stats.nailCount || 0 }}
+          div.hearts
+            i.icon.icon-loliful-icon-liked
+            | {{ vm.stats.nailKarma }}
+      div.col-xs-4.statistic-col
+        .statistic
+          h3.title Outros
+          h1.count {{ vm.stats.hammerCount || 0 }}
+          div.hearts
+            i.icon.icon-loliful-icon-liked
+            | {{ vm.stats.hammerKarma }}
+      div.col-xs-4.statistic-col
+        .statistic
+          h3.title Rank
+          h1.count {{ vm.stats.rating.position || '∞' }}
+          .hearts(ng-if="vm.stats.total") out of {{ vm.stats.total }}
 
