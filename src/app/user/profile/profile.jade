@@ -75,9 +75,9 @@
             a(href="{{api}}/link/google", ng-click="vm.connectAcc()", ng-if="!vm.social.google") Connect
             a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google && vm.linkedAccounts > 1") Disconnect
 
-  hr
-
   div.stats
+    hr
+
     h5
       i.icon.icon-loliful-icon-stats
       | Statistics
@@ -104,16 +104,31 @@
           h1.count {{ vm.stats.rating.position || '-' }}
           .hearts(ng-if="vm.stats.total") out of {{ vm.stats.total }}
 
-  //div.email-preferences.container
-  //  hr
-  //
-  //  h5
-  //    i.icon.icon-loliful-icon-notifications
-  //    | Email Preferences
-  //
-  //  p Here is my email to send fun stuff to
-  //  form.form
-  //    div.form-group
-  //      input.form-control#email(type="text", ng-model="vm.user.email", disabled)
-  //    //div.form-group
-  //    //  button.pull-right.btn.btn-default(type="submit", disabled) Save
+  div.email-preferences
+    hr
+
+    h5
+      i.icon.icon-loliful-icon-notifications
+      | Email notifications
+
+    .row
+
+      form.form.col-xs-12.col-sm-6(name="settings", ng-submit="vm.saveSettings();")
+        div.form-group
+          label.col-xs-10(for="n-reply") Someone replies to my intro
+          .col-xs-2
+            input.form-control#n-reply(type="checkbox", ng-model="vm.notifications.emailReply", ng-true-value="1", ng-false-value="0")
+        div.form-group
+          label.col-xs-10(for="n-like") Someone likes my outro
+          .col-xs-2
+            input.form-control#n-like(type="checkbox", ng-model="vm.notifications.emailLike", ng-true-value="1", ng-false-value="0")
+        div.form-group
+          .col-xs-9 &nbsp;
+          .col-xs-3
+            button.btn.btn-primary(type="submit", ng-disabled="settings.$pristine || vm.savingSettings") Save
+
+        div.form-group.topOfs
+          label.col-xs-12 Here is my email to send fun stuff to
+          input.col-xs-12.form-control#email(type="text", ng-model="vm.user.email", disabled)
+        //div.form-group
+        //  button.pull-right.btn.btn-default(type="submit", disabled) Save

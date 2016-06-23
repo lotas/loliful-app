@@ -6,6 +6,10 @@
 .profile-page {
   .centered-fixed-page();
 
+  hr {
+    margin-bottom: 30px;
+  }
+
   h4 {
     font-size: 16px;
   }
@@ -129,7 +133,23 @@
   }
   .email-preferences {
     margin-top: 30px;
+    margin-bottom: 40px;
     .blockPaddings();
+
+    form {
+      label {
+        font-weight: normal;
+        line-height: 38px;
+      }
+      .form-control {
+        border: initial;
+        box-shadow: initial;
+      }
+      input[type="checkbox"] {
+        margin: 0;
+
+      }
+    }
   }
 
   h5 {

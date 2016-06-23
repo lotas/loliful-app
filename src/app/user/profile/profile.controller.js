@@ -3,21 +3,19 @@ export class ProfileController {
      *
      * @param {Object} currentUser
      */
-    constructor(currentUser, User, UserService, toastr, SweetAlert, Storage) {
+    constructor(currentUser, $scope, User, UserService, toastr, SweetAlert, Storage) {
         'ngInject';
 
         this.User = User;
         this.UserService = UserService;
         this.user = currentUser;
         this.toastr = toastr;
+        this.$scope = $scope;
         this.SweetAlert = SweetAlert;
         this.Storage = Storage;
 
         this.stats = null;
         this.info = null;
-
-        this.getStats();
-        this.getInfo();
 
         this.social = {};
         this.linkedAccounts = 0;
@@ -26,6 +24,9 @@ export class ProfileController {
                 this.linkedAccounts++;
                 this.social[acc.p] = acc;
             });
+            this.getStats();
+            this.getInfo();
+            this.getNotificationSettings();
         });
     }
 
@@ -76,6 +77,26 @@ export class ProfileController {
     getInfo() {
         this.UserService.loadInfo().then(res => {
             this.info = res;
+        });
+    }
+
+    getNotificationSettings() {
+        this.User.prototype$__get__notificationSettings({
+            id: this.user.id
+        }, res => {
+            this.notifications = res || {};
+        });
+    }
+
+    saveSettings() {
+        this.savingSettings = true;
+        this.User.prototype$__update__notificationSettings({
+            id: this.user.id,
+            emailReply: this.notifications.emailReply,
+            emailLike: this.notifications.emailLike
+        }, res => {
+            this.savingSettings = false;
+            this.toastr.success('Thanks! All saved.')
         });
     }
 
