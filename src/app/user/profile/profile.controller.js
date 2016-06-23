@@ -3,14 +3,13 @@ export class ProfileController {
      *
      * @param {Object} currentUser
      */
-    constructor(currentUser, $scope, User, UserService, toastr, SweetAlert, Storage) {
+    constructor(currentUser, User, UserService, toastr, SweetAlert, Storage) {
         'ngInject';
 
         this.User = User;
         this.UserService = UserService;
         this.user = currentUser;
         this.toastr = toastr;
-        this.$scope = $scope;
         this.SweetAlert = SweetAlert;
         this.Storage = Storage;
 
@@ -94,7 +93,7 @@ export class ProfileController {
             id: this.user.id,
             emailReply: this.notifications.emailReply,
             emailLike: this.notifications.emailLike
-        }, res => {
+        }, () => {
             this.savingSettings = false;
             this.toastr.success('Thanks! All saved.')
         });
