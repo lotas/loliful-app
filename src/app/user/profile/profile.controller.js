@@ -26,6 +26,10 @@ export class ProfileController {
             this.getStats();
             this.getInfo();
             this.getNotificationSettings();
+
+            if (this.user.emailUnverified) {
+                this.user.email = this.user.emailUnverified;
+            }
         });
     }
 
@@ -64,6 +68,16 @@ export class ProfileController {
                 this.toastr.success('Thank you!');
                 this._edit_about = false;
             }
+        });
+    }
+
+    setEmail() {
+        this.User.prototype$setEmail({email: this.user.email, id: this.user.id}, res => {
+            this.user.emailUnverified = this.user.email = res.email;
+            this.toastr.success('Please check your email to verify it');
+            this._edit_email = false;
+        }, err => {
+            this.toastr.error(err);
         });
     }
 

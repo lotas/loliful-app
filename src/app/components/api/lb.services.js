@@ -2847,8 +2847,7 @@ module.factory(
          *
          * @param {Object=} parameters Request parameters.
          *
-         *   This method does not accept any parameters.
-         *   Supply an empty object or omit this argument altogether.
+         *  - `id` – `{*}` - User id
          *
          * @param {Object} postData Request data.
          *
@@ -2871,6 +2870,43 @@ module.factory(
         "prototype$setAbout": {
           url: urlBase + "/users/:id/about",
           method: "POST"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.User#prototype$setEmail
+         * @methodOf lbServices.User
+         *
+         * @description
+         *
+         * Set user email
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *   This method does not accept any parameters.
+         *   Supply an empty object or omit this argument altogether.
+         *
+         * @param {Object} postData Request data.
+         *
+         *  - `email` – `{String}` - 
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * Data properties:
+         *
+         *  - `email` – `{string=}` - 
+         */
+        "prototype$setEmail": {
+          url: urlBase + "/users/:id/email",
+          method: "PUT"
         },
 
         // INTERNAL. Use Nail.user() instead.

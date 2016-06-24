@@ -113,22 +113,47 @@
 
     .row
 
-      form.form.col-xs-12.col-sm-6(name="settings", ng-submit="vm.saveSettings();")
+      form.form.col-xs-12.col-sm-6(name="settings", ng-submit="vm.saveSettings();",
+        ng-class="{disabled: !vm.user.email}")
         div.form-group
           label.col-xs-10(for="n-reply") Someone replies to my intro
           .col-xs-2
-            input.form-control#n-reply(type="checkbox", ng-model="vm.notifications.emailReply", ng-true-value="1", ng-false-value="0")
+            input.form-control#n-reply(type="checkbox", ng-model="vm.notifications.emailReply", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
           label.col-xs-10(for="n-like") Someone likes my outro
           .col-xs-2
-            input.form-control#n-like(type="checkbox", ng-model="vm.notifications.emailLike", ng-true-value="1", ng-false-value="0")
+            input.form-control#n-like(type="checkbox", ng-model="vm.notifications.emailLike", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
           .col-xs-9 &nbsp;
           .col-xs-3
             button.btn.btn-primary(type="submit", ng-disabled="settings.$pristine || vm.savingSettings") Save
 
-        div.form-group.topOfs
-          label.col-xs-12 Here is my email to send fun stuff to
-          input.col-xs-12.form-control#email(type="text", ng-model="vm.user.email", disabled)
-        //div.form-group
-        //  button.pull-right.btn.btn-default(type="submit", disabled) Save
+    .row.topOfs
+      label.col-xs-12 Here is my email to send fun stuff to
+      .col-xs-10(ng-if="!vm._edit_email")
+        input.form-control#email2(type="text", value="{{vm.user.emailUnverified || vm.user.email}}", disabled)
+        p.text-warning(ng-if="vm.user.emailUnverified")
+          | Please check your email to finish verification process
+      .col-xs-10(ng-if="vm._edit_email")
+        form.form(name="vm.emailFrm", ng-submit="vm.setEmail(vm.emailFrm)")
+          div.form-group(ng-class="{'has-error': emailFrm.$invalid}")
+            label.hidden(for="name") Email
+            input.form-control#email(
+            type="email",
+            name="email",
+            ng-model="vm.user.email",
+            minlength="4",
+            ng-minlength="4",
+            required,
+            esc-key="vm.cancelEditField('email');",
+            auto-focus)
+            div(ng-messages="vm.emailFrm.name.$error", role="alert")
+              div(ng-message="required") Please tell us your name.
+              div(ng-message="maxlength") This might be too long to remember.
+              div(ng-message="email") Please input valid email
+
+      .col-xs-2
+        a.edit-name(ng-click="vm.editField('email')", ng-hide="vm._edit_email")
+          i.icon.icon-loliful-icon-edit
+        a.edit-name.btn.btn-mini.btn-primary(ng-click="vm.setEmail(vm.emailFrm)", ng-show="vm._edit_email")
+          i.icon.icon-loliful-icon-checkmark
