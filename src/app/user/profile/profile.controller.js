@@ -77,7 +77,7 @@ export class ProfileController {
             this.toastr.success('Please check your email to verify it');
             this._edit_email = false;
         }, err => {
-            this.toastr.error(err);
+            this.toastr.error(err.data.error.message);
         });
     }
 
