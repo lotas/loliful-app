@@ -4,7 +4,7 @@ export class TopController {
      * @param {User} User
      * @param {MainService} MainService
      */
-    constructor(User, MainService, $stateParams, $log, $state, $rootScope) {
+    constructor(User, MainService, $stateParams, $log, $state, $scope) {
         'ngInject';
 
         this.User = User;
@@ -26,8 +26,8 @@ export class TopController {
         this.jokes = [];
         this.loadTop();
 
-        var deregister = $rootScope.$on('swipe', this.swipeListener.bind(this));
-        $rootScope.$on('$destroy', deregister);
+        //var deregister = $scope.$on('swipe', this.swipeListener.bind(this));
+        //$scope.$on('$destroy', deregister);
     }
 
     loadTop() {

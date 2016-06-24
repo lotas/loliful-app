@@ -36,8 +36,8 @@ export class ActivityController {
         this.page = 1;
         this.loadActivity();
 
-        var deregister = $rootScope.$on('swipe', this.swipeListener.bind(this));
-        $rootScope.$on('$destroy', deregister);
+        //var deregister = $rootScope.$on('swipe', this.swipeListener.bind(this));
+        //$rootScope.$on('$destroy', deregister);
     }
 
     loadActivity() {
