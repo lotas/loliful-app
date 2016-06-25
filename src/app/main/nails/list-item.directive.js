@@ -43,8 +43,15 @@ class NailListItemController {
         // hide form
         this._reply = false;
 
+        var dereg = $rootScope.$on('reply-form.open', (evt, nailId) => {
+            if (this._reply && nailId !== this.nail.id) {
+                this.hideReplyForm();
+            }
+        });
+
         $scope.$on('$destroy', () => {
             this.hideReplyForm();
+            dereg();
         });
     }
 
