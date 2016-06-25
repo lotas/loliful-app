@@ -8,7 +8,7 @@ export class FreshController {
      * @param $rootScope
  * @param $log
      */
-    constructor(User, MainService, $stateParams, $log, $modal, $rootScope) {
+    constructor(User, MainService, $stateParams, $log, $modal, $rootScope, $scope) {
         'ngInject';
 
         this.User = User;
@@ -26,7 +26,7 @@ export class FreshController {
 
         this.loadFresh();
 
-        this.$rootScope.$on('nail.add.success', (evt, nail) => {
+        var dereg1 = this.$rootScope.$on('nail.add.success', (evt, nail) => {
             if (!nail.$user) {
                 User.getCurrent().$promise.then(user => {
                     nail.$user = user;
@@ -38,6 +38,9 @@ export class FreshController {
             if (this._addModal) {
                 this._addModal.hide();
             }
+        });
+        $scope.$on('$destroy', () => {
+            dereg1();
         });
     }
 

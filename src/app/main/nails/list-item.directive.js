@@ -49,9 +49,16 @@ class NailListItemController {
             }
         });
 
+        var dereg2 = $rootScope.$on('nail.deleted', (evt, deletedNailId) => {
+            if (String(this.nail.id) === String(deletedNailId)) {
+                this.nail._isDeleted = true;
+            }
+        });
+
         $scope.$on('$destroy', () => {
             this.hideReplyForm();
             dereg();
+            dereg2();
         });
     }
 
@@ -160,8 +167,8 @@ class NailListItemController {
                 (res) => {
                 if (res === true) {
                     this.Nail.deleteById({id: this.nail.id}).$promise.then(response => {
-                        this.$log.debug(response);
-                        this.nail = null;
+                        this.$rootScope.$emit('nail.deleted', this.nail.id);
+                        this.nail._isDeleted = true;
                     }).catch(err => {
                         this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
                         this.$log.debug(err);

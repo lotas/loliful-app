@@ -75,9 +75,14 @@ export function nailModalView($modal, nailId, $rootScope) {
             cleanUp();
         });
 
-        var dereg2 = $rootScope.$on('$stateChangeStart', function() {
+        var dereg2 = $rootScope.$on('nail.deleted', function(evt, deletedNailId) {
+            if (String(nailId) === String(deletedNailId)) {
+                modal.hide();
+            }
+        });
+
+        var dereg3 = $rootScope.$on('$stateChangeStart', function() {
             modal.hide();
-            cleanUp();
         });
 
         var nailModal;
@@ -96,6 +101,7 @@ export function nailModalView($modal, nailId, $rootScope) {
         function cleanUp() {
             dereg();
             dereg2();
+            dereg3();
 
             if ($rootScope.screen.isPhone) {
                 nailModal.off('scroll', scrollHandler);
