@@ -23,13 +23,15 @@ class JokeListItemController {
      * @param  {any} toastr
      * @param  {any} $log
      */
-    constructor(Hammer, ShareService, toastr, $log) {
+    constructor(Hammer, ShareService, toastr, $log, AuthService) {
         'ngInject';
 
         this.Hammer = Hammer;
         this.$log = $log;
         this.toastr = toastr;
         this.ShareService = ShareService;
+
+        this.isOwn = this.joke.userId && String(AuthService.getUserId()) === String(this.joke.userId);
     }
 
     report() {
@@ -58,13 +60,21 @@ class JokeListItemController {
     }
 
     vote() {
-        this.joke.$votes = Date.now();
-        this.Hammer.prototype$vote({
+
+        let method;
+        if (this.joke.$votes) {
+            method = 'prototype$unvote';
+            this.joke.$votes = false;
+        } else {
+            method = 'prototype$vote';
+            this.joke.$votes = true;
+        }
+
+        this.Hammer[method]({
             id: this.joke.id
         }).$promise.then(res => {
             this.joke.countVotes = res.countVotes;
         }).catch(err => {
-            this.joke.$votes = false;
             this.$log.debug(err);
             this.toastr.warning('oh no!, vote failed');
         });
