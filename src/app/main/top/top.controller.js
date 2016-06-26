@@ -4,7 +4,7 @@ export class TopController {
      * @param {User} User
      * @param {MainService} MainService
      */
-    constructor(User, MainService, $stateParams, $log, $state, $scope) {
+    constructor(User, MainService, $stateParams, $log, $state) {
         'ngInject';
 
         this.User = User;

@@ -81,19 +81,6 @@ class JokeListItemController {
     }
 
     share() {
-        if (!this.joke._share) {
-            let modal = this.ShareService.showGenerating();
-            this.ShareService.getShare(this.joke.id).then(res => {
-                 modal.hide();
-
-                 this.joke._share = res;
-                 this.ShareService.showDialog(res);
-            }).catch(err => {
-                this.$log.debug(err);
-                 this.toastr.warning('Oh boy... God knows how hard I try, but it failed this time');
-            });
-        } else {
-            this.ShareService.showDialog(this.joke._share);
-        }
+        this.ShareService.showShareDialog(this.joke);
     }
 }

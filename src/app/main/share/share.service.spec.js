@@ -17,16 +17,17 @@ describe('Share Service', () => {
     $httpBackend.flush();
   }));
 
-  it('Should show modal', inject((ShareService) => {
-    spyOn(ShareService, '$modal').and.returnValue(0);
-    ShareService.showDialog({url: '1'});
-    expect(ShareService.$modal).toHaveBeenCalled();
-  }));
+  it('Should load share', inject((ShareService) => {
+    $httpBackend.expect('GET', 'http://local.loliful.io/share/1').respond({url: 'url'});
+    ShareService.showShareDialog({id: 1});
+    $httpBackend.flush();
 
-  it('Should show warning', inject((ShareService, SweetAlert) => {
-    spyOn(SweetAlert, 'warning').and.returnValue(1);
-    ShareService.showDialog({});
-    expect(SweetAlert.warning).toHaveBeenCalled();
+  }));
+  it('Should just show', inject(function(ShareService) {
+    ShareService.showShareDialog({
+        id: 1,
+        _share: {}
+    });
   }));
 
 });

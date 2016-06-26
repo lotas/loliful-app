@@ -1,14 +1,16 @@
 .modal.share-dialog(tabindex='-1', role='dialog', aria-hidden='true')
   .modal-dialog
     .modal-content
-      .modal-header(ng-show='title')
+      .modal-header
         button.close(type='button', aria-label='Close', ng-click='$hide()')
           span(aria-hidden='true') ×
-        h4.modal-title(ng-bind='title')
+        h4.modal-title {{ share ? 'Share this joke' : 'Just a moment, generating joke' }}
       div(ng-bind='content')
       .modal-body
-        img(ng-src="{{share.img}}" style="width:98%")
-      .modal-footer
+        .loading(ng-if="!share")
+          .rocket
+        img(ng-if="share", ng-src="{{share.img}}", style="width:98%")
+      .modal-footer(ng-if="share")
         div.social
           a.btn.btn-primary.share-f(
           rel="nofollow",

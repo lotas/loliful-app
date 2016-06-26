@@ -166,7 +166,7 @@ class NailListItemController {
                 },
                 (res) => {
                 if (res === true) {
-                    this.Nail.deleteById({id: this.nail.id}).$promise.then(response => {
+                    this.Nail.deleteById({id: this.nail.id}).$promise.then(() => {
                         this.$rootScope.$emit('nail.deleted', this.nail.id);
                         this.nail._isDeleted = true;
                     }).catch(err => {

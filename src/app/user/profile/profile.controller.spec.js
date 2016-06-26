@@ -8,8 +8,8 @@
 
 describe('Profile controller', () => {
     var $httpBackend;
-    var $rootScope;
-    var vm;
+    // var $rootScope;
+    // var vm;
 
     beforeEach(angular.mock.module('loliful'));
 
