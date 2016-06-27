@@ -118,14 +118,26 @@
       height: 26px;
     }
 
-    .reply-form .reply {
-      min-width: 120px;
-      width: 100%;
-      color: darken(#D8D8D8, 40%);
-    }
-    .reply-form .btn {
-      padding: 3px 10px;
-      font-size: 12px;
+
+    .reply-form {
+      position: relative;
+      .reply {
+        min-width: 120px;
+        width: 100%;
+        color: darken(#D8D8D8, 40%);
+      }
+      .btn {
+        padding: 3px 10px;
+        font-size: 12px;
+      }
+      .countdown {
+        position: absolute;
+        right: 6px;
+        top: 2px;
+        width: 30px;
+        text-align: right;
+        color: lighten(@themeGrayColor, 15%);
+      }
     }
 
     .cardPaddings();
