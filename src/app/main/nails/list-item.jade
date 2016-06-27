@@ -8,6 +8,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
     title="Answers count: {{nlm.nail.countAnswers}}")
       span(ng-if="nlm.nail.countAnswers") {{ nlm.nail.countAnswers }}
   div.panel-body.clickable(
+    ng-click="nlm.cardClick($event);",
     ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
     ng-if="!nlm.isNailView")
     | {{ ::nlm.nail.text }}

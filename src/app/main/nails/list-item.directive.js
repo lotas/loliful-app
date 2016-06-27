@@ -122,6 +122,15 @@ class NailListItemController {
         });
     }
 
+    cardClick($event) {
+        if (this._reply) {
+            $event.preventDefault();
+            this.hideReplyForm();
+            return false;
+        }
+        return true;
+    }
+
     showReplyForm() {
         this._reply = true;
         this.$rootScope.$emit('reply-form.open', this.nail.id);
