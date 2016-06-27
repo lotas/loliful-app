@@ -3,7 +3,7 @@ describe('Fresh Controller', () => {
 
   beforeEach(angular.mock.module('loliful'));
 
-  beforeEach(inject(($controller, toastr, MainService) => {
+  beforeEach(inject(($controller, toastr, $rootScope, MainService) => {
     spyOn(MainService, 'getFresh').and.callFake(function () {
       return new Promise((resolve) => {
         resolve({
@@ -12,7 +12,9 @@ describe('Fresh Controller', () => {
       });
     });
 
-    vm = $controller('FreshController');
+    vm = $controller('FreshController', {
+        $scope: $rootScope.$new()
+    });
   }));
 
   it('should loadFresh nails', inject((MainService) => {
