@@ -7,7 +7,8 @@
           a.close.pull-right(ng-click="$hide()", title="Close")
             i.icon.icon-loliful-icon-close
         div
-          form(name="nail", ng-submit="na.create(); na.submited=true;")
+          form.add-modal-form(name="nail", ng-submit="na.create(); na.submited=true;")
+            div.countdown {{ 212 - (na.nail.text.length || 0) }}
             div.form-group
               textarea#text.form-control(
                 placeholder="{{ na.placeholder }}",
