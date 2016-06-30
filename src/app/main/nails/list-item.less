@@ -178,4 +178,20 @@
     }
   }
 
+  .replies {
+    span {
+      display: none;
+    }
+
+    &.reply-added {
+      span {
+        display: block;
+        min-width: 170px;
+        color: @themeMainColor;
+      }
+      .reply {
+        display: none;
+      }
+    }
+  }
 }

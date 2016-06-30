@@ -16,7 +16,8 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
     | {{ ::nlm.nail.text }}
   div.panel-footer(ng-if="!nlm.hideFooter")
     div.row(ng-hide="nlm._reply")
-      div.col-xs-4
+      div.col-xs-4.replies(ng-class="{'reply-added': nlm._replyAdded}")
+        span Replied! Let's see how it goes!
         div(ng-click="nlm.showReplyForm()", ng-hide="nlm._reply")
           input.reply.disabled(value="Joke")
       div.col-xs-6.pull-right.text-right(ng-if="nlm.isOwn")
@@ -55,4 +56,4 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
             required,
             esc-key="nlm.hideReplyForm();"
             auto-focus)
-        button.btn.btn-mini.btn-primary(type="submit") Reply
+        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="nlm._replying") Reply

@@ -28,7 +28,7 @@ class NailListItemController {
      * @param {toastr} toastr
      * @param {$log} log
      */
-    constructor(Nail, SweetAlert, AuthService, User, toastr, $log, $rootScope, $scope) {
+    constructor(Nail, SweetAlert, AuthService, User, toastr, $log, $rootScope, $scope, $timeout) {
         'ngInject';
 
         this.Nail = Nail;
@@ -37,6 +37,7 @@ class NailListItemController {
         this.toastr = toastr;
         this.SweetAlert = SweetAlert;
         this.$rootScope = $rootScope;
+        this.$timeout = $timeout;
 
         this.isOwn = this.nail.userId && String(AuthService.getUserId()) === String(this.nail.userId);
 
@@ -142,6 +143,7 @@ class NailListItemController {
     }
 
     reply() {
+        this._replying = true;
         this.Nail.prototype$__create__hammers({
                 id: this.nail.id
             }, this._hammer)
@@ -158,10 +160,17 @@ class NailListItemController {
                 this._hammer = '';
 
                 this.hideReplyForm();
+                this._replying = false;
+                this._replyAdded = true;
+
+                this.$timeout(() => {
+                    this._replyAdded = false;
+                }, 5000);
             })
             .catch(err => {
                 this.$log.debug(err);
                 this.toastr.warning('oops, I failed again');
+                this._replying = false;
             });
     }
 
