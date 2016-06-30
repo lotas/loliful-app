@@ -68,9 +68,9 @@ export function nailModalView($modal, nailId, $rootScope) {
         });
 
         var dereg = $rootScope.$on('nailView.hide', function() {
-            $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
-                notify: !$rootScope.previousStateSet  //reload only when previous state was set
-            });
+            if (!$rootScope.previousStateSet && !$rootScope.__startedTrans) {
+                $state.transitionTo('fresh');
+            }
 
             cleanUp();
         });
@@ -121,6 +121,10 @@ export function nailModalView($modal, nailId, $rootScope) {
 export function nailViewRun($state, $rootScope, $modal) {
     'ngInject';
 
+
+    $rootScope.$on('$stateChangeSuccess', function() {
+        $rootScope.__startedTrans = false;
+    });
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams, fromState, fromStateParams) {
         // on mobile let's show the main page anyway
 
@@ -137,12 +141,16 @@ export function nailViewRun($state, $rootScope, $modal) {
             });
             event.preventDefault();
         } else if (fromState && fromState.name === 'nail-view' && $rootScope.previousStateSet &&
-            $rootScope.previousState === toState.name) {
+            $rootScope.previousState === toState.name &&
+            angular.equals(toStateParams, $rootScope.previousStateParams)) {
             // just hide the dialog
             $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
                 notify: false
             });
             event.preventDefault();
+        } else {
+            // hack to prevent single modal from sending back to wrong page
+            $rootScope.__startedTrans = true;
         }
     });
 }
