@@ -22,6 +22,9 @@ export class ShareService {
         $scope.hammer = hammer;
         $scope.share = hammer._share || false;
 
+        // TODO : add component
+        // Track clicks on 'share'
+
         this.$modal({
             templateUrl: 'app/main/share/dialog.html',
             prefixEvent: 'shareDialg',
