@@ -62,6 +62,24 @@ export function nailModalView($modal, nailId, $rootScope) {
 
         var nv = this;
 
+        nv.onNailClick = function() {
+            $anchorScroll('nail-back-btn');
+        };
+
+        nv.closeModal = function() {
+            if ($rootScope.previousStateSet) {
+                $state.transitionTo(
+                    $rootScope.previousState,
+                    $rootScope.previousStateParams,
+                    {notify: false}
+                );
+            } else {
+                $state.transitionTo('fresh');
+            }
+            modal.hide();
+            cleanUp();
+        };
+
         MainService.getNail(nailId).then(nail => {
             nv.nail = nail;
             initScrollHandler();
@@ -76,7 +94,6 @@ export function nailModalView($modal, nailId, $rootScope) {
 
             cleanUp();
         });
-
         var dereg2 = $rootScope.$on('nail.deleted', function(evt, deletedNailId) {
             if (String(nailId) === String(deletedNailId)) {
                 modal.hide();
@@ -104,9 +121,6 @@ export function nailModalView($modal, nailId, $rootScope) {
             }
         }
 
-        nv.onNailClick = function() {
-            $anchorScroll('nail-back-btn');
-        };
 
         function cleanUp() {
             dereg();
@@ -158,7 +172,7 @@ export function nailViewRun($state, $rootScope, $modal, User) {
             fromState.name === 'nail-view' &&
             $rootScope.previousStateSet &&
             $rootScope.previousState === toState.name &&
-            !angular.equals(toStateParams, $rootScope.previousStateParams)) {
+            angular.equals(toStateParams, $rootScope.previousStateParams)) {
             // just hide the dialog
             $state.transitionTo($rootScope.previousState, $rootScope.previousStateParams, {
                 notify: false
