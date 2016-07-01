@@ -16,7 +16,9 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
                          $location, $http, apiAuth, apiEndpoint, screenSize) {
     'ngInject';
 
-    $http.defaults.headers.common.Authorization = apiAuth;
+    if (apiAuth) {
+        $http.defaults.headers.common.Authorization = apiAuth;
+    }
 
     $rootScope.envName = envName;
     $rootScope.isState = $state.is;

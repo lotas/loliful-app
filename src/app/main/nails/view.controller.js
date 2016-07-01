@@ -118,15 +118,18 @@ export function nailModalView($modal, nailId, $rootScope) {
     }
 }
 
-export function nailViewRun($state, $rootScope, $modal) {
+export function nailViewRun($state, $rootScope, $modal, User) {
     'ngInject';
-
 
     $rootScope.$on('$stateChangeSuccess', function() {
         $rootScope.__startedTrans = false;
     });
     $rootScope.$on('$stateChangeStart', function(event, toState, toStateParams, fromState, fromStateParams) {
-        // on mobile let's show the main page anyway
+
+        // prevent popup from showing for unauthorized users
+        if (!User.isAuthenticated()) {
+            return false;
+        }
 
         //if ($rootScope.screen.isPhone) return;
         if (toState.name && toState.name === 'nail-view') {
