@@ -44,6 +44,8 @@ class NailListItemController {
         // hide form
         this._reply = false;
 
+        this._tm;
+
         var dereg = $rootScope.$on('reply-form.open', (evt, nailId) => {
             if (this._reply && nailId !== this.nail.id) {
                 this.hideReplyForm();
@@ -60,6 +62,9 @@ class NailListItemController {
             this.hideReplyForm();
             dereg();
             dereg2();
+            if (this._tm) {
+                $timeout.cancel(this._tm);
+            }
         });
     }
 
@@ -163,7 +168,7 @@ class NailListItemController {
                 this._replying = false;
                 this._replyAdded = true;
 
-                this.$timeout(() => {
+                this._tm = this.$timeout(() => {
                     this._replyAdded = false;
                 }, 5000);
             })
@@ -185,7 +190,7 @@ class NailListItemController {
                 (res) => {
                 if (res === true) {
                     this.Nail.deleteById({id: this.nail.id}).$promise.then(() => {
-                        this.$rootScope.$emit('nail.deleted', this.nail.id);
+                        this.$rootScope.$emit('nail.deleted', String(this.nail.id));
                         this.nail._isDeleted = true;
                     }).catch(err => {
                         this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');

@@ -65,6 +65,8 @@ export function nailModalView($modal, nailId, $rootScope) {
         MainService.getNail(nailId).then(nail => {
             nv.nail = nail;
             initScrollHandler();
+        }, err => {
+            modal.hide();
         });
 
         var dereg = $rootScope.$on('nailView.hide', function() {
@@ -80,8 +82,16 @@ export function nailModalView($modal, nailId, $rootScope) {
                 modal.hide();
             }
         });
+        var dereg3 = $rootScope.$on('hammer.deleted', (evt, hammerId) => {
+            for (let idx in nv.nail.$hammers) {
+                if (String(nv.nail.$hammers[idx].id) === hammerId) {
+                    nv.nail.$hammers.splice(idx, 1);
+                    break;
+                }
+            }
+        });
 
-        var dereg3 = $rootScope.$on('$stateChangeStart', function() {
+        var dereg4 = $rootScope.$on('$stateChangeStart', function() {
             modal.hide();
         });
 
@@ -102,6 +112,7 @@ export function nailModalView($modal, nailId, $rootScope) {
             dereg();
             dereg2();
             dereg3();
+            dereg4();
 
             if ($rootScope.screen.isPhone) {
                 nailModal.off('scroll', scrollHandler);

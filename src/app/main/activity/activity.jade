@@ -23,9 +23,9 @@ section
 
   div.activities(infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
     div.my-nails(ng-if="vm.items && vm.type=='nails'")
-      nail-list-item(nail="item", ng-repeat="item in vm.items track by $index")
+      nail-list-item(nail="item", ng-repeat="item in vm.items track by item.id")
     div.my-hammers(ng-if="vm.items && vm.type=='hammers'")
-      hammer-activity-item(hammer="item", ng-repeat="item in vm.items track by $index")
+      hammer-activity-item(hammer="item", ng-repeat="item in vm.items track by item.id")
     div(ng-if="vm.items && (vm.type=='saves' || vm.type=='likes')")
       div(ng-repeat="item in vm.items track by $index")
         nail-list-item(ng-if="item.$nail", nail="item.$nail")

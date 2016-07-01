@@ -3,8 +3,10 @@ describe('Activity Controller', () => {
 
   beforeEach(angular.mock.module('loliful'));
 
-  beforeEach(inject(($controller, toastr, MainService) => {
-    vm = $controller('ActivityController');
+  beforeEach(inject(($controller, toastr, MainService, $rootScope) => {
+      vm = $controller('ActivityController', {
+          $scope: $rootScope.$new()
+      });
     spyOn(MainService, 'getActivity').and.callFake(function(type) {
         return new Promise((resolve) => {
             resolve({

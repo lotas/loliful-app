@@ -22,8 +22,8 @@
                 button.btn.btn-small.btn-primary(type="submit") Reply
 
           div.container-fluid.hammers(ng-if="nv.nail.$hammers && !screen.isPhone", ng-scrollbars)
-            hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by $index")
+            hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by item.id")
           div.container-fluid.hammers(ng-if="nv.nail.$hammers && screen.isPhone")
-            hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by $index")
+            hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by item.id")
 
 

@@ -39,8 +39,17 @@ export class FreshController {
                 this._addModal.hide();
             }
         });
+        var dereg2 = this.$rootScope.$on('nail.deleted', (evt, nailId) => {
+            for (let idx in this.nails) {
+                if (String(this.nails[idx].id) === nailId) {
+                    this.nails.splice(idx, 1);
+                    break;
+                }
+            }
+        });
         $scope.$on('$destroy', () => {
             dereg1();
+            dereg2();
         });
     }
 

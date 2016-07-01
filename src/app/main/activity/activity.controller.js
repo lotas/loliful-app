@@ -13,7 +13,7 @@ export class ActivityController {
      * @param  {$stateParams} $stateParams
      * @param  {$log} $log
      */
-    constructor(User, MainService, $stateParams, $log, $rootScope, $state) {
+    constructor(User, MainService, $stateParams, $log, $rootScope, $state, $scope) {
         'ngInject';
 
         this.User = User;
@@ -38,6 +38,33 @@ export class ActivityController {
 
         //var deregister = $rootScope.$on('swipe', this.swipeListener.bind(this));
         //$rootScope.$on('$destroy', deregister);
+
+        var dereg1 = $rootScope.$on('nail.deleted', (evt, nailId) => {
+            if (this.type !== 'nails') {
+                return;
+            }
+            for (let idx in this.items) {
+                if (String(this.items[idx].id) === nailId) {
+                    this.items.splice(idx, 1);
+                    break;
+                }
+            }
+        });
+        var dereg2 = $rootScope.$on('hammer.deleted', (evt, hammerId) => {
+            if (this.type !== 'hammers') {
+                return;
+            }
+            for (let idx in this.items) {
+                if (String(this.items[idx].id) === hammerId) {
+                    this.items.splice(idx, 1);
+                    break;
+                }
+            }
+        });
+        $scope.$on('$destroy', () => {
+            dereg1();
+            dereg2();
+        });
     }
 
     loadActivity() {

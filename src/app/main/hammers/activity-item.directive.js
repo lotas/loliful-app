@@ -22,23 +22,25 @@ class HammerActivityItemController {
      * @param  {SweetAlert} SweetAlert
      * @param  {any} $log
      */
-    constructor(Hammer, SweetAlert, toastr, $log, AuthService) {
+    constructor(Hammer, SweetAlert, toastr, $log, $rootScope, AuthService) {
         'ngInject';
 
         this.Hammer = Hammer;
         this.SweetAlert = SweetAlert;
         this.$log = $log;
         this.toastr = toastr;
+        this.$rootScope = $rootScope;
 
         this.isOwn = this.hammer.$user && String(AuthService.getUserId()) === String(this.hammer.$user.id);
     }
 
+    // TODO: copy-pasted functionality... yarik yarik
     delete() {
         if (this.isOwn) {
             this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
                 if (res === true) {
                     this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
-                        this.$log.debug(response);
+                        this.$rootScope.$emit('hammer.deleted', String(this.hammer.id));
                         this.hammer = null;
                     }).catch(err => {
                         this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');

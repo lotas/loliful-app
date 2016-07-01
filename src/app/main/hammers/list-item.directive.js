@@ -26,7 +26,7 @@ class HammerListItemController {
      * @param  {any} toastr
      * @param  {any} $log
      */
-    constructor(Nail, Hammer, ShareService, AuthService, SweetAlert, toastr, $log) {
+    constructor(Nail, Hammer, ShareService, AuthService, SweetAlert, $rootScope, toastr, $log) {
         'ngInject';
 
         this.Nail = Nail;
@@ -35,6 +35,7 @@ class HammerListItemController {
         this.toastr = toastr;
         this.ShareService = ShareService;
         this.SweetAlert = SweetAlert;
+        this.$rootScope = $rootScope;
 
         this.isOwn = this.hammer.userId && String(AuthService.getUserId()) === String(this.hammer.userId);
     }
@@ -106,10 +107,10 @@ class HammerListItemController {
                 (res) => {
                 if (res === true) {
                     this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
-                        this.$log.debug(response);
-                        this.hammer = null;
+                        this.$rootScope.$emit('hammer.deleted', String(this.hammer.id));
+                        this.hammer._isDeleted = true;
                     }).catch(err => {
-                        this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
+                        this.toastr.warning(err.data.error.message || 'Oops, we cannot delete this');
                         this.$log.debug(err);
                     });
                 }
