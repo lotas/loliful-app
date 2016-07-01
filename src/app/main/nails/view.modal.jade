@@ -4,7 +4,7 @@
       .modal-header(ng-show='screen.isPhone')
         div.mobile-wrap(ng-show='screen.isPhone')
           div.back-btn#nail-back-btn
-            a.btn(ng-click="nv.closeModal()") ← Back
+            a.btn(ng-click="$hide()") ← Back
       .modal-body
         div(ng-hide='screen.isPhone')
           a.close.pull-right(ng-click="$hide()", title="Close")
