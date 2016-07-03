@@ -11,8 +11,14 @@ export class ShareService {
         this.toastr = toastr;
     }
 
-    getShare(id) {
-        return this.$http.get(this.apiEndpoint + '/share/' + id).then(res => {
+    getShare(nailId, hammerId) {
+        return this.$http.get(`${this.apiEndpoint}/share/${nailId}/${hammerId}`).then(res => {
+            return res.data;
+        });
+    }
+
+    getShareIntro(nailId, hammerId) {
+        return this.$http.get(this.apiEndpoint + '/share/' + nailId).then(res => {
             return res.data;
         });
     }
@@ -35,7 +41,7 @@ export class ShareService {
         });
 
         if (!hammer._share) {
-            this.getShare(hammer.id).then(res => {
+            this.getShare(hammer.nailId, hammer.id).then(res => {
                 hammer._share = res;
                 $scope.share = res;
             }).catch(err => {
