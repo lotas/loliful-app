@@ -11,15 +11,15 @@ describe('Share Service', () => {
     $httpBackend.verifyNoOutstandingRequest();
  });
 
-  it('Should call getShare()', inject((ShareService) => {
+  it('Should call getShareIntro()', inject((ShareService) => {
     $httpBackend.expect('GET', 'http://local.loliful.io/share/1').respond({url: 'url'});
-    ShareService.getShare(1);
+    ShareService.getShareIntro(1);
     $httpBackend.flush();
   }));
 
   it('Should load share', inject((ShareService) => {
-    $httpBackend.expect('GET', 'http://local.loliful.io/share/1').respond({url: 'url'});
-    ShareService.showShareDialog({id: 1});
+    $httpBackend.expect('GET', 'http://local.loliful.io/share/1/2').respond({url: 'url'});
+    ShareService.showShareDialog({id: 2, nailId: 1});
     $httpBackend.flush();
 
   }));

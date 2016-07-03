@@ -17,7 +17,7 @@ export class ShareService {
         });
     }
 
-    getShareIntro(nailId, hammerId) {
+    getShareIntro(nailId) {
         return this.$http.get(this.apiEndpoint + '/share/' + nailId).then(res => {
             return res.data;
         });
