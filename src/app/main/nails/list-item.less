@@ -50,6 +50,26 @@
 
     position: relative;
 
+    &.isEdit {
+      //padding-bottom: 16px;
+      z-index: 10;
+      position: relative;
+      left: 0;
+      top: 0;
+      .d2();
+    }
+    textarea {
+      position: relative;
+      left: -3px;
+      top: -3px;
+      //bottom: 3px;
+      //right: 3px;
+      width: 100%;
+      //min-height: 80px;
+      border: 1px solid @themeMainColor;
+      margin: 0;
+    }
+
     .submenu {
       position: absolute;
       left: 0;
@@ -101,8 +121,7 @@
     }
   }
   .panel-footer {
-
-    input.reply {
+   input.reply {
       background: #FFFFFF;
       border: 1px solid @nailReplyInputBorder;
       border-radius: 8px;
@@ -118,6 +137,10 @@
       height: 26px;
     }
 
+    .btn {
+      padding: 3px 10px;
+      font-size: 12px;
+    }
 
     .reply-form {
       position: relative;
@@ -126,10 +149,10 @@
         width: 100%;
         color: darken(#D8D8D8, 40%);
       }
-      .btn {
-        padding: 3px 10px;
-        font-size: 12px;
-      }
+      //.btn {
+      //  padding: 3px 10px;
+      //  font-size: 12px;
+      //}
       .countdown {
         position: absolute;
         right: 6px;
@@ -172,6 +195,9 @@
     }
     .delete {
       margin-left: 14px;
+    }
+    .edit {
+      margin-left: 12px;
     }
     .show-sub {
       margin-right: 10px;

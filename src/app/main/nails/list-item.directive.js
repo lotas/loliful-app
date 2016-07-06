@@ -147,6 +147,17 @@ class NailListItemController {
         this.$rootScope.$emit('reply-form.hide', this.nail.id);
     }
 
+    startEdit() {
+        this.isEdit = true;
+    }
+    resetEdit() {
+        this.isEdit = false;
+    }
+    edit() {
+        this.isEdit = false;
+        //console.log('save edit');
+    }
+
     reply() {
         if (!this._hammer || /^\s+$/.test(this._hammer.text)) {
             return false;
