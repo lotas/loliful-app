@@ -148,6 +148,10 @@ class NailListItemController {
     }
 
     reply() {
+        if (!this._hammer || /^\s+$/.test(this._hammer.text)) {
+            return false;
+        }
+
         this._replying = true;
         this.Nail.prototype$__create__hammers({
                 id: this.nail.id
