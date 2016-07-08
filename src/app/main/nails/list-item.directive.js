@@ -26,9 +26,12 @@ class NailListItemController {
      * @param {SweetAlert} SweetAlert
      * @param {User} User
      * @param {toastr} toastr
-     * @param {$log} log
+     * @param $log
+     * @param $rootScope
+     * @param $scope
+     * @param $tim
      */
-    constructor(Nail, SweetAlert, AuthService, User, toastr, $log, $rootScope, $scope, $timeout) {
+    constructor(Nail, SweetAlert, AuthService, User, toastr, $state, $log, $rootScope, $scope, $timeout) {
         'ngInject';
 
         this.Nail = Nail;
@@ -38,6 +41,7 @@ class NailListItemController {
         this.SweetAlert = SweetAlert;
         this.$rootScope = $rootScope;
         this.$timeout = $timeout;
+        this.$state = $state;
 
         this.isOwn = this.nail.userId && String(AuthService.getUserId()) === String(this.nail.userId);
 
@@ -129,10 +133,19 @@ class NailListItemController {
     }
 
     cardClick($event) {
+        if (this.isEdit) {
+            return false;
+        }
+
         if (this._reply) {
             $event.preventDefault();
             this.hideReplyForm();
             return false;
+        } else {
+            this.$state.go('nail-view', {
+                nailId: this.nail.id,
+                nail: this.nail
+            });
         }
         return true;
     }

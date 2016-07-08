@@ -7,23 +7,17 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
     a.expander(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
     title="Answers count: {{nlm.nail.countAnswers}}")
       span(ng-if="nlm.nail.countAnswers") {{ nlm.nail.countAnswers }}
-  div.panel-body.clickable(
-    ng-click="nlm.cardClick($event);",
-    ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
-    ng-if="!nlm.isNailView")
-    | {{ ::nlm.nail.text }}
-  div.panel-body(ng-click="nlm._reply=false", ng-if="nlm.isNailView")
-    | {{ ::nlm.nail.text }}
-  div.panel-body.isEdit(ng-if="nlm.isEdit")
-    textarea(ng-model="nlm.nail.text", ng-minlength="3", ng-maxlength="212")
-  div.panel-footer(ng-if="nlm.isEdit")
-    div.row
+  div.panel-body.clickable(ng-click="nlm.cardClick($event);")
+    textarea(ng-model="nlm.nail.text", ng-minlength="3", ng-maxlength="212", ng-show="nlm.isEdit")
+    .text {{ nlm.nail.text }}
+  div.panel-footer(ng-if="!nlm.hideFooter")
+    div.row.edit-controls(ng-if="nlm.isEdit")
       div.col-xs-6.text-center
         button.btn.btn-mini.btn-default(type="reset", ng-click="nlm.resetEdit()") Cancel
       div.col-xs-6.text-center
+        div.countdown {{ 212 - (nlm.nail.text.length || 0) }}
         button.btn.btn-mini.btn-primary(type="submit", ng-click="nlm.edit()") Save
-  div.panel-footer(ng-if="!nlm.hideFooter && !nlm.isEdit")
-    div.row(ng-hide="nlm._reply")
+    div.row(ng-hide="nlm._reply || nlm.isEdit")
       div.col-xs-4.replies(ng-class="{'reply-added': nlm._replyAdded}")
         span Replied! Let's see how it goes!
         div(ng-click="nlm.showReplyForm()", ng-hide="nlm._reply")
