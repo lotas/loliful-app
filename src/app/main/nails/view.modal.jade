@@ -10,7 +10,10 @@
           a.close.pull-right(ng-click="$hide()", title="Close")
             i.icon.icon-loliful-icon-close
 
-        loading(ng-if="!nv.nail")
+        div.progress-bar-container(ng-if="!nv.nail")
+          div.progress-bar
+          div.progress-bar.progress-current
+
         div.nail-wrapper(ng-if="nv.nail")
           nail-list-item(nail="nv.nail", is-nail-view="true", ng-click="nv.onNailClick()")
 
