@@ -429,6 +429,43 @@ module.factory(
 
         /**
          * @ngdoc method
+         * @name lbServices.Nail#prototype$updateAttributes
+         * @methodOf lbServices.Nail
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Nail` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/nails/:id",
+          method: "PUT"
+        },
+
+        /**
+         * @ngdoc method
          * @name lbServices.Nail#prototype$vote
          * @methodOf lbServices.Nail
          *
@@ -1210,6 +1247,43 @@ module.factory(
         "count": {
           url: urlBase + "/hammers/count",
           method: "GET"
+        },
+
+        /**
+         * @ngdoc method
+         * @name lbServices.Hammer#prototype$updateAttributes
+         * @methodOf lbServices.Hammer
+         *
+         * @description
+         *
+         * Update attributes for a model instance and persist it into the data source.
+         *
+         * @param {Object=} parameters Request parameters.
+         *
+         *  - `id` – `{*}` - PersistedModel id
+         *
+         * @param {Object} postData Request data.
+         *
+         * This method expects a subset of model properties as request parameters.
+         *
+         * @param {function(Object,Object)=} successCb
+         *   Success callback with two arguments: `value`, `responseHeaders`.
+         *
+         * @param {function(Object)=} errorCb Error callback with one argument:
+         *   `httpResponse`.
+         *
+         * @returns {Object} An empty reference that will be
+         *   populated with the actual data once the response is returned
+         *   from the server.
+         *
+         * <em>
+         * (The remote method definition does not provide any description.
+         * This usually means the response is a `Hammer` object.)
+         * </em>
+         */
+        "prototype$updateAttributes": {
+          url: urlBase + "/hammers/:id",
+          method: "PUT"
         },
 
         /**

@@ -49,6 +49,10 @@
 
     position: relative;
 
+    transition: color 0.3s;
+    &.updated {
+      color: @greenTextColor;
+    }
     textarea {
       position: absolute;
       z-index: 10;

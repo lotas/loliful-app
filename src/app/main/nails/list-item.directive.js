@@ -161,14 +161,38 @@ class NailListItemController {
     }
 
     startEdit() {
+        this._prevValue = this.nail.text;
         this.isEdit = true;
     }
     resetEdit() {
+        this.nail.text = this._prevValue;
         this.isEdit = false;
     }
     edit() {
-        this.isEdit = false;
-        //console.log('save edit');
+        if (this._prevValue === this.nail.text) {
+            this.isEdit = false;
+            return;
+        }
+        this._saving = true;
+        this.Nail.prototype$updateAttributes({
+            id: this.nail.id
+        }, {
+            text: this.nail.text
+        }).$promise
+        .then(res => {
+            this.toastr.success('All good!');
+            this.isEdit = false;
+            this._saving = false;
+            this._prevValue = '';
+            this._updated = true;
+            this.$timeout(() => {
+                this._updated = false;
+            }, 700);
+        })
+        .catch(err => {
+            this.toastr.warning('oops, something went wrong');
+            this.$log.debug(err);
+        });
     }
 
     reply() {
@@ -198,7 +222,7 @@ class NailListItemController {
 
                 this._tm = this.$timeout(() => {
                     this._replyAdded = false;
-                }, 5000);
+                }, 4000);
             })
             .catch(err => {
                 this.$log.debug(err);
