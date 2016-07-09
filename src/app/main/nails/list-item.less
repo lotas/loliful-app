@@ -47,28 +47,6 @@
       color: @nailTextColor;
     }
 
-    position: relative;
-
-    transition: color 0.3s;
-    &.updated {
-      color: @greenTextColor;
-    }
-    textarea {
-      position: absolute;
-      z-index: 10;
-      left: 10px;
-      top: 5px;
-      bottom: 4px;
-      //right: 23px;
-      width: 94%;
-
-
-      //min-height: 80px;
-      border: 1px solid @themeMainColor;
-      margin: 0;
-      padding: 4px;
-    }
-
     .submenu {
       position: absolute;
       left: 0;
@@ -120,7 +98,7 @@
     }
   }
   .panel-footer {
-   input.reply {
+    input.reply {
       background: #FFFFFF;
       border: 1px solid @nailReplyInputBorder;
       border-radius: 8px;
@@ -134,11 +112,6 @@
 
       background: @nailReplyBg;
       height: 26px;
-    }
-
-    .btn {
-      padding: 3px 10px;
-      font-size: 12px;
     }
 
     .reply-form {
@@ -190,32 +163,14 @@
       text-decoration: none;
       margin-left: 10px;
     }
-    .likes.own .icon{
+    .likes.own .icon {
       color: @themeSecondaryColor;
     }
     .delete {
       margin-left: 14px;
     }
-    .edit {
-      margin-left: 12px;
-    }
     .show-sub {
       margin-right: 10px;
-    }
-
-    .edit-controls {
-      position: relative;
-      left: 0;
-      top: 0px;
-      right: 0;
-      bottom: 0;
-      z-index:10;
-      background: #fff;
-
-      .countdown {
-        position: absolute;
-        right: 15px;
-      }
     }
   }
 

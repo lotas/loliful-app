@@ -1,35 +1,35 @@
 .cardPaddings() {
-    padding-left: 15px;
-    padding-right: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .cardBox() {
-    margin: 6px 10px 10px 10px;
-    background: @nailBg;
-    box-shadow: 0px 8px 12px 0px #EBEEF3;
-    border-radius: 4px;
+  margin: 6px 10px 10px 10px;
+  background: @nailBg;
+  box-shadow: 0px 8px 12px 0px #EBEEF3;
+  border-radius: 4px;
 }
 
 .avatar(@size) {
-    background: darken(#BD10E0, 30%);
-    border-radius: @size;
-    width: @size;
-    height: @size;
-    margin-right: floor(@size/2);
-    line-height: @size;
-    .icon-align();
+  background: darken(#BD10E0, 30%);
+  border-radius: @size;
+  width: @size;
+  height: @size;
+  margin-right: floor(@size/2);
+  line-height: @size;
+  .icon-align();
 
-    img {
-        width: @size;
-        -webkit-border-radius: @size/4;
-        -moz-border-radius: @size/4;
-        border-radius: @size/2;
-        margin-top: -3px;
-    }
+  img {
+    width: @size;
+    -webkit-border-radius: @size/4;
+    -moz-border-radius: @size/4;
+    border-radius: @size/2;
+    margin-top: -3px;
+  }
 }
 
-.icon-loliful-icon-liked::before{
-    color: @iconLikedColor;
+.icon-loliful-icon-liked::before {
+  color: @iconLikedColor;
 }
 
 .panel-body {
@@ -45,106 +45,151 @@
     display: none;
   }
 
-    .dropdown {
-        display: inline-block;
-        button {
-            border: 0;
-            background: initial;
-            outline: none;
-        }
-        a {
-            outline: none;
-        }
-    }
-
-    .avatar {
-        .avatar(22px);
-    }
-
-    .panel-footer {
-      .avatar {
-        .avatar(16px);
-      }
-    }
-
-    .time-ago {
-        margin-left: 10px;
-        white-space: nowrap;
-        font-size: 12px;
-        .icon {
-            .icon-align();
-            margin-right: 5px;
-            font-size: 14px;
-        }
-    }
-
-    *:focus {
+  .dropdown {
+    display: inline-block;
+    button {
+      border: 0;
+      background: initial;
       outline: none;
     }
+    a {
+      outline: none;
+    }
+  }
+
+  .avatar {
+    .avatar(22px);
+  }
+
+  .edit {
+    margin-left: 12px;
+  }
+
+  .panel-footer {
+    .avatar {
+      .avatar(16px);
+    }
+  }
+
+  .time-ago {
+    margin-left: 10px;
+    white-space: nowrap;
+    font-size: 12px;
+    .icon {
+      .icon-align();
+      margin-right: 5px;
+      font-size: 14px;
+    }
+  }
+
+  /* In-place edit */
+  .panel-body {
+    position: relative;
+
+    transition: color 0.3s;
+    &.updated {
+      color: @greenTextColor;
+    }
+    textarea {
+      position: absolute;
+      z-index: 10;
+      left: 10px;
+      top: 5px;
+      bottom: 4px;
+      //right: 23px;
+      width: 94%;
+
+      //min-height: 80px;
+      border: 1px solid @themeMainColor;
+      margin: 0;
+      padding: 4px;
+    }
+  }
+  .panel-footer {
+
+    .btn {
+      padding: 3px 10px;
+      font-size: 12px;
+    }
+    .edit-controls {
+      position: relative;
+      left: 0;
+      top: 0px;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+
+      .countdown {
+        position: absolute;
+        right: 15px;
+      }
+      .btn-primary {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+    }
+  }
 }
 
 .fresh, .activities {
-    .collapser {
-        display: none;
-    }
+  .collapser {
+    display: none;
+  }
 }
 
 .hammer-list-item {
-    // border: 1px solid #ccc !important;
+  // border: 1px solid #ccc !important;
 
-    background: #F4F6F9;
-    border-radius: 5px;
+  background: #F4F6F9;
+  border-radius: 5px;
 
-    .panel-body {
-        font-family: 'Sanchez';
-        font-size: @nailTextSize - 1px;
-        color: @nailTextColor;
-        line-height: floor(@nailTextSize * 1.2);
-    }
+  .panel-body {
+    font-family: 'Sanchez';
+    font-size: @nailTextSize - 1px;
+    color: @nailTextColor;
+    line-height: floor(@nailTextSize * 1.2);
+  }
+  .panel-footer {
+    background: initial;
+  }
+
+  &.own {
+    border: 1px solid @themeMainColor;
+    border-radius: 6px;
+
     .panel-footer {
-        background: initial;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
     }
-
-    &.own {
-        border: 1px solid @themeMainColor;
-        border-radius: 6px;
-
-        .panel-footer {
-          border-bottom-left-radius: 6px;
-          border-bottom-right-radius: 6px;
-        }
-    }
+  }
 
 }
 
 .activities {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 
 // .activities
 .my-nails {
-    .nail-list-item {
-        .username,
-        .avatar {
-            display: none;
-        }
-        .time-ago {
-            margin-left: 0;
-        }
+  .nail-list-item {
+    .username,
+    .avatar {
+      display: none;
     }
+    .time-ago {
+      margin-left: 0;
+    }
+  }
 }
-
-
 
 .empty-card {
-    text-align: center;
+  text-align: center;
 
-    img {
-        width: 80%;
-        max-width: 450px;
-    }
+  img {
+    width: 80%;
+    max-width: 450px;
+  }
 }
-
 
 // Responsive for desktop
 .is-tablet, .is-desktop {

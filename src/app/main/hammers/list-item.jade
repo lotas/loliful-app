@@ -1,8 +1,15 @@
 div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
-  div.panel-body
-    | {{ hli.hammer.text }}
+  div.panel-body(ng-class="{updated: hli._updated}")
+    textarea(ng-model="hli.hammer.text", ng-disabled="hli._saving", ng-minlength="1", ng-maxlength="212", ng-show="hli.isEdit")
+    .text {{ hli.hammer.text }}
   div.panel-footer
-    div.row
+    div.row.edit-controls(ng-if="hli.isEdit")
+      div.col-xs-6.text-center
+        button.btn.btn-mini.btn-default(type="reset", ng-disabled="hli._saving", ng-click="hli.resetEdit()") Cancel
+      div.col-xs-6.text-center
+        div.countdown {{ 212 - (hli.hammer.text.length || 0) }}
+        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="hli._saving", ng-click="hli.edit()") Save
+    div.row(ng-hide="hli.isEdit")
       div.col-sm-12
         div.pull-right.text-right
           a.flagit(ng-if="!hli.isOwn",
@@ -19,6 +26,8 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
           span.likes(ng-if="hli.isOwn")
             i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer.$votes, 'icon-loliful-icon-liked': hli.hammer.$votes}")
             span {{ hli.hammer.countVotes }}
+          a.edit(type="button", ng-click="hli.startEdit();", ng-if="hli.isOwn")
+            i.icon.icon-loliful-icon-edit()
         avatar(user="hli.hammer.$user")
         span.time-ago
           i.icon.icon-loliful-icon-time

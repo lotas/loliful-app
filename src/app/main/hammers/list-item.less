@@ -7,6 +7,7 @@
     font-size: @nailFooterTextSize;
     color: @nailHeaderColor;
     line-height: floor(@nailFooterTextSize * 1.8);
+    min-height: 50px;
 
     .icon {
       font-size: @nailFooterIconSize;
@@ -37,6 +38,12 @@
       }
       text-decoration: none;
       margin-left: 10px;
+    }
+  }
+
+  .panel-body {
+    textarea {
+      top: 10px;
     }
   }
 }

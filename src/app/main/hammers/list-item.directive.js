@@ -23,10 +23,12 @@ class HammerListItemController {
      * @param  {ShareService} ShareService
      * @param  {AuthService} AuthService
      * @param  {SweetAlert} SweetAlert
+     * @param $timeout
+     * @param $rootScope
      * @param  {any} toastr
      * @param  {any} $log
      */
-    constructor(Nail, Hammer, ShareService, AuthService, SweetAlert, $rootScope, toastr, $log) {
+    constructor(Nail, Hammer, ShareService, AuthService, SweetAlert, $timeout, $rootScope, toastr, $log) {
         'ngInject';
 
         this.Nail = Nail;
@@ -36,6 +38,7 @@ class HammerListItemController {
         this.ShareService = ShareService;
         this.SweetAlert = SweetAlert;
         this.$rootScope = $rootScope;
+        this.$timeout = $timeout;
 
         this.isOwn = this.hammer.userId && String(AuthService.getUserId()) === String(this.hammer.userId);
     }
@@ -130,5 +133,41 @@ class HammerListItemController {
         } else {
             this.ShareService.showDialog(this.hammer._share);
         }
+    }
+
+    startEdit() {
+        this._prevValue = this.hammer.text;
+        this.isEdit = true;
+    }
+    resetEdit() {
+        this.hammer.text = this._prevValue;
+        this.isEdit = false;
+    }
+    edit() {
+        if (this._prevValue === this.hammer.text) {
+            this.isEdit = false;
+            return;
+        }
+        this._saving = true;
+        this.Hammer.prototype$updateAttributes({
+            id: this.hammer.id
+        }, {
+            text: this.hammer.text
+        }).$promise
+            .then(res => {
+                this.toastr.success('All good!');
+                this.isEdit = false;
+                this._saving = false;
+                this._prevValue = '';
+                this._updated = true;
+                this.$timeout(() => {
+                    this._updated = false;
+                }, 700);
+            })
+            .catch(err => {
+                this._saving = false;
+                this.toastr.warning('oops, something went wrong');
+                this.$log.debug(err);
+            });
     }
 }
