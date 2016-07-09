@@ -190,6 +190,7 @@ class NailListItemController {
             }, 700);
         })
         .catch(err => {
+            this._saving = false;
             this.toastr.warning('oops, something went wrong');
             this.$log.debug(err);
         });
