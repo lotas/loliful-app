@@ -14,40 +14,47 @@
         div.social
           a.btn.btn-primary.share-f(
           rel="nofollow",
+          ng-click="addClick(share.id, 'fb')",
           href='https://www.facebook.com/sharer/sharer.php?u={{share.url}}',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
             i.icon.icon-loliful-icon-facebook(title='Share on Facebook')
           a.btn.btn-primary.share-t(
           rel="nofollow",
+          ng-click="addClick(share.id, 'twitter')",
           href='https://twitter.com/intent/tweet?text={{share.url}}&via=loliful_app&hashtags=loliful',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
             i.icon.icon-loliful-icon-twitter(title='Share on Twitter')
           a.btn.btn-primary.share-w(
           ng-if="screen.isTabletOrMobile",
           rel="nofollow",
+          ng-click="addClick(share.id, 'whatsapp')",
           href='whatsapp://send?text={{share.url}}',
           data-action="share/whatsapp/share")
             i.icon.icon-loliful-icon-whatsapp(title='Share on Whatsapp')
           a.btn.btn-primary.share-v(
           ng-if="screen.isTabletOrMobile",
           rel="nofollow",
+          ng-click="addClick(share.id, 'viber')",
           href='viber://forward?text={{share.url}}')
             img(src="/assets/img/share-v.svg", title="Share on Viber")
           a.btn.btn-primary.share-g(
           rel="nofollow",
+          ng-click="addClick(share.id, 'google')",
           href='https://plus.google.com/share?url={{share.url}}',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
             i.icon.icon-loliful-icon-google-plus(title='Share on Google+')
         div.align-center.copy-row.vOfs
           a.btn.btn-link(
             href="{{ share.img }}",
+            ng-click="addClick(share.id, 'download')",
             download
           )
             span Download
           a.btn.btn-link(
             ngclipboard,
             data-clipboard-text="{{ share.url }}",
-            ng-href="{{ share.url }}"
+            ng-href="{{ share.url }}",
+            ng-click="addClick(share.id, 'clipboard')",
           )
             span(
               bs-tooltip,
