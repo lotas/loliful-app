@@ -124,6 +124,10 @@
           .col-xs-2
             input.form-control#n-like(type="checkbox", ng-model="vm.notifications.emailLike", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
+          label.col-xs-10(for="n-digest") Send me a digest once a week
+          .col-xs-2
+            input.form-control#n-digest(type="checkbox", ng-model="vm.notifications.emailDigest", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
+        div.form-group
           .col-xs-9 &nbsp;
           .col-xs-3
             button.btn.btn-primary(type="submit", ng-disabled="settings.$pristine || vm.savingSettings") Save
