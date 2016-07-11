@@ -21,6 +21,9 @@ export function onAuthHandler(AuthService, $state, $location, $log, Storage) {
                 if (Storage.get('connect.account')) {
                     Storage.remove('connect.account');
                     $state.go('profile');
+                } else if (Storage.get('authRedirect')) {
+                    $location.replace(Storage.get('authRedirect'));
+                    Storage.remove('authRedirect');
                 } else {
                     $state.go('fresh');
                 }
