@@ -1,4 +1,4 @@
-import { LoginController, LogoutController, FirstRunController } from './auth/auth.controllers';
+import { LoginController, FirstRunController } from './auth/auth.controllers';
 import { SignupController } from './auth/signup.controllers';
 import { authRouteConfig } from './auth/auth.route';
 
@@ -18,7 +18,6 @@ angular.module('loliful.user', [])
     .config(authRouteConfig)
     .service('AuthService', AuthService)
     .controller('LoginController', LoginController)
-    .controller('LogoutController', LogoutController)
     .controller('FirstRunController', FirstRunController)
     .controller('SignupController', SignupController)
 
