@@ -21,11 +21,17 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
     });
 
     $stateProvider.state('home', {
-        parent: 'app',
         url: '/',
-        onEnter: function($state) {
+        onEnter: function($state, AuthService) {
             'ngInject';
-            $state.go('fresh');
+
+            console.log('home on enter')
+            if (AuthService.hasToken()) {
+                $state.go('fresh');
+            } else {
+                // Default top for masses..
+                $state.go('top');
+            }
         }
     });
 
