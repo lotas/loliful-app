@@ -25,7 +25,6 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
         onEnter: function($state, AuthService) {
             'ngInject';
 
-            console.log('home on enter')
             if (AuthService.hasToken()) {
                 $state.go('fresh');
             } else {
@@ -45,5 +44,6 @@ export function routerConfig($stateProvider, $urlRouterProvider) {
 
     $urlRouterProvider
         .when('', '/')
+        .when('/top', '/top/')
         .otherwise(notFoundRule);
 }
