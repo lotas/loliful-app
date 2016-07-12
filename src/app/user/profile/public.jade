@@ -31,14 +31,16 @@
       div.col-xs-4.statistic-col
         .statistic
           h3.title Intros
-          h1.count {{ vm.stats.nailCount || 0 }}
+          h1.count
+            a.clickable(ui-sref="profile.activity({id: vm.profile.id, activityType: 'nails'})") {{ vm.stats.nailCount || 0 }}
           div.hearts
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.nailKarma }}
       div.col-xs-4.statistic-col
         .statistic
           h3.title Outros
-          h1.count {{ vm.stats.hammerCount || 0 }}
+          h1.count
+            a.clickable(ui-sref="profile.activity({id: vm.profile.id, activityType: 'hammers'})") {{ vm.stats.hammerCount || 0 }}
           div.hearts
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.hammerKarma }}

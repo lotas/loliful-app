@@ -1,0 +1,25 @@
+float-menu(single="true")
+
+ul#secondary-menu.nav.nav-pills.activity.nav-justified
+  li(role="presentation")
+    a(ui-sref="profile.public({id: vm.profile.id})") {{ vm.profile.name }}
+  li(role="presentation", ui-sref-active="active")
+    a(ui-sref="profile.activity({id: vm.profile.id, activityType: 'nails'})")
+      |  Intros
+  li(role="presentation", ui-sref-active="active")
+    a(ui-sref="profile.activity({id: vm.profile.id, activityType: 'hammers'})")
+      | Outros
+
+div.container-fluid.align-center(ng-if="vm.$empty")
+  activity-empty-screen(type="vm.type")
+
+section
+  loading(ng-if="vm.$loading")
+
+  div.activities(infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
+    div.my-nails(ng-if="vm.items && vm.type=='nails'")
+      nail-list-item(nail="item", ng-repeat="item in vm.items track by item.id")
+    div.my-hammers(ng-if="vm.items && vm.type=='hammers'")
+      hammer-activity-item(hammer="item", ng-repeat="item in vm.items track by item.id")
+
+  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Show more

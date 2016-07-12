@@ -42,5 +42,22 @@ export function profileRouteConfig($stateProvider) {
                 pageTitle: 'Profile @ Loliful.io'
             }
         })
+        .state('profile.activity', {
+            parent: 'app',
+            url: '/profile/:id/:activityType',
+            views: {
+                'content@app': {
+                    templateUrl: 'app/user/profile/activity.html',
+                    controller: 'ProfileActivityController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                profile: resolvePublicProfile
+            },
+            data: {
+                pageTitle: 'Profile @ Loliful.io'
+            }
+        })
     ;
 }

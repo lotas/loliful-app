@@ -4,6 +4,7 @@ import { authRouteConfig } from './auth/auth.route';
 
 import { ProfileController } from './profile/profile.controller';
 import { ProfilePublicController } from './profile/public.controller';
+import { ProfileActivityController } from './profile/activity.controller';
 import { profileRouteConfig } from './profile/profile.route';
 
 import { AuthService } from './auth/auth.service';
@@ -25,6 +26,7 @@ angular.module('loliful.user', [])
     .config(profileRouteConfig)
     .controller('ProfileController', ProfileController)
     .controller('ProfilePublicController', ProfilePublicController)
+    .controller('ProfileActivityController', ProfileActivityController)
     .service('UserService', UserService)
 
 ;
