@@ -67,7 +67,7 @@
     .cardPaddings();
 
     border-top: 0;
-    line-height: floor(@nailFooterTextSize * 1.8);
+    line-height: 36px;
 
     .icon {
       font-size: @nailFooterIconSize;
@@ -89,6 +89,17 @@
         line-height: 29px;
       }
       text-decoration: none;
+    }
+
+    .btn {
+      color: @white;
+      .icon {
+        color: @white;
+      }
+      box-shadow: 0px 5px 10px 0px rgba(77,184,205,0.25);
+      border-radius: 100px;
+      padding: 2px 24px;
+      line-height: 32px;
     }
 
     position: relative;

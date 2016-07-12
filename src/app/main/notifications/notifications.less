@@ -19,9 +19,18 @@ h2 {
 .notification-list-item {
 
   margin-bottom: 15px;
-  .avatar img {
-    width: 24px;
-    border-radius: 16px;
+  .avatar {
+    img {
+      width: 24px;
+      border-radius: 16px;
+    }
+    position: relative;
+
+    .badge-pro,
+    .badge-mvp {
+      position: absolute;
+      bottom: -12px;
+    }
   }
   .username {
     display: none;
