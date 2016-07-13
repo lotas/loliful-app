@@ -13,8 +13,11 @@ div.panel.hammer-activity-item
           i.icon.icon-loliful-icon-time
           | {{ hai.hammer.created | timeAgo }}
       div.col-sm-6.col-xs-6.pull-right.text-right
-        a.likes
-          i.icon.icon-loliful-icon-like
+        a.likes(ng-click="hai.vote()", ng-class="{active: hai.hammer.$votes}", ng-if="!hai.isOwn")
+          i.icon(ng-class="{'icon-loliful-icon-like': !hai.hammer.$votes, 'icon-loliful-icon-liked': hai.hammer.$votes}")
           span {{ hai.hammer.countVotes }}
-        a.delete(ng-click="hai.delete()")
+        span.likes(ng-if="hai.isOwn")
+          i.icon(ng-class="{'icon-loliful-icon-like': !hai.hammer.$votes, 'icon-loliful-icon-liked': hai.hammer.$votes}")
+          span {{ hai.hammer.countVotes }}
+        a.delete(ng-click="hai.delete()", ng-if="hai.isOwn")
           i.icon.icon-loliful-icon-delete
