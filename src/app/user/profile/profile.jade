@@ -3,7 +3,7 @@
     h1 Profile
 
     .row
-      .col-xs-3
+      .col-xs-3.avatar
         img.user-avatar.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
       .col-xs-7
         h4(ng-hide="vm._edit_name") {{ vm.user.name }}
