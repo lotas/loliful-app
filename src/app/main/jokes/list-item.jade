@@ -7,6 +7,7 @@ div.panel.joke-list-item
     span.question {{ jli.joke.$nail.text }}
     span.answer {{ jli.joke.text }}
   div.panel-footer
+    a.btn.btn-default.joke-better(ui-sref="nail-view({nailId: jli.joke.$nail.id})") Joke better
     div.align-center
       a.btn.btn-primary(ng-click="jli.share()")
         i.icon.icon-loliful-icon-share

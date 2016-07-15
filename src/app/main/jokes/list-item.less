@@ -91,15 +91,25 @@
       text-decoration: none;
     }
 
-    .btn {
+    .btn.btn-primary {
       color: @white;
       .icon {
         color: @white;
       }
       box-shadow: 0px 5px 10px 0px rgba(77,184,205,0.25);
       border-radius: 100px;
-      padding: 2px 24px;
+      padding: 2px 21px;
       line-height: 32px;
+    }
+
+    .btn-default.joke-better {
+      position: absolute;
+      left: -2px;
+      float: left;
+      padding: 2px 18px;
+      line-height: 32px;
+      border-color: @themeSecondaryColor;
+      color: @themeSecondaryColor;
     }
 
     position: relative;
@@ -107,6 +117,17 @@
       display: inline-block;
       position: absolute;
       right: 5px;
+    }
+  }
+}
+
+@media (max-width:768px) {
+  .joke-list-item {
+    .panel-footer {
+      .btn.joke-better,
+      .btn.btn-primary {
+        padding: 2px 12px;
+      }
     }
   }
 }
