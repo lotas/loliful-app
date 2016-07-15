@@ -1,5 +1,5 @@
 span.avatar
   img.badge-pro(ng-if="user.badges.pro", title="PRO joker", src="/assets/img/badge-pro-sm.png")
   img.badge-mvp(ng-if="user.badges.mvp", title="Most V. Person", src="/assets/img/badge-mvp-sm.png")
-  img(ng-if="user.avatar" ng-src="{{ ::user.avatar }}")
+  img.fix-dimensions(ng-if="user.avatar" ng-src="{{ ::user.avatar }}")
 a.username(ui-sref="profile.public({id: user.id})", title="{{ ::user.name }}") {{ user.name.substr(0, 30) }}

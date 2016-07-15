@@ -4,7 +4,7 @@
 
     .row
       .col-xs-3.avatar
-        img.user-avatar.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
+        img.user-avatar.img-responsive.fix-dimensions(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
       .col-xs-7
         h4(ng-hide="vm._edit_name") {{ vm.user.name }}
         form.form(ng-if="vm._edit_name", name="vm.nameFrm", ng-submit="vm.setName(vm.nameFrm)")
