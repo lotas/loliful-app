@@ -109,6 +109,7 @@
   }
 
   .nail-view-modal {
+
     .modal-dialog {
       margin: 0;
 
@@ -117,9 +118,36 @@
       bottom: 0;
       left: 0;
       right: 0;
+
+      .modal-header {
+        background: #FFF;
+        margin: 0;
+        top: 0;
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-bottom: 15px;
+        position: fixed;
+        z-index: 100;
+
+        box-shadow: 0px 8px 12px 0px #EBEEF3;
+      }
+      // white triangle
+      .modal-header:after {
+        content: ' ';
+        display: inline-block;
+        border: 8px solid transparent;
+        border-top: 8px solid #FFF;
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        margin-left: -6px;
+      }
+
       .modal-content {
         height: auto;
         min-height: 100%;
+
+        background: @bodyBg;
 
         .back-btn {
           .back-btn();
@@ -130,6 +158,13 @@
         //height: 100%;
         padding: 4px;
         padding-bottom: 72px;
+
+        padding-top: 240px;
+
+        .hammer-list-item,
+        .hammer-list-item .panel-footer {
+          background: #FFF;
+        }
       }
     }
 
