@@ -1,4 +1,10 @@
 div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
+  div.panel-header
+    avatar(user="hli.hammer.$user")
+    span.time-ago
+      i.icon.icon-loliful-icon-time
+      | {{ hli.hammer.created | timeAgo }}
+
   div.panel-body(ng-class="{updated: hli._updated}")
     textarea(ng-model="hli.hammer.text", ng-disabled="hli._saving", ng-minlength="1", ng-maxlength="212", ng-show="hli.isEdit")
     .text {{ hli.hammer.text }}
@@ -28,10 +34,6 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
             span {{ hli.hammer.countVotes }}
           a.edit(type="button", ng-click="hli.startEdit();", ng-if="hli.isOwn")
             i.icon.icon-loliful-icon-edit()
-        avatar(user="hli.hammer.$user")
-        span.time-ago
-          i.icon.icon-loliful-icon-time
-          | {{ hli.hammer.created | timeAgo }}
         //- a(ng-click="hli.share()")
         //-   i.icon.icon-loliful-icon-share
         //-   | Share

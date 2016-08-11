@@ -3,23 +3,17 @@
     opacity: 0.3;
     border: 1px solid #E5736C;
   }
-
   .cardBox();
-
   .panel-heading {
     .cardPaddings();
     background-color: initial;
-
-    font-weight: normal;
-
+    font-weight: 100;
     color: @nailHeaderColor;
     font-size: @nailHeadFontSize;
     line-height: @nailHeadFontSize + 8px;
-
     a {
       color: @nailHeaderColor;
     }
-
     .username {
       display: inline-block;
       vertical-align: middle;
@@ -29,7 +23,6 @@
       max-width: 45%;
       padding-bottom: 3px;
     }
-
     .expander {
       float: right;
     }
@@ -46,7 +39,6 @@
     a {
       color: @nailTextColor;
     }
-
     .submenu {
       position: absolute;
       left: 0;
@@ -58,7 +50,6 @@
       text-align: center;
       vertical-align: middle;
       z-index: 9;
-
       transition: opacity 0.2s linear;
       opacity: 1;
       &.ng-enter {
@@ -83,9 +74,7 @@
       padding: 20px 30px;
       line-height: 20px;
       font-size: 14px;
-
       z-index: 10;
-
       .report-abuse {
         color: #E5736C;
         .icon {
@@ -98,22 +87,24 @@
     }
   }
   .panel-footer {
-    input.reply {
+    .reply {
       background: #FFFFFF;
       border: 1px solid @nailReplyInputBorder;
       border-radius: 8px;
       padding: 3px 10px;
       width: 120px;
       font-family: 'Lato';
-
       font-size: 12px;
       color: #D8D8D8;
-      line-height: 22px;
-
+      line-height: 20px;
       background: @nailReplyBg;
       height: 26px;
     }
-
+    .btn.reply {
+      text-align: center;
+      border-radius: 100px;
+      width: 71px;
+    }
     .reply-form {
       position: relative;
       .reply {
@@ -134,7 +125,6 @@
         color: lighten(@themeGrayColor, 15%);
       }
     }
-
     .cardPaddings();
     border-top: 0;
     background: #FFFFFF;
@@ -142,7 +132,6 @@
     color: @nailHeaderColor;
     line-height: floor(@nailFooterTextSize * 1.8);
     min-height: 50px;
-
     .icon {
       font-size: @nailFooterIconSize;
       color: @nailTextColor;
@@ -152,7 +141,6 @@
     .icon-loliful-icon-bookmarked {
       color: @themeMainColor;
     }
-
     .likes {
       span {
         margin-left: 10px;
@@ -172,14 +160,31 @@
     .show-sub {
       margin-right: 10px;
     }
+    .share {
+      margin-right: 6px;
+    }
   }
-
+  .outros {
+    .icon {
+      font-size: 16px;
+      color: @themeGrayColor;
+      line-height: 14px;
+      margin-right: 4px;
+    }
+    font-size: 12px;
+    color: @themeGrayColor;
+    letter-spacing: 0px;
+    line-height: 16px;
+  }
   .replies {
+    position: absolute;
+    left: 50%;
+    margin-left: -39px;
     span {
       display: none;
     }
-
     &.reply-added {
+      margin-left: -110px;
       span {
         display: block;
         min-width: 170px;
@@ -189,5 +194,57 @@
         display: none;
       }
     }
+  }
+  .dropdown-menu-trigger {
+    .icon {
+      float: right;
+      font-size: 24px;
+      color: @themeTextColor;
+      line-height: 24px;
+    }
+  }
+  position: relative;
+  .dropdown-menu {
+    width: 56px;
+    min-width: 54px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 12px 0px #EBEEF3;
+    border-radius: 8px;
+    left: 100% !important;
+    // margin-left: -65px !important;
+    // top: 40px !important;
+    margin-left: -94px !important;
+    top: -8px !important;
+    position: absolute !important;
+    border-color: #fff;
+    li {
+      a {
+        padding: 5px 16px;
+      }
+      .icon {
+        font-size: 24px;
+        color: @themeTextColor;
+        line-height: 24px;
+      }
+    }
+  }
+
+  // triangle
+  .dd-triangle(@x, @y, @border, @color) {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    top: @y;
+    right: @x;
+    border-bottom: @border solid transparent;
+    border-top: @border solid transparent;
+    border-left: @border solid @color;
+    border-right: @border solid transparent;
+  }
+  .dropdown-menu:before {
+    .dd-triangle(-13px, 22px, 6px, #fff);
+  }
+  .dropdown-menu:after {
+    .dd-triangle(-12px, 23px, 5px, #ffffff);
   }
 }

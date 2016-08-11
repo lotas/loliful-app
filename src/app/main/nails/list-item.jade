@@ -4,9 +4,30 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
     span.time-ago
       i.icon.icon-loliful-icon-time
       | {{ nlm.nail.created | timeAgo }}
-    a.expander(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
-    title="Answers count: {{nlm.nail.countAnswers}}")
-      span(ng-if="nlm.nail.countAnswers") {{ nlm.nail.countAnswers }}
+    a.dropdown-menu-trigger(bs-dropdown, data-placement="bottom")
+      i.icon.icon-loliful-icon-submenu
+    ul.dropdown-menu(role="menu")
+      li(ng-if="!nlm.isOwn")
+        a.show-sub(ng-click="nlm.report();",
+        data-type="info",
+        bs-tooltip,
+        title="Flag this as inappropriate")
+          i.i.icon.icon-loliful-icon-flag
+      li
+        a(type="button",
+        ng-click="nlm.favorite()",
+        bs-tooltip,
+        title="Save for later. You can find in Activity > Saved",
+        ng-class="{active: nlm.nail.$favorite}")
+          i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
+      li(ng-if="nlm.isOwn")
+        a.delete(type="button", ng-click="nlm.delete()")
+          i.icon.icon-loliful-icon-delete()
+      li(ng-if="nlm.isOwn")
+        a.edit(type="button", ng-click="nlm.startEdit();")
+          i.icon.icon-loliful-icon-edit()
+
+
   div.panel-body.clickable(ng-click="nlm.cardClick($event);", ng-class="{updated: nlm._updated}")
     textarea(ng-model="nlm.nail.text", ng-disabled="nlm._saving", ng-minlength="3", ng-maxlength="212", ng-show="nlm.isEdit")
     .text {{ nlm.nail.text }}
@@ -18,30 +39,23 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
         div.countdown {{ 212 - (nlm.nail.text.length || 0) }}
         button.btn.btn-mini.btn-primary(type="submit", ng-disabled="nlm._saving", ng-click="nlm.edit()") Save
     div.row(ng-hide="nlm._reply || nlm.isEdit")
-      div.col-xs-4.replies(ng-class="{'reply-added': nlm._replyAdded}")
+      div.col-xs-3
+        a.outros(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
+         title="Answers count: {{nlm.nail.countAnswers}}",
+         bs-tooltip)
+          i.icon.icon-loliful-icon-outro
+          | {{nlm.nail.countAnswers}}
+      div.replies(ng-class="{'reply-added': nlm._replyAdded}")
         span Replied! Let's see how it goes!
-        div(ng-click="nlm.showReplyForm()", ng-hide="nlm._reply")
-          input.reply.disabled(value="Joke")
+        div(ng-hide="nlm._reply")
+          a.reply.btn.btn-default(ng-click="nlm.showReplyForm()") Joke
       div.col-xs-6.pull-right.text-right(ng-if="nlm.isOwn")
         a.likes.own(type="button")
           i.icon.icon-loliful-icon-like
           span {{ nlm.nail.countVotes }}
-        a.delete(type="button", ng-click="nlm.delete()")
-          i.icon.icon-loliful-icon-delete()
-        a.edit(type="button", ng-click="nlm.startEdit();")
-          i.icon.icon-loliful-icon-edit()
       div.col-xs-6.pull-right.text-right(ng-if="!nlm.isOwn")
-        a.show-sub(ng-click="nlm.report();",
-        data-type="info",
-        bs-tooltip,
-        title="Flag this as inappropriate")
-          i.i.icon.icon-loliful-icon-flag
-        a(type="button",
-        ng-click="nlm.favorite()",
-        bs-tooltip,
-        title="Save for later. You can find in Activity > Saved",
-        ng-class="{active: nlm.nail.$favorite}")
-          i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
+        a.share(ng-click="nlm.share()")
+          i.icon.icon-loliful-icon-share
         a.likes(type="button", ng-click="nlm.vote()", ng-class="{active: nlm.nail.$votes}")
           i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail.$votes, 'icon-loliful-icon-liked': nlm.nail.$votes}")
           span {{ nlm.nail.countVotes }}

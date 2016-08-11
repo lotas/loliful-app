@@ -138,3 +138,12 @@
 .icon-loliful-icon-google-plus:before {
   content: "\44";
 }
+.icon-loliful-icon-outro:before {
+  content: "\45";
+}
+.icon-loliful-icon-contact:before {
+  content: "\46";
+}
+.icon-loliful-icon-settings:before {
+  content: "\47";
+}

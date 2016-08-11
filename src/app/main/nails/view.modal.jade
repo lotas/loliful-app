@@ -2,9 +2,8 @@
   .modal-dialog
     .modal-content
       .modal-header(ng-show='screen.isPhone')
-        div.mobile-wrap(ng-show='screen.isPhone')
-          div.back-btn#nail-back-btn
-            a.btn(ng-click="$hide()") ← Back
+        div.mobile-wrap(ng-if="nv.nail")
+          nail-list-item(nail="nv.nail", is-nail-view="true", ng-click="nv.onNailClick()")
       .modal-body
         div(ng-hide='screen.isPhone')
           a.close.pull-right(ng-click="$hide()", title="Close")
@@ -15,7 +14,7 @@
           div.progress-bar.progress-current
 
         div.nail-wrapper(ng-if="nv.nail")
-          nail-list-item(nail="nv.nail", is-nail-view="true", ng-click="nv.onNailClick()")
+          nail-list-item(ng-if="!screen.isPhone", nail="nv.nail", is-nail-view="true", ng-click="nv.onNailClick()")
 
           div.panel.hammer-list-item.hidden
             div.panel-body
@@ -28,5 +27,13 @@
             hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by item.id")
           div.container-fluid.hammers(ng-if="nv.nail.$hammers && screen.isPhone")
             hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by item.id")
+      .modal-footer.fixed-footer(ng-show='screen.isPhone')
+        div.row
+          div.col-xs-6
+            div.back-btn.pull-left
+              a.btn(ng-click="$hide()") ← Back
+          div.col-xs-6
+            div.reply-btn.pull-right
+              a.btn.btn-primary.btn-small() Reply
 
 
