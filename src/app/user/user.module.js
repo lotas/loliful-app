@@ -1,9 +1,10 @@
-import { LoginController, LogoutController, FirstRunController } from './auth/auth.controllers';
+import { LoginController, FirstRunController } from './auth/auth.controllers';
 import { SignupController } from './auth/signup.controllers';
 import { authRouteConfig } from './auth/auth.route';
 
 import { ProfileController } from './profile/profile.controller';
 import { ProfilePublicController } from './profile/public.controller';
+import { ProfileActivityController } from './profile/activity.controller';
 import { profileRouteConfig } from './profile/profile.route';
 
 import { AuthService } from './auth/auth.service';
@@ -18,7 +19,6 @@ angular.module('loliful.user', [])
     .config(authRouteConfig)
     .service('AuthService', AuthService)
     .controller('LoginController', LoginController)
-    .controller('LogoutController', LogoutController)
     .controller('FirstRunController', FirstRunController)
     .controller('SignupController', SignupController)
 
@@ -26,6 +26,7 @@ angular.module('loliful.user', [])
     .config(profileRouteConfig)
     .controller('ProfileController', ProfileController)
     .controller('ProfilePublicController', ProfilePublicController)
+    .controller('ProfileActivityController', ProfileActivityController)
     .service('UserService', UserService)
 
 ;

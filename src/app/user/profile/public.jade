@@ -2,9 +2,11 @@
   .main-block.container-fluid
 
     .row
-      .col-xs-3.avatar
-        img.user-avatar.img-responsive(ng-src="{{ vm.profile.avatar }}", ng-show="vm.profile.avatar")
-        img.mvp(src="/assets/img/loliful-mvp.svg")
+      .col-xs-3
+        .avatar
+          img.user-avatar.img-responsive.fix-dimensions(ng-src="{{ vm.profile.avatar }}", ng-if="vm.profile.avatar")
+          img.badge-mvp(src="/assets/img/badge-mvp-lg.png", title="Most V. Person", ng-if="vm.profile.badges.mvp", bs-tooltip)
+          img.badge-pro(src="/assets/img/badge-pro-lg.png", title="PRO Joker", ng-if="vm.profile.badges.pro", bs-tooltip)
       .col-xs-9
         h4 {{ ::vm.profile.name }}
 
@@ -29,14 +31,16 @@
       div.col-xs-4.statistic-col
         .statistic
           h3.title Intros
-          h1.count {{ vm.stats.nailCount || 0 }}
+          h1.count
+            a.clickable(ui-sref="profile.activity({id: vm.profile.id, activityType: 'nails'})") {{ vm.stats.nailCount || 0 }}
           div.hearts
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.nailKarma }}
       div.col-xs-4.statistic-col
         .statistic
           h3.title Outros
-          h1.count {{ vm.stats.hammerCount || 0 }}
+          h1.count
+            a.clickable(ui-sref="profile.activity({id: vm.profile.id, activityType: 'hammers'})") {{ vm.stats.hammerCount || 0 }}
           div.hearts
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.hammerKarma }}

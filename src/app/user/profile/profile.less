@@ -29,18 +29,21 @@
     .statistic {
       text-align: center;
 
-       .title {
-         font-family: Lato;
-         font-size: 14px;
-         color: @themeTextColor;
-         line-height: 28px;
-       }
+      .title {
+        font-family: Lato;
+        font-size: 14px;
+        color: @themeTextColor;
+        line-height: 28px;
+      }
       .count {
         font-family: Lato;
         font-weight: 400;
         font-size: 40px;
-        color: #E5736C;
+        color: @themeActivityColor;
         line-height: 56px;
+        a {
+          color: @themeActivityColor;
+        }
       }
       .hearts {
         /* 256: */
@@ -65,25 +68,35 @@
 
   .avatar {
     position: relative;
+    max-width: 150px;
 
-    img {
-      border-radius: 50px;
+    img.user-avatar {
+      border-radius: 100px;
       z-index: 4;
+
+      &:not([src]) {
+        background: darken(#BD10E0, 30%);
+        width: 96px;
+        height: 96px;
+      }
     }
-    .mvp {
+
+    .badge-pro,
+    .badge-mvp {
       position: absolute;
-      width: 26px;
-      left: 10px;
+      width: 70px;
+      left: 50%;
+      margin-left: -35px;
       bottom: -10px;
       z-index: 5;
     }
   }
 
-  &>.row {
+  & > .row {
     // .d1();
     // margin-right: 5px;
   }
-  &>div {
+  & > div {
     margin-top: 20px;
   }
   [class^=col-] {
@@ -96,9 +109,6 @@
     color: @themeTextColor;
   }
 
-  .user-avatar {
-    border-radius: 150px;
-  }
   .about-me {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -114,7 +124,7 @@
     overflow-y: auto;
   }
 
-  .edit-name{
+  .edit-name {
     font-size: 24px;
     color: @themeSecondaryColor;
     line-height: 24px;
@@ -196,10 +206,6 @@
 
 .profile-page.public {
 
-  .user-avatar {
-    border-radius: 100px;
-  }
-
   .main-block {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -213,6 +219,15 @@
 
     img {
       margin-right: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    .badge-mvp,
+    .badge-pro {
+      transform: scale(0.7);
     }
   }
 }

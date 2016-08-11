@@ -18,7 +18,13 @@ export class ShareService {
     }
 
     getShareIntro(nailId) {
-        return this.$http.get(this.apiEndpoint + '/share/' + nailId).then(res => {
+        return this.$http.get(`${this.apiEndpoint}/share/${nailId}`).then(res => {
+            return res.data;
+        });
+    }
+
+    addShareClick(shareId, network) {
+        return this.$http.post(`${this.apiEndpoint}/share/${shareId}/${network}`).then(res => {
             return res.data;
         });
     }
@@ -27,9 +33,9 @@ export class ShareService {
         var $scope = this.$rootScope.$new();
         $scope.hammer = hammer;
         $scope.share = hammer._share || false;
+        $scope.addClick = this.addShareClick.bind(this);
 
         // TODO : add component
-        // Track clicks on 'share'
 
         this.$modal({
             templateUrl: 'app/main/share/dialog.html',

@@ -13,7 +13,7 @@ export function NavigationDirective() {
 }
 
 class NavigationController {
-    constructor($rootScope, $state, $aside, $log, $timeout, LiveService, Notification, User) {
+    constructor($rootScope, $state, $aside, $log, $timeout, LiveService, Notification, User, AuthService) {
         'ngInject';
 
         this.$rootScope = $rootScope;
@@ -26,12 +26,22 @@ class NavigationController {
         this.freshNails = [];
 
         this.user = false;
-        User.getCurrent().$promise.then(user => {
-            this.user = user;
+        if (AuthService.hasToken()) {
+            User.getCurrent().$promise.then(user => {
+                this.user = user;
 
-            this.loadNotificationsCount();
-            this.subscribeNotifications();
-        });
+                this.loadNotificationsCount();
+                this.subscribeNotifications();
+            });
+            // reload notifications on state change
+            $rootScope.$on('$stateChangeSuccess', () => {
+                $timeout(() => {
+                    if (this.user) {
+                        this.loadNotificationsCount();
+                    }
+                }, 1500);
+            });
+        }
 
         $timeout(() => {
             this.sidebar = $aside({
@@ -39,13 +49,6 @@ class NavigationController {
                 show: false
             });
         }, 100);
-
-        // reload notifications on state change
-        $rootScope.$on('$stateChangeSuccess', () => {
-            $timeout(() => {
-                this.loadNotificationsCount();
-            }, 1500);
-        });
     }
 
     showAside() {

@@ -32,7 +32,8 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Top Ω Loliful.io'
+                pageTitle: 'Top Ω Loliful.io',
+                authRequired: false
             }
         })
         .state('activity', {

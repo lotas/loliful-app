@@ -3,8 +3,8 @@
     h1 Profile
 
     .row
-      .col-xs-3
-        img.user-avatar.img-responsive(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
+      .col-xs-3.avatar
+        img.user-avatar.img-responsive.fix-dimensions(ng-src="{{ vm.user.avatar }}", ng-show="vm.user.avatar")
       .col-xs-7
         h4(ng-hide="vm._edit_name") {{ vm.user.name }}
         form.form(ng-if="vm._edit_name", name="vm.nameFrm", ng-submit="vm.setName(vm.nameFrm)")
@@ -87,14 +87,16 @@
       div.col-xs-4.statistic-col
         .statistic
           h3.title Intros
-          h1.count {{ vm.stats.nailCount || 0 }}
+          h1.count
+            a.clickable(ui-sref="profile.activity({id: vm.user.id, activityType: 'nails'})") {{ vm.stats.nailCount || 0 }}
           div.hearts(bs-tooltip, title="So many people liked youre intros")
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.nailKarma || 0}}
       div.col-xs-4.statistic-col
         .statistic
           h3.title Outros
-          h1.count {{ vm.stats.hammerCount || 0 }}
+          h1.count
+            a.clickable(ui-sref="profile.activity({id: vm.user.id, activityType: 'hammers'})") {{ vm.stats.hammerCount || 0 }}
           div.hearts(bs-tooltip, title="So many people liked youre outros")
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.hammerKarma || 0}}
@@ -123,6 +125,10 @@
           label.col-xs-10(for="n-like") Someone likes my outro
           .col-xs-2
             input.form-control#n-like(type="checkbox", ng-model="vm.notifications.emailLike", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
+        div.form-group
+          label.col-xs-10(for="n-digest") Send me a digest once a week
+          .col-xs-2
+            input.form-control#n-digest(type="checkbox", ng-model="vm.notifications.emailDigest", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
           .col-xs-9 &nbsp;
           .col-xs-3

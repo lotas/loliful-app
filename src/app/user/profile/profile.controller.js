@@ -106,7 +106,8 @@ export class ProfileController {
         this.User.prototype$__update__notificationSettings({
             id: this.user.id,
             emailReply: this.notifications.emailReply,
-            emailLike: this.notifications.emailLike
+            emailLike: this.notifications.emailLike,
+            emailDigest: this.notifications.emailDigest
         }, () => {
             this.savingSettings = false;
             this.toastr.success('Thanks! All saved.')

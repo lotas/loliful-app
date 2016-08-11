@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="70px" height="26px" viewBox="0 0 70 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="70" height="26" rx="4"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="70" height="26" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <use id="Rectangle-142-Copy-4" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="2" fill="#A7D479" xlink:href="#path-1"></use>
+            <path d="M15,5 C10.5657143,5 7,8.56571429 7,13 C7,17.4342857 10.5657143,21 15,21 C19.4342857,21 23,17.4342857 23,13 C23,8.56571429 19.4342857,5 15,5 L15,5 Z M15,19.3085714 C11.9371429,19.3085714 9.42285714,17.0685714 8.96571429,14.1428571 C11.8,12.0857143 15.32,11.0342857 19.0685714,10.8514286 C21.2171429,10.76 21.1257143,11.5828571 21.1257143,13.1828571 C21.1257143,16.5657143 18.3828571,19.3085714 15,19.3085714 L15,19.3085714 Z" id="Shape-Copy-5" fill="#FFFFFF"></path>
+            <text id="PRO" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" line-spacing="14" fill="#FFFFFF">
+                <tspan x="29" y="20">PRO</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
