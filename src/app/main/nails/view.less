@@ -126,9 +126,7 @@
         padding-left: 10px;
         padding-right: 10px;
         margin-bottom: 15px;
-        position: fixed;
         z-index: 100;
-
         box-shadow: 0px 8px 12px 0px #EBEEF3;
       }
       // white triangle
@@ -146,7 +144,6 @@
       .modal-content {
         height: auto;
         min-height: 100%;
-
         background: @bodyBg;
 
         .back-btn {
@@ -159,7 +156,7 @@
         padding: 4px;
         padding-bottom: 72px;
 
-        padding-top: 240px;
+        // padding-top: 240px;
 
         .hammer-list-item,
         .hammer-list-item .panel-footer {
@@ -177,6 +174,7 @@
       height: 72px;
       padding-top: 8px;
       padding-left: 0;
+      z-index: 101;
 
       background: #FFFFFF;
       box-shadow: 0px -8px 12px 0px #EBEEF3;
@@ -197,27 +195,42 @@
 }
 
 .nail-fixed {
-  .nail-wrapper {
-    margin-top: 100px;
-    .nail-list-item .panel-body {
-      -webkit-transition: left 1s, top 1s, box-shadow 1s;
-      transition: left 1s, top 1s, box-shadow 1s;
+  .nail-list-item {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 101;
 
-      z-index: 1020;
-      background: #fff;
+    padding-top: 10px;
+    padding-left: 10px;
 
-      box-shadow: 0px 10px 80px 0px @nailBoxShadow;
 
+    .panel-body {
       min-height: initial;
+      padding-bottom: 20px;
 
-      padding: 30px 30px 20px 30px;
-
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-
+      -webkit-transition: height 1s, top 1s, padding 1s;
+      transition: height 1s, top 1s, padding 1s;
     }
+    box-shadow: 0px 10px 80px 0px @nailBoxShadow !important;
+
+    .panel-heading,
+    .panel-footer {
+      // display: none;
+      min-height: 0;
+      height: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      overflow: hidden;
+
+      -webkit-transition: height 0.5s, min-height 0.5s, padding 0.5s;
+      transition: height 0.5s, min-height 0.5s, padding 0.5s;
+    }
+  }
+
+  .nail-wrapper {
+    padding-top: 190px;
   }
 }
 

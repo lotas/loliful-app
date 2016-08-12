@@ -126,7 +126,8 @@ export function nailModalView($modal, nailId, $rootScope) {
         }
 
         function scrollHandler() {
-            if (nailModal.scrollTop() > 140) {
+            let scrollTop = nailModal.scrollTop();
+            if (scrollTop > 60) {
                 nailModal.addClass('nail-fixed');
             } else {
                 nailModal.removeClass('nail-fixed');
