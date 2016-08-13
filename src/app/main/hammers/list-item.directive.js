@@ -122,17 +122,7 @@ class HammerListItemController {
     }
 
     share() {
-        if (!this.hammer._share) {
-            this.ShareService.getShare(this.hammer.id).then(res => {
-                this.hammer._share = res;
-                this.ShareService.showDialog(res);
-            }).catch(err => {
-                this.$log.debug(err);
-                this.toastr.warning('Oh boy... God knows how hard I try, but it failed this time');
-            });
-        } else {
-            this.ShareService.showDialog(this.hammer._share);
-        }
+       this.ShareService.showShareDialog(this.hammer);
     }
 
     startEdit() {

@@ -31,7 +31,8 @@ class NailListItemController {
      * @param $scope
      * @param $tim
      */
-    constructor(Nail, SweetAlert, AuthService, User, toastr, $state, $log, $rootScope, $scope, $timeout) {
+    constructor(Nail, SweetAlert, AuthService, User, toastr, $state, $log,
+        $rootScope, $scope, $timeout, ShareService) {
         'ngInject';
 
         this.Nail = Nail;
@@ -42,6 +43,7 @@ class NailListItemController {
         this.$rootScope = $rootScope;
         this.$timeout = $timeout;
         this.$state = $state;
+        this.ShareService = ShareService;
 
         this.isOwn = this.nail.userId && String(AuthService.getUserId()) === String(this.nail.userId);
 
@@ -252,5 +254,9 @@ class NailListItemController {
                 }
             });
         }
+    }
+
+    share() {
+        this.ShareService.showShareDialog(null, this.nail);
     }
 }

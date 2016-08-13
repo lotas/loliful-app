@@ -29,7 +29,7 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
           a.edit(type="button", ng-click="hli.startEdit();", ng-if="hli.isOwn")
             i.icon.icon-loliful-icon-edit()
         div.pull-right.text-right
-          a.share(ng-click="nlm.share()")
+          a.share(ng-click="hli.share()")
             i.icon.icon-loliful-icon-share
           a.likes(ng-click="hli.vote()", ng-class="{active: hli.hammer.$votes}", ng-if="!hli.isOwn")
             i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer.$votes, 'icon-loliful-icon-liked': hli.hammer.$votes}")
@@ -37,7 +37,3 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
           span.likes(ng-if="hli.isOwn")
             i.icon(ng-class="{'icon-loliful-icon-like': !hli.hammer.$votes, 'icon-loliful-icon-liked': hli.hammer.$votes}")
             span {{ hli.hammer.countVotes }}
-        //- a(ng-click="hli.share()")
-        //-   i.icon.icon-loliful-icon-share
-        //-   | Share
-        //- button.btn.btn-danger(type="button", ng-click="hli.report()") Abuse

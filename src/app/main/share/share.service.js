@@ -29,31 +29,50 @@ export class ShareService {
         });
     }
 
-    showShareDialog(hammer) {
+    /**
+     * Get generated card for nail or hammer
+     * Only one of the params is required
+     *
+     * @param {Hammer} hammer can be null
+     * @param {Nail} nail can be null
+     */
+    showShareDialog(hammer, nail) {
         var $scope = this.$rootScope.$new();
-        $scope.hammer = hammer;
-        $scope.share = hammer._share || false;
-        $scope.addClick = this.addShareClick.bind(this);
 
-        // TODO : add component
+        let obj = hammer || nail;
+
+        $scope.share = obj._share || false;
+        $scope.addClick = this.addShareClick.bind(this);
 
         this.$modal({
             templateUrl: 'app/main/share/dialog.html',
             prefixEvent: 'shareDialg',
             backdrop: 'static',
+            prefixClass: 'shareDialog',
             animation: false,
             scope: $scope,
             show: true
         });
 
-        if (!hammer._share) {
-            this.getShare(hammer.nailId, hammer.id).then(res => {
-                hammer._share = res;
+        if (!obj._share) {
+            let successCb = res => {
+                obj._share = res;
                 $scope.share = res;
-            }).catch(err => {
+            };
+            let errorCb = err => {
                 this.$log.debug(err);
                 this.SweetAlert.warning('O-ohh... Looks like we cannot share this now. Please try again.');
-            });
+            };
+
+            if (hammer) {
+                this.getShare(hammer.nailId, hammer.id)
+                    .then(successCb)
+                    .catch(errorCb);
+            } else if (nail) {
+                this.getShareIntro(nail.id)
+                    .then(successCb)
+                    .catch(errorCb);
+            }
         }
     }
 
