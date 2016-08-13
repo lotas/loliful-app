@@ -111,6 +111,11 @@ export function nailModalView($modal, nailId, $rootScope) {
         }
 
         function scrollHandler() {
+            // dont mess with edit form
+            if (nv._replyForm) {
+                return false;
+            }
+
             let scrollTop = nailModal.scrollTop();
             if (scrollTop > 60) {
                 nailModal.addClass('nail-fixed');
