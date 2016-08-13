@@ -128,7 +128,8 @@
         padding-left: 10px;
         padding-right: 10px;
         margin-bottom: 15px;
-        z-index: 100;
+        z-index: 300;
+        position: relative;
         box-shadow: 0px 8px 12px 0px #EBEEF3;
       }
       // white triangle
@@ -249,4 +250,56 @@
 .modal-backdrop {
   background: #F3F5F8;
   opacity: 0.9;
+}
+
+
+// Reply form
+.nail-view-modal {
+  .reply-modal {
+    position: fixed;
+    left: 0;
+    top: 200px;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    background: #F3F5F8;
+    opacity: 1;
+    z-index: 201;
+
+    .form-container {
+      margin: 20px;
+      padding: 10px 15px;
+      background: #FFFFFF;
+      box-shadow: 0px 8px 12px 0px #EBEEF3;
+      border-radius: 8px;
+      opacity: 1;
+
+      p {
+        // font-weight: 400;
+        font-size: 16px;
+      }
+      textarea {
+        width: 100%;
+        min-height: 100px;
+        background: #FFFFFF;
+        border: 1px solid #82CCDC;
+        border-radius: 4px;
+      }
+      .row {
+        margin-bottom: 15px;
+      }
+      .btn {
+        padding: 8px 40px;
+        font-weight: 100;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+.nail-fixed.nail-view-modal {
+  .reply-modal {
+    top: 60px;
+
+  }
 }

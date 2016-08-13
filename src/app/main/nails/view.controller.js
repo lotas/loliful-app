@@ -9,28 +9,6 @@ export class NailViewController {
         this.Nail = Nail;
         this.User = User;
     }
-
-    reply() {
-        this.Nail.prototype$__create__hammers({
-            id: this.nail.id
-        }, this._hammer)
-            .$promise
-            .then(res => {
-                if (!this.nail.$hammers) {
-                    this.nail.$hammers = [];
-                }
-                if (!res.$user) {
-                    res.$user = this.User.getCurrent();
-                }
-                this.nail.$hammers.unshift(res);
-                this.nail.countAnswers += 1;
-                this._hammer = '';
-            })
-            .catch(err => {
-                this.$log.debug(err);
-                this.toastr.warning('oops, I failed again');
-            });
-    }
 }
 
 /**
@@ -63,10 +41,17 @@ export function nailModalView($modal, nailId, $rootScope) {
         'ngInject';
 
         var nv = this;
+        nv.onNailClick = scrollBack;
+        nv.reply = sendReply
 
-        nv.onNailClick = function() {
+        function scrollBack() {
             $anchorScroll('nail-back-btn');
-        };
+        }
+        function sendReply() {
+            $rootScope.$emit('nail.reply-added', nailId, nv._hammerText);
+            nv._replyForm = false;
+            nv._hammerText = '';
+        }
 
         MainService.getNail(nailId).then(nail => {
             nv.nail = nail;

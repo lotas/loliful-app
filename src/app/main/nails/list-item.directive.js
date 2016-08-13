@@ -52,6 +52,7 @@ class NailListItemController {
 
         this._tm;
 
+        // to hide reply form when other was opened
         var dereg = $rootScope.$on('reply-form.open', (evt, nailId) => {
             if (this._reply && nailId !== this.nail.id) {
                 this.hideReplyForm();
@@ -64,10 +65,21 @@ class NailListItemController {
             }
         });
 
+        // for separate modal window to add answer and trigger native reply()
+        var dereg3 = $rootScope.$on('nail.reply-added', (evt, nailId, text) => {
+            if (String(this.nail.id) === String(nailId)) {
+                this._hammer = {
+                    text: text
+                };
+                this.reply();
+            }
+        });
+
         $scope.$on('$destroy', () => {
             this.hideReplyForm();
             dereg();
             dereg2();
+            dereg3();
             if (this._tm) {
                 $timeout.cancel(this._tm);
             }
