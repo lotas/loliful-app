@@ -1,0 +1,37 @@
+.popover.float-popup-menu
+  .arrow
+  .popover-content
+    ul.nav.nav-list
+      li.logout
+        a(ui-sref="logout")
+          i.icon.icon-loliful-icon-exit
+          | Lol out
+      li.separator
+          hr
+      li
+        a(ui-sref="page.about", ng-click="$hide()")
+          i.icon.icon-loliful-icon-about
+          | About
+      li
+        a(ui-sref="page.contact", ng-click="$hide()")
+          i.icon.icon-loliful-icon-edit
+          | Contact
+      li.hidden
+        a(ui-sref="notifications", ng-click="$hide()")
+          i.icon.icon-loliful-icon-notification
+          | Notifications
+        span.badge(ng-show="vm.unreadCount") {{ vm.unreadCount }}
+      li
+        a(ui-sref="profile", ng-click="$hide()")
+          i.icon.icon-loliful-icon-profile
+          | Profile
+      li.separator
+        hr
+      li
+        a(ui-sref="fresh", ng-click="$hide()")
+          i.icon.icon-loliful-icon-nav-fresh
+          | Intros
+      li
+        a(ui-sref="top", ng-click="$hide()")
+          i.icon.icon-loliful-icon-nav-top
+          | Intros

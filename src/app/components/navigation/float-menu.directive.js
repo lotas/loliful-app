@@ -28,7 +28,6 @@ class FloatMenuController {
 
         this.win = angular.element($window);
         this.body = angular.element('body');
-        this.fm1 = angular.element('#fm1');
         this.fm2 = angular.element('#fm2').find('.top-nav');
 
         if (this.show) {
@@ -52,7 +51,6 @@ class FloatMenuController {
         var scrollHandler = this.throttle(this.scroll, 100).bind(this);
 
         this.showFloatMenu = true;
-        this.hideTm = null;
 
         this.win.on('scroll', scrollHandler);
         this.$scope.$on('$destroy', () => {
@@ -61,27 +59,12 @@ class FloatMenuController {
             delete this.scrollHandler;
             delete this.fm2;
 
-            if (this.hideTm) {
-                this.$timeout.cancel(this.hideTm);
-            }
-
             this._deregister();
             this._deregister2();
         });
 
         this.hidden = this.show ? false : true;
         this.scroll();
-    }
-
-    showHideNav() {
-        this.showNav = !this.showNav;
-        this.showFloatMenu = !this.showNav;
-        if (this.showNav === true) {
-            this.hideTm = this.$timeout(() => {
-                this.showNav = false;
-                this.showFloatMenu = true;
-            }, 5000);
-        }
     }
 
     addClick() {
@@ -92,7 +75,6 @@ class FloatMenuController {
         if (this.$window.pageYOffset < 80) {
             if (!this.hidden) {
                 this.fm2.addClass('hidden');
-                this.fm1.addClass('ng-hide');
                 this.hidden = true;
             }
         } else {
