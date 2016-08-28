@@ -11,6 +11,7 @@ var $ = require('gulp-load-plugins')();
 
 function webpackWrapper(watch, test, callback) {
     var webpackOptions = {
+        quiet: false,
         watch: watch,
         module: {
             preLoaders: [{
@@ -34,6 +35,9 @@ function webpackWrapper(watch, test, callback) {
     var webpackChangeHandler = function(err, stats) {
         if (err) {
             conf.errorHandler('Webpack')(err);
+            console.log('---', err);
+            console.log(stats.compilation.errors.toString());
+            console.log(stats.compilation.warnings.toString());
         }
         $.util.log(stats.toString({
             colors: $.util.colors.supportsColor,
@@ -55,6 +59,10 @@ function webpackWrapper(watch, test, callback) {
 
     return gulp.src(sources)
         .pipe(webpack(webpackOptions, null, webpackChangeHandler))
+        .on('error', err => {
+            console.log('err');
+            console.error(err.message);
+        })
         .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/app')));
 }
 
