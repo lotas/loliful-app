@@ -67,7 +67,8 @@ class NailListItemController {
 
         // for separate modal window to add answer and trigger native reply()
         var dereg3 = $rootScope.$on('nail.reply-added', (evt, nailId, text) => {
-            if (String(this.nail.id) === String(nailId)) {
+            if (!evt.defaultPrevented && String(this.nail.id) === String(nailId)) {
+                evt.preventDefault();
                 this._hammer = {
                     text: text
                 };

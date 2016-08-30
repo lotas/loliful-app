@@ -19,5 +19,8 @@
     "jQuery": true,
     "io": true,
     "$": true
+  },
+  "rules": {
+    "no-console" : 1
   }
 }

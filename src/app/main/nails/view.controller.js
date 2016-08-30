@@ -37,7 +37,7 @@ export function nailModalView($modal, nailId, $rootScope) {
 
     return modal;
 
-    function nailViewCtrl(MainService, $state, $anchorScroll) {
+    function nailViewCtrl(MainService, $state, $anchorScroll, $scope) {
         'ngInject';
 
         var nv = this;
@@ -99,6 +99,10 @@ export function nailModalView($modal, nailId, $rootScope) {
                 nailModal.on('scroll', scrollHandler);
             }
         }
+
+        $scope.$on('$destroy', () => {
+            cleanUp();
+        });
 
         function cleanUp() {
             dereg();
