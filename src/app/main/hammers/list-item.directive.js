@@ -109,7 +109,7 @@ class HammerListItemController {
                 },
                 (res) => {
                 if (res === true) {
-                    this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
+                    this.Hammer.deleteById({id: this.hammer.id}).$promise.then(() => {
                         this.$rootScope.$emit('hammer.deleted', String(this.hammer.id));
                         this.hammer._isDeleted = true;
                     }).catch(err => {
@@ -144,7 +144,7 @@ class HammerListItemController {
         }, {
             text: this.hammer.text
         }).$promise
-            .then(res => {
+            .then(() => {
                 this.toastr.success('All good!');
                 this.isEdit = false;
                 this._saving = false;

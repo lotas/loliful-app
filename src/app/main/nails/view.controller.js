@@ -56,7 +56,7 @@ export function nailModalView($modal, nailId, $rootScope) {
         MainService.getNail(nailId).then(nail => {
             nv.nail = nail;
             initScrollHandler();
-        }, err => {
+        }, () => {
             modal.hide();
         });
 

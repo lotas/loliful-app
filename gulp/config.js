@@ -28,7 +28,8 @@ gulp.task('config', function() {
             name: 'CONFIG',
             constants: {
                 flags: serverConfig.flags
-            }
+            },
+            wrap: false //'es6'
         }))
         .pipe(rename('config.js'))
         .pipe(gulp.dest(`${conf.paths.src}/app/`));

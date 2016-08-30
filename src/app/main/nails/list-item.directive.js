@@ -32,7 +32,7 @@ class NailListItemController {
      * @param $tim
      */
     constructor(Nail, SweetAlert, AuthService, User, toastr, $state, $log,
-        $rootScope, $scope, $timeout, ShareService) {
+                $rootScope, $scope, $timeout, ShareService) {
         'ngInject';
 
         this.Nail = Nail;
@@ -96,18 +96,19 @@ class NailListItemController {
                 html: true
             },
             (res) => {
-            if (res === true) {
-                this.Nail.prototype$report({
-                    id: this.nail.id
-                }).$promise.then(() => {
-                    this.nail._isReported = true;
-                    this.toastr.success('Thank you for reporting!');
-                }).catch(err => {
-                    this.$log.debug(err);
-                    this.toastr.warning('oh no!, something horrible happened');
-                });
+                if (res === true) {
+                    this.Nail.prototype$report({
+                        id: this.nail.id
+                    }).$promise.then(() => {
+                        this.nail._isReported = true;
+                        this.toastr.success('Thank you for reporting!');
+                    }).catch(err => {
+                        this.$log.debug(err);
+                        this.toastr.warning('oh no!, something horrible happened');
+                    });
+                }
             }
-        });
+        );
     }
 
     favorite() {
@@ -178,10 +179,12 @@ class NailListItemController {
         this._prevValue = this.nail.text;
         this.isEdit = true;
     }
+
     resetEdit() {
         this.nail.text = this._prevValue;
         this.isEdit = false;
     }
+
     edit() {
         if (this._prevValue === this.nail.text) {
             this.isEdit = false;
@@ -193,21 +196,21 @@ class NailListItemController {
         }, {
             text: this.nail.text
         }).$promise
-        .then(res => {
-            this.toastr.success('All good!');
-            this.isEdit = false;
-            this._saving = false;
-            this._prevValue = '';
-            this._updated = true;
-            this.$timeout(() => {
-                this._updated = false;
-            }, 700);
-        })
-        .catch(err => {
-            this._saving = false;
-            this.toastr.warning('oops, something went wrong');
-            this.$log.debug(err);
-        });
+            .then(() => {
+                this.toastr.success('All good!');
+                this.isEdit = false;
+                this._saving = false;
+                this._prevValue = '';
+                this._updated = true;
+                this.$timeout(() => {
+                    this._updated = false;
+                }, 700);
+            })
+            .catch(err => {
+                this._saving = false;
+                this.toastr.warning('oops, something went wrong');
+                this.$log.debug(err);
+            });
     }
 
     reply() {
@@ -255,16 +258,16 @@ class NailListItemController {
                     customClass: 'no-icon'
                 },
                 (res) => {
-                if (res === true) {
-                    this.Nail.deleteById({id: this.nail.id}).$promise.then(() => {
-                        this.$rootScope.$emit('nail.deleted', String(this.nail.id));
-                        this.nail._isDeleted = true;
-                    }).catch(err => {
-                        this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
-                        this.$log.debug(err);
-                    });
-                }
-            });
+                    if (res === true) {
+                        this.Nail.deleteById({id: this.nail.id}).$promise.then(() => {
+                            this.$rootScope.$emit('nail.deleted', String(this.nail.id));
+                            this.nail._isDeleted = true;
+                        }).catch(err => {
+                            this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
+                            this.$log.debug(err);
+                        });
+                    }
+                });
         }
     }
 
