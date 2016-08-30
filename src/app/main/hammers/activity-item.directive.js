@@ -38,7 +38,7 @@ class HammerActivityItemController {
         if (this.isOwn) {
             this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
                 if (res === true) {
-                    this.Hammer.deleteById({id: this.hammer.id}).$promise.then(response => {
+                    this.Hammer.deleteById({id: this.hammer.id}).$promise.then(() => {
                         this.$rootScope.$emit('hammer.deleted', String(this.hammer.id));
                         this.hammer = null;
                     }).catch(err => {

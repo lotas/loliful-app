@@ -1,4 +1,4 @@
-export function FixDimensionsDirective($timeout) {
+export function FixDimensionsDirective() {
     'ngInject';
 
     let directive = {
@@ -8,7 +8,7 @@ export function FixDimensionsDirective($timeout) {
 
     return directive;
 
-    function linkFn(scope, elm, attr) {
+    function linkFn(scope, elm) {
         var img = $(elm);
 
         img.on('load', function(){

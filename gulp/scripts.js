@@ -33,11 +33,32 @@ function webpackWrapper(watch, test, callback) {
     }
 
     var webpackChangeHandler = function(err, stats) {
+        let options = {
+            colors: true
+        };
+
         if (err) {
             conf.errorHandler('Webpack')(err);
-            console.log('---', err);
-            console.log(stats.compilation.errors.toString());
-            console.log(stats.compilation.warnings.toString());
+
+            if (stats.hasErrors()) {
+                options = {
+                    colors: true,
+                    hash: false,
+                    version: false,
+                    timings: false,
+                    assets: false,
+                    chunks: false,
+                    chunkModules: false,
+                    modules: false,
+                    children: false,
+                    cached: false,
+                    reasons: false,
+                    source: false,
+                    errorDetails: true,
+                    chunkOrigins: false
+                };
+            }
+            console.log(stats.toString(options));
         }
         $.util.log(stats.toString({
             colors: $.util.colors.supportsColor,
