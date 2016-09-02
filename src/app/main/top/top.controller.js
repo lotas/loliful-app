@@ -13,7 +13,7 @@ export class TopController {
         this.$log = $log;
         this.$state = $state;
 
-        this.period = $stateParams.period || '';
+        this.period = $stateParams.period || 'week';
 
         this.orderedPeriods = [
             'day',
