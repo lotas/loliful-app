@@ -69,23 +69,31 @@
         tr
           td
             img(ng-src="/assets/img/f-{{vm.social.facebook ? 'on' : 'off'}}.svg", title="Facebook")
-          td
-            img(ng-src="/assets/img/t-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
-          td
-            img(ng-src="/assets/img/g-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
-        tr.actions
-          td
+          td.actions
             span(ng-show="vm.social.facebook") Connected
             a(href="{{api}}/link/facebook", ng-click="vm.connectAcc()", ng-if="!vm.social.facebook") Connect
             a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook && vm.linkedAccounts > 1") Disconnect
+          td.hidden-xs
+            a(ng-href="{{vm.social.facebook.l}}") {{ vm.social.facebook.n }}
+        tr
           td
+            img(ng-src="/assets/img/t-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
+          td.actions
             span(ng-show="vm.social.twitter") Connected
             a(href="{{api}}/link/twitter", ng-click="vm.connectAcc()", ng-if="!vm.social.twitter") Connect
-              a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter && vm.linkedAccounts > 1") Disconnect
+            a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter && vm.linkedAccounts > 1") Disconnect
+          td.hidden-xs
+            a(ng-href="{{vm.social.twitter.l}}") {{ vm.social.twitter.n }}
+        tr
           td
+            img(ng-src="/assets/img/g-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
+          td.actions
             span(ng-show="vm.social.google") Connected
             a(href="{{api}}/link/google", ng-click="vm.connectAcc()", ng-if="!vm.social.google") Connect
             a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google && vm.linkedAccounts > 1") Disconnect
+          td.hidden-xs
+            a(ng-href="{{vm.social.google.l}}") {{ vm.social.google.n }}
+
 
   div.stats
     hr
