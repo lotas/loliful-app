@@ -17,7 +17,7 @@ export function FixDimensionsDirective() {
 
             if ((height > width * 1.1) || (width > height * 1.1)) {
                 img.css('background-image', `url(${img.attr('src')})`);
-                img.attr('src', '');
+                img.attr('src', 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7');
                 img.height(width);
             }
         });
