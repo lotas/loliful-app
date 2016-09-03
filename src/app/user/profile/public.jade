@@ -1,7 +1,7 @@
 .profile-page.public
   .main-block.container-fluid
 
-    .row
+    .row.botOfs
       .col-xs-3
         .avatar
           img.user-avatar.img-responsive.fix-dimensions(ng-src="{{ vm.profile.avatar }}", ng-if="vm.profile.avatar")
@@ -9,12 +9,10 @@
           img.badge-pro(src="/assets/img/badge-pro-lg.png", title="PRO Joker", ng-if="vm.profile.badges.pro", bs-tooltip)
       .col-xs-9
         h4 {{ ::vm.profile.name }}
+        p.about-me {{ ::vm.profile.about }}
 
-    .row.about-me
-      .col-xs-12
-        p {{ ::vm.profile.about }}
-
-    .social-profile(ng-show="vm.profile.accounts")
+    hr
+    .social-profile.topOfs(ng-show="vm.profile.accounts")
       div.account(ng-repeat="acc in vm.profile.accounts")
         img(ng-src="/assets/img/{{ acc.p }}-on.svg")
         a(ng-href="{{ acc.l }}") {{ acc.n }}
