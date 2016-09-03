@@ -109,6 +109,13 @@
     color: @themeTextColor;
   }
 
+  .input-table {
+    width: 100%;
+    td:last-of-type {
+      width: 32px;
+    }
+  }
+
   .about-me {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -125,9 +132,13 @@
   }
 
   .edit-name {
+    display: inline-block;
+    margin-left: 10px;
+    .icon-align();
+
     font-size: 24px;
     color: @themeSecondaryColor;
-    line-height: 24px;
+    //line-height: 24px;
     .icon-loliful-icon-checkmark {
       color: @white;
     }
