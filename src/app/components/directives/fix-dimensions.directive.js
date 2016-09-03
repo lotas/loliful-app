@@ -15,7 +15,7 @@ export function FixDimensionsDirective() {
             let height = img.height();
             let width = img.width();
 
-            if (height > width * 1.1) {
+            if ((height > width * 1.1) || (width > height * 1.1)) {
                 img.css('background-image', `url(${img.attr('src')})`);
                 img.attr('src', '');
                 img.height(width);
