@@ -185,8 +185,36 @@ header.header {
     .navbar {
       .nav-pills.top-menu {
         > li {
-          width: 48%;
+          width: 49%;
         }
+        li.active {
+          a {
+            background-color: initial;
+          }
+
+          position: relative;
+
+          &:before {
+            content: ' ';
+            display: block;
+            position: absolute;
+            background-color: @bodyBg;
+            width: 100%;
+            border-radius: 100px !important;
+            height: 16px;
+            bottom: -13px;
+            z-index: 990;
+          }
+
+        }
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav-pills.top-menu {
+      li.active:before {
+        bottom: -30px !important;
       }
     }
   }
