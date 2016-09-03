@@ -14,7 +14,8 @@ p.title
 p.info.bottom30
   span(ng-show="vm.val < 60") Next time you won't need to wait
   span(ng-show="vm.val > 60 && vm.val < 100") Almost there
-  span(ng-show="vm.val >= 100") We recommend you connect your other social media accounts. You'll be able to log in with any of those later.
+  span(ng-show="vm.val >= 100")
+    | We recommend you connect your other social media accounts. You'll be able to log in with any of those later.
 
 .container-fluid.clearfix(ng-show="vm.val >= 100")
   .row
@@ -23,3 +24,10 @@ p.info.bottom30
   .row
     .col-xs-12.align-center
       button.btn.btn-primary(ui-sref="profile", ng-click="vm.setFirstRun()") GO TO PROFILE
+
+p.info.bottom30(ng-show="vm.val >= 100")
+  span
+    | <br>
+    | Please note, that you could receive occasional emails for certain activities.
+    | <br>
+    | You can always change your email preferences in your personal settings.
