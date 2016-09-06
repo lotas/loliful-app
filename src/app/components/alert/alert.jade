@@ -1,0 +1,6 @@
+div.alert.alert-dismissable(class="{{$ctrl.class}}", ng-if="!$ctrl.dismissed")
+  button.close(type="button", data-dismiss="alert", ng-click="$ctrl.dismissed = true")
+    span(aria-hidden="true") &times
+  span.icon(ng-if="$ctrl.icon", class="{{$ctrl.icon}}")
+  p(ng-if="!$ctrl.link") {{ $ctrl.text }}
+  a(ng-if="$ctrl.link", ui-sref="{{$ctrl.link}}") {{ $ctrl.text }}

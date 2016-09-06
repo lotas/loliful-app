@@ -1,4 +1,11 @@
 float-menu(single="true")
+alert(
+  type="'danger'",
+  icon="false",
+  text="If you'd like to get some emails from us, please set your email in the profile.",
+  link="profile",
+  ng-if="vm.user && !vm.user.email"
+)
 
 ul#secondary-menu.nav.nav-pills.activity.nav-justified
   li(role="presentation", ui-sref-active="active")

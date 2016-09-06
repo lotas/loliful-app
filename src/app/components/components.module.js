@@ -18,6 +18,8 @@ import { InitialsFilter } from './filters/initials.filter';
 import { attachFastclick } from './fastclick';
 import { scrollbarsConfig } from './scrollbars.confg';
 
+import { alertComponent } from './alert/alert.component';
+
 angular.module('loliful.components', [
         'lbServices',
         'LocalStorageModule',
@@ -50,6 +52,8 @@ angular.module('loliful.components', [
     .directive('escKey', EscKeyDirective)
 
     .filter('initials', InitialsFilter)
+
+    .component('alert', alertComponent)
 
     .run(attachFastclick)
 ;

@@ -127,7 +127,9 @@
           .hearts(ng-if="vm.stats.total") out of {{ vm.stats.total }}
 
   div.email-preferences
+
     hr
+    alert(type="'danger'", icon="false", text="If you'd like to get some emails from us, please set your email.", ng-if="!vm.user.email")
 
     h5
       i.icon.icon-loliful-icon-notifications

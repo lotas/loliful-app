@@ -36,6 +36,10 @@ export class ActivityController {
         this.page = 1;
         this.loadActivity();
 
+        User.getCurrent().$promise.then(user => {
+            this.user = user;
+        });
+
         //var deregister = $rootScope.$on('swipe', this.swipeListener.bind(this));
         //$rootScope.$on('$destroy', deregister);
 

@@ -4,7 +4,7 @@ export class NotificationsController {
      * @param {Notification} Notification
      * @param $log
      */
-    constructor(Notification, $log) {
+    constructor(Notification, User, $log) {
         'ngInject';
 
         this.Notification = Notification;
@@ -25,6 +25,10 @@ export class NotificationsController {
         this.load();
         this.loadCounts();
         this.markRead();
+
+        User.getCurrent().$promise.then(user => {
+            this.user = user;
+        });
     }
 
     loadCounts() {

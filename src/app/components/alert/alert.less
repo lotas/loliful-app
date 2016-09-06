@@ -1,0 +1,40 @@
+.alert {
+  margin: 14px 8px;
+  border-radius: 4px;
+
+  font-family: Lato-Regular;
+  font-size: 14px;
+  color: #FFFFFF !important;
+  line-height: 18px;
+
+  &.alert-danger {
+    background: #E5736C;
+  }
+  &.alert-success {
+    background: #82CCDC;
+  }
+  &.alert-info {
+
+  }
+  &.alert-warning {
+    background: rgba(253,184,119,0.97);
+  }
+  a,p {
+    color: #FFF !important;
+  }
+
+  .icon {
+    float: left;
+    margin-right: 14px;
+    font-size: 48px;
+    margin-top: -5px;
+  }
+}
+
+@media (min-width: 768px) {
+  .alert {
+    .icon {
+      margin-top: -15px;
+    }
+  }
+}

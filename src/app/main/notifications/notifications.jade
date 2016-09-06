@@ -1,4 +1,12 @@
 .notifications
+  alert(
+    type="'danger'",
+    icon="false",
+    text="If you'd like to get some emails from us, please set your email in the profile.",
+    link="profile",
+    ng-if="vm.user && !vm.user.email"
+  )
+
   h1 Notifications
     //span.badge(ng-if="false && vm.count.count")
     //  | {{ vm.count.count }} / {{ vm.count.unread }}
