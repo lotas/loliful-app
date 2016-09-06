@@ -46,6 +46,7 @@ class NailListItemController {
         this.ShareService = ShareService;
 
         this.isOwn = this.nail.userId && String(AuthService.getUserId()) === String(this.nail.userId);
+        this.isMod = AuthService.isMod();
 
         // hide form
         this._reply = false;
@@ -251,7 +252,7 @@ class NailListItemController {
     }
 
     delete() {
-        if (this.isOwn) {
+        if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
                 'Remove',
                 'Is it this bad? Okay to remove it?',

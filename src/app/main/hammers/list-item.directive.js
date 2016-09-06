@@ -41,6 +41,7 @@ class HammerListItemController {
         this.$timeout = $timeout;
 
         this.isOwn = this.hammer.userId && String(AuthService.getUserId()) === String(this.hammer.userId);
+        this.isMod = AuthService.isMod();
     }
 
     report() {
@@ -100,7 +101,7 @@ class HammerListItemController {
     }
 
     delete() {
-        if (this.isOwn) {
+        if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
                 'Remove',
                 'Is it this bad? Okay to remove it?',

@@ -13,6 +13,11 @@ export class AuthService {
         return this.LoopBackAuth.currentUserId;
     }
 
+    isMod() {
+        // todo not the best way.. i know
+        return this.getUserId() < 10;
+    }
+
     getToken() {
         if (!this.hasToken()) {
             return null;

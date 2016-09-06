@@ -24,9 +24,9 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
           bs-tooltip,
           title="Flag this as inappropriate")
             i.icon.icon-loliful-icon-flag
-          a.delete(ng-click="hli.delete()", ng-if="hli.isOwn")
+          a.delete(ng-click="hli.delete()", ng-if="hli.isOwn || hli.isMod")
             i.icon.icon-loliful-icon-delete
-          a.edit(type="button", ng-click="hli.startEdit();", ng-if="hli.isOwn")
+          a.edit(type="button", ng-click="hli.startEdit();", ng-if="hli.isOwn || hli.isMod")
             i.icon.icon-loliful-icon-edit()
         div.pull-right.text-right
           a.share(ng-click="hli.share()")
