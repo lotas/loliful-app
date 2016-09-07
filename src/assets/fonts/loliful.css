@@ -147,3 +147,9 @@
 .icon-loliful-icon-settings:before {
   content: "\47";
 }
+.icon-loliful-icon-link:before {
+  content: "\49";
+}
+.icon-loliful-icon-rocket:before {
+  content: "\48";
+}
