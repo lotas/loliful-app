@@ -1,31 +1,37 @@
 div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: nlm.nail._isDeleted}")
   div.panel-heading
+    | {{ href('nail-view', {nailId: nlm.nail.id}, {absolute: true}) }}
     avatar(user="nlm.nail.$user", n1g-if="!nlm.isOwn")
     span.time-ago
-      i.icon.icon-loliful-icon-time
+      span.icon.icon-loliful-icon-time
       | {{ nlm.nail.created | timeAgo }}
     a.dropdown-menu-trigger(bs-dropdown, data-placement="bottom")
-      i.icon.icon-loliful-icon-submenu
+      span.icon.icon-loliful-icon-submenu
     ul.dropdown-menu(role="menu")
       li(ng-if="!nlm.isOwn")
         a.show-sub(ng-click="nlm.report();",
         data-type="info",
         bs-tooltip,
         title="Flag this as inappropriate")
-          i.i.icon.icon-loliful-icon-flag
+          span.i.icon.icon-loliful-icon-flag
       li
         a(type="button",
         ng-click="nlm.favorite()",
         bs-tooltip,
         title="Save for later. You can find in Activity > Saved",
         ng-class="{active: nlm.nail.$favorite}")
-          i.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
+          span.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
       li(ng-if="nlm.isOwn || nlm.isMod")
         a.delete(type="button", ng-click="nlm.delete()")
-          i.icon.icon-loliful-icon-delete()
+          span.icon.icon-loliful-icon-delete()
       li(ng-if="nlm.isOwn || nlm.isMod")
         a.edit(type="button", ng-click="nlm.startEdit();")
-          i.icon.icon-loliful-icon-edit()
+          span.icon.icon-loliful-icon-edit()
+      li(title="Click to copy link for this joke", bs-tooltip)
+        a(type="button",
+        ngclipboard,
+        data-clipboard-text="{{ $root.href('nail-view', {nailId: nlm.nail.id}, {absolute: true}) }}")
+          span.icon.icon-loliful-icon-link()
 
 
   div.panel-body.clickable(ng-click="nlm.cardClick($event);", ng-class="{updated: nlm._updated}")

@@ -22,6 +22,7 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
 
     $rootScope.envName = envName;
     $rootScope.isState = $state.is;
+    $rootScope.href = $state.href;
     $rootScope.stateIncludes = $state.includes;
     $rootScope.api = apiEndpoint;
 
