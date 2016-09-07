@@ -85,6 +85,10 @@ export function runBlock($log, $rootScope, User, $state, Storage, envName,
 
     // extra custom stuff for cards
     screenSize.rules = {
+        lg: '(min-width: 1111px)',
+        md: '(min-width: 992px) and (max-width: 1111px)',
+        sm: '(min-width: 768px) and (max-width: 991px)',
+        xs: '(max-width: 767px)',
         twoCard: '(min-width: 768px) and (max-width: 1110px)',
         threeCard: '(min-width: 1111px) and (max-width: 1510px)',
         fourCard: '(min-width: 1510px)'
