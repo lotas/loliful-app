@@ -4,7 +4,7 @@ export class TopController {
      * @param {User} User
      * @param {MainService} MainService
      */
-    constructor(User, MainService, $stateParams, $log, $state) {
+    constructor(User, MainService, $stateParams, $log, $state, screenSize) {
         'ngInject';
 
         this.User = User;
@@ -22,6 +22,11 @@ export class TopController {
             'all'
         ];
 
+        this.cardsLimit = 20;
+        if (screenSize.is('threeCard')) {
+            this.cardsLimit = 21;
+        }
+
         this.page = 1;
         this.jokes = [];
         this.loadTop();
@@ -34,7 +39,10 @@ export class TopController {
         this.$loading = true;
         this.$empty = false;
         this.$hasMore = false;
-        this.MainService.getTop({period: this.period}).then(res => {
+        this.MainService.getTop({
+            period: this.period,
+            limit: this.cardsLimit
+        }).then(res => {
             this.jokes = res.jokes;
             this.$loading = false;
             this.$hasMore = res.pager.pages > res.pager.page;
@@ -50,7 +58,11 @@ export class TopController {
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
-        this.MainService.getTop({period: this.period, page: this.page+1}).then(res => {
+        this.MainService.getTop({
+            period: this.period,
+            page: this.page+1,
+            limit: this.cardsLimit
+        }).then(res => {
             this.page++;
             this.$loading = false;
             if (res.jokes.length === 0) {

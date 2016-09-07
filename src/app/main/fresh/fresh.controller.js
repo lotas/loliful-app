@@ -8,7 +8,7 @@ export class FreshController {
      * @param $rootScope
  * @param $log
      */
-    constructor(User, MainService, $stateParams, $log, $modal, $rootScope, $scope) {
+    constructor(User, MainService, $stateParams, $log, $modal, $rootScope, $scope, screenSize) {
         'ngInject';
 
         this.User = User;
@@ -23,6 +23,11 @@ export class FreshController {
         this.$hasMore = false;
         this.nails = [];
         this._addModal = null;
+
+        this.cardsLimit = 20;
+        if (screenSize.is('threeCard')) {
+            this.cardsLimit = 21;
+        }
 
         this.loadFresh();
 
@@ -57,7 +62,10 @@ export class FreshController {
         this.nails = [];
         this.$loading = true;
         this.$hasMore = false;
-        this.MainService.getFresh({type: this.type}).then(res => {
+        this.MainService.getFresh({
+            type: this.type,
+            limit: this.cardsLimit
+        }).then(res => {
             this.nails = res.nails;
             this.$loading = false;
             this.$hasMore = res.pager.pages > res.pager.page;
@@ -86,7 +94,11 @@ export class FreshController {
         }
         this.$loading = true;
         this.$log.debug('Loading page', this.page);
-        this.MainService.getFresh({page: this.page + 1, type: this.type}).then(res => {
+        this.MainService.getFresh({
+            page: this.page + 1,
+            type: this.type,
+            limit: this.cardsLimit
+        }).then(res => {
             this.page++;
             this.$loading = false;
             if (res.nails.length === 0) {
