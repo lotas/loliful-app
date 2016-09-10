@@ -126,7 +126,7 @@ gulp.task('sw', ['sw-lib'], function() {
 
 gulp.task('sw-lib', function() {
     return gulp.src([
-        path.join(conf.paths.bower, 'sw-toolbox/sw-toolbox.js')
+        'node_modules/sw-toolbox/sw-toolbox.js'
     ])
     .pipe(gulp.dest(path.join(conf.paths.dist, '/scripts/')))
     .pipe(gulp.dest(path.join(conf.paths.tmp, '/serve/scripts/')));
