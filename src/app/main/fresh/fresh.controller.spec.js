@@ -25,13 +25,13 @@ describe('Fresh Controller', () => {
   it('should loadFresh nails: popular', inject((MainService) => {
     vm.type = 'popular';
     vm.loadFresh();
-    expect(MainService.getFresh).toHaveBeenCalledWith({type: 'popular'});
+    expect(MainService.getFresh).toHaveBeenCalledWith({type: 'popular', limit: 20});
   }));
 
   it('should loadFresh nails: recent', inject((MainService) => {
     vm.type = 'recent';
     vm.loadFresh();
-    expect(MainService.getFresh).toHaveBeenCalledWith({type: 'recent'});
+    expect(MainService.getFresh).toHaveBeenCalledWith({type: 'recent', limit: 20});
   }));
 
   it('should have onAdd()', () => {
