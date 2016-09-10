@@ -89,6 +89,18 @@
 
     <div ui-view ng-cloak></div>
 
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js', {
+          scope: '/'
+        }).then(function() {
+          console.log('installed sw');
+        }).catch(function(err) {
+          console.info(err);
+        });
+      }
+    </script>
+
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
@@ -116,7 +128,7 @@
       ga('create', 'UA-68961256-2', 'auto');
       ga('send', 'pageview');
     </script>
-    <script>
+    <!--<script>
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:267892,hjsv:5};
@@ -125,6 +137,6 @@
             r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
             a.appendChild(r);
         })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
-    </script>
+    </script>-->
   </body>
 </html>
