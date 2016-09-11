@@ -8,3 +8,19 @@
     }
   }
 }
+
+
+.header {
+  .profile-pic,
+  .logo-main img {
+    transition: 2s filter linear;
+  }
+}
+.is-offline .header {
+  .profile-pic {
+    filter: blur(1px) grayscale(100%);
+  }
+  .logo-main img {
+    filter: blur(2px);
+  }
+}

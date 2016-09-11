@@ -31,4 +31,40 @@ export function config($logProvider, toastrConfig, debugEnabled, html5Mode,
     // angular-loading-bar
     // cfpLoadingBarProvider.includeSpinner = false;
     // cfpLoadingBarProvider.spinnerTemplate = '<div><span class="fa fa-spinner">Loading...</div>';
+
+    addNetInterceptors($httpProvider);
+}
+
+
+function addNetInterceptors($httpProvider) {
+    $httpProvider.interceptors.push(function($q, $location, $injector, $log) {
+        'ngInject';
+
+        var $rootScope = $injector.get('$rootScope');
+
+        let isOffline = (state) => $rootScope.network = { offline: state };
+
+        return {
+            response: function(response) {
+                isOffline(false);
+                return response;
+            },
+            requestError: function(rejection) {
+                if (rejection.status && rejection.status < 0) {
+                    $log.debug('Network unreachable', rejection.config);
+
+                    isOffline(true);
+                }
+                return $q.reject(rejection);
+            },
+            responseError: function(rejection) {
+                if (rejection.status && rejection.status < 0) {
+                    $log.debug('Network unreachable', rejection.config);
+
+                    isOffline(true);
+                }
+                return $q.reject(rejection);
+            }
+        };
+    });
 }

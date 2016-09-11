@@ -1,5 +1,12 @@
 float-menu(on-add-click="vm.showAddModal()")
 
+alert(
+  type="'warning'",
+  text="Connection lost.\nPlease check your network settings.",
+  link="profile",
+  ng-if="network.offline"
+)
+
 div.container-fluid
   div.row
     div.col-sm-4
