@@ -89,17 +89,22 @@
 
     <div ui-view ng-cloak></div>
 
-    <!--<script>
+    <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js', {
-          scope: '/'
-        }).then(function() {
-          console.log('installed sw');
-        }).catch(function(err) {
-          console.info(err);
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          for (var registration of registrations) {
+           registration.unregister();
+          }
         });
+        // navigator.serviceWorker.register('/sw.js', {
+        //   scope: '/'
+        // }).then(function() {
+        //   console.log('installed sw');
+        // }).catch(function(err) {
+        //   console.info(err);
+        // });
       }
-    </script>-->
+    </script>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
