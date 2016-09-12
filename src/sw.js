@@ -35,13 +35,13 @@ const PRECACHE_LIST = [
     global.toolbox.router.delete('/(.*)', global.toolbox.networkOnly, { origin: 'https://api.loliful.io' });
 
     // Make some calls cachable
-    global.toolbox.router.get('/top(.*)', global.toolbox.fastest, { origin: 'https://api.loliful.io' });
-    global.toolbox.router.get('/fresh(.*)', global.toolbox.fastest, { origin: 'https://api.loliful.io' });
-    global.toolbox.router.get('/nail(.*)', global.toolbox.fastest, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/top(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/fresh(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/nail(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
 
-    global.toolbox.router.get('/profile(.*)', global.toolbox.fastest, { origin: 'https://api.loliful.io' });
-    global.toolbox.router.get('/users(.*)', global.toolbox.fastest, { origin: 'https://api.loliful.io' });
-    global.toolbox.router.get('/me', global.toolbox.fastest, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/profile(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/users(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/me', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
 
 
     // user avatars
@@ -49,6 +49,17 @@ const PRECACHE_LIST = [
     global.toolbox.router.get(/\.twimg\.com/, global.toolbox.cacheFirst);
     global.toolbox.router.get(/\.googleusercontent\.com/, global.toolbox.cacheFirst);
 
+
+    global.toolbox.router.get(/bower_components/, global.toolbox.cacheFirst, {
+        // Use a dedicated cache for the responses, separate from the default cache.
+        cache: {
+            name: 'bower',
+            // Store up to 10 entries in that cache.
+            maxEntries: 100,
+            // Expire any entries that are older than 30 seconds.
+            maxAgeSeconds: 300
+        }
+    });
 
     // Boilerplate to ensure our service worker takes control of the page as soon
     // as possible.
