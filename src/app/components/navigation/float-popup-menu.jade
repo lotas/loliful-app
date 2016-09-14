@@ -1,41 +1,35 @@
 .popover.float-popup-menu
   .arrow
   .popover-content
-    ul.nav.nav-list
-      li.logout
-        a(ui-sref="logout")
-          i.icon.icon-loliful-icon-exit
-          | Lol out
-      li.separator
-          hr
-      li
-        a(ui-sref="page.about", ng-click="$hide()")
-          i.icon.icon-loliful-icon-about
-          | About
-      li
-        a(ui-sref="page.contact", ng-click="$hide()")
-          i.icon.icon-loliful-icon-edit
-          | Contact
-      li.hidden
-        a(ui-sref="notifications", ng-click="$hide()")
-          i.icon.icon-loliful-icon-notification
-          | Notifications
-        span.badge(ng-show="vm.unreadCount") {{ vm.unreadCount }}
-      li
-        a(ui-sref="profile", ng-click="$hide()")
-          i.icon.icon-loliful-icon-profile
-          | Profile
-      li
-        a(ui-sref="activity({type: 'nails'})", ng-click="$hide()")
-          i.icon.icon-loliful-icon-nav-activity
-          | Activity
-      li.separator
-        hr
-      li
-        a(ui-sref="fresh", ng-click="$hide()")
-          i.icon.icon-loliful-icon-nav-fresh
-          | Intros
-      li
-        a(ui-sref="top", ng-click="$hide()")
-          i.icon.icon-loliful-icon-nav-top
-          | Jokes
+    table(border=0)
+      tr
+        td
+          ul.nav.nav-list
+            li
+              a(ui-sref="fresh", ng-click="$hide()")
+                i.icon.icon-loliful-icon-nav-fresh
+                | Intros
+            li
+              a(ui-sref="top", ng-click="$hide()")
+                i.icon.icon-loliful-icon-nav-top
+                | Jokes
+        td
+          ul.nav.nav-list
+            li
+              a(ui-sref="profile", ng-click="$hide()")
+                i.icon.icon-loliful-icon-profile
+                | Profile
+            li
+              a(ui-sref="page.about", ng-click="$hide()")
+                i.icon.icon-loliful-icon-about
+                | About
+            li
+              a(ui-sref="page.contact", ng-click="$hide()")
+                i.icon.icon-loliful-icon-contact
+                | Contact
+        td
+          ul.nav.nav-list
+            li.logout
+              a(ui-sref="logout")
+                i.icon.icon-loliful-icon-exit
+                | Lol out

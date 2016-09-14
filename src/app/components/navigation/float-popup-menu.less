@@ -1,7 +1,17 @@
 .float-popup-menu {
 
-  width: 162px;
+  width: 340px;
+  max-width: 340px;
+
   border: initial;
+
+  table {
+    width: 340px;
+    margin-left: -15px;
+    tr {
+      vertical-align: top;
+    }
+  }
 
   .arrow {
     border: initial;
@@ -21,7 +31,7 @@
     color: @themeMainColor;
     font-size: 24px;
     .icon-align();
-    margin-right: 14px;
+    margin-right: 4px;
   }
 
   .logout {
@@ -35,6 +45,17 @@
   .float-popup-menu {
     .icon {
       color: @btnDisabledColor !important;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .float-popup-menu {
+    max-width: 310px;
+    width: 310px;
+    table {
+      width: 310px;
+      margin-left: -10px;
     }
   }
 }
