@@ -11,10 +11,10 @@ div.container-fluid
   div.row
     div.col-sm-4
       ul#secondary-menu.nav.nav-pills.activity.nav-justified
-        li(role="presentation", ui-sref-active="active")
+        li(role="presentation", ng-class="{active: vm.type == 'popular'}")
           a(ui-sref="fresh({type: 'popular'})")
             | Popular
-        li(role="presentation", ui-sref-active="active")
+        li(role="presentation", ng-class="{active: vm.type == 'recent'}")
           a(ui-sref="fresh({type: 'recent'})")
             | Recent
         li(role="presentation")

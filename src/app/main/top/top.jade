@@ -4,16 +4,16 @@ loading(ng-if="vm.$loading")
 
 div
   ul#secondary-menu.nav.nav-pills.activity.nav-justified
-    li(role="presentation", ui-sref-active="active")
+    li(role="presentation", ng-class="{active: vm.period == 'day' }")
       a(ui-sref="top({period: 'day'})")
         | Today
-    li(role="presentation", ui-sref-active="active")
+    li(role="presentation", ng-class="{active: vm.period == 'week' }")
       a(ui-sref="top({period: 'week'})")
         | Week
-    li(role="presentation", ui-sref-active="active")
+    li(role="presentation", ng-class="{active: vm.period == 'month' }")
       a(ui-sref="top({period: 'month'})")
         | Month
-    li(role="presentation", ui-sref-active="active")
+    li(role="presentation", ng-class="{active: vm.period == 'all' }")
       a(ui-sref="top({period: 'all'})")
         | All time
 
