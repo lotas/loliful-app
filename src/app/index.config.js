@@ -40,28 +40,18 @@ function addNetInterceptors($httpProvider) {
     $httpProvider.interceptors.push(function($q, $location, $injector, $log) {
         'ngInject';
 
-        var $rootScope = $injector.get('$rootScope');
-
-        let isOffline = (state) => $rootScope.network = { offline: state };
+        // var $rootScope = $injector.get('$rootScope');
 
         return {
-            response: function(response) {
-                isOffline(false);
-                return response;
-            },
             requestError: function(rejection) {
                 if (rejection.status && rejection.status < 0) {
                     $log.debug('Network unreachable', rejection.config);
-
-                    isOffline(true);
                 }
                 return $q.reject(rejection);
             },
             responseError: function(rejection) {
                 if (rejection.status && rejection.status < 0) {
                     $log.debug('Network unreachable', rejection.config);
-
-                    isOffline(true);
                 }
                 return $q.reject(rejection);
             }

@@ -24,14 +24,14 @@ header.header.clearfix
           img.profile-pic(ng-if="vm.user.avatar", ng-src="{{vm.user.avatar}}")
           span.ng-cloak.profile-pic(ng-if="!vm.user.avatar && vm.user.name") {{ vm.user | initials }}
         span.notifications.navbar-toggle.header-icon(
-          ng-if="network.offline",
+          ng-if="appState.offline",
           bs-tooltip,
           data-title="Please check your network connection.",
           data-placement="bottom"
         )
           span.icon.icon-loliful-icon-warning
         button.notifications.navbar-toggle.header-icon(
-          ng-if="!network.offline",
+          ng-if="appState.online",
           type="button",
           aria-expanded="false",
           ui-sref="notifications")

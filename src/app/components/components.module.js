@@ -20,12 +20,15 @@ import { scrollbarsConfig } from './scrollbars.confg';
 
 import { alertComponent } from './alert/alert.component';
 
+import './app-state/app-state.module';
+
 angular.module('loliful.components', [
         'lbServices',
         'LocalStorageModule',
         'mgcrea.ngStrap.helpers.debounce', // throttle
         'ngScrollbars',
-        'ngclipboard'
+        'ngclipboard',
+        'loliful.appState'
     ])
     .config(storageConfig)
     .config(configApi)

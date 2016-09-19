@@ -4,7 +4,7 @@ alert(
   type="'warning'",
   text="Connection lost.\nPlease check your network settings.",
   link="profile",
-  ng-if="network.offline"
+  ng-if="appState.offline"
 )
 
 div.container-fluid
