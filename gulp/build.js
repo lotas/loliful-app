@@ -105,7 +105,7 @@ gulp.task('other', function() {
 
 gulp.task('favicons', function() {
     return gulp.src([
-        path.join(conf.paths.public, '*.{png,xml,ico,json,svg}')
+        path.join(conf.paths.favicons, '**/*')
     ])
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
 });

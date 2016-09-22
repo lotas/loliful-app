@@ -6,7 +6,7 @@ var ngConstant = require('gulp-ng-constant');
 var conf = require('./conf');
 var argv = require('yargs').argv;
 
-var serverConfig = require('../../server/config.js');
+var serverConfig = require('./server-config.js');
 
 var allowedEnvs = ['local', 'dev', 'prod', 'testing', 'staging'];
 var env = argv.env || 'local';
