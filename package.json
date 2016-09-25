@@ -5,7 +5,10 @@
     "babel-runtime": "^6.11.6"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "build": "gulp clean && gulp --env=local config && gulp build",
+    "build:staging": "gulp clean && gulp --env=staging config && gulp build",
+    "build:prod": "gulp clean && gulp --env=prod config && gulp build"
   },
   "devDependencies": {
     "angular": "^1.5.8",
