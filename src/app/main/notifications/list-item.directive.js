@@ -4,7 +4,8 @@ const _typeToAction = {
     'share': 'shared your',
     'report': 'reported your',
     'reply': 'replied to your',
-    'unlike': 'unliked your'
+    'unlike': 'unliked your',
+    'reply_same': 'replied to the same intro'
 };
 const _entityToName = {
     'nail': 'question',
@@ -16,7 +17,8 @@ const _typeToIcon = {
     'save': 'icon-loliful-icon-bookmarked',
     'share': 'icon-loliful-icon-share',
     'report': 'icon-loliful-icon-close',
-    'reply': 'icon-loliful-icon-edit'
+    'reply': 'icon-loliful-icon-edit',
+    'reply_same': 'icon-loliful-icon-edit',
 }
 
 export function NotificationsListItemItemDirective() {

@@ -107,6 +107,7 @@ export class ProfileController {
             id: this.user.id,
             emailReply: this.notifications.emailReply,
             emailLike: this.notifications.emailLike,
+            emailReplySameIntro: this.notifications.emailReplySameIntro,
             emailDigest: this.notifications.emailDigest
         }, () => {
             this.savingSettings = false;
