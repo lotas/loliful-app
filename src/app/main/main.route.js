@@ -36,6 +36,21 @@ export function mainRouteConfig($stateProvider) {
                 authRequired: false
             }
         })
+        .state('outros', {
+            parent: 'app',
+            url: '/outros/?period&order',
+            views: {
+                'content@app': {
+                    templateUrl: 'app/main/outros/outros.html',
+                    controller: 'OutrosController',
+                    controllerAs: 'vm'
+                }
+            },
+            data: {
+                pageTitle: 'Outros Ω Loliful.io',
+                authRequired: false
+            }
+        })
         .state('activity', {
             parent: 'app',
             url: '/activity/:type',

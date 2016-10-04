@@ -2,6 +2,7 @@ import { mainRouteConfig } from './main.route';
 
 import { FreshController } from './fresh/fresh.controller';
 import { TopController } from './top/top.controller';
+import { OutrosController } from './outros/outros.controller';
 import { ActivityController } from './activity/activity.controller';
 
 import { NotificationsController } from './notifications/notifications.controller';
@@ -28,6 +29,7 @@ angular.module('loliful.main', [])
     .config(mainRouteConfig)
     .controller('FreshController', FreshController)
     .controller('TopController', TopController)
+    .controller('OutrosController', OutrosController)
     .controller('ActivityController', ActivityController)
 
     .controller('NotificationsController', NotificationsController)
