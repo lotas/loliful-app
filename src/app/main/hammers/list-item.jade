@@ -11,10 +11,10 @@ div.panel.hammer-list-item(ng-class="{own: hli.isOwn}", ng-hide="! hli.hammer")
   div.panel-footer
     div.row.edit-controls(ng-if="hli.isEdit")
       div.col-xs-6.text-center
-        button.btn.btn-mini.btn-default(type="reset", ng-disabled="hli._saving", ng-click="hli.resetEdit()") Cancel
+        button.btn.btn-mini.btn-default(type="reset", ng-disabled="hli._saving", ng-click="hli.resetEdit()") Отмена
       div.col-xs-6.text-center
         div.countdown {{ 212 - (hli.hammer.text.length || 0) }}
-        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="hli._saving", ng-click="hli.edit()") Save
+        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="hli._saving", ng-click="hli.edit()") Сохранить
     div.row(ng-hide="hli.isEdit")
       div.col-sm-12
         div.pull-left.text-left

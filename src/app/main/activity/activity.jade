@@ -10,17 +10,16 @@ alert(
 ul#secondary-menu.nav.nav-pills.activity.nav-justified
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="activity({type: 'saves'})")
-      | Saved
-      span.hidden-xs &nbsp; for later
+      | Фавориты
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="activity({type: 'likes'})")
-      | Liked
+      | Лайкнутые
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="activity({type: 'nails'})")
-      | My intros
+      | Мои вопросы
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="activity({type: 'hammers'})")
-      | My outros
+      | Мои ответы
 
 div.container-fluid.align-center(ng-if="vm.$empty")
   activity-empty-screen(type="vm.type")
@@ -38,4 +37,4 @@ section
         nail-list-item(ng-if="item.$nail", nail="item.$nail")
         hammer-activity-item(ng-if="item.$hammer", hammer="item.$hammer")
 
-  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Show more
+  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Еще покажи

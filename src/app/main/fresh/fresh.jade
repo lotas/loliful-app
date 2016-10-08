@@ -13,15 +13,15 @@ div.container-fluid
       ul#secondary-menu.nav.nav-pills.activity.nav-justified
         li(role="presentation", ng-class="{active: vm.type == 'popular'}")
           a(ui-sref="fresh({type: 'popular'})")
-            | Popular
+            | Популярное
         li(role="presentation", ng-class="{active: vm.type == 'recent'}")
           a(ui-sref="fresh({type: 'recent'})")
-            | Recent
+            | Последнее
         li(role="presentation")
           a(ng-click="vm.loadFresh()", title="Reload")
             i.icon.icon-loliful-icon-refresh
     div.col-sm-3.pull-right.text-right(ng-show="!screen.isPhone")
-      a.btn.btn-warning.add-intro-btn(ng-click="vm.showAddModal()") ADD INTRO
+      a.btn.btn-warning.add-intro-btn(ng-click="vm.showAddModal()") Добавить вопрос
 
 loading(ng-if="!vm.nails.length")
 
@@ -29,6 +29,6 @@ loading(ng-if="!vm.nails.length")
 div.fresh(ng-if="vm.nails", infinite-scroll="screen.isPhone && vm.loadMore()", infinite-scroll-distance="3")
   nail-list-item(nail="item", ng-repeat="item in vm.nails", show-hammers="true")
 
-button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Show more
+button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Показать еще
 
 br

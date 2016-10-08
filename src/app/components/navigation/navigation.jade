@@ -8,7 +8,7 @@ header.header.clearfix
             ng-click="vm.showAside()",
             ng-if="screen.isPhone"
           )
-          span.sr-only Menu
+          span.sr-only Меню
           span.icon.icon-loliful-icon-menu
         button.navbar-toggle.header-icon(
             type="button",
@@ -20,13 +20,13 @@ header.header.clearfix
             data-trigger="click",
             data-auto-close="true"
           )
-          span.sr-only Profile
+          span.sr-only Профиль
           img.profile-pic(ng-if="vm.user.avatar", ng-src="{{vm.user.avatar}}")
           span.ng-cloak.profile-pic(ng-if="!vm.user.avatar && vm.user.name") {{ vm.user | initials }}
         span.notifications.navbar-toggle.header-icon(
           ng-if="appState.offline",
           bs-tooltip,
-          data-title="Please check your network connection.",
+          data-title="Проверьте ваше сетевое подключение.",
           data-placement="bottom"
         )
           span.icon.icon-loliful-icon-warning
@@ -35,7 +35,7 @@ header.header.clearfix
           type="button",
           aria-expanded="false",
           ui-sref="notifications")
-          span.sr-only Notifications
+          span.sr-only Нотификации
           span.icon.icon-loliful-icon-notification
           img.new-notifications(
             ng-if="vm.unreadCount > 0",
@@ -50,9 +50,9 @@ header.header.clearfix
       li(role="presentation", ng-class="{active: isState('fresh')}")
         a(ui-sref="fresh")
           i.icon.icon-loliful-icon-nav-fresh
-          | Intros
+          | Вопросы
           span.badge(ng-show="vm.freshNails.length>0") {{ vm.freshNails.length }}
       li(role="presentation", ng-class="{active: isState('top')}")
         a(ui-sref="top")
           i.icon.icon-loliful-icon-nav-top
-          | Jokes
+          | Шутки

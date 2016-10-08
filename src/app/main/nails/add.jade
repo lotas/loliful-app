@@ -10,6 +10,6 @@ form.nail-add(name="nail", ng-submit="nailAdd.create(); nailAdd.submited=true")
     )
   div
     a.btn.btn-default.pull-right(ng-disabled="nailAdd.saving", ng-click="nailAdd.onClose()")
-      | {{ nailAdd.submited ? 'Ok, it is enough' : 'No, maybe later' }}
+      | {{ nailAdd.submited ? 'Ок, пока хватит' : 'Не, может потом' }}
     button.btn.btn-large.btn-primary(type="submit", ng-disabled="nailAdd.saving")
-      | Add funny intro
+      | Добавить смешной вопрос

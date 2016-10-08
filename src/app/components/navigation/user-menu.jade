@@ -5,27 +5,27 @@
       li
         a(ui-sref="profile", ng-click="$hide()")
           i.icon.icon-loliful-icon-profile
-          | Profile
+          | Профиль
       li
         a(ui-sref="activity({type: 'nails'})", ng-click="$hide()")
           i.icon.icon-loliful-icon-nav-activity
-          | Activity
+          | Активность
       li.hidden
         a(ui-sref="notifications", ng-click="$hide()")
           i.icon.icon-loliful-icon-notification
-          | Notifications
+          | Уведомления
         span.badge(ng-show="vm.unreadCount") {{ vm.unreadCount }}
       li
         a(ui-sref="page.about", ng-click="$hide()")
           i.icon.icon-loliful-icon-about
-          | About
+          | О программе
       li
         a(ui-sref="page.contact", ng-click="$hide()")
           i.icon.icon-loliful-icon-contact
-          | Contact
+          | Контакт
       li.separator
         hr
       li.logout
         a(ui-sref="logout")
           i.icon.icon-loliful-icon-exit
-          | Lol out
+          | Уйти

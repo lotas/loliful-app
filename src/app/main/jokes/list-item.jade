@@ -10,7 +10,7 @@ div.panel.joke-list-item
     div.align-center
       a.btn.btn-primary(ng-click="jli.share()")
         i.icon.icon-loliful-icon-share
-        | SHARE
+        | Шарить
       a.position-right(ng-click="!jli.isOwn && jli.vote()", ng-disabled="jli.joke.$votes", ng-class="{active: jli.joke.$votes}", title="Like")
         i.icon(ng-class="{'icon-loliful-icon-like': !jli.joke.$votes, 'icon-loliful-icon-liked': jli.joke.$votes}")
         | {{ jli.joke.countVotes }}
