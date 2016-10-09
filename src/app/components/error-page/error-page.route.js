@@ -14,7 +14,7 @@ export function errorPageRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: '∫404∂x Loliful.io',
+                pageTitle: '∫404∂x loliful.co',
                 showStaticHeader: true
             }
         })
@@ -27,7 +27,7 @@ export function errorPageRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Error ∞ ≤ ∆ Loliful.io',
+                pageTitle: 'Error ∞ ≤ ∆ loliful.co',
                 showStaticHeader: true
             }
         })

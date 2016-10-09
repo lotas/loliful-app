@@ -14,9 +14,9 @@ describe('Profile controller', () => {
     beforeEach(inject(($injector, $controller) => {
         $httpBackend = $injector.get('$httpBackend');
 
-        $httpBackend.expect('GET', 'http://local.loliful.io/users/stats?userId=1').respond({stats: {}});
-        $httpBackend.expect('GET', 'http://local.loliful.io/users/1/notificationSettings').respond({emailReply: 1});
-        $httpBackend.expect('GET', 'http://local.loliful.io/me').respond({});
+        $httpBackend.expect('GET', 'http://local.loliful.co/users/stats?userId=1').respond({stats: {}});
+        $httpBackend.expect('GET', 'http://local.loliful.co/users/1/notificationSettings').respond({emailReply: 1});
+        $httpBackend.expect('GET', 'http://local.loliful.co/me').respond({});
 
         $controller('ProfileController', {
             currentUser: {
@@ -46,7 +46,7 @@ describe('Profile controller', () => {
     // it('should setName()', () => {
     //     $httpBackend.flush();
 
-    //     $httpBackend.expect('POST', 'http://local.loliful.io/users/1/name').respond({name: 'name'});
+    //     $httpBackend.expect('POST', 'http://local.loliful.co/users/1/name').respond({name: 'name'});
     //     vm.setName({$invalid: false});
     //     $httpBackend.flush();
     // });
@@ -58,13 +58,13 @@ describe('Profile controller', () => {
     // it('should setAbout()', () => {
     //     $httpBackend.flush();
 
-    //     $httpBackend.expect('POST', 'http://local.loliful.io/users/1/about').respond({about: 'about'});
+    //     $httpBackend.expect('POST', 'http://local.loliful.co/users/1/about').respond({about: 'about'});
     //     vm.setAbout();
     //     $httpBackend.flush();
     // });
 
     //it('should update settings()', () => {
-    //    $httpBackend.expect('PUT', 'http://local.loliful.io/users/1/notificatoinSettings')
+    //    $httpBackend.expect('PUT', 'http://local.loliful.co/users/1/notificatoinSettings')
     //        .respond({emailReply: 1});
     //    vm.saveSettings();
     //    $httpBackend.flush();

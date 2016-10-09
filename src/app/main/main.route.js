@@ -18,7 +18,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Fresh ∆ Loliful.io'
+                pageTitle: 'Fresh ∆ loliful.co'
             }
         })
         .state('top', {
@@ -32,7 +32,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Top Ω Loliful.io',
+                pageTitle: 'Top Ω loliful.co',
                 authRequired: false
             }
         })
@@ -47,7 +47,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Outros Ω Loliful.io',
+                pageTitle: 'Outros Ω loliful.co',
                 authRequired: false
             }
         })
@@ -62,7 +62,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Activity ∑ Loliful.io'
+                pageTitle: 'Activity ∑ loliful.co'
             }
         })
         .state('notifications', {
@@ -76,7 +76,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Notifications ƒ Loliful.io'
+                pageTitle: 'Notifications ƒ loliful.co'
             }
         })
         .state('nail-view', {
@@ -90,7 +90,7 @@ export function mainRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Nail ∫ Loliful.io'
+                pageTitle: 'Nail ∫ loliful.co'
             },
             resolve: {
                 nail: nailViewResolve
