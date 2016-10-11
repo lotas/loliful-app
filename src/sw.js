@@ -30,18 +30,18 @@ const PRECACHE_LIST = [
     global.toolbox.router.get('/styles/(.*)', global.toolbox.fasteset);
 
     // // API
-    global.toolbox.router.post('/(.*)', global.toolbox.networkOnly, { origin: 'https://api.loliful.co' });
-    global.toolbox.router.put('/(.*)', global.toolbox.networkOnly, { origin: 'https://api.loliful.co' });
-    global.toolbox.router.delete('/(.*)', global.toolbox.networkOnly, { origin: 'https://api.loliful.co' });
+    global.toolbox.router.post('/(.*)', global.toolbox.networkOnly, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.put('/(.*)', global.toolbox.networkOnly, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.delete('/(.*)', global.toolbox.networkOnly, { origin: 'https://api.loliful.io' });
 
     // Make some calls cachable
-    global.toolbox.router.get('/top(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.co' });
-    global.toolbox.router.get('/fresh(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.co' });
-    global.toolbox.router.get('/nail(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.co' });
+    global.toolbox.router.get('/top(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/fresh(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/nail(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
 
-    global.toolbox.router.get('/profile(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.co' });
-    global.toolbox.router.get('/users(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.co' });
-    global.toolbox.router.get('/me', global.toolbox.networkFirst, { origin: 'https://api.loliful.co' });
+    global.toolbox.router.get('/profile(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/users(.*)', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
+    global.toolbox.router.get('/me', global.toolbox.networkFirst, { origin: 'https://api.loliful.io' });
 
 
     // user avatars

@@ -12,26 +12,26 @@ describe('Main Service', () => {
  });
 
   it('Should call getFresh()', inject((MainService) => {
-    $httpBackend.expect('GET', 'http://local.loliful.co/fresh').respond({nails: []});
+    $httpBackend.expect('GET', 'http://local.loliful.io/fresh').respond({nails: []});
     MainService.getFresh();
     $httpBackend.flush();
   }));
 
   it('Should call getTop()', inject((MainService) => {
-    $httpBackend.expect('GET', 'http://local.loliful.co/top').respond({jokes: []});
+    $httpBackend.expect('GET', 'http://local.loliful.io/top').respond({jokes: []});
     MainService.getTop();
     $httpBackend.flush();
   }));
 
   it('Should call getNail()', inject((MainService) => {
-    $httpBackend.expect('GET', 'http://local.loliful.co/nail/1').respond({nail: []});
+    $httpBackend.expect('GET', 'http://local.loliful.io/nail/1').respond({nail: []});
     MainService.getNail(1);
     $httpBackend.flush();
   }));
 
   ['likes', 'saves', 'nails', 'hammers'].forEach(item => {
     it('Should call getActivity(' + item + ')', inject((MainService) => {
-        $httpBackend.expect('GET', 'http://local.loliful.co/activity/' + item)
+        $httpBackend.expect('GET', 'http://local.loliful.io/activity/' + item)
                     .respond({[item]: []});
         MainService.getActivity(item);
         $httpBackend.flush();

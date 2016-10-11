@@ -19,7 +19,7 @@ export function runPageService($rootScope, PageService) {
     'ngInject';
 
     $rootScope.page = {
-        title: 'loliful.co'
+        title: 'Loliful.io'
     };
 
     let deregister = $rootScope.$on('$stateChangeSuccess', function(event, toState) {
