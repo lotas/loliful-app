@@ -1,6 +1,6 @@
 {
   "envName": "staging",
-  "apiEndpoint": "https://api.dev.loliful.io",
+  "apiEndpoint": "https://api.dev.loliful.co",
   "debugEnabled": false,
   "html5Mode": true,
   "apiAuth": "Basic ***REMOVED***"

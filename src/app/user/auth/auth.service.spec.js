@@ -18,7 +18,7 @@ describe('Auth Service', () => {
     }));
 
     it('Should call loadToken()', inject((AuthService) => {
-        $httpBackend.expect('GET', 'http://local.loliful.io/auth/token/1')
+        $httpBackend.expect('GET', 'http://local.loliful.co/auth/token/1')
                 .respond({
                     accessToken: {
                         id: 1,

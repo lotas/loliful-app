@@ -16,7 +16,7 @@ describe('PageContact controllers', () => {
     });
 
     it('Should send feedback', () => {
-        $httpBackend.expect('POST', 'http://local.loliful.io/feedback').respond({});
+        $httpBackend.expect('POST', 'http://local.loliful.co/feedback').respond({});
 
         vm.feedback = 'hello';
         vm.sendFeedback();

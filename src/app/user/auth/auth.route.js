@@ -17,7 +17,7 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Log in to Loliful.io',
+                pageTitle: 'Log in to loliful.co',
                 showStaticHeader: true
             }
         })
@@ -32,7 +32,7 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Welcome to Loliful.io'
+                pageTitle: 'Welcome to loliful.co'
             }
         })
         .state('signup', {
@@ -46,7 +46,7 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Sign up for Loliful.io'
+                pageTitle: 'Sign up for loliful.co'
             }
         })
         .state('logout', {
