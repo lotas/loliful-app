@@ -1,6 +1,6 @@
 {
   "envName": "testing",
-  "apiEndpoint": "http://local.loliful.сo",
+  "apiEndpoint": "http://local.loliful.co",
   "debugEnabled": true,
   "html5Mode": false,
   "apiAuth": ""
