@@ -17,20 +17,6 @@ describe('Auth Service', () => {
         expect(AuthService.hasToken()).toBeFalsy();
     }));
 
-    it('Should call loadToken()', inject((AuthService) => {
-        $httpBackend.expect('GET', 'http://local.loliful.co/auth/token/1')
-                .respond({
-                    accessToken: {
-                        id: 1,
-                        userId: 2
-                    },
-                    user: 3
-                });
-        spyOn(AuthService, 'setToken').and.callThrough();
-        AuthService.loadToken(1);
-        $httpBackend.flush();
-        expect(AuthService.setToken).toHaveBeenCalledWith(1, 2, 3);
-    }));
 
     it('Should call setToken()', inject((AuthService, LoopBackAuth) => {
         spyOn(LoopBackAuth, 'setUser').and.returnValue(0);
