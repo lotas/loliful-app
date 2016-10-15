@@ -11,7 +11,7 @@ export function onAuthHandler(AuthService, $state, $location, $log, Storage) {
 
     AuthService.loadToken(token)
         .then(checkAuthAndGo)
-        .catch(checkAuthAndGo);
+        .catch(checkResponse);
 
     function checkAuthAndGo(data) {
         if (AuthService.hasToken()) {
@@ -33,4 +33,18 @@ export function onAuthHandler(AuthService, $state, $location, $log, Storage) {
         }
     }
 
+    function checkResponse(err) {
+        if (err.status) {
+            Storage.set('auth.shortToken', token);
+
+            if (err.status === 402) {
+                $state.go('login.invite');
+            } else if (err.status === 412) {
+                $state.go('login.invite', {used: 1});
+            }
+            return true;
+        }
+
+        checkAuthAndGo(err);
+    }
 }

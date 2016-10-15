@@ -17,7 +17,7 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Log in to loliful.co',
+                pageTitle: 'Вход в loliful.co',
                 showStaticHeader: true
             }
         })
@@ -32,7 +32,21 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Welcome to loliful.co'
+                pageTitle: 'Добро пожаловать loliful.co'
+            }
+        })
+        .state('login.invite', {
+            parent: 'login',
+            url: '/invite',
+            views: {
+                'main@guest': {
+                    templateUrl: 'app/user/auth/invite.html',
+                    controller: 'InviteController',
+                    controllerAs: 'vm'
+                }
+            },
+            data: {
+                pageTitle: 'Invite нужен'
             }
         })
         .state('signup', {

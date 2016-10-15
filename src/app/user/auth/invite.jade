@@ -1,0 +1,9 @@
+.stars-bg
+  h3 Покажите ваш пропуск
+
+  p.text-warning(ng-if="vm.invalidInvite") Неправильный у вас инвайт.
+  p.text-warning(ng-if="vm.inviteUsed") А кто-то уже использует этот инвайт. Ничего не получится так.
+
+  form(ng-submit="vm.checkInvite()", name="inv")
+    input(type="text", ng-model="vm.invite", name="invite", placeholder="Код инвайта", min-length="5")
+    button.btn.btn-default(type="submit", ng-disabled="vm.loading || !vm.invite || vm.inv.$invalid || vm.loading") Предъявить пропуск

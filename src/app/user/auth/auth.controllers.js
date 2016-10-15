@@ -90,3 +90,51 @@ export class FirstRunController {
     }
 
 }
+
+
+
+export class InviteController {
+    /**
+     *
+     * @param {User} User
+     * @param {UserService} UserService
+     */
+    constructor(User, UserService, AuthService, Storage, $state, $log) {
+        'ngInject';
+
+        this.UserService = UserService;
+        this.Storage = Storage;
+        this.AuthService = AuthService;
+        this.$state = $state;
+        this.$log = $log;
+    }
+
+    checkInvite() {
+        this.loading = true;
+        this.invalidInvite = false;
+        this.inviteUsed = false;
+
+        this.AuthService.loadToken(
+            this.Storage.get('auth.shortToken'),
+            this.invite
+        ).then(data => {
+            this.$log.debug('Valid invite', data);
+            this.Storage.remove('auth.shortToken');
+            this.$state.go('login.first-run');
+        }).catch(err => {
+            if (err.status) {
+                this.$log.debug(`Invalid token: ${err.status}`);
+                if (err.status === 402) {
+                    this.invalidInvite = true;
+                } else if (err.status === 412) {
+                    this.inviteUsed = true;
+                } else if (err.status === 404) {
+                    this.$state.go('login');
+                }
+            }
+        }).finally(() => {
+            this.loading = false;
+        });
+    }
+
+}

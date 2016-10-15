@@ -39,8 +39,12 @@ export class AuthService {
         this.LoopBackAuth.save();
     }
 
-    loadToken(token) {
-        return this.$http.get(this.apiEndpoint + '/auth/token/' + token)
+    loadToken(token, invite = '') {
+        return this.$http.get(`${this.apiEndpoint}/auth/token/${token}`, {
+                params: {
+                    invite: invite
+                }
+            })
             .then((res) => {
                 if (res.data.accessToken && res.data.user) {
                     this.setToken(
