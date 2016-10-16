@@ -109,6 +109,11 @@ export class InviteController {
         this.$log = $log;
     }
 
+    onlyAsk() {
+        this.invite = 'ik_will_nur_nachfragen';
+        this.checkInvite();
+    }
+
     checkInvite() {
         this.loading = true;
         this.invalidInvite = false;
