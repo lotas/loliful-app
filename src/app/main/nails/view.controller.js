@@ -37,7 +37,7 @@ export function nailModalView($modal, nailId, $rootScope) {
 
     return modal;
 
-    function nailViewCtrl(MainService, $state, $anchorScroll, $scope, Nail, User) {
+    function nailViewCtrl(MainService, $state, $anchorScroll, $scope, Nail, User, $log) {
         'ngInject';
 
         var nv = this;
@@ -69,6 +69,7 @@ export function nailModalView($modal, nailId, $rootScope) {
                     nv._replyForm = false;
                 })
                 .catch(err => {
+                    $log.debug(err);
                     nv.toastr.warning('Опа, что-то не получилось добавить пока');
                 });
         }
