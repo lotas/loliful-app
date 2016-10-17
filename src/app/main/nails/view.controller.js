@@ -37,10 +37,11 @@ export function nailModalView($modal, nailId, $rootScope) {
 
     return modal;
 
-    function nailViewCtrl(MainService, $state, $anchorScroll, $scope) {
+    function nailViewCtrl(MainService, $state, $anchorScroll, $scope, Nail, User) {
         'ngInject';
 
         var nv = this;
+        nv.nail = {};
         nv.onNailClick = scrollBack;
         nv.reply = sendReply
 
@@ -48,9 +49,28 @@ export function nailModalView($modal, nailId, $rootScope) {
             $anchorScroll('nail-back-btn');
         }
         function sendReply() {
-            $rootScope.$emit('nail.reply-added', nailId, nv._hammerText);
-            nv._replyForm = false;
-            nv._hammerText = '';
+            Nail.prototype$__create__hammers({
+                    id: nv.nail.id
+                }, {
+                    text: nv._hammerText
+                })
+                .$promise
+                .then(res => {
+                    if (!nv.nail.$hammers) {
+                        nv.nail.$hammers = [];
+                    }
+                    if (!res.$user) {
+                        res.$user = User.getCurrent();
+                    }
+                    nv.nail.$hammers.unshift(res);
+                    nv.nail.countAnswers += 1;
+                    nv._hammerText = '';
+
+                    nv._replyForm = false;
+                })
+                .catch(err => {
+                    nv.toastr.warning('Опа, что-то не получилось добавить пока');
+                });
         }
 
         MainService.getNail(nailId).then(nail => {

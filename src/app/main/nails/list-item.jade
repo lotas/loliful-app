@@ -22,10 +22,10 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
         ng-class="{active: nlm.nail.$favorite}")
           span.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
       li(ng-if="nlm.isOwn || nlm.isMod")
-        a.delete(type="button", ng-click="nlm.delete()")
+        a.delete(type="button", ng-click="nlm.delete()", bs-tooltip, title="Удалить")
           span.icon.icon-loliful-icon-delete()
       li(ng-if="nlm.isOwn || nlm.isMod")
-        a.edit(type="button", ng-click="nlm.startEdit();")
+        a.edit(type="button", ng-click="nlm.startEdit();", bs-tooltip, title="Редактировать")
           span.icon.icon-loliful-icon-edit()
       li(title="Прямая ссылка на шутку", bs-tooltip)
         a(type="button",
@@ -42,12 +42,11 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
       div.col-xs-6.text-center
         button.btn.btn-mini.btn-default(type="reset", ng-disabled="nlm._saving", ng-click="nlm.resetEdit()") Отмена
       div.col-xs-6.text-center
-        div.countdown {{ 212 - (nlm.nail.text.length || 0) }}
         button.btn.btn-mini.btn-primary(type="submit", ng-disabled="nlm._saving", ng-click="nlm.edit()") Сохранить
     div.row(ng-hide="nlm._reply || nlm.isEdit")
       div.col-xs-3
         a.outros(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
-         title="Answers count: {{nlm.nail.countAnswers}}",
+         title="Всего ответов: {{nlm.nail.countAnswers}}",
          bs-tooltip)
           i.icon.icon-loliful-icon-outro
           | {{nlm.nail.countAnswers}}
@@ -69,7 +68,6 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
           span {{ nlm.nail.countVotes }}
     div.row(ng-if="nlm._reply")
       form.reply-form.form-inline(ng-submit="nlm.reply();")
-        div.countdown {{ 212 - (nlm._hammer.text.length || 0) }}
         div.col-xs-9.col-sm-8
           input.reply.form-control(id="reply-{{nlm.nail.id}}",
             type="text",

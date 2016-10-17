@@ -1,7 +1,7 @@
 .modal.nail-view-modal#nail-view-modal(tabindex='-1', role='dialog', aria-hidden='true', ng-class="{'nail-fixed': nv._replyForm}")
   .modal-dialog
     .modal-content
-      .modal-header(ng-show='screen.isPhone')
+      .modal-header(ng-if='screen.isPhone')
         .mobile-wrap(ng-if="nv.nail")
           nail-list-item(nail="nv.nail", is-nail-view="true", ng-click="nv.onNailClick()")
       .modal-body(ng-if="!nv._replyForm")
@@ -15,7 +15,6 @@
 
         .nail-wrapper(ng-if="nv.nail")
           nail-list-item(ng-if="!screen.isPhone", nail="nv.nail", is-nail-view="true", ng-click="nv.onNailClick()")
-
           .container-fluid.hammers(ng-if="nv.nail.$hammers && !screen.isPhone", ng-scrollbars)
             hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by item.id")
           .container-fluid.hammers(ng-if="nv.nail.$hammers && screen.isPhone")
@@ -25,22 +24,22 @@
         .form-container
           a.close.pull-right(ng-click="nv._replyForm = false")
             i.icon.icon-loliful-icon-close
-          p Add your funny outro
+          p Ваш смешной ответ
           form.reply-form(ng-submit="nv.reply();")
             .row
               .col-xs-12
                 textarea.form-control(type="text", placeholder="", ng-model="nv._hammerText", required, autofocus=true)
             .row
               .col-xs-12.text-center
-                button.btn.btn-primary(type="submit") Shoot
+                button.btn.btn-primary(type="submit") Огонь!
 
       .modal-footer.fixed-footer(ng-show='screen.isPhone')
         .row
           .col-xs-6
             .back-btn.pull-left
-              a.btn(ng-click="$hide()") ← Back
+              a.btn(ng-click="$hide()") ← Назад
           .col-xs-6
             .reply-btn.pull-right
-              a.btn.btn-primary.btn-small(ng-click="nv._replyForm = !nv._replyForm") Reply
+              a.btn.btn-primary.btn-small(ng-click="nv._replyForm = !nv._replyForm") Ответить
 
 
