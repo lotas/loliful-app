@@ -1,15 +1,15 @@
 const _typeToAction = {
-    'like': 'liked your',
-    'save': 'saved your',
-    'share': 'shared your',
-    'report': 'reported your',
-    'reply': 'replied to your',
-    'unlike': 'unliked your',
-    'reply_same': 'replied to the same intro'
+    'like': 'проголосовал за',
+    'save': 'сохранил',
+    'share': 'поделился',
+    'report': 'наябедничал',
+    'reply': 'ответил на ваш',
+    'unlike': 'передумал голосовать',
+    'reply_same': 'ответил на такой же вопрос'
 };
 const _entityToName = {
-    'nail': 'question',
-    'hammer': 'answer'
+    'nail': 'вопрос',
+    'hammer': 'ответ'
 };
 const _typeToIcon = {
     'like': 'icon-loliful-icon-liked',
@@ -57,16 +57,16 @@ class NotificationsListItemController {
 
     getActorName() {
         let ntf = this.notification;
-        return ntf.userId !== ntf.actorId ? ntf.$user.name : 'You';
+        return ntf.userId !== ntf.actorId ? ntf.$user.name : 'Вы';
     }
 
     getActionName() {
-        return _typeToAction[this.notification.type] || 'did something';
+        return _typeToAction[this.notification.type] || 'что-то сделал';
     }
 
     formatString() {
         let ntf = this.notification;
-        let actor = ntf.userId !== ntf.actorId ? ntf.$user.name : 'You';
+        let actor = ntf.userId !== ntf.actorId ? ntf.$user.name : 'Вы';
         return `${actor} ${_typeToAction[ntf.type]} ${_entityToName[ntf.data.entity]} "${ntf.data.text}"`;
     }
 

@@ -61,7 +61,7 @@ export class ShareService {
             };
             let errorCb = err => {
                 this.$log.debug(err);
-                this.SweetAlert.warning('O-ohh... Looks like we cannot share this now. Please try again.');
+                this.SweetAlert.warning('Ого.. Мы пытались но у нас ничего не вышло.');
             };
 
             if (hammer) {

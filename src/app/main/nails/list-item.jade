@@ -18,7 +18,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
         a(type="button",
         ng-click="nlm.favorite()",
         bs-tooltip,
-        title="Save for later. You can find in Activity > Saved",
+        title="Сохранить на потом. Вы сможете найти в Активность > Сохраненное",
         ng-class="{active: nlm.nail.$favorite}")
           span.icon(ng-class="{'icon-loliful-icon-bookmark': !nlm.nail.$favorite, 'icon-loliful-icon-bookmarked': nlm.nail.$favorite}")
       li(ng-if="nlm.isOwn || nlm.isMod")
@@ -27,7 +27,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
       li(ng-if="nlm.isOwn || nlm.isMod")
         a.edit(type="button", ng-click="nlm.startEdit();")
           span.icon.icon-loliful-icon-edit()
-      li(title="Click to copy link for this joke", bs-tooltip)
+      li(title="Прямая ссылка на шутку", bs-tooltip)
         a(type="button",
         ngclipboard,
         data-clipboard-text="{{ $root.href('nail-view', {nailId: nlm.nail.id}, {absolute: true}) }}")
@@ -40,10 +40,10 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
   div.panel-footer(ng-if="!nlm.hideFooter")
     div.row.edit-controls(ng-if="nlm.isEdit")
       div.col-xs-6.text-center
-        button.btn.btn-mini.btn-default(type="reset", ng-disabled="nlm._saving", ng-click="nlm.resetEdit()") Cancel
+        button.btn.btn-mini.btn-default(type="reset", ng-disabled="nlm._saving", ng-click="nlm.resetEdit()") Отмена
       div.col-xs-6.text-center
         div.countdown {{ 212 - (nlm.nail.text.length || 0) }}
-        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="nlm._saving", ng-click="nlm.edit()") Save
+        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="nlm._saving", ng-click="nlm.edit()") Сохранить
     div.row(ng-hide="nlm._reply || nlm.isEdit")
       div.col-xs-3
         a.outros(ui-sref="nail-view({nailId: nlm.nail.id, nail: nlm.nail})",
@@ -52,9 +52,9 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
           i.icon.icon-loliful-icon-outro
           | {{nlm.nail.countAnswers}}
       div.replies(ng-class="{'reply-added': nlm._replyAdded}")
-        span Replied! Let's see how it goes!
+        span Готово!
         div(ng-hide="nlm._reply")
-          a.reply.btn.btn-default(ng-click="nlm.showReplyForm()") Joke
+          a.reply.btn.btn-default(ng-click="nlm.showReplyForm()") Ответить
       div.col-xs-6.pull-right.text-right(ng-if="nlm.isOwn")
         a.share(ng-click="nlm.share()")
           i.icon.icon-loliful-icon-share
@@ -73,7 +73,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
         div.col-xs-9.col-sm-8
           input.reply.form-control(id="reply-{{nlm.nail.id}}",
             type="text",
-            placeholder="Joke",
+            placeholder="",
             ng-model="nlm._hammer.text",
             minlength="1",
             ng-minlength="1",
@@ -82,4 +82,4 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
             required,
             esc-key="nlm.hideReplyForm();"
             auto-focus)
-        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="nlm._replying") Reply
+        button.btn.btn-mini.btn-primary(type="submit", ng-disabled="nlm._replying") Ответить

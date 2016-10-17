@@ -1,11 +1,10 @@
 const addPlaceholders = [
-    'Make them think',
-    'In a galaxy near, far, away..',
-    'Seven is bigger than seven',
-    'World is a placeholder for jokes',
-    'This is going to be hilarious',
-    'Remember, funny...',
-    'Try to be smart'
+    'Может быть смешным',
+    'Тысячи медведей ежегодно трут земную ось',
+    'Тут место для шутки',
+    'Хаха',
+    'Но смешно',
+    'Орфография 10х12'
 ];
 
 export function NailAddDirective() {
@@ -48,12 +47,12 @@ export class NailAddController {
             this.saving = false;
             this.$rootScope.$emit('nail.add.success', res);
             this.nail.text = '';
-            this.toastr.success(`Added! Let's see how they reply.`);
+            this.toastr.success(`Готово! Ждем ответов.`);
         }, err => {
             if (err.status === 422) {
-                this.toastr.error('Somebody already asked this question, sorry');
+                this.toastr.error('Кто-то уже спрашивал это');
             } else {
-                this.toastr.error('Oops, something went wrong, please try again')
+                this.toastr.error('Ого.. Не получилось сейчас.')
             }
             this.saving = false;
             this.$rootScope.$emit('nail.add.error', err);

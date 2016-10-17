@@ -2,32 +2,27 @@
   alert(
     type="'danger'",
     icon="false",
-    text="If you'd like to get some emails from us, please set your email in the profile.",
+    text="Если вы хотите получать письма, пожалуйста укажите ваш email в профиле.",
     link="profile",
     ng-if="vm.user && !vm.user.email"
   )
 
-  h1 Notifications
-    //span.badge(ng-if="false && vm.count.count")
-    //  | {{ vm.count.count }} / {{ vm.count.unread }}
-  //div(ng-if="false && vm.count.unread")
-  //  button.btn.btn-default(ng-click="vm.markRead()")
-  //    | Mark all read
+  h1 Уведомления
 
   loading(ng-if="!vm.notifications")
 
 
   div(ng-if="vm.$empty")
     .align-center
-      p.vOfs Your mailman took a day off
+      p.vOfs Почтальён в загул ушел
       img.mailman(src="/assets/img/mailman2.png", title="mailman")
-      p.vOfs Try adding an Intro to get noticed
-      a.btn.btn-primary(ui-sref="fresh") Take me to fresh intros
+      p.vOfs Попробуйте добавить вопрос, чтобы вас заметили
+      a.btn.btn-primary(ui-sref="fresh") Последние вопросы
 
   div(ng-if="vm.notifications.length",infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
     div(ng-if="vm.notificationsNew.length")
-      h2 New
+      h2 Новые
       notification-list-item(notification="item", ng-repeat="item in vm.notificationsNew track by $index")
     div(ng-if="vm.notificationsOlder.length")
-      h2 Older
+      h2 Просмотренные
       notification-list-item(notification="item", ng-repeat="item in vm.notificationsOlder track by $index")

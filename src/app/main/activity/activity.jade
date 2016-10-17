@@ -2,7 +2,7 @@ float-menu(single="true")
 alert(
   type="'danger'",
   icon="false",
-  text="If you'd like to get some emails from us, please set your email in the profile.",
+  text="Если вы хотите получать письма, пожалуйста укажите ваш email в профиле.",
   link="profile",
   ng-if="vm.user && !vm.user.email"
 )
@@ -10,10 +10,10 @@ alert(
 ul#secondary-menu.nav.nav-pills.activity.nav-justified
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="activity({type: 'saves'})")
-      | Фавориты
+      | Отложенное
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="activity({type: 'likes'})")
-      | Лайкнутые
+      | Нравится
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="activity({type: 'nails'})")
       | Мои вопросы
@@ -37,4 +37,4 @@ section
         nail-list-item(ng-if="item.$nail", nail="item.$nail")
         hammer-activity-item(ng-if="item.$hammer", hammer="item.$hammer")
 
-  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Еще покажи
+  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Ещё

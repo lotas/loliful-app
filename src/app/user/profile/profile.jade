@@ -1,6 +1,6 @@
 .profile-page
   .container-fluid.main-block
-    h1.botOfs Profile
+    h1.botOfs Профиль
 
     .row
       .col-xs-3.avatar
@@ -13,7 +13,7 @@
 
         form.form(ng-if="vm._edit_name", name="vm.nameFrm", ng-submit="vm.setName(vm.nameFrm)")
           div.form-group(ng-class="{'has-error': nameFrm.$invalid}")
-            label.hidden(for="name") Name
+            label.hidden(for="name") Имя
             table.input-table(border="0")
               tr
                 td
@@ -23,7 +23,7 @@
                     ng-model="vm.user.name",
                     maxlength="32",
                     minlength="1",
-                    ng-pattern="/^[a-zA-Z0-9-_. ]+$/",
+                    ng-pattern="/^[а-яА-Яa-zA-Z0-9-_. ]+$/",
                     ng-minlength="1",
                     ng-maxlength="32",
                     required,
@@ -34,20 +34,20 @@
                     i.icon.icon-loliful-icon-checkmark
 
             div(ng-messages="vm.nameFrm.name.$error", role="alert")
-              div(ng-message="required") Please tell us your name.
-              div(ng-message="maxlength") This might be too long to remember.
-              div(ng-message="pattern") Would be nice to use only letters and numbers. And maybe dash.
+              div(ng-message="required") Укажите имя.
+              div(ng-message="maxlength") Слишком длинное.
+              div(ng-message="pattern") Было бы неплохо использовать только буквы. Ну может цифры, если хотите
 
     .row.about-me.topOfs
       .col-xs-12
         p(ng-hide="vm._edit_about")
-          | {{ vm.user.about || '[about me]' }}
+          | {{ vm.user.about || '[обо мне]' }}
           a.edit-name(ng-click="vm.editField('about')", ng-hide="vm._edit_about")
             i.icon.icon-loliful-icon-edit
 
         form.form(ng-if="vm._edit_about", ng-submit="vm.setAbout()")
           div.form-group
-            label.hidden(for="about") About me
+            label.hidden(for="about") Обо мне
             table.input-table(border="0")
               tr
                 td
@@ -70,27 +70,27 @@
           td
             img(ng-src="/assets/img/f-{{vm.social.facebook ? 'on' : 'off'}}.svg", title="Facebook")
           td.actions
-            span(ng-show="vm.social.facebook") Connected
-            a(href="{{api}}/link/facebook", ng-click="vm.connectAcc()", ng-if="!vm.social.facebook") Connect
-            a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook && vm.linkedAccounts > 1") Disconnect
+            span(ng-show="vm.social.facebook") Подключен
+            a(href="{{api}}/link/facebook", ng-click="vm.connectAcc()", ng-if="!vm.social.facebook") Подключить
+            a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook && vm.linkedAccounts > 1") Отключить
           td.hidden-xs
             a(ng-href="{{vm.social.facebook.l}}") {{ vm.social.facebook.n }}
         tr
           td
             img(ng-src="/assets/img/t-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
           td.actions
-            span(ng-show="vm.social.twitter") Connected
-            a(href="{{api}}/link/twitter", ng-click="vm.connectAcc()", ng-if="!vm.social.twitter") Connect
-            a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter && vm.linkedAccounts > 1") Disconnect
+            span(ng-show="vm.social.twitter") Подключен
+            a(href="{{api}}/link/twitter", ng-click="vm.connectAcc()", ng-if="!vm.social.twitter") Подключить
+            a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter && vm.linkedAccounts > 1") Отключить
           td.hidden-xs
             a(ng-href="{{vm.social.twitter.l}}") {{ vm.social.twitter.n }}
         tr
           td
             img(ng-src="/assets/img/g-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
           td.actions
-            span(ng-show="vm.social.google") Connected
-            a(href="{{api}}/link/google", ng-click="vm.connectAcc()", ng-if="!vm.social.google") Connect
-            a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google && vm.linkedAccounts > 1") Disconnect
+            span(ng-show="vm.social.google") Подключен
+            a(href="{{api}}/link/google", ng-click="vm.connectAcc()", ng-if="!vm.social.google") Подключить
+            a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google && vm.linkedAccounts > 1") Отключить
           td.hidden-xs
             a(ng-href="{{vm.social.google.l}}") {{ vm.social.google.n }}
 
@@ -100,72 +100,72 @@
 
     h5
       i.icon.icon-loliful-icon-stats
-      | Statistics
+      | Статистика
 
-    p(ng-if="!vm.stats") Loading stats ..
+    p(ng-if="!vm.stats") Загружаются данные ..
     div.row(ng-if="vm.stats")
       div.col-xs-4.statistic-col
         .statistic
-          h3.title Intros
+          h3.title Вопросы
           h1.count
             a.clickable(ui-sref="profile.activity({id: vm.user.id, activityType: 'nails'})") {{ vm.stats.nailCount || 0 }}
-          div.hearts(bs-tooltip, title="So many people liked youre intros")
+          div.hearts(bs-tooltip, title="Стольким людям понравились ваши вопросы")
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.nailKarma || 0}}
       div.col-xs-4.statistic-col
         .statistic
-          h3.title Outros
+          h3.title Ответы
           h1.count
             a.clickable(ui-sref="profile.activity({id: vm.user.id, activityType: 'hammers'})") {{ vm.stats.hammerCount || 0 }}
-          div.hearts(bs-tooltip, title="So many people liked youre outros")
+          div.hearts(bs-tooltip, title="Столько людей оценили ваши добивки")
             i.icon.icon-loliful-icon-liked
             | {{ vm.stats.hammerKarma || 0}}
       div.col-xs-4.statistic-col
         .statistic
-          h3.title Rank
+          h3.title Рейтинг
           h1.count {{ vm.stats.rating.position || '-' }}
           .hearts(ng-if="vm.stats.total") out of {{ vm.stats.total }}
 
   div.email-preferences
 
     hr
-    alert(type="'danger'", icon="false", text="If you'd like to get some emails from us, please set your email.", ng-if="!vm.user.email")
+    alert(type="'danger'", icon="false", text="Если вы хотите получать письма, пожалуйста укажите ваш email в профиле.", ng-if="!vm.user.email")
 
     h5
       i.icon.icon-loliful-icon-notifications
-      | Email notifications
+      | Email уведомления
 
     .row
 
       form.form.col-xs-12.col-sm-6(name="settings", ng-submit="vm.saveSettings();",
         ng-class="{disabled: !vm.user.email}")
         div.form-group
-          label.col-xs-10(for="n-reply") Someone replies to my intro
+          label.col-xs-10(for="n-reply") Кто-то ответил на мой вопрос
           .col-xs-2
             input.form-control#n-reply(type="checkbox", ng-model="vm.notifications.emailReply", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
-          label.col-xs-10(for="n-like") Someone likes my outro
+          label.col-xs-10(for="n-like") Кому-то понравился мой ответ или вопрос
           .col-xs-2
             input.form-control#n-like(type="checkbox", ng-model="vm.notifications.emailLike", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
-          label.col-xs-10(for="n-replySame") Someone replies to the same intro
+          label.col-xs-10(for="n-replySame") Кто-то еще ответил на вопрос
           .col-xs-2
             input.form-control#n-replySame(type="checkbox", ng-model="vm.notifications.emailReplySameIntro", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
-          label.col-xs-10(for="n-digest") Send me a digest once a week
+          label.col-xs-10(for="n-digest") Еженедельный дайджест
           .col-xs-2
             input.form-control#n-digest(type="checkbox", ng-model="vm.notifications.emailDigest", ng-true-value="1", ng-false-value="0", ng-disabled="!vm.user.email")
         div.form-group
           .col-xs-9 &nbsp;
           .col-xs-3
-            button.btn.btn-primary(type="submit", ng-disabled="settings.$pristine || vm.savingSettings") Save
+            button.btn.btn-primary(type="submit", ng-disabled="settings.$pristine || vm.savingSettings") Сохранить
 
     .row.topOfs
-      label.col-xs-12 Here is my email to send fun stuff to
+      label.col-xs-12 Вот он мой email
       .col-xs-10(ng-if="!vm._edit_email")
         input.form-control#email2(type="text", value="{{vm.user.emailUnverified || vm.user.email}}", disabled)
         p.text-warning(ng-if="vm.user.emailUnverified")
-          | Please check your email to finish verification process
+          | Будьте добры проверить почту и закончить процесс подтверждения email'a
       .col-xs-10(ng-if="vm._edit_email")
         form.form(name="vm.emailFrm", ng-submit="vm.setEmail(vm.emailFrm)")
           div.form-group(ng-class="{'has-error': emailFrm.$invalid}")
@@ -179,10 +179,8 @@
             required,
             esc-key="vm.cancelEditField('email');",
             auto-focus)
-            div(ng-messages="vm.emailFrm.name.$error", role="alert")
-              div(ng-message="required") Please tell us your name.
-              div(ng-message="maxlength") This might be too long to remember.
-              div(ng-message="email") Please input valid email
+            div(ng-messages="vm.emailFrm.email.$error", role="alert")
+              div(ng-message="email") Не похоже что-то на email
 
       .col-xs-2
         a.edit-name(ng-click="vm.editField('email')", ng-hide="vm._edit_email")

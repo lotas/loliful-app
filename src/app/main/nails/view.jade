@@ -2,7 +2,7 @@ float-menu(single="true", show="true")
 
 .view-single
   div.back-btn
-    a.btn(onclick="history.back();") ← Back
+    a.btn(onclick="history.back();") ← Назад
 
   div.nail-wrapper
     nail-list-item(nail="nv.nail", is-nail-view="true")
@@ -11,8 +11,8 @@ float-menu(single="true", show="true")
       div.panel-body
           form.reply-form.form-inline(ng-submit="nv.reply();")
             div.col-xs-9.col-sm-8
-              input#reply.form-control(type="text", placeholder="Joke", ng-model="nv._hammer.text", required, autofocus=true)
-            button.btn.btn-small.btn-primary(type="submit") Reply
+              input#reply.form-control(type="text", placeholder="Ответить", ng-model="nv._hammer.text", required, autofocus=true)
+            button.btn.btn-small.btn-primary(type="submit") Ответить
 
     div.container-fluid.hammers(ng-if="nv.nail.$hammers")
       hammer-list-item(hammer="item", ng-repeat="item in nv.nail.$hammers track by $index")

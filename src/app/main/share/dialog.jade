@@ -4,7 +4,7 @@
       .modal-header
         button.close(type='button', aria-label='Close', ng-click='$hide()')
           span(aria-hidden='true') ×
-        h4.modal-title {{ share ? 'Share this joke' : 'Just a moment, generating joke' }}
+        h4.modal-title {{ share ? 'Поделиться шуткой' : 'Минуточку, сейчас всё будет' }}
       div(ng-bind='content')
       .modal-body
         .loading(ng-if="!share")
@@ -17,39 +17,39 @@
           ng-click="addClick(share.id, 'fb')",
           href='https://www.facebook.com/sharer/sharer.php?u={{share.url}}',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            i.icon.icon-loliful-icon-facebook(title='Share on Facebook')
+            i.icon.icon-loliful-icon-facebook(title='Поделиться в Facebook')
           a.btn.btn-primary.share-t(
           rel="nofollow",
           ng-click="addClick(share.id, 'twitter')",
           href='https://twitter.com/intent/tweet?text={{share.url}}&via=loliful_app&hashtags=loliful',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            i.icon.icon-loliful-icon-twitter(title='Share on Twitter')
+            i.icon.icon-loliful-icon-twitter(title='Поделиться в Twitter')
           a.btn.btn-primary.share-w(
           ng-if="screen.isTabletOrMobile",
           rel="nofollow",
           ng-click="addClick(share.id, 'whatsapp')",
           href='whatsapp://send?text={{share.url}}',
           data-action="share/whatsapp/share")
-            i.icon.icon-loliful-icon-whatsapp(title='Share on Whatsapp')
+            i.icon.icon-loliful-icon-whatsapp(title='Поделиться в Whatsapp')
           a.btn.btn-primary.share-v(
           ng-if="screen.isTabletOrMobile",
           rel="nofollow",
           ng-click="addClick(share.id, 'viber')",
           href='viber://forward?text={{share.url}}')
-            img(src="/assets/img/share-v.svg", title="Share on Viber")
+            img(src="/assets/img/share-v.svg", title="Поделиться в Viber")
           a.btn.btn-primary.share-g(
           rel="nofollow",
           ng-click="addClick(share.id, 'google')",
           href='https://plus.google.com/share?url={{share.url}}',
           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;")
-            i.icon.icon-loliful-icon-google-plus(title='Share on Google+')
+            i.icon.icon-loliful-icon-google-plus(title='Поделиться в Google+')
         div.align-center.copy-row.vOfs
           a.btn.btn-link(
             href="{{ share.img }}",
             ng-click="addClick(share.id, 'download')",
             download
           )
-            span Download
+            span Скачать
           a.btn.btn-link(
             ngclipboard,
             data-clipboard-text="{{ share.url }}",
@@ -58,6 +58,6 @@
           )
             span(
               bs-tooltip,
-              data-title="Copied to clipboard",
+              data-title="Скопировано в буфер",
               data-trigger="click"
-            ) Copy card url
+            ) Скопировать URL

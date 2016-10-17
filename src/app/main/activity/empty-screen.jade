@@ -1,9 +1,9 @@
 p(ng-if="$ctrl.topText") {{ $ctrl.topText }}
 img.illustration(ng-src="{{ $ctrl.img }}")
 p(ng-if="$ctrl.type == 'nails'")
- | Выбери понравившийся вопрос и добавь смешной ответ
+ | Выбери хороший вопрос и добавь смешной ответ
 p(ng-if="$ctrl.type == 'likes' || $ctrl.type == 'saves'")
- | In <b>Fresh</b> pick the <b>Intro</b> you like and add your <b>Outro</b> to it <br/>
- | If you don't feel like joking just yet, start with a <b>Save for later</b> or a goold old <b>Like</b>
+ | Найди в <a ui-sref="fresh()"><b>Вопросах</b></a> хороший <b>Заезд</b> и добавь смешную <b>Добивку</b> <br/>
+ | Если в данную минуту не хочется шутить, попробуйте <b>Отложить на потом</b> или проголосовать за понравившиеся вопросы.
 .vOfs
   a.btn.btn-primary.uppercase(ui-sref="fresh") {{ $ctrl.actionName }}
