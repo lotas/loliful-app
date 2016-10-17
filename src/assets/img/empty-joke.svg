@@ -29,14 +29,14 @@
                 <ellipse id="Mask-Copy" fill="#F4F6F9" cx="123" cy="21" rx="8" ry="8"></ellipse>
                 <rect id="Rectangle-139" fill="#F4F6F9" x="40" y="19" width="54" height="4" rx="2"></rect>
                 <rect id="Rectangle-139-Copy" fill="#F4F6F9" x="138" y="19" width="54" height="4" rx="2"></rect>
-                <text id="No-matter-how-hard-y" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#39404A">
+                <text id="No-matter-how-hard-y" font-family="Roboto" font-size="14" font-weight="normal" fill="#39404A">
                     <tspan x="17" y="63">No matter how hard you try </tspan>
                     <tspan x="17" y="80">Chuck Norris tries harder</tspan>
                 </text>
-                <text id="SHARE" font-family="Lato-Regular, Lato" font-size="12" font-weight="normal" line-spacing="12" fill="#C3C7D0">
+                <text id="SHARE" font-family="Roboto" font-size="12" font-weight="normal" line-spacing="12" fill="#C3C7D0">
                     <tspan x="102" y="130">SHARE</tspan>
                 </text>
-                <text id="LIKE" font-family="Lato-Regular, Lato" font-size="12" font-weight="normal" line-spacing="12" fill="#C3C7D0">
+                <text id="LIKE" font-family="Roboto" font-size="12" font-weight="normal" line-spacing="12" fill="#C3C7D0">
                     <tspan x="199" y="130">LIKE</tspan>
                 </text>
             </g>

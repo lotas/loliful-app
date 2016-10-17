@@ -22,7 +22,7 @@
                     <circle id="Mask" fill="#F4F6F9" cx="22" cy="28.6201022" r="8"></circle>
                     <rect id="Rectangle-139" fill="#F4F6F9" x="37" y="26.6201022" width="54" height="4" rx="2"></rect>
                 </g>
-                <text id="No-matter-how-hard-y" font-family="Lato-Regular, Lato" font-size="14" font-weight="normal" fill="#39404A">
+                <text id="No-matter-how-hard-y" font-family="Roboto" font-size="14" font-weight="normal" fill="#39404A">
                     <tspan x="24" y="66">No matter how hard you try</tspan>
                 </text>
             </g>

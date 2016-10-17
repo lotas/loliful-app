@@ -9,7 +9,7 @@
 }
 .preloader h4,
 .preloader h5 {
-  font-family: 'Sanchez' serif;
+  .font-headers();
   font-weight: 100 !important;
 }
 .preloader .logo {
