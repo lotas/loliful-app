@@ -39,11 +39,11 @@ export class ProfileController {
         }
         this.User.prototype$setName({name: this.user.name, id: this.user.id}, res => {
             if (res.name.dup) {
-                this.toastr.warning('Sorry, this username is already taken');
+                this.toastr.warning('А такое имя уже занято! Не получится');
             } else if (res.name.error) {
                 this.toastr.warning(res.name.error);
             } else {
-                this.toastr.success('Name saved!');
+                this.toastr.success('Мы вас запомнили!');
                 this.user.name = res.name.name;
                 this._edit_name = false;
             }
@@ -65,7 +65,7 @@ export class ProfileController {
                 this.toastr.warning(res.about.error);
             } else {
                 this.user.about = res.about.about;
-                this.toastr.success('Thank you!');
+                this.toastr.success('Спасибо!');
                 this._edit_about = false;
             }
         });
@@ -74,7 +74,7 @@ export class ProfileController {
     setEmail() {
         this.User.prototype$setEmail({email: this.user.email, id: this.user.id}, res => {
             this.user.emailUnverified = this.user.email = res.email;
-            this.toastr.success('Please check your email to verify it');
+            this.toastr.success('Проверьте ваш новый email, чтобы подтвердить его');
             this._edit_email = false;
         }, err => {
             this.toastr.error(err.data.error.message);
@@ -111,7 +111,7 @@ export class ProfileController {
             emailDigest: this.notifications.emailDigest
         }, () => {
             this.savingSettings = false;
-            this.toastr.success('Thanks! All saved.')
+            this.toastr.success('Спасибо! Всё сохранили.')
         });
     }
 
@@ -120,10 +120,12 @@ export class ProfileController {
     }
 
     unlinkAccount(provider) {
-        this.SweetAlert.confirm('Please confirm', `Disconnect from ${provider}?`, (res) => {
+        this.SweetAlert.confirm(`Отключить ${provider}?`, '', {
+            confirmButtonText: 'Отключить'
+        }, (res) => {
             if (res === true) {
                 this.UserService.unlinkSocialAccount(provider).then(() => {
-                    this.toastr.success(`Unlinked your ${provider} account`);
+                    this.toastr.success(`${provider} отключен`);
                     delete this.social[provider];
                 });
             }

@@ -6,8 +6,8 @@
       .col-xs-3
         .avatar
           img.user-avatar.img-responsive.fix-dimensions(ng-src="{{ vm.profile.avatar }}", ng-if="vm.profile.avatar")
-          img.badge-mvp(src="/assets/img/badge-mvp-lg.png", title="Most V. Person", ng-if="vm.profile.badges.mvp", bs-tooltip)
-          img.badge-pro(src="/assets/img/badge-pro-lg.png", title="PRO Joker", ng-if="vm.profile.badges.pro", bs-tooltip)
+          img.badge-mvp(src="/assets/img/badge-mvp-lg.png", title="Самый ваще", ng-if="vm.profile.badges.mvp", bs-tooltip)
+          img.badge-pro(src="/assets/img/badge-pro-lg.png", title="PRO чел", ng-if="vm.profile.badges.pro", bs-tooltip)
       .col-xs-9
         p.about-me {{ ::vm.profile.about }}
 
@@ -22,13 +22,13 @@
 
     h5
       i.icon.icon-loliful-icon-stats
-      | Statistics
+      | Статистика
 
-    p(ng-if="!vm.stats") Loading stats ..
+    p(ng-if="!vm.stats") Идет загрузка ..
     div.row(ng-if="vm.stats")
       div.col-xs-4.statistic-col
         .statistic
-          h3.title Intros
+          h3.title Вопросы
           h1.count
             a.clickable(ui-sref="profile.activity({id: vm.profile.id, activityType: 'nails'})") {{ vm.stats.nailCount || 0 }}
           div.hearts
@@ -36,7 +36,7 @@
             | {{ vm.stats.nailKarma }}
       div.col-xs-4.statistic-col
         .statistic
-          h3.title Outros
+          h3.title Ответы
           h1.count
             a.clickable(ui-sref="profile.activity({id: vm.profile.id, activityType: 'hammers'})") {{ vm.stats.hammerCount || 0 }}
           div.hearts
@@ -44,7 +44,7 @@
             | {{ vm.stats.hammerKarma }}
       div.col-xs-4.statistic-col
         .statistic
-          h3.title Rank
+          h3.title Рейтинг
           h1.count {{ vm.stats.rating.position || '∞' }}
-          .hearts(ng-if="vm.stats.total") out of {{ vm.stats.total }}
+          .hearts(ng-if="vm.stats.total") из {{ vm.stats.total }}
 

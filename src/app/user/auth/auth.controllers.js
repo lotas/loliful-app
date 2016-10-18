@@ -26,7 +26,7 @@ export class LoginController {
             rememberMe: this.rememberMe
         }, (res) => {
             this.Storage.set('user', res.user);
-            this.toastr.success('Welcome!');
+            this.toastr.success('Доброго дня!');
 
             let authRedirect = this.Storage.get('authRedirect');
             if (authRedirect) {
@@ -36,7 +36,7 @@ export class LoginController {
                 this.$window.location.replace('/');
             }
         }, (err) => {
-            this.toastr.error('Cannot login!');
+            this.toastr.error('Неполучится!');
             this.$log.error('error login', err);
         });
     }

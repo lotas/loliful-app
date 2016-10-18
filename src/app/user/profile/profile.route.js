@@ -22,7 +22,7 @@ export function profileRouteConfig($stateProvider) {
                 currentUser: resolveCurrentUser
             },
             data: {
-                pageTitle: 'Profile @ loliful.co'
+                pageTitle: 'Профиль @ loliful.co'
             }
         })
         .state('profile.public', {
@@ -39,7 +39,7 @@ export function profileRouteConfig($stateProvider) {
                 profile: resolvePublicProfile
             },
             data: {
-                pageTitle: 'Profile @ loliful.co'
+                pageTitle: 'Профиль @ loliful.co'
             }
         })
         .state('profile.activity', {
@@ -56,7 +56,7 @@ export function profileRouteConfig($stateProvider) {
                 profile: resolvePublicProfile
             },
             data: {
-                pageTitle: 'Profile @ loliful.co'
+                pageTitle: 'Профиль @ loliful.co'
             }
         })
     ;

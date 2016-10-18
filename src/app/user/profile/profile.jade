@@ -8,7 +8,7 @@
       .col-xs-9
         h4(ng-hide="vm._edit_name")
           | {{ vm.user.name }}
-          a.edit-name(ng-click="vm.editField('name')", ng-hide="vm._edit_name", bs-tooltip, title="Change your username")
+          a.edit-name(ng-click="vm.editField('name')", ng-hide="vm._edit_name", bs-tooltip, title="Изменить имя")
             i.icon.icon-loliful-icon-edit
 
         form.form(ng-if="vm._edit_name", name="vm.nameFrm", ng-submit="vm.setName(vm.nameFrm)")

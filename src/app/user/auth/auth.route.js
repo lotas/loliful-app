@@ -46,7 +46,7 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Invite нужен'
+                pageTitle: 'Пропуск нужен'
             }
         })
         .state('signup', {
@@ -60,7 +60,7 @@ export function authRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Sign up for loliful.co'
+                pageTitle: 'Регистрация for loliful.co'
             }
         })
         .state('logout', {

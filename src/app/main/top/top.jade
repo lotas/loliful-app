@@ -15,7 +15,7 @@ div
         | За месяц
     li(role="presentation", ng-class="{active: vm.period == 'all' }")
       a(ui-sref="top({period: 'all'})")
-        | За все время
+        | За всё время
 
 
   div.top(ng-if="vm.jokes",infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
@@ -26,12 +26,12 @@ div
   br
 
   div.container-fluid.align-center(ng-if="vm.$empty")
-    p.vOfs Looks like no one was trying hard enough to be funny.
+    p.vOfs Похоже что никто не старался быть смешным.
 
     .empty-card.vOfs
       img(src="/assets/img/empty-card.png")
 
-    p What if you would start joking right now?
+    p Может быть у тебя получится?
 
     .vOfs
-      a.btn.btn-primary.uppercase(ui-sref="fresh") Go joking
+      a.btn.btn-primary.uppercase(ui-sref="fresh") Пошутить

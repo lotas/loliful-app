@@ -36,13 +36,16 @@ class HammerActivityItemController {
 
     delete() {
         if (this.isOwn) {
-            this.SweetAlert.confirm('Remove', 'Is it this bad? Okay to remove it?', (res) => {
+            this.SweetAlert.confirm('Удалить ответ?', '', {
+                customClass: 'no-icon',
+                confirmButtonText: 'Удалить'
+            },  (res) => {
                 if (res === true) {
                     this.Hammer.deleteById({id: this.hammer.id}).$promise.then(() => {
                         this.$rootScope.$emit('hammer.deleted', String(this.hammer.id));
                         this.hammer = null;
                     }).catch(err => {
-                        this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
+                        this.toastr.warning(err.data.error.message || 'Упс! Уже не получится удалить.');
                         this.$log.debug(err);
                     });
                 }
@@ -71,7 +74,7 @@ class HammerActivityItemController {
             this.hammer.countVotes = res.countVotes;
         }).catch(err => {
             this.$log.debug(err);
-            this.toastr.warning('oh no!, vote failed');
+            this.toastr.warning('Какая досада! Не получилось');
         });
     }
 }

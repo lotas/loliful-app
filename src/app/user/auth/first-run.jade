@@ -1,6 +1,6 @@
 p.title
-  b(ng-show="vm.val < 100") Hold on,<br> we are setting up your account
-  b(ng-show="vm.val >= 100") <br> You are good to go
+  b(ng-show="vm.val < 100") Минуточку,<br> настраиваем ваш профиль
+  b(ng-show="vm.val >= 100") <br> Всё хорошо
 
 .avatar-loading
   .wrapper
@@ -12,22 +12,22 @@ p.title
       img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}", ui-sref="profile", ng-click="vm.setFirstRun()")
 
 p.info.bottom30
-  span(ng-show="vm.val < 60") Next time you won't need to wait
-  span(ng-show="vm.val > 60 && vm.val < 100") Almost there
+  span(ng-show="vm.val < 60") В следующий раз можно не ждать
+  span(ng-show="vm.val > 60 && vm.val < 100") Почти готово
   span(ng-show="vm.val >= 100")
-    | We recommend you connect your other social media accounts. You'll be able to log in with any of those later.
+    | Рекомендуем подключить дополнительно другие аккаунты, чтобы было проще логиниться.
 
 .container-fluid.clearfix(ng-show="vm.val >= 100")
   .row
     .col-xs-12.align-center
-      button.btn.btn-primary.bottom30(ui-sref="top", ng-click="vm.setFirstRun()") SHOW ME BEST JOKES
+      button.btn.btn-primary.bottom30(ui-sref="top", ng-click="vm.setFirstRun()") ПОСМОТРЕТЬ ШУТКИ
   .row
     .col-xs-12.align-center
-      button.btn.btn-default(ui-sref="profile", ng-click="vm.setFirstRun()") GO TO PROFILE
+      button.btn.btn-default(ui-sref="profile", ng-click="vm.setFirstRun()") ПРОЙТИ В ПРОФИЛЬ
 
 p.info.bottom30(ng-show="vm.val >= 100")
   span
     | <br>
-    | Please note, that you could receive occasional emails for certain activities.
+    | При определенном стечении обстоятельств, вы можете получать от нас письма.
     | <br>
-    | You can always change your email preferences in your personal settings.
+    | Настройки email-уведомлений вы можете посмотреть в Настройках.

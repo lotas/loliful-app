@@ -39,10 +39,10 @@ class JokeListItemController {
             id: this.joke.id
         }).$promise.then(() => {
             this.joke._isReported = true;
-            this.toastr.success('Thank you for reporting!');
+            this.toastr.success('Спасибо за помощь!');
         }).catch(err => {
             this.$log.debug(err);
-            this.toastr.warning('oh no!, something horrible happened');
+            this.toastr.warning('Опа! Не получилось что-то');
         });
     }
 
@@ -55,7 +55,7 @@ class JokeListItemController {
         }).catch(err => {
             this.joke.$favorite = false;
             this.$log.debug(err);
-            this.toastr.warning('oh no!, something horrible happened');
+            this.toastr.warning('Опа! Не получилось что-то');
         });
     }
 
@@ -76,7 +76,7 @@ class JokeListItemController {
             this.joke.countVotes = res.countVotes;
         }).catch(err => {
             this.$log.debug(err);
-            this.toastr.warning('oh no!, vote failed');
+            this.toastr.warning('Опа! Не получилось что-то');
         });
     }
 

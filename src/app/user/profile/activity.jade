@@ -5,10 +5,10 @@ ul#secondary-menu.nav.nav-pills.activity.nav-justified
     a(ui-sref="profile.public({id: vm.profile.id})") {{ vm.profile.name }}
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="profile.activity({id: vm.profile.id, activityType: 'nails'})")
-      |  Intros
+      | Вопросы
   li(role="presentation", ui-sref-active="active")
     a(ui-sref="profile.activity({id: vm.profile.id, activityType: 'hammers'})")
-      | Outros
+      | Ответы
 
 div.container-fluid.align-center(ng-if="vm.$empty")
   activity-empty-screen(type="vm.type")
@@ -22,4 +22,4 @@ section
     div.my-hammers(ng-if="vm.items && vm.type=='hammers'")
       hammer-activity-item(hammer="item", ng-repeat="item in vm.items track by item.id")
 
-  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Show more
+  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Показать ещё
