@@ -54,7 +54,9 @@ export class SweetAlert {
                 text: message,
                 type: 'warning',
                 showCancelButton: true,
-                closeOnConfirm: true
+                closeOnConfirm: true,
+                cancelButtonText: 'Передумал',
+                confirmButtonText: 'Да'
             }, opts), callback);
         }, SWAL_DELAY);
     }

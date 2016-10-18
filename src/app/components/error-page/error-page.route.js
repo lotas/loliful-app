@@ -27,7 +27,7 @@ export function errorPageRouteConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Error ∞ ≤ ∆ loliful.co',
+                pageTitle: 'Ошибка ∞ ≤ ∆ loliful.co',
                 showStaticHeader: true
             }
         })

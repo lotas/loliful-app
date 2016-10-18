@@ -12,7 +12,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
         a.show-sub(ng-click="nlm.report();",
         data-type="info",
         bs-tooltip,
-        title="Flag this as inappropriate")
+        title="Фу!")
           span.i.icon.icon-loliful-icon-flag
       li
         a(type="button",
@@ -27,7 +27,7 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
       li(ng-if="nlm.isOwn || nlm.isMod")
         a.edit(type="button", ng-click="nlm.startEdit();", bs-tooltip, title="Редактировать")
           span.icon.icon-loliful-icon-edit()
-      li(title="Прямая ссылка на шутку", bs-tooltip)
+      li(title="Ссылка на шутку", bs-tooltip)
         a(type="button",
         ngclipboard,
         data-clipboard-text="{{ $root.href('nail-view', {nailId: nlm.nail.id}, {absolute: true}) }}")
@@ -55,15 +55,15 @@ div.panel.nail-list-item(ng-class="{reported: nlm.nail._isReported, isDeleted: n
         div(ng-hide="nlm._reply")
           a.reply.btn.btn-default(ng-click="nlm.showReplyForm()") Ответить
       div.col-xs-6.pull-right.text-right(ng-if="nlm.isOwn")
-        a.share(ng-click="nlm.share()")
+        a.share(ng-click="nlm.share()", title="Поделиться шуткой", bs-tooltip)
           i.icon.icon-loliful-icon-share
-        a.likes.own(type="button")
+        a.likes.own(type="button", title="Мне нравится", bs-tooltip)
           i.icon.icon-loliful-icon-like
           span {{ nlm.nail.countVotes }}
       div.col-xs-6.pull-right.text-right(ng-if="!nlm.isOwn")
-        a.share(ng-click="nlm.share()")
+        a.share(ng-click="nlm.share()", title="Поделиться шуткой", bs-tooltip)
           i.icon.icon-loliful-icon-share
-        a.likes(type="button", ng-click="nlm.vote()", ng-class="{active: nlm.nail.$votes}")
+        a.likes(type="button", ng-click="nlm.vote()", ng-class="{active: nlm.nail.$votes}", title="Мне нравится", bs-tooltip)
           i.icon(ng-class="{'icon-loliful-icon-like': !nlm.nail.$votes, 'icon-loliful-icon-liked': nlm.nail.$votes}")
           span {{ nlm.nail.countVotes }}
     div.row(ng-if="nlm._reply")

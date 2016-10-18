@@ -46,21 +46,22 @@ class HammerListItemController {
 
     report() {
         this.SweetAlert.confirm(
-            'Report abuse',
+            'Пожаловаться',
             `<img src="/assets/img/loliman-broken-helmet.svg"/>
-            <p>You are about to flag this joke inappropriate. Please confirm.</p>`,
+            <p>Вы собрались отметить эту шутку как неадекватную</p>`,
             {
                 customClass: 'no-icon',
-                html: true
+                html: true,
+                confirmButtonText: 'Отметить'
             },
             (res) => {
             if (res === true) {
                 this.Hammer.prototype$report({id: this.hammer.id}).$promise.then(() => {
                     this.hammer._isReported = true;
-                    this.toastr.success('Thank you for reporting!');
+                    this.toastr.success('Спасибо за помощь!');
                 }).catch(err => {
                     this.$log.debug(err);
-                    this.toastr.warning('oh no!, something horrible happened');
+                    this.toastr.warning('Опа! Не получилось в этот раз');
                 });
             }
         });
@@ -71,7 +72,7 @@ class HammerListItemController {
             this.hammer._favorite = true;
         }).catch(err => {
             this.$log.debug(err);
-            this.toastr.warning('oh no!, something horrible happened');
+            this.toastr.warning('Ухты! Что-то не получилось');
         });
     }
 
@@ -96,17 +97,18 @@ class HammerListItemController {
             this.hammer.countVotes = res.countVotes;
         }).catch(err => {
             this.$log.debug(err);
-            this.toastr.warning('oh no!, vote failed');
+            this.toastr.warning('Блин! Не получилось');
         });
     }
 
     delete() {
         if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
-                'Remove',
-                'Is it this bad? Okay to remove it?',
+                'Удалить',
+                'Всё так плохо?',
                 {
-                    customClass: 'no-icon'
+                    customClass: 'no-icon',
+                    confirmButtonText: 'Удалить'
                 },
                 (res) => {
                 if (res === true) {
@@ -114,7 +116,7 @@ class HammerListItemController {
                         this.$rootScope.$emit('hammer.deleted', String(this.hammer.id));
                         this.hammer._isDeleted = true;
                     }).catch(err => {
-                        this.toastr.warning(err.data.error.message || 'Oops, we cannot delete this');
+                        this.toastr.warning(err.data.error.message || 'Опа! Не получилось удалить');
                         this.$log.debug(err);
                     });
                 }
@@ -146,7 +148,7 @@ class HammerListItemController {
             text: this.hammer.text
         }).$promise
             .then(() => {
-                this.toastr.success('All good!');
+                this.toastr.success('Это успех!');
                 this.isEdit = false;
                 this._saving = false;
                 this._prevValue = '';
@@ -157,7 +159,7 @@ class HammerListItemController {
             })
             .catch(err => {
                 this._saving = false;
-                this.toastr.warning('oops, something went wrong');
+                this.toastr.warning('Опа! Опять что-то не получилось');
                 this.$log.debug(err);
             });
     }

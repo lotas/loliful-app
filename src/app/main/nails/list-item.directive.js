@@ -90,12 +90,13 @@ class NailListItemController {
 
     report() {
         this.SweetAlert.confirm(
-            'Report abuse',
+            'Пожаловаться',
             `<img src="/assets/img/loliman-broken-helmet.svg"/>
-            <p>You are about to flag this intro inappropriate. Please confirm.</p>`,
+            <p>Вы собрались отметить этот вопрос как неадекватный</p>`,
             {
                 customClass: 'no-icon',
-                html: true
+                html: true,
+                confirmButtonText: 'Отметить'
             },
             (res) => {
                 if (res === true) {
@@ -103,10 +104,10 @@ class NailListItemController {
                         id: this.nail.id
                     }).$promise.then(() => {
                         this.nail._isReported = true;
-                        this.toastr.success('Thank you for reporting!');
+                        this.toastr.success('Спасибо за помощь!');
                     }).catch(err => {
                         this.$log.debug(err);
-                        this.toastr.warning('oh no!, something horrible happened');
+                        this.toastr.warning('Опа! Произошло непоправимое');
                     });
                 }
             }
@@ -123,7 +124,7 @@ class NailListItemController {
             this.$log.debug(res);
         }).catch(err => {
             this.$log.debug(err);
-            this.toastr.warning('oh no!, something horrible happened');
+            this.toastr.warning('Ужос! Не получилось добавить');
         });
     }
 
@@ -145,7 +146,7 @@ class NailListItemController {
         }).catch(err => {
             this.$log.debug(err);
             this.nail.$votes = false;
-            this.toastr.warning('oh no!, vote failed');
+            this.toastr.warning('Неет! Не получилось...');
         });
     }
 
@@ -199,7 +200,7 @@ class NailListItemController {
             text: this.nail.text
         }).$promise
             .then(() => {
-                this.toastr.success('All good!');
+                this.toastr.success('Это успех!');
                 this.isEdit = false;
                 this._saving = false;
                 this._prevValue = '';
@@ -210,7 +211,7 @@ class NailListItemController {
             })
             .catch(err => {
                 this._saving = false;
-                this.toastr.warning('oops, something went wrong');
+                this.toastr.warning('Кажется, что-то пошло не так');
                 this.$log.debug(err);
             });
     }
@@ -246,7 +247,7 @@ class NailListItemController {
             })
             .catch(err => {
                 this.$log.debug(err);
-                this.toastr.warning('oops, I failed again');
+                this.toastr.warning('Мда.. ошибочка');
                 this._replying = false;
             });
     }
@@ -254,10 +255,11 @@ class NailListItemController {
     delete() {
         if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
-                'Remove',
-                'Is it this bad? Okay to remove it?',
+                'Удалить',
+                'Всё так плохо?',
                 {
-                    customClass: 'no-icon'
+                    customClass: 'no-icon',
+                    confirmButtonText: 'Удалить'
                 },
                 (res) => {
                     if (res === true) {
@@ -265,7 +267,7 @@ class NailListItemController {
                             this.$rootScope.$emit('nail.deleted', String(this.nail.id));
                             this.nail._isDeleted = true;
                         }).catch(err => {
-                            this.toastr.warning(err.data.error.message || 'Oops, you cannot delete this');
+                            this.toastr.warning(err.data.error.message || 'Эмм.. а уже нельзя удалить');
                             this.$log.debug(err);
                         });
                     }
