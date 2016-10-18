@@ -104,8 +104,8 @@ class HammerListItemController {
     delete() {
         if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
-                'Удалить',
-                'Всё так плохо?',
+                'Удалить ответ?',
+                '',
                 {
                     customClass: 'no-icon',
                     confirmButtonText: 'Удалить'

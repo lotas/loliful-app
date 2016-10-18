@@ -255,8 +255,8 @@ class NailListItemController {
     delete() {
         if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
-                'Удалить',
-                'Всё так плохо?',
+                'Удалить вопрос?',
+                '',
                 {
                     customClass: 'no-icon',
                     confirmButtonText: 'Удалить'
