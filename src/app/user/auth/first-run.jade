@@ -1,5 +1,5 @@
 p.title
-  b(ng-show="vm.val < 100") Минуточку,<br> настраиваем ваш профиль
+  b(ng-show="vm.val < 100") Секундочку,<br> настраиваем ваш профиль
   b(ng-show="vm.val >= 100") <br> Всё хорошо
 
 .avatar-loading
@@ -12,18 +12,18 @@ p.title
       img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}", ui-sref="profile", ng-click="vm.setFirstRun()")
 
 p.info.bottom30
-  span(ng-show="vm.val < 60") В следующий раз можно не ждать
+  span(ng-show="vm.val < 60") В следующий раз ждать не придется
   span(ng-show="vm.val > 60 && vm.val < 100") Почти готово
   span(ng-show="vm.val >= 100")
-    | Рекомендуем подключить дополнительно другие аккаунты, чтобы было проще логиниться.
+    | Какой замечательный профиль получился!
 
 .container-fluid.clearfix(ng-show="vm.val >= 100")
   .row
     .col-xs-12.align-center
-      button.btn.btn-primary.bottom30(ui-sref="top", ng-click="vm.setFirstRun()") ПОСМОТРЕТЬ ШУТКИ
+      button.btn.btn-primary.bottom30(ui-sref="top", ng-click="vm.setFirstRun()") Почитать шутки
   .row
     .col-xs-12.align-center
-      button.btn.btn-default(ui-sref="profile", ng-click="vm.setFirstRun()") ПРОЙТИ В ПРОФИЛЬ
+      button.btn.btn-default(ui-sref="profile", ng-click="vm.setFirstRun()") Мой профиль
 
 p.info.bottom30(ng-show="vm.val >= 100")
   span
