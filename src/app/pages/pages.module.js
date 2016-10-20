@@ -24,6 +24,9 @@ function pagesRouterConfig($stateProvider) {
                     controller: 'PageAboutController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'О сервисе loliful.co'
             }
         })
         .state('page.contact', {
@@ -35,6 +38,9 @@ function pagesRouterConfig($stateProvider) {
                     controller: 'PageContactController',
                     controllerAs: 'vm'
                 }
+            },
+            data: {
+                pageTitle: 'Контакт loliful.co'
             }
         });
 }
