@@ -1,17 +1,9 @@
-const bestThings = [
-    'Pizza Deluxe',
-    'me',
-    'you',
-    'three cold beers',
-    'Worms 2 Armageddon',
-    'that world'
-];
 
 const placeholders = [
-    'You guys are doing a great job, but...',
-    'I like sleeping after lunch, but...',
-    'I like crying when I laugh, but this just too funny...',
-    'No one learned from your mistake, We let our profit s go to waste'
+    'Пацаны ваще ребята, но ...',
+    'Я так смеялся, но не понял ничего...',
+    'А можно бы мне на сайт картинку...',
+    'А можно я с другом ...'
 ];
 
 function random(items) {
@@ -35,7 +27,6 @@ export class PageContactController {
         this.toastr = toastr;
         this.apiEndpoint = apiEndpoint;
 
-        this.bestThing = random(bestThings);
         this.placeholder = random(placeholders);
     }
 

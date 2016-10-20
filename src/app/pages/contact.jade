@@ -1,36 +1,35 @@
 .contact
-  div
-    h1 Контакт
-    p Пошли письмо
+  div.botOfs
+    h1 Связаться
+    p Отправьте нам электронное письмо и мы очень постараемся ответить на него в течении суток.
 
     div.align-center
-      a.btn.btn-primary(href="mailto:hello@loliful.co?subject=Right here, right now") ОТПРАВИТЬ
+      a.btn.btn-primary(href="mailto:hello@loliful.co?subject=Привет") ОТПРАВИТЬ
 
   div.botOfs
 
   div
-    h2 Есть замечания и предложения?
-    p Nothing is perfect in this world except for {{ vm.bestThing }}, so please provide your feedback below so that we can improve your experience.
-    p We really want to hear your "but"
+    h2 Нет предела совершенству
+    p Поделитесь мыслями как можно улучшить приложение и мы поработаем над этим.
 
     div
       form(ng-submit="vm.sendFeedback()")
         div.form-group
           textarea.form-control(rows="4", ng-model="vm.feedback", placeholder="{{ vm.placeholder }}")
         div.form-group.align-center
-          button.btn.btn-primary(type="submit", ng-disabled="vm.sending") Fire in the hole!
+          button.btn.btn-primary(type="submit", ng-disabled="vm.sending") Пли!
 
   div.botOfs
 
-  div.social
-    h2 Follow us
-    .providers
-      .provider
-        a(href='https://www.facebook.com/loliful')
-          img(src='https://loliful.co/img/fb.svg', alt='Facebook')
-      .provider
-        a(href='https://twitter.com/loliful_app')
-          img(src='https://loliful.co/img/twitter.svg', alt='Twitter')
-      .provider
-        a(href='https://www.instagram.com/loliful_app')
-          img(src='https://loliful.co/img/instagram.svg', alt='Instagram')
+  //div.social
+  //  h2 Follow us
+  //  .providers
+  //    .provider
+  //      a(href='https://www.facebook.com/loliful')
+  //        img(src='https://loliful.co/img/fb.svg', alt='Facebook')
+  //    .provider
+  //      a(href='https://twitter.com/loliful_app')
+  //        img(src='https://loliful.co/img/twitter.svg', alt='Twitter')
+  //    .provider
+  //      a(href='https://www.instagram.com/loliful_app')
+  //        img(src='https://loliful.co/img/instagram.svg', alt='Instagram')

@@ -40,7 +40,7 @@ function pagesRouterConfig($stateProvider) {
                 }
             },
             data: {
-                pageTitle: 'Контакт loliful.co'
+                pageTitle: 'Контакты loliful.co'
             }
         });
 }
