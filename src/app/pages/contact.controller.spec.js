@@ -27,7 +27,7 @@ describe('PageContact controllers', () => {
         vm.feedback = false;
         vm.sendFeedback();
     });
-    
+
     it('should define placeholder', () => {
         expect(vm.placeholder).toBeDefined();
         expect(vm.placeholder).toEqual(jasmine.any(String));
