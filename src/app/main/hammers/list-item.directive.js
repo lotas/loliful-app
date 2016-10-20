@@ -105,8 +105,9 @@ class HammerListItemController {
         if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
                 'Удалить ответ?',
-                '',
+                '<img src="/assets/img/loliman-pistole.svg"/>',
                 {
+                    html: true,
                     customClass: 'no-icon',
                     confirmButtonText: 'Удалить'
                 },

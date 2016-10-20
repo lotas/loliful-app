@@ -256,8 +256,9 @@ class NailListItemController {
         if (this.isOwn || this.isMod) {
             this.SweetAlert.confirm(
                 'Удалить вопрос?',
-                '',
+                '<img src="/assets/img/loliman-pistole.svg"/>',
                 {
+                    html: true,
                     customClass: 'no-icon',
                     confirmButtonText: 'Удалить'
                 },
