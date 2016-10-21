@@ -63,7 +63,7 @@ angular.module('loliful.components', [
     .run(attachFastclick)
 
     //trackJs
-    // .factory('ErrorLogService', ErrorLogService)
-    // .config(exceptionConfig)
-    // .run(configureTrackJs)
+    .factory('ErrorLogService', ErrorLogService)
+    .config(exceptionConfig)
+    .run(configureTrackJs)
 ;

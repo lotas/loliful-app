@@ -17,13 +17,13 @@ export function ErrorLogService($window) {
 export function configureTrackJs(User, $window) {
     'ngInject';
 
-    User.getCurrent().$promise.then(user => {
+    if ($window.localStorage && $window.localStorage['$LoopBack$currentUserId']) {
         if ($window.trackJs && user && user.id) {
             $window.trackJs.configure({
-                userId: String(user.id)
+                userId: String($window.localStorage['$LoopBack$currentUserId'])
             });
         }
-    });
+    }
 }
 
 export function exceptionConfig($provide) {
