@@ -75,7 +75,7 @@
             a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook && vm.linkedAccounts > 1") Отключить
           td.hidden-xs
             a(ng-href="{{vm.social.facebook.l}}") {{ vm.social.facebook.n }}
-        tr
+        tr(ng-if="false")
           td
             img(ng-src="/assets/img/t-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
           td.actions
@@ -84,7 +84,7 @@
             a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter && vm.linkedAccounts > 1") Отключить
           td.hidden-xs
             a(ng-href="{{vm.social.twitter.l}}") {{ vm.social.twitter.n }}
-        tr
+        tr(ng-if="false")
           td
             img(ng-src="/assets/img/g-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
           td.actions
