@@ -43,12 +43,14 @@ export function nailModalView($modal, nailId, $rootScope) {
         var nv = this;
         nv.nail = {};
         nv.onNailClick = scrollBack;
-        nv.reply = sendReply
+        nv.reply = sendReply;
+        nv._saving = false;
 
         function scrollBack() {
             $anchorScroll('nail-back-btn');
         }
         function sendReply() {
+            nv._saving = true;
             Nail.prototype$__create__hammers({
                     id: nv.nail.id
                 }, {
@@ -67,10 +69,12 @@ export function nailModalView($modal, nailId, $rootScope) {
                     nv._hammerText = '';
 
                     nv._replyForm = false;
+                    nv._saving = false;
                 })
                 .catch(err => {
                     $log.debug(err);
                     nv.toastr.warning('Опа, что-то не получилось добавить пока');
+                    nv._saving = false;
                 });
         }
 

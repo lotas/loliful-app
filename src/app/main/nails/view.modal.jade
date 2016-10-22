@@ -31,7 +31,7 @@
                 textarea.form-control(type="text", placeholder="", ng-model="nv._hammerText", required, autofocus=true)
             .row
               .col-xs-12.text-center
-                button.btn.btn-primary(type="submit") Огонь!
+                button.btn.btn-primary(type="submit", ng-disabled="nv._saving") Огонь!
 
       .modal-footer.fixed-footer(ng-show='screen.isPhone')
         .row
