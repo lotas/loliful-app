@@ -9,7 +9,8 @@ p.title
         circle(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
         circle#bar(r='77', cx='80', cy='80', fill='transparent', stroke-dasharray='565.48', stroke-dashoffset='0')
     .bg
-      img(ng-if="vm.user", ng-src="{{ vm.user.avatar }}", ui-sref="profile", ng-click="vm.setFirstRun()")
+      span(ng-if="vm.user && !vm.user.avatar && vm.user.name") {{ vm.user | initials }}
+      img(ng-if="vm.user && vm.user.avatar", ng-src="{{ vm.user.avatar }}", ui-sref="profile", ng-click="vm.setFirstRun()")
 
 p.info.bottom30
   span(ng-show="vm.val < 60") В следующий раз ждать не придется
