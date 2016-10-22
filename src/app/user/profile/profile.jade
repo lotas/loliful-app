@@ -66,41 +66,41 @@
       hr.topOfs.botOfs
 
       table(border="0")
-        tr
+        tr(ng-if="vm.social.facebook")
           td
             img(ng-src="/assets/img/f-{{vm.social.facebook ? 'on' : 'off'}}.svg", title="Facebook")
-          td.actions
+          td.actions(ng-if="false")
             span(ng-show="vm.social.facebook") Подключен
             a(href="{{api}}/link/facebook", ng-click="vm.connectAcc()", ng-if="!vm.social.facebook") Подключить
             a(ng-click="vm.unlinkAccount('facebook')", ng-if="vm.social.facebook && vm.linkedAccounts > 1") Отключить
-          td.hidden-xs
+          td.hidden-xs1
             a(ng-href="{{vm.social.facebook.l}}") {{ vm.social.facebook.n }}
-        tr
+        tr(ng-if="vm.social.vkontakte")
           td
             img(ng-src="/assets/img/v-{{vm.social.vkontakte ? 'on' : 'off'}}.svg", title="VKontakte")
-          td.actions
+          td.actions(ng-if="false")
             span(ng-show="vm.social.vkontakte") Подключен
             a(href="{{api}}/link/vkontakte", ng-click="vm.connectAcc()", ng-if="!vm.social.vkontakte") Подключить
             a(ng-click="vm.unlinkAccount('vkontakte')", ng-if="vm.social.vkontakte && vm.linkedAccounts > 1") Отключить
-          td.hidden-xs
+          td.hidden-xs1
             a(ng-href="{{vm.social.vkontakte.l}}") {{ vm.social.vkontakte.n }}
-        tr(ng-if="false")
+        tr(ng-if="vm.social.twitter")
           td
             img(ng-src="/assets/img/t-{{vm.social.twitter ? 'on' : 'off'}}.svg", title="Twitter")
-          td.actions
+          td.actions(ng-if="false")
             span(ng-show="vm.social.twitter") Подключен
             a(href="{{api}}/link/twitter", ng-click="vm.connectAcc()", ng-if="!vm.social.twitter") Подключить
             a(ng-click="vm.unlinkAccount('twitter')", ng-if="vm.social.twitter && vm.linkedAccounts > 1") Отключить
-          td.hidden-xs
+          td.hidden-xs1
             a(ng-href="{{vm.social.twitter.l}}") {{ vm.social.twitter.n }}
-        tr
+        tr(ng-if="vm.social.google")
           td
             img(ng-src="/assets/img/g-{{vm.social.google ? 'on' : 'off'}}.svg", title="Google")
-          td.actions
+          td.actions(ng-if="false")
             span(ng-show="vm.social.google") Подключен
             a(href="{{api}}/link/google", ng-click="vm.connectAcc()", ng-if="!vm.social.google") Подключить
             a(ng-click="vm.unlinkAccount('google')", ng-if="vm.social.google && vm.linkedAccounts > 1") Отключить
-          td.hidden-xs
+          td.hidden-xs1
             a(ng-href="{{vm.social.google.l}}") {{ vm.social.google.n }}
 
 
