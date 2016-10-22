@@ -7,7 +7,7 @@
   .panel-heading {
     .cardPaddings();
     background-color: initial;
-    font-weight: 100;
+    font-weight: 300;
     color: @nailHeaderColor;
     font-size: @nailHeadFontSize;
     line-height: @nailHeadFontSize + 8px;
@@ -15,7 +15,7 @@
       color: @nailHeaderColor;
     }
     .username {
-      font-weight: 100;
+      font-weight: 300;
       display: inline-block;
       vertical-align: middle;
       white-space: nowrap;
@@ -91,20 +91,25 @@
     .reply {
       background: #FFFFFF;
       border: 1px solid @nailReplyInputBorder;
-      border-radius: 8px;
-      padding: 3px 10px;
+      border-radius: 18px;
+      padding: 4px 10px;
       width: 120px;
       .font-main();
       font-size: 12px;
-      //color: #D8D8D8;
       line-height: 20px;
       background: @nailReplyBg;
       height: 26px;
+      font-weight: 300;
     }
     .btn.reply {
       text-align: center;
-      border-radius: 100px;
-      width: 71px;
+      border-radius: 14px;
+      width: 74px;
+      padding: 2px 10px;
+      line-height: 22px;
+      &:hover {
+        border-color: #000;
+      }
     }
     .reply-form {
       position: relative;
@@ -113,10 +118,11 @@
         width: 100%;
         color: darken(#D8D8D8, 40%);
       }
-      //.btn {
-      //  padding: 3px 10px;
-      //  font-size: 12px;
-      //}
+      .btn {
+        padding: 4px 10px;
+        font-size: 12px;
+        line-height: 20px;
+      }
       .countdown {
         position: absolute;
         right: 6px;

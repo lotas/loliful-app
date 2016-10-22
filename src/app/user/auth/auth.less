@@ -17,6 +17,10 @@
 
   height: 100%;
 
+  h1 {
+    .font-main();
+  }
+
   h3 {
     .font-headers();
     font-size: 36px;
@@ -41,20 +45,19 @@
   }
   p.info {
     font-size: 14px;
-    font-weight: 100;
+    font-weight: 300;
     color: @themeSecondaryColor;
     margin: 40px 30px;
   }
   .gray {
     color: @themeSecondaryColor;
-    font-weight: 100;
+    font-weight: 300;
     margin-left: 30px;
     margin-right: 30px;
   }
 
   .btn {
-    font-weight: 100;
-    padding: 8px 20px;
+    padding: 6px 20px;
   }
 
   .social {
@@ -191,6 +194,25 @@
       left: 50%;
       margin-left: -204px;
       width: 408px;
+    }
+  }
+}
+
+.invite {
+  .form-inline {
+    input.form-control {
+      max-width: 160px;
+      display: inline-block;
+      background-color: none;
+      border: 1px solid @themeMainColor;
+      height: 34px;
+      line-height: 24px;
+      border-radius: 18px;
+      color: @themeTextColor;
+      margin: 0;
+      text-align: left;
+      padding: 0 15px;
+      font-size: 12px;
     }
   }
 }

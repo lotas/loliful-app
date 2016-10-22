@@ -1,12 +1,12 @@
-.stars-bg
-  h4 Предъявите пропуск
+.stars-bg.invite
+  h1.vOfs Ваш пропуск
 
   p.text-warning(ng-if="vm.invalidInvite") Неправильный у вас инвайт.
   p.text-warning(ng-if="vm.inviteUsed") А кто-то уже использует этот инвайт. Ничего не получится так.
 
-  form(ng-submit="vm.checkInvite()", name="inv")
-    input(type="text", ng-model="vm.invite", name="invite", placeholder="Код инвайта", min-length="5")
+  form.topOfs.form-inline(ng-submit="vm.checkInvite()", name="inv")
+    input.form-control(type="text", ng-model="vm.invite", name="invite", placeholder="Код")
     button.btn.btn-primary(type="submit", ng-disabled="vm.loading || vm.inv.$invalid || vm.loading") Вот же он
 
-  p(style="margin-top:40px")
+  p(style="margin-top:100px")
     button.btn.btn-default(ng-click="vm.onlyAsk()") Мне только спросить
