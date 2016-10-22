@@ -14,7 +14,7 @@
     hr
     .social-profile.topOfs(ng-show="vm.profile.accounts")
       div.account(ng-repeat="acc in vm.profile.accounts")
-        img(ng-src="/assets/img/{{ acc.p }}-on.svg", ng-if="acc.p != 'vkontakte'")
+        img(ng-src="/assets/img/{{ acc.p }}-on.svg")
         a(ng-href="{{ ::acc.l }}") {{ ::acc.n }}
 
   div.stats
