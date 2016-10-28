@@ -20,7 +20,7 @@ import { scrollbarsConfig } from './scrollbars.confg';
 
 import { alertComponent } from './alert/alert.component';
 
-import { ErrorLogService, configureTrackJs, exceptionConfig } from './error-log.service';
+import { ErrorLogService, exceptionConfig } from './error-log.service';
 
 import './app-state/app-state.module';
 
@@ -65,5 +65,4 @@ angular.module('loliful.components', [
     //trackJs
     .factory('ErrorLogService', ErrorLogService)
     .config(exceptionConfig)
-    .run(configureTrackJs)
 ;

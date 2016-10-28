@@ -8,19 +8,9 @@ export function ErrorLogService($window) {
     };
 
     function logError(message) {
-        if ($window.trackJs && $window.trackJs.track) {
-            $window.trackJs.track(message);
+        if (angular.isFunction($window.ga)) {
+            window.ga('send', 'event', 'js', 'error', '', message);
         }
-    }
-}
-
-export function configureTrackJs(User, $window) {
-    'ngInject';
-
-    if ($window.trackJs && $window.localStorage && $window.localStorage['$LoopBack$currentUserId']) {
-        $window.trackJs.configure({
-            userId: String($window.localStorage['$LoopBack$currentUserId'])
-        });
     }
 }
 
