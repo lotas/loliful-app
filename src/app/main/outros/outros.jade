@@ -3,20 +3,6 @@ float-menu(single="true")
 loading(ng-if="vm.$loading")
 
 div
-  ul#secondary-menu.nav.nav-pills.activity.nav-justified
-    li(role="presentation", ng-class="{active: vm.period == 'day' }")
-      a(ui-sref="outros({period: 'day'})")
-        | За день
-    li(role="presentation", ng-class="{active: vm.period == 'week' }")
-      a(ui-sref="outros({period: 'week'})")
-        | За неделю
-    li(role="presentation", ng-class="{active: vm.period == 'month' }")
-      a(ui-sref="outros({period: 'month'})")
-        | За месяц
-    li(role="presentation", ng-class="{active: vm.period == 'all' }")
-      a(ui-sref="outros({period: 'all'})")
-        | Всё время
-
 
   div.top(ng-if="vm.jokes",infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
     joke-list-item(joke="item", ng-repeat="item in vm.jokes track by $index")

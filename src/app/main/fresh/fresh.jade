@@ -17,6 +17,9 @@ div.container-fluid
         li(role="presentation", ng-class="{active: vm.type == 'recent'}")
           a(ui-sref="fresh({type: 'recent'})")
             | Последнее
+        li(role="presentation", ng-class="{active: vm.type == 'unanswered'}")
+          a(ui-sref="fresh({type: 'unanswered'})")
+            | Неотвеченное
         li(role="presentation")
           a(ng-click="vm.loadFresh()", title="Reload")
             i.icon.icon-loliful-icon-refresh

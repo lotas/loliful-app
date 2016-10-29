@@ -13,15 +13,8 @@ export class OutrosController {
         this.$log = $log;
         this.$state = $state;
 
-        this.period = $stateParams.period || 'week';
-        this.order = $stateParams.order || 'date';
-
-        this.orderedPeriods = [
-            'day',
-            'week',
-            'month',
-            'all'
-        ];
+        this.period = 'all';
+        this.order = 'date';
 
         this.cardsLimit = 20;
         if (screenSize.is('threeCard')) {
@@ -74,20 +67,6 @@ export class OutrosController {
             }
             this.$log.debug('Loaded top page ', this.page, 'Total loaded: ', this.jokes.length);
         });
-    }
-
-    swipeListener(evt, type) {
-        let pos = this.orderedPeriods.indexOf(this.period);
-
-        if (type === 'left') {
-            if (pos + 1 < this.orderedPeriods.length) {
-                this.$state.go('top', {period: this.orderedPeriods[pos + 1]});
-            }
-        } else {
-            if (pos > 0) {
-                this.$state.go('top', {period: this.orderedPeriods[pos - 1]});
-            }
-        }
     }
 
 }
