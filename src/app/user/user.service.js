@@ -27,6 +27,13 @@ export class UserService {
             });
     }
 
+    reloadAvatar(userId) {
+        return this.$http.post(`${this.apiEndpoint}/avatar/${userId}`)
+            .then((res) => {
+                return res.data;
+            });
+    }
+
     unlinkSocialAccount(provider) {
         return this.$http.get(`${this.apiEndpoint}/auth/unlink/${provider}`)
             .then((res) => {
