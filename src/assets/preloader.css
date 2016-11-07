@@ -26,11 +26,11 @@
 }
 .preloader .navbar-header {
   background: #4DB8CD;
-  height: 90px;
+  height: 70px;
   text-align: center;
 }
 .preloader .navbar-header img {
-  margin-top: 36px;
+  margin-top: 28px;
   width: 100px;
 }
 .preloader .footer {
