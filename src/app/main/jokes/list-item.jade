@@ -3,11 +3,13 @@ div.panel.joke-list-item
     avatar(user="jli.joke.$nail.$user")
     span.and
     avatar(user="jli.joke.$user")
-  div.panel-body(ui-sref="nail-view({nailId: jli.joke.$nail.id})")
-    span.question {{ jli.joke.$nail.text }}
+  div.panel-body
+    span.question.clickable(ui-sref="nail-view({nailId: jli.joke.$nail.id})") {{ jli.joke.$nail.text }}
     span.answer {{ jli.joke.text }}
   div.panel-footer
-    div.align-center
+    div.joke-better-container
+      a.btn.btn-default(ui-sref="nail-view({nailId: jli.joke.$nail.id})") Пошутить лучше
+    div.share-likes-containers
       a.btn.btn-primary(ng-click="jli.share()")
         i.icon.icon-loliful-icon-share
         | Поделиться

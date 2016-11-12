@@ -2,20 +2,22 @@ float-menu(single="true")
 
 loading(ng-if="vm.$loading")
 
-div
-  ul#secondary-menu.nav.nav-pills.activity.nav-justified
-    li(role="presentation", ng-class="{active: vm.period == 'day' }")
-      a(ui-sref="top({period: 'day'})")
-        | За сегодня
-    li(role="presentation", ng-class="{active: vm.period == 'week' }")
-      a(ui-sref="top({period: 'week'})")
-        | За неделю
-    li(role="presentation", ng-class="{active: vm.period == 'month' }")
-      a(ui-sref="top({period: 'month'})")
-        | За месяц
-    li(role="presentation", ng-class="{active: vm.period == 'all' }")
-      a(ui-sref="top({period: 'all'})")
-        | За всё время
+div.page-top
+  .row
+    .col-sm-6
+      ul#secondary-menu.nav.nav-pills.activity.nav-justified
+        li(role="presentation", ng-class="{active: vm.period == 'day' }")
+          a(ui-sref="top({period: 'day'})")
+            | За сегодня
+        li(role="presentation", ng-class="{active: vm.period == 'week' }")
+          a(ui-sref="top({period: 'week'})")
+            | За неделю
+        li(role="presentation", ng-class="{active: vm.period == 'month' }")
+          a(ui-sref="top({period: 'month'})")
+            | За месяц
+        li(role="presentation", ng-class="{active: vm.period == 'all' }")
+          a(ui-sref="top({period: 'all'})")
+            | За всё время
 
 
   div.top(ng-if="vm.jokes",infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
