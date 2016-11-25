@@ -3,5 +3,5 @@
   "apiEndpoint": "https://api.dev.loliful.co",
   "debugEnabled": false,
   "html5Mode": true,
-  "apiAuth": "Basic ***REMOVED***"
+  "apiAuth": "Basic bG9saWZ1bDprb250cmE="
 }

@@ -7,34 +7,35 @@ alert(
   ng-if="vm.user && !vm.user.email"
 )
 
-ul#secondary-menu.nav.nav-pills.activity.nav-justified
-  li(role="presentation", ui-sref-active="active")
-    a(ui-sref="activity({type: 'saves'})")
-      | Отложенное
-  li(role="presentation", ui-sref-active="active")
-    a(ui-sref="activity({type: 'likes'})")
-      | Нравится
-  li(role="presentation", ui-sref-active="active")
-    a(ui-sref="activity({type: 'nails'})")
-      | Мои вопросы
-  li(role="presentation", ui-sref-active="active")
-    a(ui-sref="activity({type: 'hammers'})")
-      | Мои ответы
+div.page-slim
+  ul#secondary-menu.nav.nav-pills.activity.nav-justified
+    li(role="presentation", ui-sref-active="active")
+      a(ui-sref="activity({type: 'saves'})")
+        | Отложенное
+    li(role="presentation", ui-sref-active="active")
+      a(ui-sref="activity({type: 'likes'})")
+        | Нравится
+    li(role="presentation", ui-sref-active="active")
+      a(ui-sref="activity({type: 'nails'})")
+        | Мои вопросы
+    li(role="presentation", ui-sref-active="active")
+      a(ui-sref="activity({type: 'hammers'})")
+        | Мои ответы
 
-div.container-fluid.align-center(ng-if="vm.$empty")
-  activity-empty-screen(type="vm.type")
+  div.container-fluid.align-center(ng-if="vm.$empty")
+    activity-empty-screen(type="vm.type")
 
-section
-  loading(ng-if="vm.$loading")
+  section
+    loading(ng-if="vm.$loading")
 
-  div.activities(infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
-    div.my-nails(ng-if="vm.items && vm.type=='nails'")
-      nail-list-item(nail="item", ng-repeat="item in vm.items track by item.id")
-    div.my-hammers(ng-if="vm.items && vm.type=='hammers'")
-      hammer-activity-item(hammer="item", ng-repeat="item in vm.items track by item.id")
-    div(ng-if="vm.items && (vm.type=='saves' || vm.type=='likes')")
-      div(ng-repeat="item in vm.items track by $index")
-        nail-list-item(ng-if="item.$nail", nail="item.$nail")
-        hammer-activity-item(ng-if="item.$hammer", hammer="item.$hammer")
+    div.activities.clearfix(infinite-scroll="vm.loadMore()" infinite-scroll-distance="3")
+      div.my-nails(ng-if="vm.items && vm.type=='nails'")
+        nail-list-item(nail="item", ng-repeat="item in vm.items track by item.id")
+      div.my-hammers(ng-if="vm.items && vm.type=='hammers'")
+        joke-list-item(joke="item", ng-repeat="item in vm.items track by item.id")
+      div(ng-if="vm.items && (vm.type=='saves' || vm.type=='likes')")
+        div(ng-repeat="item in vm.items track by $index")
+          nail-list-item(ng-if="item.$nail", nail="item.$nail")
+          joke-list-item(ng-if="item.$hammer", joke="item.$hammer")
 
-  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Ещё
+    //- button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Ещё

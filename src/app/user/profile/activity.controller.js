@@ -62,7 +62,7 @@ export class ProfileActivityController {
             }
             // append to avoid re-rendering
             for (var i = 0; i < res[this.type].length; i++) {
-                this.items.push(res[res.type][i]);
+                this.items.push(res[this.type][i]);
             }
             this.$log.debug('Loaded page ', this.page, 'Total loaded: ', this.items.length);
         }).catch(err => {

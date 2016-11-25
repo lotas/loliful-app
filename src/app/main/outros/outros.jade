@@ -2,12 +2,12 @@ float-menu(single="true")
 
 loading(ng-if="vm.$loading")
 
-div
+div.page-slim
 
-  div.top(ng-if="vm.jokes",infinite-scroll="screen.isPhone && vm.loadMore()" infinite-scroll-distance="3")
+  div.top.clearfix(ng-if="vm.jokes", infinite-scroll="vm.loadMore()", infinite-scroll-distance="3")
     joke-list-item(joke="item", ng-repeat="item in vm.jokes track by $index")
 
-  button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Показать еще
+  //- button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Показать еще
 
   br
 

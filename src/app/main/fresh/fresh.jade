@@ -7,7 +7,7 @@ alert(
   ng-if="appState.offline"
 )
 
-div.container-fluid
+div.container-fluid.page-slim
   div.row
     div.col-sm-6
       ul#secondary-menu.nav.nav-pills.activity.nav-justified
@@ -26,12 +26,12 @@ div.container-fluid
     div.col-sm-3.pull-right.text-right(ng-show="!screen.isPhone")
       a.btn.btn-warning.add-intro-btn(ng-click="vm.showAddModal()") Добавить вопрос
 
-loading(ng-if="!vm.nails.length")
+  loading(ng-if="!vm.nails.length")
 
 
-div.fresh(ng-if="vm.nails", infinite-scroll="screen.isPhone && vm.loadMore()", infinite-scroll-distance="3")
-  nail-list-item(nail="item", ng-repeat="item in vm.nails", show-hammers="true")
+  div.fresh.clearfix(ng-if="vm.nails", infinite-scroll="vm.loadMore()", infinite-scroll-distance="2")
+    nail-list-item(nail="item", ng-repeat="item in vm.nails", show-hammers="true")
 
-button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Показать еще
+  //- button.load-more.btn.btn-block.btn-lg(ng-click="vm.loadMore()", ng-hide="!vm.$hasMore || screen.isPhone") Показать еще
 
-br
+  br
